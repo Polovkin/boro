@@ -1,4 +1,5 @@
 import i18n from './config/i18'
+
 export default {
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
@@ -25,8 +26,9 @@ export default {
         [
             'nuxt-i18n',
             {
+                strategy: 'prefix_except_default',
                 vueI18nLoader: true,
-                defaultLocale: 'fr',
+                defaultLocale: 'ru',
                 locales: [
                     {
                         code: 'en',
@@ -50,17 +52,7 @@ export default {
     ],
 
     axios: {},
-    i18n: {
-        locales: [
-            {code: 'en', iso: 'en-US', file: 'en.json'},
-            {code: 'ru', iso: 'ru-RU', file: 'ru.json'},
-            {code: 'ua', iso: 'ua-UA', file: 'ua.json'}
-        ],
-        defaultLocale: 'ru',
-        vueI18n: {
-            fallbackLocale: 'ru',
-        }
-    },
+
     build: {
         // transpile: ['vuetify'] //IE11
         postcss: [

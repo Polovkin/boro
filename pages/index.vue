@@ -3,9 +3,9 @@
   <section>
     <h1>i18n</h1>
     <h1 class="title">{{ $t('message') }}</h1>
-    <nuxt-link to="/about">{{ $t('about') }}</nuxt-link>
+
     <br>
-    <LanguageInput/>
+
   </section>
 
 
@@ -17,11 +17,9 @@ import Input from '~/components/customInput/Input'
 import Navbar from '~/components/Navbar'
 import ButtonWave from '~/components/ButtonWave'
 import InputAnimate from '~/components/InputAnimate'
-import LanguageInput from "../components/LanguageInput";
 
 export default {
   components: {
-    LanguageInput,
     Navbar, InputAnimate, ButtonWave, Input
   },
   data() {
