@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 $areas: block1 block2 block3 block4;
 .block_wrap {
-  background-image: url('~assets/icons/eye.svg?data');
+  background-image: url('/icons/eye.svg?data');
   display: flex;
   align-items: center;
   justify-content: center;
