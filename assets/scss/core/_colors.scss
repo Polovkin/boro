@@ -1,22 +1,42 @@
-$color__primary         : #ef5b4c;
-$color__secondary       : #efe6e6;
 
-$color__light           : #fff;
-$color__dark            : #000;
+$color__primary         : #fbcc2f;
+
+//main colors
+$color__light              : #fff;
+$color__light_72           : rgba($color__light,.72);
+$color__light_54           : rgba($color__light,.54);
+$color__light_32           : rgba($color__light,.32);
+$color__light_16           : rgba($color__light,.16);
+$color__dark_6             : rgba($color__light,.06);
+
+$color__dark              : #2d2d2d;
+$color__dark_72           : rgba($color__dark, .72);
+$color__dark_54           : rgba($color__dark, .54);
+$color__dark_32           : rgba($color__dark, .32);
+$color__dark_16           : rgba($color__dark, .16);
+$color__dark_6            : rgba($color__dark, .6);
+
+//Background color
+$color__background_primary: #fafcfd;
+$color__gray_light: #f3f5f6;
+
+//font light theme
+$color__font--primary    : $color__dark;
+$color__font--light      : rgba($color__dark, .72) ;
+$color__font--tertiary   : rgba($color__dark, .54) ;
+$color__font--quaternary : rgba($color__dark, .32) ;
+
+//font dark theme
+$color__font_dark--primary    : $color__light;
+$color__font_dark--light      : rgba($color__light, .72) ;
+$color__font_dark--tertiary   : rgba($color__light, .54) ;
+$color__font_dark--quaternary : rgba($color__light, .32) ;
+
+$color__font--hover      : #000;
 
 //Indicate
-$color__error           : #d23333;
-$color__success         : #51d720;
-//Font-color
-$color__font--primary    : #000000;
-$color__font--secondary  : #fff;
-$color__font--hover      : $color__secondary;
+$color__error           : #DD3131;
+$color__success         : #28BC00;
+$color__warning         : #FFC000;
 
-//Block-color
-$color__block--primary    : $color__primary;
-$color__block--secondary  : $color__secondary ;
-$color__block--light      : #f5f5f5 ;
 
-//Border
-$color__border--primary    : $color__primary;
-$color__border--secondary  : $color__secondary ;

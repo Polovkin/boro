@@ -1,3 +1,4 @@
+$container_gap: 24px;
 @mixin min($bp, $max: 'null', $device: 'screen') {
   @if $max == 'null' {
     @media only #{$device} and (min-width: #{$bp}) {
@@ -15,11 +16,11 @@
 }
 
 $breakpoints: (
-  na: $width__min,
+        na: $width__min,
         xs: $width__mobile-max,
-        sm: $width__tablet-port ,
-        md: $width__tablet-land ,
-        lg: $width__laptop-min ,
+        sm: $width__tablet-port,
+        md: $width__tablet-land,
+        lg: $width__laptop-min,
         xl: $width__desktop-hd-min,
         xxl: $width__desktop-hd + 1,
 );
@@ -29,29 +30,13 @@ $breakpoints: (
 }
 
 $container-sizes: (
-  xs: map-get($breakpoints, xs) - 28px,
-  sm: map-get($breakpoints, sm) - 28px,
-  md: map-get($breakpoints, md) - 54px,
-  lg: map-get($breakpoints, lg) - 100px,
-  xl: map-get($breakpoints, xl) - 160px,
-  xxl: map-get($breakpoints, xxl) - 160px
+        xs: map-get($breakpoints, xs) - 28px,
+        sm: map-get($breakpoints, sm) - 28px,
+        md: map-get($breakpoints, md) - 54px,
+        lg: map-get($breakpoints, lg) - 100px,
+        xl: map-get($breakpoints, xl) - 160px,
+        xxl: map-get($breakpoints, xxl) - 160px
 );
-
-.container {
-  padding-right: 1rem;
-  padding-left: 1rem;
-
-  &:not(.is-fluid) {
-
-    @each $bp, $container-size in $container-sizes {
-      @include min(#{bp(#{$bp})}) {
-        width: 100%;
-        max-width: container(#{$bp});
-      }
-    }
-    margin: 0 auto;
-  }
-}
 
 @each $bp, $container-size in $container-sizes {
   .container-#{$bp} {
@@ -63,10 +48,17 @@ $container-sizes: (
         max-width: container(#{nth(nth($container-sizes, $j), 1)});
       }
     }
-    width: 100%;
+    max-width: 100%;
 
     margin: 0 auto;
     padding-right: 1rem;
     padding-left: 1rem;
   }
+}
+
+.container {
+  padding: 0 $container_gap;
+
+  max-width: 100%;
+  margin: 0 auto;
 }

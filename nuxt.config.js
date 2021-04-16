@@ -22,7 +22,6 @@ export default {
     components: true,
 
     buildModules: [
-        '@nuxtjs/svg',
         [
             'nuxt-i18n',
             {

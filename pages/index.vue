@@ -3,7 +3,13 @@
   <section>
     <h1>i18n</h1>
     <h1 class="title">{{ $t('message') }}</h1>
-
+    <div class="block_wrap">
+      <div class="block"></div>
+    </div>
+    <img src="~/assets/img/1-1.png"
+         alt="">
+    <img src="~/assets/icons/eye.svg"
+         alt="">
     <br>
 
   </section>
@@ -13,14 +19,12 @@
 
 <script>
 
-import Input from '~/components/customInput/Input'
+
 import Navbar from '~/components/Navbar'
-import ButtonWave from '~/components/ButtonWave'
-import InputAnimate from '~/components/InputAnimate'
 
 export default {
   components: {
-    Navbar, InputAnimate, ButtonWave, Input
+    Navbar
   },
   data() {
     return {
@@ -41,11 +45,16 @@ export default {
 </script>
 <style lang="scss">
 $areas: block1 block2 block3 block4;
+.block_wrap {
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include size(500px);
+}
 .block {
-  @include breakpoint($desktop__all) {
-
-  }
+  @include size(300px);
+  background: $color__dark_16;
 }
 
 </style>
