@@ -1,7 +1,7 @@
 <template>
 
   <section>
-    <h1>i18n</h1>
+    <h1>Deploy test</h1>
     <h1 class="title">{{ $t('message') }}</h1>
     <div class="block_wrap">
       <div class="block"></div>
