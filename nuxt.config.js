@@ -23,6 +23,7 @@ export default {
 
     buildModules: [
         '@nuxt/image',
+        "@nuxtjs/svg",
         [
             'nuxt-i18n',
             {
