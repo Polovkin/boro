@@ -6,10 +6,7 @@
     <div class="block_wrap">
       <div class="block"></div>
     </div>
-    <img src="~/assets/img/1-1.png"
-         alt="">
-    <img src="~/assets/icons/eye.svg"
-         alt="">
+    <nuxt-picture loading="lazy" src="/1-1.png" />
     <br>
 
   </section>

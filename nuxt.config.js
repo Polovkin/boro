@@ -22,6 +22,7 @@ export default {
     components: true,
 
     buildModules: [
+        '@nuxt/image',
         [
             'nuxt-i18n',
             {
@@ -69,5 +70,8 @@ export default {
                 sort: require('sort-css-media-queries')
             })
         ]
+    },
+    image: {
+        // Options
     }
 }
