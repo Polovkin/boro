@@ -7,7 +7,8 @@
       <div class="block"></div>
     </div>
     <nuxt-picture loading="lazy" src="/img/1-1.png" />
-
+    <img src="~static/icons/arrow_up.svg?data"
+         alt="">
     <br>
 
   </section>
