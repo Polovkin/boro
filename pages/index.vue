@@ -1,6 +1,13 @@
 <template>
 
-    <h1>test</h1>
+  <section>
+    <h1>i18n</h1>
+    <h1 class="title">{{ $t('message') }}</h1>
+    <nuxt-link to="/about">{{ $t('about') }}</nuxt-link>
+    <br>
+    <LanguageInput/>
+  </section>
+
 
 </template>
 
@@ -10,19 +17,21 @@ import Input from '~/components/customInput/Input'
 import Navbar from '~/components/Navbar'
 import ButtonWave from '~/components/ButtonWave'
 import InputAnimate from '~/components/InputAnimate'
+import LanguageInput from "../components/LanguageInput";
 
 export default {
   components: {
+    LanguageInput,
     Navbar, InputAnimate, ButtonWave, Input
   },
-  data () {
+  data() {
     return {
       name: '',
       textarea: ''
     }
   },
   methods: {
-    sendForm () {
+    sendForm() {
       const formData = new FormData(this.$refs.form)
 
       for (const key of formData.keys()) {
@@ -36,7 +45,7 @@ export default {
 $areas: block1 block2 block3 block4;
 
 .block {
- @include breakpoint ($desktop__all) {
+  @include breakpoint($desktop__all) {
 
   }
 }

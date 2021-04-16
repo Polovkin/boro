@@ -216,7 +216,7 @@ export default {
 
   &__animate {
     position: relative;
-    z-index: z(content-bg);
+    z-index: z(bg-content);
   }
 
   &__label {
