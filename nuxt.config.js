@@ -29,7 +29,7 @@ export default {
             {
                 strategy: 'prefix_except_default',
                 vueI18nLoader: true,
-                defaultLocale: 'ru',
+                defaultLocale: 'en',
                 locales: [
                     {
                         code: 'en',

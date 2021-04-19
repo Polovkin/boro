@@ -1,29 +1,15 @@
 <template>
 
-  <section>
-    <h1>Deploy test</h1>
-    <h1 class="title">{{ $t('message') }}</h1>
-    <div class="block_wrap">
-      <div class="block"></div>
-    </div>
-    <nuxt-picture loading="lazy" src="/img/1-1.png" />
-    <img src="~static/icons/arrow_up.svg?data"
-         alt="">
-    <br>
-
-  </section>
-
-
 </template>
 
 <script>
 
 
-import Navbar from '~/components/Navbar'
+
 
 export default {
   components: {
-    Navbar
+
   },
   data() {
     return {
@@ -32,13 +18,7 @@ export default {
     }
   },
   methods: {
-    sendForm() {
-      const formData = new FormData(this.$refs.form)
 
-      for (const key of formData.keys()) {
-        console.log(key)
-      }
-    }
   }
 }
 </script>

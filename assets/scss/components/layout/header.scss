@@ -1,0 +1,10 @@
+.header {
+  height: $header_height;
+
+  &__content {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color__dark_6;
+  }
+}

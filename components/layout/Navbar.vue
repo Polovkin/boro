@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import LanguageInput from "./LanguageInput";
+import LanguageInput from "../LanguageInput";
 export default {
   name: "Navbar",
   components: {LanguageInput},
