@@ -2,9 +2,17 @@
   "header":{
     "link" : "Get In Touch"
   },
-
-  "navigation1": "Academy",
-  "navigation2": "Products",
+  "layout-links": {
+    "link1" : "Academy",
+    "link2" : "Products"
+  },
+  "navigation": {
+    "link1" : "Cases",
+    "link2" : "Services",
+    "link3" : "About us",
+    "link4" : "How we work",
+    "link5" : "Contacts"
+  },
   "message": "Welcome",
   "about": "About"
 }

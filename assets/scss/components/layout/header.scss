@@ -1,10 +1,56 @@
 .header {
   height: $header_height;
+  background-color: $color__light;
+  z-index: z(header);
+  width: 100%;
+  position: fixed;
+  .container {
 
+  }
   &__content {
     height: inherit;
     display: flex;
     align-items: center;
     border-bottom: 1px solid $color__dark_6;
+  }
+
+  &__lang {
+    margin-right: 62px;
+  }
+
+  &__navigation {
+    align-items: center;
+
+    display: flex;
+
+    li {
+      margin-right: 43px;
+    }
+
+    a {
+      @include body-secondary;
+      color: $color__font--tertiary;
+    }
+  }
+
+  &__content {
+    justify-content: space-between;
+
+    display: flex;
+  }
+
+  &__wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    position: relative;
+    top: 3px;
+  }
+
+  &__navigation {
+    margin-left: 76px;
   }
 }

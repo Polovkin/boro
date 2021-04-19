@@ -21,3 +21,27 @@ $input_height: 50px;
 
 $imgPath: '~static/img';
 $iconsPath: '~static/icons/';
+
+@mixin body-secondary {
+  font: {
+    style: normal;
+    weight: normal;
+    size: 14px;
+  }
+
+  line-height: 24px;
+  letter-spacing: -0.6px;
+}
+
+@mixin title-link {
+  font: {
+    style: normal;
+    weight: normal;
+    size: 14px;
+  }
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-decoration-line: underline;
+}
+
+

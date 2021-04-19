@@ -18,8 +18,11 @@ export default {
   data() {
     return {
       navs: [
-        {name: 'navigation1', link: '/'},
-        {name: 'navigation2', link: '/'}
+        {name: 'navigation.link1', link: '/'},
+        {name: 'navigation.link2', link: '/'},
+        {name: 'navigation.link3', link: '/'},
+        {name: 'navigation.link4', link: '/'},
+        {name: 'navigation.link5', link: '/'}
       ]
     }
   },
@@ -34,14 +37,18 @@ export default {
 
   &__list {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   &__item {
+
     margin-right: 43px;
   }
 
   &__link {
-    color: $color__font--tertiary
+    @include title-link;
+    color: $color__font--primary
   }
 }
 </style>

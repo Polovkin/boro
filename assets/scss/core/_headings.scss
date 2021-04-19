@@ -5,26 +5,19 @@ h1 {
   letter-spacing: -0.056em
 }
 
-.body {
-  &-secondary {
-    font: {
-      style: normal;
-      weight: normal;
-      size: 14px;
-    }
-
-    line-height: 24px;
-    letter-spacing: -0.6px;
+h2 {
+  font: {
+    style: normal;
+    weight: 500;
+    size: 54px;
   }
+  line-height: 60px;
+}
+
+.body {
+  @include body-secondary;
 }
 
 .title-link {
-  font: {
-    style: normal;
-    weight: normal;
-    size: 14px;
-  }
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  text-decoration-line: underline;
+  @include title-link;
 }
