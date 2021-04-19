@@ -17,8 +17,8 @@
     <div class="example vertical">
       <header data-scroll-section>
         <h1>
-          Vertical<br />
-          Scroll
+          Пацанский скролл<br />
+          Для родного
         </h1>
       </header>
       <div class="example-section" data-scroll-section>
@@ -26,12 +26,12 @@
           <div
               class="example-big-square"
               data-scroll
-              data-scroll-speed="-0.5"
+              data-scroll-speed="-1.5"
           />
           <div
               class="example-small-square"
               data-scroll
-              data-scroll-speed="2.5"
+              data-scroll-speed="3.5"
           />
         </div>
       </div>
@@ -64,9 +64,9 @@
         </div>
       </div>
       <footer data-scroll-section>
-        <nuxt-link to="/horizontal-scroll/">
+<!--        <nuxt-link to="/horizontal-scroll/">
           Go to Horizontal Scroll
-        </nuxt-link>
+        </nuxt-link>-->
       </footer>
     </div>
   </LocomotiveScroll>
