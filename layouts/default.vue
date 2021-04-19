@@ -1,14 +1,12 @@
 <template>
-<!--  <div class="app">
+  <div class="app">
     <Header/>
     <main class="main">
       <div class="container">
         <nuxt/>
       </div>
     </main>
-    <Footer/>
-  </div>-->
-  <nuxt/>
+  </div>
 </template>
 
 
@@ -24,6 +22,6 @@ export default {
 }
 </script>
 <style lang="scss">
-/*@import "~@/assets/scss/_app.scss";
-@import "~@/assets/scss/_layout.scss";*/
+@import "~@/assets/scss/_app.scss";
+@import "~@/assets/scss/_layout.scss";
 </style>

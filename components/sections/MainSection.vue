@@ -1,10 +1,14 @@
 <template>
   <div class="main-section">
-    <div class="main-section__wrap">
-      <div class="main-section__title">
+    <div class="main-section__wrap" data-scroll-sectio>
+      <div data-scroll
+           data-scroll-speed="1.5"
+           class="main-section__title">
         <h1>We are design agency with solid expertise in</h1>
       </div>
-      <Navigation class="main-section__navigation"/>
+      <Navigation data-scroll
+                  data-scroll-speed=".5"
+                  class="main-section__navigation"/>
     </div>
   </div>
 </template>
@@ -19,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "/assets/scss/core/headings";
 @import "~@/assets/scss/sections/main-sections";
 
 </style>

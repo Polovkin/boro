@@ -4,13 +4,15 @@
   height: 100vh;
 
   &__wrap {
+    padding-bottom: 24px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
   &__title {
     h1 {
-
+      @extend h2;
     }
   }
 
