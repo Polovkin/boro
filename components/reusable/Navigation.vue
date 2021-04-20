@@ -3,18 +3,21 @@
     <ul class="navigation__list">
       <li class="navigation__item"
           v-for="item of navs">
-        <nuxt-link class="navigation__link body-secondary"
-                   :to="item.link">
+        <LinkPrimary :link="item.link"
+                     class="navigation__link">
           {{ $t(item.name) }}
-        </nuxt-link>
+        </LinkPrimary>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
+import LinkPrimary from "./LinkPrimary";
+
 export default {
   name: "Navigation",
+  components: {LinkPrimary},
   data() {
     return {
       navs: [
@@ -47,7 +50,7 @@ export default {
   }
 
   &__link {
-    @include title-link;
+
     color: $color__font--primary
   }
 }
