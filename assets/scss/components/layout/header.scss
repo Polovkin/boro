@@ -25,7 +25,7 @@
 
     &:after {
       @include pseudoElement(100%);
-      transition: all $videinfa_function 1.4s 1s;
+      transition: all $videinfa_function 2.8s 1s;
       bottom: -1px;
       background-color: $color__dark_6;
       height: 1px;
