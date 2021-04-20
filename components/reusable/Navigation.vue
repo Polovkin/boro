@@ -21,11 +21,11 @@ export default {
   data() {
     return {
       navs: [
-        {name: 'navigation.link1', link: '/'},
-        {name: 'navigation.link2', link: '/'},
-        {name: 'navigation.link3', link: '/'},
-        {name: 'navigation.link4', link: '/'},
-        {name: 'navigation.link5', link: '/'}
+        {name: 'navigation.link1', link: '#'},
+        {name: 'navigation.link2', link: '#'},
+        {name: 'navigation.link3', link: '#'},
+        {name: 'navigation.link4', link: '#'},
+        {name: 'navigation.link5', link: '#'}
       ]
     }
   },
@@ -45,12 +45,13 @@ export default {
   }
 
   &__item {
-
-    margin-right: 43px;
+    margin-bottom: 1px;
+    &:last-child {
+      margin-top:12px;
+    }
   }
 
   &__link {
-
     color: $color__font--primary
   }
 }

@@ -25,15 +25,15 @@ export default {
 .link {
   $arrow_size: 16px;
   $arrow_margin: 8px;
+  $animation__duration: .2s;
 
-  @include title-link;
   display: block;
   width: fit-content;
   overflow: hidden;
 
   &__wrap {
-
-    transition: transform .2s ease-in;
+    @include title-link;
+    transition: transform $animation__duration ease-in;
     position: relative;
     display: flex;
     align-items: center;
@@ -41,7 +41,7 @@ export default {
 
     &:after {
       opacity: 0;
-      transition: opacity .3s ease .2s;
+      transition: opacity .3s ease $animation__duration;
       @include pseudoElement($arrow_size, 'Arrow-yellow.svg');
       position: relative;
       margin-left: $arrow_margin;
@@ -60,8 +60,10 @@ export default {
         opacity: 1;
       }
     }
+  }
 
-
+  &:active {
+    transform: scale(.8);
   }
 }
 </style>

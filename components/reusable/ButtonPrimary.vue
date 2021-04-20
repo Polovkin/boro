@@ -74,15 +74,15 @@ export default {
   $arrow_size: 12px;
   $arrow_animation_duration: .2s;
   $arrow_animation_delay: .1s;
-  $wave_animation_duration: .6s;
+  $wave_animation_duration: .4s;
 
   @include title-link;
   align-items: center;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   position: relative;
 
   display: flex;
-
+  transition: all .1s ease-in;
   &--hover {
     .button__wave {
       animation: {
@@ -151,7 +151,6 @@ export default {
   &:hover {
 
     .button__circle:before {
-      @include pseudoElement($arrow_size, 'Arrow.svg');
       position: absolute;
       top: 50%;
       left: 50%;
@@ -161,6 +160,10 @@ export default {
       transform: translate(-50%, -50%) rotate(45deg);
       filter: $filter_from_black_to_primary;
     }
+  }
+
+  &:active {
+    transform: scale(.96);
   }
 }
 

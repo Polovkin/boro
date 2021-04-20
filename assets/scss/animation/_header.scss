@@ -1,0 +1,8 @@
+@mixin animation-header-hide {
+  transition: transform $animation-fast ease;
+  transform: translateY(-100%);
+}
+
+.animation-header-hide {
+  @include animation-header-hide;
+}

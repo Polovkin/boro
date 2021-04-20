@@ -4,10 +4,17 @@
   z-index: z(header);
   width: 100%;
   position: fixed;
+  @include animation-header-hide;
 
+&--scrolling {
+  .lang-switcher {
+    display: none;
+  }
+}
   .container {
 
   }
+
   &__content {
     height: inherit;
     display: flex;

@@ -70,7 +70,9 @@ export default {
       textarea: ''
     }
   },
-  methods: {}
+  mounted() {
+
+  }
 }
 </script>
 <style lang="scss">

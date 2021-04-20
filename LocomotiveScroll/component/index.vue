@@ -1,6 +1,7 @@
 <template>
-  <div v-locomotive="{ options }" class="js-locomotive">
-    <slot />
+  <div v-locomotive="{ options }"
+       class="js-locomotive">
+    <slot/>
   </div>
 </template>
 
@@ -29,7 +30,8 @@ export default {
   props: {
     gettedOptions: {
       type: Object,
-      default: () => {},
+      default: () => {
+      },
     },
   },
   data: () => ({
@@ -37,10 +39,11 @@ export default {
     defaultOptions: {
       smooth: true,
     },
+    lastY: 0
   }),
   computed: {
     options() {
-      return { ...this.defaultOptions, ...this.gettedOptions }
+      return {...this.defaultOptions, ...this.gettedOptions}
     },
   },
   /**
@@ -53,14 +56,21 @@ export default {
     })
   },
   methods: {
+    getScrollDirection(e) {
+      const steps = e.scroll.y >= this.lastY
+      this.$store.commit('app/SET_SCROLL_DIRECTION', steps)
+      this.$store.commit('app/SET_HEADER_BASE_STATE', e.scroll.y > 100 && steps)
+      this.lastY = steps
+    },
     onScroll(e) {
       if (typeof this.$store._mutations['app/setScroll'] !== 'undefined') {
         this.$store.commit('app/setScroll', {
           isScrolling: this.locomotive.scroll.isScrolling,
-          limit: { ...e.limit },
+          limit: {...e.limit},
           ...e.scroll, // x, y
         })
       }
+      this.getScrollDirection(e)
     },
   },
 }

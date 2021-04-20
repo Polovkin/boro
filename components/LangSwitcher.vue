@@ -56,7 +56,7 @@ export default {
   width: $width_dropdown + 2;
   height: inherit;
 
-  margin-right: 15px;
+  margin-right: 4px;
 
   &:hover {
 
