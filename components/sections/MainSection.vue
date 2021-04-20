@@ -2,6 +2,7 @@
   <div class="main-section">
     <div class="main-section__wrap"
          data-scroll-sectio>
+
       <div data-scroll
            data-scroll-speed="1"
            class="main-section__title">

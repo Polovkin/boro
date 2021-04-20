@@ -6,6 +6,9 @@
     <slot/>
     <span ref="circle"
           class="button__circle">
+        <div class="icon">
+          <div class="arrow"></div>
+        </div>
         <span ref="wave"
               class="button__wave"/>
     </span>
@@ -83,12 +86,14 @@ export default {
 
   display: flex;
   transition: all .1s ease-in;
+
   &--hover {
     .button__wave {
       animation: {
         name: hover-animation;
         duration: $wave_animation_duration;
         fill-mode: forwards;
+        timing-function: cubic-bezier(.25, .74, .22, .99);
       }
     }
   }
@@ -116,21 +121,21 @@ export default {
 
     background-color: $color__primary;
 
-    &:before {
-      @include pseudoElement($arrow_size, 'Arrow.svg');
-      position: absolute;
-      top: 50%;
+    /*  &:before {
+        @include pseudoElement($arrow_size, 'Arrow.svg');
+        position: absolute;
+        top: 50%;
 
-      right: ($circle_size - $arrow_size) / 2;
-      left: 50%;
+        right: ($circle_size - $arrow_size) / 2;
+        left: 50%;
 
-      z-index: z(content);
+        z-index: z(content);
 
-      transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
 
-      transition: all $arrow_animation_duration ease $arrow_animation_delay;
+        transition: all $arrow_animation_duration ease $arrow_animation_delay;
 
-    }
+      }*/
   }
 
   &__wave {
@@ -140,7 +145,7 @@ export default {
 
     width: 15px;
     height: 15px;
-
+    z-index: z(bg-content);
     border-radius: 100%;
 
     background: $color__dark;
@@ -149,22 +154,74 @@ export default {
   }
 
   &:hover {
+    .arrow {
+      transform: translate(-50%, -50%) scale(.2) rotate(0deg);
+      background-color: $color__primary;
 
-    .button__circle:before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-
-      z-index: z(content);
-
-      transform: translate(-50%, -50%) rotate(45deg);
-      filter: $filter_from_black_to_primary;
+      &::after, &::before {
+        background-color: $color__primary;
+      }
     }
+
+    /* .button__circle:before {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+
+       z-index: z(content);
+
+       transform: translate(-50%, -50%) rotate(45deg);
+       filter: $filter_from_black_to_primary;
+     }*/
   }
 
   &:active {
     transform: scale(.96);
   }
+
+  .icon {
+    position: absolute;
+    z-index: z(content);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+  }
+
+  .arrow {
+    transition: all $arrow_animation_duration $arrow_animation_delay ease;
+    position: absolute;
+    width: 90%;
+    height: 10px;
+    background-color: $color__dark;
+    transform: translate(-50%, -50%) scale(.2) rotate(-45deg);
+    top: 50%;
+    left: 50%;
+
+    &::after, &::before {
+      transition: all $arrow_animation_duration $arrow_animation_delay ease;
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 10px;
+      right: -8px;
+      background-color: $color__dark;
+    }
+
+    &::after {
+      top: -12px;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      top: 12px;
+      transform: rotate(-45deg);
+    }
+  }
+
+
 }
 
 </style>

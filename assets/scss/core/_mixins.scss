@@ -297,3 +297,46 @@ $z-indexes: (
   }
 }
 
+
+@mixin arrow($color,$width,$height,$arrow_weight,$rotate) {
+
+  position: absolute;
+  z-index: z(content);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate($rotate);
+  width: $width;
+  height: $height;
+  cursor: pointer;
+
+  .arrow {
+    position: absolute;
+    width: 100%;
+    height: $arrow_weight;
+    background-color: $color;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    &::after, &::before {
+
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: $arrow_weight;
+      right: -$arrow_weight;
+      background-color: $color;
+    }
+
+    &::after {
+      top: -$height / 2;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      top: $height / 2;
+      transform: rotate(-45deg);
+    }
+  }
+
+}

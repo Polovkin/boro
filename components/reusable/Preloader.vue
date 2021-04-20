@@ -1,12 +1,12 @@
 <template>
-  <div class="preloader"
-       :class="{'preloader--hide':hide}">
+<!--  <div class="preloader"
+       :class="{'preloader&#45;&#45;hide':hide}">
     <div v-if="preload"
          class="preloader__logo">
       <lottie-animation :loop="false"
                         path="./animations/boro-logotype.json"/>
     </div>
-  </div>
+  </div>-->
 </template>
 
 <script>
@@ -55,9 +55,9 @@ $preloader_hide_duration: .4s;
     opacity: 1;
   }
 
-  10% {
-    transform: scale(1.2);
-    opacity: 1;
+  20% {
+    transform: scale(.8);
+    opacity: 0;
   }
 
   100% {
