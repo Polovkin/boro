@@ -45,7 +45,6 @@ export default {
       @include pseudoElement($arrow_size, 'Arrow-yellow.svg');
       position: relative;
       margin-left: $arrow_margin;
-
     }
   }
 

@@ -1,7 +1,7 @@
 <template>
   <header ref="header"
           class="header"
-          :class="{'header--scrolling': isHeaderBaseState,'animation-base-state': firstLoad}">
+          :class="{'header--scrolling': isHeaderBaseState,'animation-base-state': isPreloaderDone}">
     <div class="header__content container">
       <div class="header__wrap">
         <Logo class="header__logo"/>
@@ -35,7 +35,11 @@ export default {
     ...mapState({
       scrollDirection: s => s.app.scrollDirection,
       headerBaseState: s => s.app.headerBaseState,
+      preloaderDone: s => s.app.preloaderDone,
     }),
+    isPreloaderDone() {
+      return this.preloaderDone
+    },
     isScrollDown() {
       return this.scrollDirection
     },
