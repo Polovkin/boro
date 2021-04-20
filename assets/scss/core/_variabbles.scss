@@ -23,6 +23,7 @@ $imgPath: '~static/img';
 $iconsPath: '~static/icons/';
 
 $filter_from_black_to_primary: invert(89%) sepia(29%) saturate(3128%) hue-rotate(328deg) brightness(114%) contrast(99%);
+$videinfa_function: cubic-bezier(.25,.74,.22,.99);
 
 @mixin body-secondary {
   font: {

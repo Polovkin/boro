@@ -1,5 +1,5 @@
 @mixin animation-header-hide {
-  transition: transform .8s cubic-bezier(.25,.74,.22,.99);
+  transition: transform 1.2s cubic-bezier(.25,.74,.22,.99);
   transform: translateY(-100%);
 }
 

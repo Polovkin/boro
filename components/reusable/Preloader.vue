@@ -1,12 +1,12 @@
 <template>
-<!--  <div class="preloader"
-       :class="{'preloader&#45;&#45;hide':hide}">
+  <div class="preloader"
+       :class="{'preloader--hide':hide}">
     <div v-if="preload"
          class="preloader__logo">
       <lottie-animation :loop="false"
                         path="./animations/boro-logotype.json"/>
     </div>
-  </div>-->
+  </div>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
       this.hide = true
       setTimeout(() => {
           this.$store.commit('app/SET_PRELOADER_STATE',true)
-      },1400)
+      },1800)
     }, this.animationDuration + this.animationDelay)
   }
 }
@@ -46,7 +46,7 @@ $base_width: 121px;
 $base_height: 40px;
 $multiple: 5;
 $svg_hide_duration: 1s;
-$preloader_hide_duration: .4s;
+$preloader_hide_duration: .8s;
 
 @keyframes preloader-svg-hide {
 
@@ -66,7 +66,6 @@ $preloader_hide_duration: .4s;
   }
 }
 @keyframes preloader-hide {
-
   0% {
     transform: translateX(0);
   }
@@ -96,14 +95,14 @@ $preloader_hide_duration: .4s;
     animation: {
       duration: $preloader_hide_duration;
       delay: $svg_hide_duration;
-      timing-function: ease-in;
+      timing-function: linear;
       fill-mode: forwards;
       name: preloader-hide;
     };
 
     .preloader__logo {
       animation: {
-        timing-function: ease;
+        timing-function: $videinfa_function;
         duration: $svg_hide_duration;
         fill-mode: forwards;
         name: preloader-svg-hide;
