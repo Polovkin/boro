@@ -43,6 +43,7 @@ $base_height: 40px;
 $multiple: 5;
 $svg_hide_duration: 1s;
 $preloader_hide_duration: 1s;
+
 @keyframes preloader-svg-hide {
 
   0% {
@@ -86,7 +87,8 @@ $preloader_hide_duration: 1s;
 
   &--hide {
     animation: {
-      duration: $preloader_hide_duration $svg_hide_duration;
+      duration: $preloader_hide_duration;
+      delay: $svg_hide_duration;
       fill-mode: forwards;
       name: preloader-hide;
     };
