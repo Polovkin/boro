@@ -6,20 +6,31 @@
   position: fixed;
   @include animation-header-hide;
 
-&--scrolling {
-  .lang-switcher {
-    display: none;
+  &--scrolling {
+    .lang-switcher {
+      display: none;
+    }
   }
-}
-  .container {
 
+  .container {
+    height: 100%;
   }
 
   &__content {
     height: inherit;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $color__dark_6;
+    position: relative;
+    //border-bottom: 1px solid $color__dark_6;
+
+    &:after {
+      @include pseudoElement(100%);
+      transition: all $videinfa_function 1.4s 1s;
+      bottom: -1px;
+      background-color: $color__dark_6;
+      height: 1px;
+      max-width: 0;
+    }
   }
 
   &__lang {

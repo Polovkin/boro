@@ -34,7 +34,7 @@ export default {
       this.hide = true
       setTimeout(() => {
           this.$store.commit('app/SET_PRELOADER_STATE',true)
-      },1800)
+      },1600)
     }, this.animationDuration + this.animationDelay)
   }
 }
@@ -46,7 +46,7 @@ $base_width: 121px;
 $base_height: 40px;
 $multiple: 5;
 $svg_hide_duration: 1s;
-$preloader_hide_duration: .8s;
+$preloader_hide_duration: .4s;
 
 @keyframes preloader-svg-hide {
 
@@ -94,7 +94,7 @@ $preloader_hide_duration: .8s;
   &--hide {
     animation: {
       duration: $preloader_hide_duration;
-      delay: $svg_hide_duration;
+      delay: $svg_hide_duration - .2s;
       timing-function: linear;
       fill-mode: forwards;
       name: preloader-hide;

@@ -1,0 +1,8 @@
+@mixin divider-animation {
+  transition: transform .8s cubic-bezier(.25,.74,.22,.99);
+  transform: translateY(-100%);
+}
+
+header.animation-base-state .header__content:after {
+  max-width: 100%;
+}

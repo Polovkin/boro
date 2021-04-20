@@ -9,9 +9,6 @@ $ring-color: rebeccapurple;
 $ring-animation-duration: 1.8s;
 $ring-weight: 5px;
 
-
-
-
 @mixin animation-base {
   transition: all ease $animation-fast;
 }
@@ -26,3 +23,4 @@ $ring-weight: 5px;
 
 @import "keyframes";
 @import "header";
+@import "divider";

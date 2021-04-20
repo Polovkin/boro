@@ -2,16 +2,19 @@
   <header ref="header"
           class="header"
           :class="{'header--scrolling': isHeaderBaseState,'animation-base-state': isPreloaderDone}">
-    <div class="header__content container">
-      <div class="header__wrap">
-        <Logo class="header__logo"/>
-        <LayoutNav class="header__navigation"/>
-      </div>
-      <div class="header__wrap">
-        <LangSwitcher/>
-        <ButtonPrimary>{{ $t('header.link') }}</ButtonPrimary>
+    <div class="container">
+      <div class="header__content">
+        <div class="header__wrap">
+          <Logo class="header__logo"/>
+          <LayoutNav class="header__navigation"/>
+        </div>
+        <div class="header__wrap">
+          <LangSwitcher/>
+          <ButtonPrimary>{{ $t('header.link') }}</ButtonPrimary>
+        </div>
       </div>
     </div>
+
   </header>
 </template>
 

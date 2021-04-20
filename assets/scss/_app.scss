@@ -3,3 +3,6 @@
 @import '~@/assets/scss/_components.scss';
 @import '~@/assets/scss/core/typography';
 
+.c-scrollbar {
+  z-index: z(modal);
+}

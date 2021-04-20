@@ -1,14 +1,10 @@
 @mixin animation-header-hide {
   transition: transform 1.2s cubic-bezier(.25,.74,.22,.99);
   transform: translateY(-100%);
+
 }
 
 .animation-header-hide {
   @include animation-header-hide;
 }
-.arrow-wrap {
-  @include arrow(red,18px,6px,2px,-45deg);
-  .arrow {
 
-  }
-}
