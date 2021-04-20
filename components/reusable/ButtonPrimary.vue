@@ -72,9 +72,9 @@ export default {
 .button {
   $circle_size: 40px;
   $arrow_size: 12px;
-  $arrow_animation_duration: .2s;
+  $arrow_animation_duration: .3s;
   $arrow_animation_delay: .1s;
-  $wave_animation_duration: .4s;
+  $wave_animation_duration: 1s;
 
   @include title-link;
   align-items: center;

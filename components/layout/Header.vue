@@ -1,7 +1,7 @@
 <template>
   <header ref="header"
           class="header"
-          :class="{'header--scrolling': isScrollDown,'animation-base-state': firstLoad}">
+          :class="{'header--scrolling': isHeaderBaseState,'animation-base-state': firstLoad}">
     <div class="header__content container">
       <div class="header__wrap">
         <Logo class="header__logo"/>
