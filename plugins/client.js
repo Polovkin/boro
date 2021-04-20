@@ -1,4 +1,7 @@
 import Vue from 'vue'
-import LocomotiveScroll from '../LocomotiveScroll/plugin/index.js'
+import LocomotiveScroll from './locomotive'
+
+
+
 
 Vue.use(LocomotiveScroll)

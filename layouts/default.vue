@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <Preloader/>
     <Header/>
     <main class="main">
       <div class="container">
@@ -9,13 +10,13 @@
   </div>
 </template>
 
-
 <script>
 import Header from "~/components/layout/Header";
 import Footer from "../components/layout/Footer";
+import Preloader from "../components/reusable/Preloader";
 
 export default {
-  components: {Footer, Header},
+  components: {Preloader, Footer, Header},
   data() {
     return {}
   }

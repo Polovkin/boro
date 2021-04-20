@@ -1,0 +1,103 @@
+<template>
+  <div class="preloader"
+       :class="{'preloader--hide':hide}">
+    <div v-if="preload"
+         class="preloader__logo">
+      <lottie-animation :loop="false"
+                        path="./animations/boro-logotype.json"/>
+    </div>
+  </div>
+</template>
+
+<script>
+import LottieAnimation from 'lottie-vuejs/src/LottieAnimation.vue'
+
+export default {
+  name: "Preloader",
+  components: {
+    LottieAnimation
+  },
+  data() {
+    return {
+      preload: true,
+      animationDuration: 4140,
+      animationDelay: 1000,
+      hide: false
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.preload = true
+    }, this.animationDelay)
+    setTimeout(() => {
+      this.hide = true
+    }, this.animationDuration + this.animationDelay)
+  }
+}
+</script>
+
+<style scoped
+       lang="scss">
+$base_width: 121px;
+$base_height: 40px;
+$multiple: 5;
+$svg_hide_duration: 1s;
+$preloader_hide_duration: 1s;
+@keyframes preloader-svg-hide {
+
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes preloader-hide {
+
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.preloader {
+  @include size(100%);
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  z-index: z(preloader);
+
+  display: flex;
+
+  background-color: $color__dark;
+
+  &__logo {
+    width: round($base_width * $multiple);
+    height: round($base_height * $multiple);
+  }
+
+  &--hide {
+    animation: {
+      duration: $preloader_hide_duration $svg_hide_duration;
+      fill-mode: forwards;
+      name: preloader-hide;
+    };
+
+    .preloader__logo {
+      animation: {
+        duration: $svg_hide_duration;
+        fill-mode: forwards;
+        name: preloader-svg-hide;
+      };
+    }
+  }
+}
+</style>

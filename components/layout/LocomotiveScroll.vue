@@ -77,5 +77,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import './style.scss';
+.has-scroll-smooth body{
+  overflow: hidden;
+}
+
+.has-scroll-smooth .js-locomotive {
+  min-height: 100%;
+  width: 100%;
+}
 </style>
