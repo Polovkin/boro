@@ -110,8 +110,12 @@ export default {
       @include title-link;
       width: 32px;
       height: 24px;
-
+      transition: all .2s ease-in;
       margin-bottom: 4px;
+      &:hover {
+        color: $color__primary;
+        text-decoration: underline;
+      }
     }
   }
 
