@@ -29,6 +29,9 @@
     &-wrap {
       display: flex;
     }
+    a:last-child {
+      margin-right: 0;
+    }
   }
 
   &__footer {

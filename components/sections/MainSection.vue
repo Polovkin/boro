@@ -65,7 +65,8 @@ export default {
           icon: 'dribble.png',
           link: '/'
         },
-      ]
+      ],
+
     }
   },
   computed: {

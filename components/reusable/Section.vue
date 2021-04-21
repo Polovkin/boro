@@ -14,7 +14,7 @@
     <div class="section__content">
       <slot name="content"/>
     </div>
-
+    <hr class="divider">
   </section>
 </template>
 
@@ -39,36 +39,12 @@ export default {
   padding: 24px 0;
 
   &__elem {
-    //color: $color__dark !important;
-  /*  align-self: flex-end;
-    @include title-link;
-
-    &.numeric {
-      display: flex;
-
-      a,p {
-        color: $color__dark;
-        &:after {
-          @include body-tertiary;
-          content: attr(data-attr);
-          position: relative;
-          display: inline-block;
-          text-decoration: none;
-          top: -17px;
-          margin-left: 4px;
-          padding: 2px 4px;
-          border-radius: 4px;
-          background-color: $color__gray_light;
-        }
-      }
-
-    }*/
-
-
+    align-self: flex-end;
   }
 
   &__content {
-    padding-top: 190px;
+    //padding-top: 190px;
+    margin-bottom: 30px;
   }
 
   &__header {

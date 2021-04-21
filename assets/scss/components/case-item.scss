@@ -1,0 +1,68 @@
+.case-item {
+  $areas: time, content, img;
+
+  @each $item in $areas {
+    &__#{$item} {
+      grid-area: $item;
+    }
+  }
+
+  &__time {
+    @include body-secondary;
+    color: $color__font--secondary;
+  }
+
+  &__img {
+    overflow: hidden;
+    border-radius: 4px;
+    img {
+      @include size(100%);
+      object-fit: cover;
+
+      transition: all $videinfa_function .8s;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__wrap {
+    padding: 32px 0;
+    display: grid;
+    grid: {
+      template: {
+        columns: 170px auto 330px;
+        areas: 'time content img';
+      };
+    }
+  }
+
+  &__description {
+    @include body-secondary;
+    margin-bottom: 48px;
+    max-width: 380px;
+  }
+
+  &__content {
+
+    &-tags {
+      display: flex;
+      margin: 20px 0;
+    }
+
+    &-buttons {
+      display: flex;
+
+      button, a {
+        margin-right: 24px;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

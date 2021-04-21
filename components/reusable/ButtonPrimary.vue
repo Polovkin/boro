@@ -1,8 +1,29 @@
 <template>
-  <button ref="button"
-          class="button"
-          @mouseleave="mouseLeave"
-          @mouseenter="mouseEnter">
+  <nuxt-link class="text-color-primary" v-if="link"
+             :to="link">
+    <button
+        ref="button"
+        class="button"
+        @mouseleave="mouseLeave"
+        @mouseenter="mouseEnter">
+      <slot/>
+      <span ref="circle"
+            class="button__circle">
+        <span class="icon">
+          <span class="arrow"/>
+        </span>
+        <span ref="wave"
+              class="button__wave"/>
+    </span>
+    </button>
+  </nuxt-link>
+
+  <button
+      v-else
+      ref="button"
+      class="button"
+      @mouseleave="mouseLeave"
+      @mouseenter="mouseEnter">
     <slot/>
     <span ref="circle"
           class="button__circle">
@@ -19,6 +40,11 @@
 <script>
 export default {
   name: "ButtonPrimary",
+  props: {
+    link: {
+      type: String,
+    },
+  },
   data() {
     return {
       wave: null,
@@ -31,6 +57,7 @@ export default {
   },
   methods: {
     mouseEnter(event) {
+      console.log(this.$refs.button)
       this.$refs.button.classList.remove(this.classLeave)
 
 
@@ -42,7 +69,6 @@ export default {
       this.$refs.button.classList.add(this.classHover)
     },
     mouseLeave() {
-      console.log('leave')
       this.$refs.button.classList.remove(this.classHover)
       this.$refs.button.classList.add(this.classLeave)
     }

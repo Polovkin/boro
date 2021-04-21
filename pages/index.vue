@@ -19,7 +19,7 @@
 import MainSection from "../components/sections/MainSection";
 import LocomotiveScroll from "../components/layout/LocomotiveScroll";
 import Footer from "../components/layout/Footer";
-import Cases from "../components/sections/Cases";
+import Cases from "../components/sections/Cases/Cases";
 
 export default {
   components: {

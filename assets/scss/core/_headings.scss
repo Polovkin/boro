@@ -14,7 +14,15 @@ h2 {
   line-height: 60px;
   letter-spacing: -0.05em;
 }
-
+h4 {
+  font: {
+    style: normal;
+    weight: 500;
+    size: 32px;
+  }
+  line-height: 32px;
+  letter-spacing: -1.8px;
+}
 .body {
   &-secondary {
     @include body-secondary;
