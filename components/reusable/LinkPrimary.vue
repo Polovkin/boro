@@ -41,7 +41,7 @@ export default {
 
     &:after {
       opacity: 0;
-      transition: opacity .3s ease $animation__duration;
+      transition: opacity $animation__duration ease $animation__duration;
       @include pseudoElement($arrow_size, 'Arrow-yellow.svg');
       position: relative;
       margin-left: $arrow_margin;

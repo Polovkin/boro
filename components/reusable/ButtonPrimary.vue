@@ -6,9 +6,9 @@
     <slot/>
     <span ref="circle"
           class="button__circle">
-        <div class="icon">
-          <div class="arrow"></div>
-        </div>
+        <span class="icon">
+          <span class="arrow"/>
+        </span>
         <span ref="wave"
               class="button__wave"/>
     </span>
@@ -121,21 +121,6 @@ export default {
 
     background-color: $color__primary;
 
-    /*  &:before {
-        @include pseudoElement($arrow_size, 'Arrow.svg');
-        position: absolute;
-        top: 50%;
-
-        right: ($circle_size - $arrow_size) / 2;
-        left: 50%;
-
-        z-index: z(content);
-
-        transform: translate(-50%, -50%);
-
-        transition: all $arrow_animation_duration ease $arrow_animation_delay;
-
-      }*/
   }
 
   &__wave {
@@ -162,17 +147,6 @@ export default {
         background-color: $color__primary;
       }
     }
-
-    /* .button__circle:before {
-       position: absolute;
-       top: 50%;
-       left: 50%;
-
-       z-index: z(content);
-
-       transform: translate(-50%, -50%) rotate(45deg);
-       filter: $filter_from_black_to_primary;
-     }*/
   }
 
   &:active {
@@ -220,8 +194,6 @@ export default {
       transform: rotate(-45deg);
     }
   }
-
-
 }
 
 </style>

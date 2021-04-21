@@ -77,8 +77,6 @@ export default {
 
     display: flex;
     transition: all $animation_fu $animation_time;
-    //border: 1px solid $color__light;
-    //border-bottom: 1px solid $color__dark_6;
 
     background-color: $color__light;
   }

@@ -1,5 +1,5 @@
 @mixin divider-animation {
-  transition: transform .8s cubic-bezier(.25,.74,.22,.99);
+  transition: transform .8s $videinfa_function;
   transform: translateY(-100%);
 }
 
