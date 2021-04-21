@@ -77,9 +77,10 @@ export default {
     image: {
         // Options
     },
-plugins: [
-    { src: '~/plugins/client.js', mode: 'client' },
-]
+    plugins: [
+        {src: '~/plugins/client.js', mode: 'client'},
+        '~/plugins/viewport.js'
+    ]
     /*router: {
         scrollBehavior: async (to, from, savedPosition) => {
             if (savedPosition) {

@@ -1,5 +1,5 @@
 {
-  "name": "NuxtTemplate",
+  "name": "Boro",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -44,7 +44,8 @@
     "stylelint": "^13.9.0",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.19.0"
+    "stylelint-scss": "^3.19.0",
+    "vue-in-viewport-directive": "^2.0.2"
   },
   "config": {
     "commitizen": {

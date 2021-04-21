@@ -1,24 +1,9 @@
 <template>
   <LocomotiveScroll
       ref="scroller"
-      :getted-options="{
-      smooth: true,
-      direction: 'vertical',
-      smartphone: {
-        smooth: true,
-        direction: 'vertical',
-      },
-      tablet: {
-        smooth: true,
-        direction: 'vertical',
-      },
-    }"
-  >
-
+      :getted-options="locomotiveOptions">
     <MainSection data-scroll-sectio/>
-    <section class="test">
-      <h1>TEst</h1>
-    </section>
+<Cases/>
     <Footer data-scroll-sectio/>
   </LocomotiveScroll>
 </template>
@@ -29,9 +14,11 @@
 import MainSection from "../components/sections/MainSection";
 import LocomotiveScroll from "../components/layout/LocomotiveScroll";
 import Footer from "../components/layout/Footer";
+import Cases from "../components/sections/Cases";
 
 export default {
   components: {
+    Cases,
     Footer,
     LocomotiveScroll,
     MainSection
@@ -40,7 +27,19 @@ export default {
   data() {
     return {
       name: '',
-      textarea: ''
+      textarea: '',
+      locomotiveOptions: {
+        smooth: true,
+        direction: 'vertical',
+        smartphone: {
+          smooth: true,
+          direction: 'vertical',
+        },
+        tablet: {
+          smooth: true,
+          direction: 'vertical',
+        }
+      }
     }
   },
   mounted() {
@@ -51,7 +50,6 @@ export default {
 <style lang="scss">
 //@import './demo.scss';
 .test {
-
   height: 100vh;
   //background-color: red;
 }
