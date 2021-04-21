@@ -73,7 +73,7 @@ export default {
   $height: 60px;
   position: relative;
   top: 12px;
-  right: 5px;
+  right: 15px;
   display: inline-block;
   width: $width;
   height: $height;
@@ -98,6 +98,7 @@ export default {
 
     transition: transform $videinfa_function .8s;
   }
+
   &-card {
     background-color: $color__dark;
     position: absolute;

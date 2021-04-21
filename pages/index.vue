@@ -1,11 +1,16 @@
 <template>
-  <LocomotiveScroll
+<!--  <LocomotiveScroll
       ref="scroller"
       :getted-options="locomotiveOptions">
     <MainSection data-scroll-sectio/>
-<Cases/>
+    <Cases data-scroll-sectio/>
     <Footer data-scroll-sectio/>
-  </LocomotiveScroll>
+  </LocomotiveScroll>-->
+  <div>
+    <MainSection data-scroll-sectio/>
+    <Cases data-scroll-sectio/>
+    <Footer data-scroll-sectio/>
+  </div>
 </template>
 
 <script>

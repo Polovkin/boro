@@ -61,28 +61,10 @@ a,
 b,
 span,
 li {
-  font-size: rem($font__size);
+  font-size:14px;
 }
 
-a {
-  font-size: 20px;
-  line-height: 27px;
-  text-decoration: none;
 
-  transition: .3s;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-
-    outline: 0;
-  }
-
-  @include breakpoint($tablet__all) {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
 
 main {
   overflow: hidden;

@@ -16,7 +16,8 @@
       <div class="main-section__tags">
         <p class="body-tertiary text-color-tertiary">We put aesthetics in the right direction</p>
         <div class="main-section__tags-wrap">
-          <ButtonTag :key="index" :link="tags.link"
+          <ButtonTag :key="index"
+                     :link="tags.link"
                      v-for="(tags,index) of socials"
                      :icon="tags.icon">{{ tags.name }}
           </ButtonTag>

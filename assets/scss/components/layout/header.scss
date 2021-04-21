@@ -1,12 +1,15 @@
 .header {
-  height: $header_height;
-  background-color: $color__light;
-  z-index: z(header);
-  width: 100%;
-  position: fixed;
   @include animation-header-hide;
+  position: fixed;
+  z-index: z(header);
+
+  width: 100%;
+  height: $header_height;
+
+  background-color: $color__light;
 
   &--scrolling {
+
     .lang-switcher {
       display: none;
     }
@@ -17,17 +20,20 @@
   }
 
   &__content {
-    height: inherit;
-    display: flex;
     align-items: center;
+
     position: relative;
+
+    display: flex;
+    height: inherit;
 
     &:after {
       @include pseudoElement(100%);
-      top: unset !important;
-      position: absolute;
-      bottom: -1px;
       @include divider;
+      position: absolute;
+      top: unset !important;
+
+      bottom: -1px;
     }
   }
 
@@ -57,9 +63,10 @@
   }
 
   &__wrap {
-    height: 100%;
-    display: flex;
     align-items: center;
+
+    display: flex;
+    height: 100%;
   }
 
   &__logo {
