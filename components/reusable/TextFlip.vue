@@ -72,7 +72,8 @@ export default {
   $width: 160px;
   $height: 60px;
   position: relative;
-  top: 1rem;
+  top: 12px;
+  right: 5px;
   display: inline-block;
   width: $width;
   height: $height;

@@ -22,15 +22,15 @@ $color__gray_light: #f3f5f6;
 
 //font light theme
 $color__font--primary    : $color__dark;
-$color__font--light      : rgba($color__dark, .72) ;
+$color__font--secondary  : rgba($color__dark, .72) ;
 $color__font--tertiary   : rgba($color__dark, .54) ;
 $color__font--quaternary : rgba($color__dark, .32) ;
 
 //font dark theme
-$color__font_dark--primary    : $color__light;
-$color__font_dark--light      : rgba($color__light, .72) ;
-$color__font_dark--tertiary   : rgba($color__light, .54) ;
-$color__font_dark--quaternary : rgba($color__light, .32) ;
+$color__font_dark--primary    : $color__dark;
+$color__font_dark--secondary  : rgba($color__dark, .72) ;
+$color__font_dark--tertiary   : rgba($color__dark, .54) ;
+$color__font_dark--quaternary : rgba($color__dark, .32) ;
 
 $color__font--hover      : #000;
 

@@ -21,15 +21,13 @@
     display: flex;
     align-items: center;
     position: relative;
-    //border-bottom: 1px solid $color__dark_6;
 
     &:after {
       @include pseudoElement(100%);
-      transition: all $videinfa_function 2.8s 1s;
+      top: unset !important;
+      position: absolute;
       bottom: -1px;
-      background-color: $color__dark_6;
-      height: 1px;
-      max-width: 0;
+      @include divider;
     }
   }
 

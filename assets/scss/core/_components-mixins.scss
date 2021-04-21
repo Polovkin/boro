@@ -1,0 +1,57 @@
+@mixin divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 0;
+  height: 1px;
+
+  margin: 0;
+
+  border: none;
+
+  background-color: $color__dark_6;
+  //background-color: red;
+
+  transition: all $videinfa_function 2.8s 1s;
+}
+
+@mixin body-secondary {
+  letter-spacing: -.6px;
+
+  line-height: 24px;
+  font: {
+    style: normal;
+    weight: normal;
+    size: 14px;
+  }
+}
+@mixin body-tertiary {
+  letter-spacing: -.4px;
+
+  line-height: 20px;
+  font: {
+    style: normal;
+    weight: normal;
+    size: 12px;
+  }
+}
+@mixin title-link {
+  letter-spacing: -.01em;
+  line-height: 24px;
+  text-decoration-line: underline;
+  font: {
+    style: normal;
+    weight: normal;
+    size: 14px;
+  }
+}
+@mixin caption-normal {
+  font: {
+    style: normal;
+    weight: normal;
+    size: 12px;
+  }
+  line-height: 16px;
+  letter-spacing: -0.006em;
+}

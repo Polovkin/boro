@@ -15,9 +15,37 @@ h2 {
 }
 
 .body {
-  @include body-secondary;
+  &-secondary {
+    @include body-secondary;
+  }
+
+  &-tertiary {
+    @include body-tertiary;
+  }
 }
 
 .title-link {
   @include title-link;
 }
+
+.caption {
+  &-nomral {
+    @include caption-normal;
+  }
+}
+
+//@TODO: color fu
+.text-color {
+  &-primary {
+    color: $color__font_dark--primary;
+  }
+
+  &-secondary {
+    color: $color__font_dark--secondary;
+  }
+
+  &-tertiary {
+    color: $color__font_dark--tertiary;
+  }
+}
+
