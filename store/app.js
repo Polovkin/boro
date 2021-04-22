@@ -1,7 +1,8 @@
 export const state = () => ({
   scrollDirection: null,
   headerBaseState: false,
-  preloaderDone: false
+  //preloaderDone: false
+  preloaderDone: true
 })
 
 export const mutations = {

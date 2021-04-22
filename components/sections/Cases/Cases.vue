@@ -1,5 +1,6 @@
 <template>
   <Section
+    v-in-viewport
     num-elem
     class="cases-section"
   >

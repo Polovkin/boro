@@ -54,6 +54,7 @@ export default {
    */
   mounted () {
     this.$nuxt.$on('update-locomotive', () => {
+      console.log('update')
       this?.locomotive?.update()
     })
   },

@@ -6,6 +6,9 @@
     }
   }
 
+
+
+
   &__wrap {
     display: grid;
 
@@ -56,8 +59,9 @@
     font-size: 20px;
 
     cursor: pointer;
-    justify-self: end;
+
     transition: all ease .2s;
+    justify-self: end;
 
     &:hover {
       transform: scale(1.1);

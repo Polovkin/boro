@@ -1,5 +1,8 @@
 <template>
-  <div class="service-item">
+  <div
+    :class="{'test':test}"
+    class="service-item"
+  >
     <hr class="divider">
     <div class="service-item__wrap">
       <figure class="service-item__img">
@@ -25,7 +28,10 @@
       </div>
 
       <div class="service-item__content-buttons">
-        <button class="service-item__btn-open"/>
+        <button
+          class="service-item__btn-open"
+          @click="polova"
+        />
       </div>
     </div>
   </div>
@@ -37,7 +43,20 @@ import ButtonPrimary from '../../reusable/ButtonPrimary'
 export default {
   name: 'ServiceItem',
   components: { ButtonPrimary },
-  props: ['data']
+  props: ['data'],
+  data () {
+    return {
+      test: false
+    }
+  },
+  updated () {
+    this.$nuxt.$emit('update-locomotive')
+  },
+  methods: {
+    polova () {
+      this.test = !this.test
+    }
+  }
 }
 </script>
 

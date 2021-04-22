@@ -91,7 +91,12 @@ export default {
         }
       ]
     }
-  }
+  },
+  mounted() {
+    //@TODO: fix update
+    this.$nuxt.$emit('update-locomotive')
+  },
+
 }
 </script>
 
