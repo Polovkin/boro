@@ -25,7 +25,7 @@
       </div>
 
       <div class="service-item__content-buttons">
-        button
+        <button class="service-item__btn-open"/>
       </div>
     </div>
   </div>
@@ -43,5 +43,4 @@ export default {
 
 <style lang="scss">
 @import "/assets/scss/components/service-item";
-@import "/assets/scss/components/case-item";
 </style>

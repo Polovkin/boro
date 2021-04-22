@@ -1,4 +1,78 @@
 .service-item {
+  $areas: img, content, buttons;
+  @each $area in $areas {
+    &__#{$area} {
+      grid-area: #{$area};
+    }
+  }
+
   &__wrap {
+    display: grid;
+
+    padding: 32px 0;
+
+    grid: {
+      gap: 24px;
+      template: {
+        columns: 3fr 9fr 1fr;
+        areas: 'img content buttons';
+      };
+    }
+  }
+
+  &__img {
+    @include image-wrap-animation;
+  }
+
+  &__content {
+    flex-direction: column;
+
+    display: flex;
+
+    &-buttons {
+      justify-self: end;
+
+    }
+  }
+
+  &__description {
+    @include body-secondary;
+    max-width: 310px;
+
+    margin-top: auto;
+    margin-bottom: 28px;
+  }
+
+  &__btn-open {
+
+    @include size(44px);
+    position: relative;
+
+    border-radius: 50%;
+
+    background-color: $color__dark;
+
+    color: $color__light;
+    font-size: 20px;
+
+    cursor: pointer;
+    justify-self: end;
+    transition: all ease .2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:after {
+      @include pseudoElement(20px);
+      content: '+';
+
+      top: calc(50% + -2px);
+      left: 50%;
+
+      color: $color__light;
+
+      transform: translate(-50%, -50%);
+    }
   }
 }

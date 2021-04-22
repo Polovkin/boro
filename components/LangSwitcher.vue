@@ -6,38 +6,38 @@
       </button>
     </div>
 
-
     <div class="lang-switcher__dropdown">
-      <button @click="changeLang(lang.code)"
-              v-if="$i18n.locales[i].code!==$i18n.locale"
-              v-for="(lang,i) of $i18n.locales">
+      <button
+        v-for="(lang,i) of $i18n.locales"
+        v-if="$i18n.locales[i].code!==$i18n.locale"
+        @click="changeLang(lang.code)"
+      >
         {{ lang.name }}
       </button>
     </div>
-
   </div>
 </template>
 <script>
 export default {
-  name: "LangSwitcher",
-  data() {
+  name: 'LangSwitcher',
+  data () {
     return {
-      currentLocale: 'en',
+      currentLocale: 'en'
     }
   },
   computed: {
-    lang() {
-      return this.$i18n.locales.filter((e) => (e.code === this.currentLocale))[0].name
+    lang () {
+      return this.$i18n.locales.filter(e => (e.code === this.currentLocale))[0].name
     }
   },
+  mounted () {
+
+  },
   methods: {
-    changeLang(lang) {
+    changeLang (lang) {
       this.currentLocale = lang
       this.$i18n.locale = lang
     }
-  },
-  mounted() {
-
   }
 }
 </script>
@@ -76,20 +76,20 @@ export default {
     z-index: z(content);
 
     display: flex;
-    transition: all $animation_fu $animation_time;
 
     background-color: $color__light;
+
+    transition: all $animation_fu $animation_time;
   }
 
   &__dropdown {
-    transition: all $animation_fu $animation_time;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     position: absolute;
-    left: 0;
     bottom: 0;
+    left: 0;
     z-index: z(bg-content);
 
     display: flex;
@@ -100,7 +100,11 @@ export default {
     border: 1px solid $color__dark_6;
     border-radius: 0px 0px 4px 4px;
 
+    background-color: $color__light;
+
     transform: translateY(0);
+
+    transition: all $animation_fu $animation_time;
 
     &__active {
       flex: 1;
@@ -110,8 +114,11 @@ export default {
       @include title-link;
       width: 32px;
       height: 24px;
-      transition: all .2s ease-in;
+
       margin-bottom: 4px;
+
+      transition: all .2s ease-in;
+
       &:hover {
         color: $color__primary;
         text-decoration: underline;

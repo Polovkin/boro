@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     v-if="link"
-    class="text-color-primary"
+    class="button__link text-color-primary"
     :to="link"
   >
     <button
@@ -90,6 +90,7 @@ export default {
 <style scoped
        lang="scss">
 @keyframes hover-animation {
+
   from {
     transform: scale(0);
   }
@@ -100,6 +101,7 @@ export default {
 }
 
 @keyframes leave-animation {
+
   from {
     transform: scale(20);
   }
@@ -118,13 +120,21 @@ export default {
 
   @include title-link;
   align-items: center;
-  padding: 10px 0 10px 10px;
+
   position: relative;
 
   display: flex;
+
+  padding: 10px 0;
+
   transition: all .1s ease-in;
 
+  &__link {
+    width: fit-content;
+  }
+
   &--hover {
+
     .button__wave {
       animation: {
         name: hover-animation;
@@ -136,6 +146,7 @@ export default {
   }
 
   &--leave {
+
     .button__wave {
       animation: {
         name: leave-animation;
@@ -164,10 +175,11 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: z(bg-content);
 
     width: 15px;
     height: 15px;
-    z-index: z(bg-content);
+
     border-radius: 100%;
 
     background: $color__dark;
@@ -176,11 +188,13 @@ export default {
   }
 
   &:hover {
+
     .arrow {
-      transform: translate(-50%, -50%) scale(.2) rotate(0deg);
       background-color: $color__primary;
 
-      &::after, &::before {
+      transform: translate(-50%, -50%) scale(.2) rotate(0deg);
+
+      &:after, &:before {
         background-color: $color__primary;
       }
     }
@@ -192,42 +206,54 @@ export default {
 
   .icon {
     position: absolute;
-    z-index: z(content);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: z(content);
+
     width: 80px;
     height: 60px;
+
+    transform: translate(-50%, -50%);
     cursor: pointer;
   }
 
   .arrow {
-    transition: all $arrow_animation_duration $arrow_animation_delay ease;
     position: absolute;
-    width: 90%;
-    height: 10px;
-    background-color: $color__dark;
-    transform: translate(-50%, -50%) scale(.2) rotate(-45deg);
     top: 50%;
     left: 50%;
 
-    &::after, &::before {
-      transition: all $arrow_animation_duration $arrow_animation_delay ease;
+    width: 90%;
+    height: 10px;
+
+    background-color: $color__dark;
+
+    transform: translate(-50%, -50%) scale(.2) rotate(-45deg);
+
+    transition: all $arrow_animation_duration $arrow_animation_delay ease;
+
+    &:after, &:before {
       content: '';
+
       position: absolute;
+      right: -8px;
+
       width: 60%;
       height: 10px;
-      right: -8px;
+
       background-color: $color__dark;
+
+      transition: all $arrow_animation_duration $arrow_animation_delay ease;
     }
 
-    &::after {
+    &:after {
       top: -12px;
+
       transform: rotate(45deg);
     }
 
-    &::before {
+    &:before {
       top: 12px;
+
       transform: rotate(-45deg);
     }
   }
