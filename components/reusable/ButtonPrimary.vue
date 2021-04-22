@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     mouseEnter (event) {
-      console.log(this.$refs.button)
+
       this.$refs.button.classList.remove(this.classLeave)
 
       this.$refs.wave.style.left = event.clientX - this.$refs.circle.getBoundingClientRect().left + 'px'
