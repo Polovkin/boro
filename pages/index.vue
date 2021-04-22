@@ -1,21 +1,25 @@
 <template>
-  <LocomotiveScroll
-    ref="scroller"
-    :getted-options="locomotiveOptions"
-  >
-    <MainSection data-scroll-sectio />
-    <Cases data-scroll-sectio />
-    <MainAbout data-scroll-sectio />
-    <Services data-scroll-sectio />
-    <Footer data-scroll-sectio />
-  </LocomotiveScroll>
-<!--  <div>
-    <MainSection data-scroll-sectio />
-    <Cases data-scroll-sectio />
-    <MainAbout data-scroll-sectio />
-    <Services data-scroll-sectio />
-    <Footer data-scroll-sectio />
-  </div>-->
+  <div>
+    <LocomotiveScroll
+      ref="scroller"
+      data-scroll-container
+      :getted-options="locomotiveOptions"
+    >
+      <MainSection data-scroll-section />
+      <Cases data-scroll-section />
+      <MainAbout data-scroll-section />
+      <Services data-scroll-section />
+      <Footer data-scroll-section />
+    </LocomotiveScroll>
+  </div>
+
+  <!--  <div>
+      <MainSection data-scroll-sectio />
+      <Cases data-scroll-sectio />
+      <MainAbout data-scroll-sectio />
+      <Services data-scroll-sectio />
+      <Footer data-scroll-sectio />
+    </div>-->
 </template>
 
 <script>

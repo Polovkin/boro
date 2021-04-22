@@ -19,7 +19,7 @@
       slot="content"
       class="main-about__content"
     >
-      <div class="main-about__images">
+    <div class="main-about__images">
         <figure class="main-about__img">
           <nuxt-img
             alt="Elena"
@@ -53,7 +53,11 @@
       </div>
       <hr class="divider">
       <dl class="main-about__grid">
-        <div v-for="(item,index) of numbersData" :key="index" class="main-about__grid-item">
+        <div
+          v-for="(item,index) of numbersData"
+          :key="index"
+          class="main-about__grid-item"
+        >
           <dt>{{ item.number }}</dt>
           <dl>{{ item.text }}</dl>
         </div>

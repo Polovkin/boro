@@ -1,6 +1,6 @@
 <template>
   <section
-    v-in-viewport
+    data-scroll-section
     class="section"
   >
     <header class="section__header">
@@ -37,7 +37,6 @@ export default {
 <style lang="scss">
 .section {
   padding: 24px 0;
-
 
   &__elem {
     align-self: flex-end;
