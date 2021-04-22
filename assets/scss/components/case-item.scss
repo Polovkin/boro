@@ -13,23 +13,11 @@
   }
 
   &__img {
-    overflow: hidden;
+    @include image-wrap-animation;
 
     border-radius: 4px;
 
-    img {
-      @include size(100%);
-      object-fit: cover;
 
-      transition: all $videinfa_function .8s;
-    }
-
-    &:hover {
-
-      img {
-        transform: scale(1.2);
-      }
-    }
   }
 
   &__wrap {
@@ -53,6 +41,10 @@
   }
 
   &__content {
+    flex-direction: column;
+    justify-content: space-between;
+
+    display: flex;
 
     &-tags {
       display: flex;

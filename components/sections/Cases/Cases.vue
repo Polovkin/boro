@@ -2,8 +2,10 @@
   <Section
     num-elem
     class="cases-section"
-    :title="`Cases`"
   >
+    <h2 slot="title">
+      Cases
+    </h2>
     <LinkPrimary
       slot="elem"
       :payload="'24'"

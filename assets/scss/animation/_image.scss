@@ -1,0 +1,17 @@
+@mixin image-wrap-animation {
+  overflow: hidden;
+
+  img {
+    @include size(100%);
+    object-fit: cover;
+
+    transition: all $videinfa_function .8s;
+  }
+
+  &:hover {
+
+    img {
+      transform: scale(1.2);
+    }
+  }
+}

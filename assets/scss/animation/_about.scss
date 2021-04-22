@@ -1,0 +1,16 @@
+.main-about__img {
+
+  overflow: hidden;
+
+  img {
+    transition: all ease .8s;
+  }
+
+  &:hover {
+
+    img {
+      transform: scale(1.1);
+    }
+
+  }
+}

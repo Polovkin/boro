@@ -15,6 +15,16 @@ h2 {
   }
 }
 
+h3 {
+  letter-spacing: -2.8px;
+  line-height: 48px;
+  font: {
+    style: normal;
+    weight: 500;
+    size:46px;
+  }
+}
+
 h4 {
   letter-spacing: -1.8px;
   line-height: 32px;
@@ -22,6 +32,16 @@ h4 {
     style: normal;
     weight: 500;
     size: 32px;
+  }
+}
+
+h6 {
+  letter-spacing: -1px;
+  line-height: 24px;
+  font: {
+    style: normal;
+    weight: 500;
+    size: 18px;
   }
 }
 

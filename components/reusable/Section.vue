@@ -5,9 +5,7 @@
   >
     <header class="section__header">
       <div class="section__header-wrap">
-        <h2 class="section__title">
-          {{ title }}
-        </h2>
+        <slot name="title" />
         <div
           :class="{'numeric': numElem}"
           class="section__elem"
@@ -28,10 +26,6 @@
 export default {
   name: 'Section',
   props: {
-    title: {
-      type: String,
-      default: 0
-    },
     numElem: {
       type: Boolean,
       default: false
@@ -43,6 +37,7 @@ export default {
 <style lang="scss">
 .section {
   padding: 24px 0;
+
 
   &__elem {
     align-self: flex-end;
@@ -61,7 +56,7 @@ export default {
       justify-content: space-between;
 
       display: flex;
-      height: 70px;
+      min-height: 70px;
 
       margin-bottom: 32px;
     }

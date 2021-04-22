@@ -7,10 +7,10 @@ $font__file-name: '#{$font__family}-';
 $font__path: '~@/assets/fonts/#{$font__file-name}';
 $font__ext: (woff2, woff);
 $font__types: (
-                ('Black', 900, normal),
-                ('Bold', bold, normal),
-                ('Medium', 500, normal),
-                ('Normal', normal, normal),
+  ('Black', 900, normal),
+  ('Bold', bold, normal),
+  ('Medium', 500, normal),
+  ('Normal', normal, normal),
 );
 
 $header_height: 80px;
@@ -25,6 +25,7 @@ $iconsPath: '~static/icons/';
 $filter_from_black_to_primary: invert(89%) sepia(29%) saturate(3128%) hue-rotate(328deg) brightness(114%) contrast(99%);
 $videinfa_function: cubic-bezier(.25,.74,.22,.99);
 
-@import "components-mixins";
+@import 'components-mixins';
+@import '../animation/image';
 
 
