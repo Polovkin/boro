@@ -9,13 +9,13 @@
         <h4>{{ data.title }}</h4>
 
         <div class="case-item__content-tags">
-          <ButtonTag v-for="tag of data.tags">{{ tag }}
+          <ButtonTag :key="index" v-for="(tag,index) of data.tags">{{ tag }}
           </ButtonTag>
         </div>
         <p class="case-item__description">{{ data.description }}</p>
         <div class="case-item__content-buttons">
-          <ButtonPrimary :link="buttons.link"
-                         v-for="buttons of data.buttons">{{ buttons.text }}
+          <ButtonPrimary :key="index" :link="buttons.link"
+                         v-for="(buttons,index) of data.buttons">{{ buttons.text }}
           </ButtonPrimary>
         </div>
       </div>

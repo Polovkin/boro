@@ -8,8 +8,8 @@
     </LinkPrimary>
     <div slot="content"
          class="cases-section__items">
-      <CaseMainItem :data="item"
-                    v-for="item of cases"/>
+      <CaseMainItem :key="index" :data="item"
+                    v-for="(item,index) of cases"/>
     </div>
   </Section>
 </template>

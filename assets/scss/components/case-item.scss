@@ -30,7 +30,8 @@
   }
 
   &__wrap {
-    padding: 32px 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
     display: grid;
     grid: {
       template: {
@@ -42,22 +43,23 @@
 
   &__description {
     @include body-secondary;
-    margin-bottom: 48px;
-    max-width: 380px;
+    margin-bottom: 40px;
+    max-width: 400px;
   }
 
   &__content {
 
     &-tags {
       display: flex;
-      margin: 20px 0;
+      margin-top: 16px;
+      margin-bottom: 20px;
     }
 
     &-buttons {
       display: flex;
 
       button, a {
-        margin-right: 24px;
+        margin-right: 13px;
 
         &:first-child {
           padding-left: 0;
