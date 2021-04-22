@@ -1,5 +1,6 @@
 <template>
   <section
+    v-in-viewport
     data-scroll-section
     class="section"
   >
@@ -18,7 +19,6 @@
     <div class="section__content">
       <slot name="content" />
     </div>
-    <hr class="divider">
   </section>
 </template>
 
@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss">
 .section {
-  padding: 24px 0;
+  padding: 60px 0;
 
   &__elem {
     align-self: flex-end;

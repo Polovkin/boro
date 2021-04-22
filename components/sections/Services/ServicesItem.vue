@@ -16,7 +16,6 @@
       </figure>
       <div class="service-item__content">
         <h4>{{ data.title }}</h4>
-
         <p class="service-item__description">
           {{ data.description }}
         </p>
@@ -34,6 +33,7 @@
         />
       </div>
     </div>
+    <hr class="divider">
   </div>
 </template>
 

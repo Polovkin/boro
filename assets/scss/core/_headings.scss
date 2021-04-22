@@ -71,6 +71,10 @@ h6 {
 
 .text-color {
 
+  &-main {
+    color: $color__primary;
+  }
+
   &-primary {
     color: $color__font_dark--primary;
   }

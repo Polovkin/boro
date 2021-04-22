@@ -1,0 +1,52 @@
+.lead-section {
+
+  &__content {
+    justify-content: space-between;
+
+    display: grid;
+
+    padding: 32px 0;
+    grid: {
+      template: {
+        columns: 8fr 4fr;
+      };
+    }
+  }
+
+  &__img {
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &__text {
+    @include body-secondary;
+    color: $color__font--quaternary;
+  }
+
+  &__name {
+    @extend h6;
+  }
+
+  &__contact {
+    justify-content: flex-end;
+
+    display: flex;
+    &-info {
+      margin-right: 53px;
+      align-self: flex-end;
+    }
+    &-tags {
+      display: flex;
+      align-self: flex-end;
+    }
+
+  }
+
+
+
+  &__contact {
+    display: flex;
+  }
+}
