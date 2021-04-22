@@ -1,18 +1,21 @@
 <template>
-  <!--  <LocomotiveScroll
-      ref="scroller"
-      :getted-options="locomotiveOptions">
-    <MainSection data-scroll-sectio/>
-    <Cases data-scroll-sectio/>
-    <Footer data-scroll-sectio/>
-  </LocomotiveScroll>-->
-  <div>
+  <LocomotiveScroll
+    ref="scroller"
+    :getted-options="locomotiveOptions"
+  >
     <MainSection data-scroll-sectio />
     <Cases data-scroll-sectio />
     <MainAbout data-scroll-sectio />
     <Services data-scroll-sectio />
     <Footer data-scroll-sectio />
-  </div>
+  </LocomotiveScroll>
+<!--  <div>
+    <MainSection data-scroll-sectio />
+    <Cases data-scroll-sectio />
+    <MainAbout data-scroll-sectio />
+    <Services data-scroll-sectio />
+    <Footer data-scroll-sectio />
+  </div>-->
 </template>
 
 <script>
@@ -21,8 +24,8 @@ import MainSection from '../components/sections/MainSection'
 import LocomotiveScroll from '../components/layout/LocomotiveScroll'
 import Footer from '../components/layout/Footer'
 import Cases from '../components/sections/Cases/Cases'
-import MainAbout from "../components/sections/MainAbout";
-import Services from "../components/sections/Services/Services";
+import MainAbout from '../components/sections/MainAbout'
+import Services from '../components/sections/Services/Services'
 
 export default {
   components: {

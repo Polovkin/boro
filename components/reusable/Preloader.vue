@@ -1,12 +1,18 @@
 <template>
-<!--  <div class="preloader"
-       :class="{'preloader&#45;&#45;hide':hide}">
-    <div v-if="preload"
-         class="preloader__logo">
-      <lottie-animation :loop="false"
-                        path="./animations/boro-logotype.json"/>
+  <div
+    class="preloader"
+    :class="{'preloader--hide':hide}"
+  >
+    <div
+      v-if="preload"
+      class="preloader__logo"
+    >
+      <lottie-animation
+        :loop="false"
+        path="./animations/boro-logotype.json"
+      />
     </div>
-  </div>-->
+  </div>
 </template>
 
 <script>
@@ -26,17 +32,17 @@ export default {
     }
   },
   mounted () {
-    this.$store.commit('app/SET_PRELOADER_STATE', true)
-    /*    setTimeout(() => {
+    //this.$store.commit('app/SET_PRELOADER_STATE', true)
+    setTimeout(() => {
       this.preload = true
     }, this.animationDelay)
 
     setTimeout(() => {
       this.hide = true
       setTimeout(() => {
-          this.$store.commit('app/SET_PRELOADER_STATE',true)
-      },1600)
-    }, this.animationDuration + this.animationDelay) */
+        this.$store.commit('app/SET_PRELOADER_STATE', true)
+      }, 1600)
+    }, this.animationDuration + this.animationDelay)
   }
 }
 </script>
