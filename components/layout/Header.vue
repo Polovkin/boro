@@ -6,11 +6,11 @@
   >
     <div class="container">
       <div class="header__content">
-        <div class="header__wrap">
+        <div class="header__wrap header__wrap-left">
           <Logo class="header__logo" />
           <LayoutNav class="header__navigation" />
         </div>
-        <div class="header__wrap">
+        <div class="header__wrap header__wrap-right">
           <LangSwitcher />
           <ButtonPrimary>{{ $t('header.link') }}</ButtonPrimary>
         </div>
