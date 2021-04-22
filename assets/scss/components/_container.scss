@@ -16,13 +16,13 @@ $container_gap: 24px;
 }
 
 $breakpoints: (
-        na: $width__min,
-        xs: $width__mobile-max,
-        sm: $width__tablet-port,
-        md: $width__tablet-land,
-        lg: $width__laptop-min,
-        xl: $width__desktop-hd-min,
-        xxl: $width__desktop-hd + 1,
+  na: $width__min,
+  xs: $width__mobile-max,
+  sm: $width__tablet-port,
+  md: $width__tablet-land,
+  lg: $width__laptop-min,
+  xl: $width__desktop-hd-min,
+  xxl: $width__desktop-hd + 1,
 );
 
 @function container($container-size, $true-val: false) {
@@ -30,12 +30,12 @@ $breakpoints: (
 }
 
 $container-sizes: (
-        xs: map-get($breakpoints, xs) - 28px,
-        sm: map-get($breakpoints, sm) - 28px,
-        md: map-get($breakpoints, md) - 54px,
-        lg: map-get($breakpoints, lg) - 100px,
-        xl: map-get($breakpoints, xl) - 160px,
-        xxl: map-get($breakpoints, xxl) - 160px
+  xs: map-get($breakpoints, xs) - 28px,
+  sm: map-get($breakpoints, sm) - 28px,
+  md: map-get($breakpoints, md) - 54px,
+  lg: map-get($breakpoints, lg) - 100px,
+  xl: map-get($breakpoints, xl) - 160px,
+  xxl: map-get($breakpoints, xxl) - 160px
 );
 
 @each $bp, $container-size in $container-sizes {
@@ -57,8 +57,9 @@ $container-sizes: (
 }
 
 .container {
-  padding: 0 $container_gap;
 
   max-width: 100%;
+
   margin: 0 auto;
+  padding: 0 $container_gap;
 }

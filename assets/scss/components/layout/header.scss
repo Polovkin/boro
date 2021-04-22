@@ -21,7 +21,9 @@
 
   &__content {
     align-items: center;
+    justify-content: space-between;
 
+    display: flex;
     position: relative;
 
     //display: flex;
@@ -49,7 +51,7 @@
 
   &__navigation {
     align-items: center;
-
+    margin-left: 76px;
     display: flex;
 
     li {
@@ -62,11 +64,6 @@
     }
   }
 
-  &__content {
-    justify-content: space-between;
-
-    display: flex;
-  }
 
   &__wrap {
     align-items: center;
@@ -80,7 +77,4 @@
     top: 3px;
   }
 
-  &__navigation {
-    margin-left: 76px;
-  }
 }

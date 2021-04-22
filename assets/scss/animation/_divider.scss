@@ -1,6 +1,7 @@
 @mixin divider-animation {
-  transition: transform .4s $videinfa_function;
   transform: translateY(-100%);
+
+  transition: transform .4s $videinfa_function;
 }
 
 .animation-trigger-start .divider, .in-viewport .divider {

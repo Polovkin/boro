@@ -14,7 +14,9 @@
 
   &__img {
     overflow: hidden;
+
     border-radius: 4px;
+
     img {
       @include size(100%);
       object-fit: cover;
@@ -23,6 +25,7 @@
     }
 
     &:hover {
+
       img {
         transform: scale(1.2);
       }
@@ -30,9 +33,10 @@
   }
 
   &__wrap {
+    display: grid;
+
     padding-top: 40px;
     padding-bottom: 20px;
-    display: grid;
     grid: {
       template: {
         columns: 1fr 9fr 3fr;
@@ -43,14 +47,16 @@
 
   &__description {
     @include body-secondary;
-    margin-bottom: 40px;
     max-width: 400px;
+
+    margin-bottom: 40px;
   }
 
   &__content {
 
     &-tags {
       display: flex;
+
       margin-top: 16px;
       margin-bottom: 20px;
     }

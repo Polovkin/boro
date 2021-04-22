@@ -1,6 +1,7 @@
 @mixin animation-header-hide {
-  transition: transform 1.2s $videinfa_function;
   transform: translateY(-100%);
+
+  transition: transform 1.2s $videinfa_function;
 }
 
 .animation-header-hide {
