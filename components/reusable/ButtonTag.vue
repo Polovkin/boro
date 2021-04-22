@@ -1,37 +1,43 @@
 <template>
-  <nuxt-link to="link"
-             v-if="link"
-             class="button-tag">
+  <nuxt-link
+    v-if="link"
+    to="link"
+    class="button-tag"
+  >
     <span class="button-tag__wrap">
-        <img :src="`/icons/${icon}`"
-             class="button-tag__icon"
-             :alt="icon.split('.')[0]">
-        <span class="button-tag__text">
-          <slot/>
-        </span>
+      <img
+        :src="`/icons/${icon}`"
+        class="button-tag__icon"
+        :alt="icon.split('.')[0]"
+      >
+      <span class="button-tag__text">
+        <slot />
+      </span>
     </span>
   </nuxt-link>
-  <button v-else
-          class="button-tag button-tag-simple">
+  <button
+    v-else
+    class="button-tag button-tag-simple"
+  >
     <span class="button-tag__wrap">
-        <span class="button-tag__text">
-          <slot/>
-        </span>
+      <span class="button-tag__text">
+        <slot />
+      </span>
     </span>
   </button>
 </template>
 
 <script>
 export default {
-  name: "ButtonTag",
+  name: 'ButtonTag',
   props: {
     icon: {
-      type: String,
+      type: String
     },
     link: {
-      type: String,
+      type: String
     }
-  },
+  }
 }
 </script>
 

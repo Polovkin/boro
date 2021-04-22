@@ -1,18 +1,24 @@
 <template>
-  <section v-in-viewport
-           class="section">
+  <section
+    v-in-viewport
+    class="section"
+  >
     <header class="section__header">
       <div class="section__header-wrap">
-        <h2 class="section__title">{{ title }}</h2>
-        <div :class="{'numeric': numElem}"
-             class="section__elem">
-          <slot name="elem"/>
+        <h2 class="section__title">
+          {{ title }}
+        </h2>
+        <div
+          :class="{'numeric': numElem}"
+          class="section__elem"
+        >
+          <slot name="elem" />
         </div>
       </div>
       <hr class="divider">
     </header>
     <div class="section__content">
-      <slot name="content"/>
+      <slot name="content" />
     </div>
     <hr class="divider">
   </section>
@@ -20,7 +26,7 @@
 
 <script>
 export default {
-  name: "Section",
+  name: 'Section',
   props: {
     title: {
       type: String,
@@ -30,7 +36,7 @@ export default {
       type: Boolean,
       default: false
     }
-  },
+  }
 }
 </script>
 
@@ -43,21 +49,22 @@ export default {
   }
 
   &__content {
-    //padding-top: 190px;
     margin-bottom: 30px;
   }
 
   &__header {
 
-    &-wrap {
-      margin-bottom: 32px;
-      height: 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
     position: relative;
+
+    &-wrap {
+      align-items: center;
+      justify-content: space-between;
+
+      display: flex;
+      height: 70px;
+
+      margin-bottom: 32px;
+    }
   }
 }
 </style>

@@ -24,8 +24,14 @@
 
     position: relative;
 
-    display: flex;
+    //display: flex;
     height: inherit;
+    display: grid;
+    grid: {
+      template: {
+        columns: 9fr 3fr;
+      };
+    };
 
     &:after {
       @include pseudoElement(100%);

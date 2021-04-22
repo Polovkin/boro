@@ -2,44 +2,53 @@
   <div class="case-item">
     <hr class="divider">
     <div class="case-item__wrap">
-      <time class="case-item__time"
-            :datetime="data.time">{{ data.time }}
+      <time
+        class="case-item__time"
+        :datetime="data.time"
+      >{{ data.time }}
       </time>
       <div class="case-item__content">
         <h4>{{ data.title }}</h4>
 
         <div class="case-item__content-tags">
-          <ButtonTag :key="index" v-for="(tag,index) of data.tags">{{ tag }}
+          <ButtonTag v-for="(tag,index) of data.tags" :key="index">
+            {{ tag }}
           </ButtonTag>
         </div>
-        <p class="case-item__description">{{ data.description }}</p>
+        <p class="case-item__description">
+          {{ data.description }}
+        </p>
         <div class="case-item__content-buttons">
-          <ButtonPrimary :key="index" :link="buttons.link"
-                         v-for="(buttons,index) of data.buttons">{{ buttons.text }}
+          <ButtonPrimary
+            v-for="(buttons,index) of data.buttons"
+            :key="index"
+            :link="buttons.link"
+          >
+            {{ buttons.text }}
           </ButtonPrimary>
         </div>
       </div>
 
       <figure class="case-item__img">
-        <nuxt-picture width="326"
-                      height="248"
-                      fit="cover"
-                      loading="lazy"
-                      :src="data.img"/>
+        <nuxt-picture
+          width="326"
+          height="248"
+          fit="cover"
+          loading="lazy"
+          :src="data.img"
+        />
       </figure>
-
-
     </div>
   </div>
 </template>
 
 <script>
-import ButtonTag from "../../reusable/ButtonTag";
-import ButtonPrimary from "../../reusable/ButtonPrimary";
+import ButtonTag from '../../reusable/ButtonTag'
+import ButtonPrimary from '../../reusable/ButtonPrimary'
 
 export default {
-  name: "CaseMainItem",
-  components: {ButtonPrimary, ButtonTag},
+  name: 'CaseMainItem',
+  components: { ButtonPrimary, ButtonTag },
   props: ['data']
 }
 </script>

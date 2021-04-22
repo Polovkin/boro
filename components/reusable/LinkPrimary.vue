@@ -1,29 +1,33 @@
 <template>
-  <nuxt-link class="link"
-             :to="link">
+  <nuxt-link
+    class="link"
+    :to="link"
+  >
     <span class="link__hide">
-        <span class="link__wrap">
-          <slot/>
-    </span>
+      <span class="link__wrap">
+        <slot />
+      </span>
     </span>
 
-    <span v-if="payload"
-          class="link__payload">{{ payload }}</span>
+    <span
+      v-if="payload"
+      class="link__payload"
+    >{{ payload }}</span>
   </nuxt-link>
 </template>
 
 <script>
 export default {
-  name: "LinkPrimary",
+  name: 'LinkPrimary',
   props: {
     link: {
       type: String,
       required: true
     },
     payload: {
-      type: String,
+      type: String
     }
-  },
+  }
 }
 </script>
 
@@ -40,7 +44,6 @@ export default {
   text-decoration: none;
 
   &__payload {
-    transition: all ease-in-out .2s;
     @include body-tertiary;
     position: relative;
     top: -17px;
@@ -55,6 +58,8 @@ export default {
     background-color: $color__gray_light;
 
     text-decoration: none;
+
+    transition: all ease-in-out .2s;
   }
 
   &:visited {
@@ -82,7 +87,6 @@ export default {
 
     display: flex;
 
-
     transform: translateX($arrow_size + $arrow_margin);
 
     transition: transform $animation__duration ease-in;
@@ -99,13 +103,15 @@ export default {
     }
   }
 
-
   &:hover {
+
     .link__wrap {
       color: $color__primary;
     }
+
     .link__payload {
       top: 0;
+
       font-weight: bold;
     }
 

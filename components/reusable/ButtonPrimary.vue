@@ -1,65 +1,76 @@
 <template>
-  <nuxt-link class="text-color-primary" v-if="link"
-             :to="link">
+  <nuxt-link
+    v-if="link"
+    class="text-color-primary"
+    :to="link"
+  >
     <button
-        ref="button"
-        class="button"
-        @mouseleave="mouseLeave"
-        @mouseenter="mouseEnter">
-      <slot/>
-      <span ref="circle"
-            class="button__circle">
+      ref="button"
+      class="button"
+      @mouseleave="mouseLeave"
+      @mouseenter="mouseEnter"
+    >
+      <slot />
+      <span
+        ref="circle"
+        class="button__circle"
+      >
         <span class="icon">
-          <span class="arrow"/>
+          <span class="arrow" />
         </span>
-        <span ref="wave"
-              class="button__wave"/>
-    </span>
+        <span
+          ref="wave"
+          class="button__wave"
+        />
+      </span>
     </button>
   </nuxt-link>
 
   <button
-      v-else
-      ref="button"
-      class="button"
-      @mouseleave="mouseLeave"
-      @mouseenter="mouseEnter">
-    <slot/>
-    <span ref="circle"
-          class="button__circle">
-        <span class="icon">
-          <span class="arrow"/>
-        </span>
-        <span ref="wave"
-              class="button__wave"/>
+    v-else
+    ref="button"
+    class="button"
+    @mouseleave="mouseLeave"
+    @mouseenter="mouseEnter"
+  >
+    <slot />
+    <span
+      ref="circle"
+      class="button__circle"
+    >
+      <span class="icon">
+        <span class="arrow" />
+      </span>
+      <span
+        ref="wave"
+        class="button__wave"
+      />
     </span>
-
   </button>
 </template>
 
 <script>
 export default {
-  name: "ButtonPrimary",
+  name: 'ButtonPrimary',
   props: {
     link: {
-      type: String,
-    },
+      type: String
+    }
   },
-  data() {
+  data () {
     return {
       wave: null,
       classHover: 'button--hover',
       classLeave: 'button--leave'
     }
   },
-  mounted() {
+  mounted () {
 
   },
   methods: {
-    mouseEnter(event) {
+    mouseEnter (event) {
       console.log(this.$refs.button)
       this.$refs.button.classList.remove(this.classLeave)
-
 
       this.$refs.wave.style.left = event.clientX - this.$refs.circle.getBoundingClientRect().left + 'px'
       this.$refs.wave.style.top = event.clientY - this.$refs.circle.getBoundingClientRect().top + 'px'
@@ -68,7 +79,7 @@ export default {
       void this.$refs.button.offsetWidth
       this.$refs.button.classList.add(this.classHover)
     },
-    mouseLeave() {
+    mouseLeave () {
       this.$refs.button.classList.remove(this.classHover)
       this.$refs.button.classList.add(this.classLeave)
     }

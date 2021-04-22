@@ -1,35 +1,36 @@
 <template>
-  <header ref="header"
-          class="header"
-          :class="{'header--scrolling': isHeaderBaseState,'animation-base-state': isPreloaderDone}">
+  <header
+    ref="header"
+    class="header"
+    :class="{'header--scrolling': isHeaderBaseState,'animation-base-state': isPreloaderDone}"
+  >
     <div class="container">
       <div class="header__content">
         <div class="header__wrap">
-          <Logo class="header__logo"/>
-          <LayoutNav class="header__navigation"/>
+          <Logo class="header__logo" />
+          <LayoutNav class="header__navigation" />
         </div>
         <div class="header__wrap">
-          <LangSwitcher/>
+          <LangSwitcher />
           <ButtonPrimary>{{ $t('header.link') }}</ButtonPrimary>
         </div>
       </div>
     </div>
-
   </header>
 </template>
 
 <script>
-import Logo from "../reusable/Logo";
-import Navigation from "../reusable/Navigation";
-import LangSwitcher from "../LangSwitcher";
-import LayoutNav from "../reusable/LayoutNav";
-import ButtonPrimary from "../reusable/ButtonPrimary";
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
+import Logo from '../reusable/Logo'
+import Navigation from '../reusable/Navigation'
+import LangSwitcher from '../LangSwitcher'
+import LayoutNav from '../reusable/LayoutNav'
+import ButtonPrimary from '../reusable/ButtonPrimary'
 
 export default {
-  name: "Header",
-  components: {ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo},
-  data() {
+  name: 'Header',
+  components: { ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
+  data () {
     return {
       firstLoad: false
     }
@@ -38,19 +39,19 @@ export default {
     ...mapState({
       scrollDirection: s => s.app.scrollDirection,
       headerBaseState: s => s.app.headerBaseState,
-      preloaderDone: s => s.app.preloaderDone,
+      preloaderDone: s => s.app.preloaderDone
     }),
-    isPreloaderDone() {
+    isPreloaderDone () {
       return this.preloaderDone
     },
-    isScrollDown() {
+    isScrollDown () {
       return this.scrollDirection
     },
-    isHeaderBaseState() {
+    isHeaderBaseState () {
       return this.headerBaseState
     }
   },
-  mounted() {
+  mounted () {
     this.firstLoad = true
   }
 }

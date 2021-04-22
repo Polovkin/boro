@@ -10,15 +10,15 @@
 
 <script>
 export default {
-  name: "LayoutNav",
-  data() {
+  name: 'LayoutNav',
+  data () {
     return {
       navs: [
-        {name: 'layout-links.link1', link: '/'},
-        {name: 'layout-links.link2', link: '/'}
+        { name: 'layout-links.link1', link: '/' },
+        { name: 'layout-links.link2', link: '/' }
       ]
     }
-  },
+  }
 }
 </script>
 

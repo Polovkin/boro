@@ -13,11 +13,11 @@
 import LottieAnimation from 'lottie-vuejs/src/LottieAnimation.vue'
 
 export default {
-  name: "Preloader",
+  name: 'Preloader',
   components: {
     LottieAnimation
   },
-  data() {
+  data () {
     return {
       preload: true,
       animationDuration: 4140,
@@ -25,9 +25,9 @@ export default {
       hide: false
     }
   },
-  mounted() {
-    this.$store.commit('app/SET_PRELOADER_STATE',true)
-/*    setTimeout(() => {
+  mounted () {
+    this.$store.commit('app/SET_PRELOADER_STATE', true)
+    /*    setTimeout(() => {
       this.preload = true
     }, this.animationDelay)
 
@@ -36,7 +36,7 @@ export default {
       setTimeout(() => {
           this.$store.commit('app/SET_PRELOADER_STATE',true)
       },1600)
-    }, this.animationDuration + this.animationDelay)*/
+    }, this.animationDuration + this.animationDelay) */
   }
 }
 </script>
@@ -67,9 +67,11 @@ $preloader_hide_duration: .4s;
   }
 }
 @keyframes preloader-hide {
+
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(100%);
   }

@@ -1,28 +1,38 @@
 <template>
-  <Section num-elem
-           class="cases-section"
-           :title="`Cases`">
-    <LinkPrimary :payload="'24'"
-                 slot="elem"
-                 link="/">All projects
+  <Section
+    num-elem
+    class="cases-section"
+    :title="`Cases`"
+  >
+    <LinkPrimary
+      slot="elem"
+      :payload="'24'"
+      link="/"
+    >
+      All projects
     </LinkPrimary>
-    <div slot="content"
-         class="cases-section__items">
-      <CaseMainItem :key="index" :data="item"
-                    v-for="(item,index) of cases"/>
+    <div
+      slot="content"
+      class="cases-section__items"
+    >
+      <CaseMainItem
+        v-for="(item,index) of cases"
+        :key="index"
+        :data="item"
+      />
     </div>
   </Section>
 </template>
 
 <script>
-import Section from "../../reusable/Section";
-import LinkPrimary from "../../reusable/LinkPrimary";
-import CaseMainItem from "./CaseMainItem";
+import Section from '../../reusable/Section'
+import LinkPrimary from '../../reusable/LinkPrimary'
+import CaseMainItem from './CaseMainItem'
 
 export default {
-  name: "Cases",
-  components: {CaseMainItem, LinkPrimary, Section},
-  data() {
+  name: 'Cases',
+  components: { CaseMainItem, LinkPrimary, Section },
+  data () {
     return {
       cases: [
         {
@@ -84,13 +94,19 @@ export default {
             }
           ],
           img: '/img/Cover4.jpg'
-        },
+        }
       ]
     }
-  },
+  }
 }
 </script>
 
 <style lang="scss">
-@import "/assets/scss/sections/cases";
+
+.cases-section {
+  &__items {
+    padding-top: 190px;
+  }
+}
+
 </style>

@@ -35,7 +35,7 @@
     display: grid;
     grid: {
       template: {
-        columns: 170px auto 330px;
+        columns: 1fr 9fr 3fr;
         areas: 'time content img';
       };
     }

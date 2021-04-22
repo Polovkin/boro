@@ -1,25 +1,35 @@
 <template>
-  <div class="main-section"
-       :class="{'animation-trigger-start': isPreloaderDone}">
+  <div
+    class="main-section"
+    :class="{'animation-trigger-start': isPreloaderDone}"
+  >
     <div class="main-section__wrap">
       <div
-          class="main-section__title">
-        <h1>We are design agency with solid expertise in
-          <TextFlip :data="text"/>
+        class="main-section__title"
+      >
+        <h1>
+          We are design agency with solid expertise in
+          <TextFlip :data="text" />
         </h1>
       </div>
       <Navigation
-          class="main-section__navigation"/>
+        class="main-section__navigation"
+      />
     </div>
     <div class="main-section__footer">
-      <hr class="divider"/>
+      <hr class="divider">
       <div class="main-section__tags">
-        <p class="body-tertiary text-color-tertiary">We put aesthetics in the right direction</p>
+        <p class="body-tertiary text-color-tertiary">
+          We put aesthetics in the right direction
+        </p>
         <div class="main-section__tags-wrap">
-          <ButtonTag :key="index"
-                     :link="tags.link"
-                     v-for="(tags,index) of socials"
-                     :icon="tags.icon">{{ tags.name }}
+          <ButtonTag
+            v-for="(tags,index) of socials"
+            :key="index"
+            :link="tags.link"
+            :icon="tags.icon"
+          >
+            {{ tags.name }}
           </ButtonTag>
         </div>
       </div>
@@ -28,15 +38,15 @@
 </template>
 
 <script>
-import {mapState} from "vuex";
-import Navigation from "../reusable/Navigation";
-import TextFlip from "../reusable/TextFlip";
-import ButtonTag from "../reusable/ButtonTag";
+import { mapState } from 'vuex'
+import Navigation from '../reusable/Navigation'
+import TextFlip from '../reusable/TextFlip'
+import ButtonTag from '../reusable/ButtonTag'
 
 export default {
-  name: "MainSection",
-  components: {ButtonTag, TextFlip, Navigation},
-  data() {
+  name: 'MainSection',
+  components: { ButtonTag, TextFlip, Navigation },
+  data () {
     return {
       text: ['UI/UX', 'GL/HF', 'SS/WP'],
       socials: [
@@ -64,18 +74,18 @@ export default {
           name: 'Dribble',
           icon: 'dribble.png',
           link: '/'
-        },
-      ],
+        }
+      ]
 
     }
   },
   computed: {
     ...mapState({
-      preloaderDone: s => s.app.preloaderDone,
+      preloaderDone: s => s.app.preloaderDone
     }),
-    isPreloaderDone() {
+    isPreloaderDone () {
       return this.preloaderDone
-    },
+    }
   }
 }
 </script>

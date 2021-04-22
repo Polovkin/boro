@@ -1,5 +1,5 @@
 <template>
-<!--  <LocomotiveScroll
+  <!--  <LocomotiveScroll
       ref="scroller"
       :getted-options="locomotiveOptions">
     <MainSection data-scroll-sectio/>
@@ -7,19 +7,18 @@
     <Footer data-scroll-sectio/>
   </LocomotiveScroll>-->
   <div>
-    <MainSection data-scroll-sectio/>
-    <Cases data-scroll-sectio/>
-    <Footer data-scroll-sectio/>
+    <MainSection data-scroll-sectio />
+    <Cases data-scroll-sectio />
+    <Footer data-scroll-sectio />
   </div>
 </template>
 
 <script>
 
-
-import MainSection from "../components/sections/MainSection";
-import LocomotiveScroll from "../components/layout/LocomotiveScroll";
-import Footer from "../components/layout/Footer";
-import Cases from "../components/sections/Cases/Cases";
+import MainSection from '../components/sections/MainSection'
+import LocomotiveScroll from '../components/layout/LocomotiveScroll'
+import Footer from '../components/layout/Footer'
+import Cases from '../components/sections/Cases/Cases'
 
 export default {
   components: {
@@ -29,7 +28,7 @@ export default {
     MainSection
 
   },
-  data() {
+  data () {
     return {
       name: '',
       textarea: '',
@@ -38,16 +37,16 @@ export default {
         direction: 'vertical',
         smartphone: {
           smooth: true,
-          direction: 'vertical',
+          direction: 'vertical'
         },
         tablet: {
           smooth: true,
-          direction: 'vertical',
+          direction: 'vertical'
         }
       }
     }
   },
-  mounted() {
+  mounted () {
 
   }
 }
