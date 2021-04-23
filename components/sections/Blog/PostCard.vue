@@ -48,9 +48,11 @@ export default {
 
 <style lang="scss">
 .blog-card {
-  height: 550px;
-display: flex;
   flex-direction: column;
+
+  display: flex;
+  height: 550px;
+
   &__img {
     margin-bottom: 24px;
   }
