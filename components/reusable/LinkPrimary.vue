@@ -1,5 +1,6 @@
 <template>
   <nuxt-link
+    v-if="!isTo"
     class="link"
     :to="link"
   >
@@ -14,6 +15,13 @@
       class="link__payload"
     >{{ payload }}</span>
   </nuxt-link>
+  <a v-else class="link" :href="link">
+    <span class="link__hide">
+      <span class="link__wrap">
+        <slot />
+      </span>
+    </span>
+  </a>
 </template>
 
 <script>
@@ -26,12 +34,16 @@ export default {
     },
     payload: {
       type: String
+    },
+    isTo: {
+      type: Boolean,
+      default: false
     }
   }
 }
 </script>
 
-<style scoped
+<style
        lang="scss">
 .link {
   $arrow_size: 16px;

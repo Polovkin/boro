@@ -1,0 +1,174 @@
+.footer {
+  $nav_gap: 122px;
+  $nav_fr: 4fr;
+  padding-top: 64px;
+
+  .link__wrap {
+    transform: translateX(0) !important;
+  }
+
+  &__top {
+    display: grid;
+    grid: {
+      template: {
+        columns: 2.75fr $nav_fr 1.5fr 3.5fr;
+        rows: 80px;
+        areas: 'logo nav . buttons';
+      };
+    };
+  }
+
+  &__main {
+    display: grid;
+
+    padding: 52px 0;
+    grid: {
+      template: {
+        columns: 2.75fr #{$nav_fr / 2} #{$nav_fr / 2} 1.5fr 3.5fr;
+        rows: auto;
+        areas: 'mail nav address . button';
+      };
+    }
+
+    &-title {
+      @include body-secondary;
+      color: $color__font--quaternary;
+    }
+
+    &-link {
+      margin-bottom: 32px;
+
+      color: $color__font--primary;
+
+      span {
+        letter-spacing: -.045em;
+        line-height: 24px;
+        font: {
+          size: 24px;
+          weight: 500;
+        }
+      }
+
+    }
+
+    &-mail {
+      grid-area: mail;
+
+
+    }
+
+    &-nav {
+      grid-area: nav;
+
+      .navigation {
+
+        &__list {
+          align-items: flex-start;
+        }
+      }
+    }
+
+    &-address {
+      grid-area: address;
+
+      padding-left: $nav_gap / 2;
+
+      li:last-child {
+        margin-top: 11px;
+      }
+
+      .link {
+        color: $color__font--primary;
+      }
+    }
+
+    &-button {
+      @include title-link;
+
+      align-self: end;
+
+      position: relative;
+
+
+      grid-area: button;
+      justify-self: end;
+
+      button {
+        align-items: center;
+
+        display: flex;
+
+
+        span {
+          @include size(70px);
+
+
+          margin-left: 18px;
+
+          border: 1px solid $color__dark_6;
+          border-radius: 50%;
+          position: relative;
+          &:before {
+            @include pseudoElement(20px, 'Arrow.svg');
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  &__logo {
+    grid-area: logo;
+
+    align-self: center;
+  }
+
+  &__nav {
+    grid-area: nav;
+
+    display: grid;
+    grid: {
+      template-columns: repeat(2, 1fr);
+
+      column-gap: $nav_gap;
+    }
+
+    li {
+      align-self: center;
+    }
+
+    a {
+      @extend h4;
+      align-items: center;
+
+      position: relative;
+
+      display: flex;
+
+      color: $color__font--primary;
+
+      &:after {
+        @include pseudoElement(24px, 'Arrow.svg');
+        position: relative;
+
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &__buttons {
+    justify-content: flex-end;
+
+    display: flex;
+    grid-area: buttons;
+
+    button:last-child {
+      margin-left: 45px;
+    }
+  }
+
+}

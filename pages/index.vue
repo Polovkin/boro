@@ -6,9 +6,11 @@
       :getted-options="locomotiveOptions"
     >
       <MainSection data-scroll-section />
-     <Cases />
+<!--      <Cases />
       <MainAbout />
       <Services />
+      <MainBLog />-->
+      <MainBLog/>
       <Lead />
       <Footer />
     </LocomotiveScroll>
@@ -32,9 +34,11 @@ import Cases from '../components/sections/Cases/Cases'
 import MainAbout from '../components/sections/MainAbout'
 import Services from '../components/sections/Services/Services'
 import Lead from '../components/sections/Lead'
+import MainBLog from '../components/sections/Blog/MainBLog'
 
 export default {
   components: {
+    MainBLog,
     Lead,
     Services,
     MainAbout,

@@ -54,8 +54,10 @@ export default {
    */
   mounted () {
     this.$nuxt.$on('update-locomotive', () => {
-      console.log('update')
       this?.locomotive?.update()
+    })
+    this.$nuxt.$on('scroll-locomotive', (data) => {
+      this.locomotive.scrollTo(data.target, data.options)
     })
   },
   methods: {
