@@ -51,10 +51,10 @@ export default {
   flex-direction: column;
 
   display: flex;
-  height: 550px;
+  height: 522px;
 
   &__img {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
 
   &__body {
@@ -65,7 +65,7 @@ export default {
   }
 
   &__title {
-    margin: 8px 0 16px;
+    margin: 8px 0 4px;
   }
 
   &__text {
@@ -78,7 +78,8 @@ export default {
   }
 
   &__date {
-    margin-bottom: 10px;
+    @include body-secondary;
+    margin-bottom: 14px;
   }
 
   &__tags {

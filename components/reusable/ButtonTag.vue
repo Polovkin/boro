@@ -45,7 +45,7 @@ export default {
        lang="scss">
 .button-tag {
   $animation: all ease-in .2s;
-  $icon_size: 16px;
+  $icon_size: 12px;
   @include caption-normal;
   display: block;
   width: fit-content;
@@ -65,7 +65,9 @@ export default {
   text-transform: capitalize;
 
   transition: $animation;
-
+&:last-child {
+  margin-right: 0;
+}
   &-simple {
     cursor: auto;
   }

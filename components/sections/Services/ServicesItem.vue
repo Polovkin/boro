@@ -6,13 +6,13 @@
     <hr class="divider">
     <div class="service-item__wrap">
       <figure class="service-item__img">
-        <nuxt-picture
+<!--        <nuxt-picture
           width="326"
           height="248"
           fit="cover"
           loading="lazy"
           :src="`/img/${data.img}`"
-        />
+        />-->
       </figure>
       <div class="service-item__content">
         <h4>{{ data.title }}</h4>

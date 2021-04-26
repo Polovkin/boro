@@ -1,7 +1,7 @@
 .footer {
   $nav_gap: 122px;
   $nav_fr: 4fr;
-  padding-top: 64px;
+  padding-top: 84px;
 
   .link__wrap {
     transform: translateX(0) !important;
@@ -21,11 +21,11 @@
   &__main {
     display: grid;
 
-    padding: 52px 0;
+    padding: 52px 0 31px;
     grid: {
       template: {
         columns: 2.75fr #{$nav_fr / 2} #{$nav_fr / 2} 1.5fr 3.5fr;
-        rows: auto;
+        rows: 240px - 83px;
         areas: 'mail nav address . button';
       };
     }
@@ -36,7 +36,7 @@
     }
 
     &-link {
-      margin-bottom: 32px;
+      margin-bottom: 37px;
 
       color: $color__font--primary;
 
@@ -64,6 +64,13 @@
 
         &__list {
           align-items: flex-start;
+          justify-content: space-between;
+
+          height: 136px;
+        }
+
+        &__item:last-child {
+          margin-top: 0;
         }
       }
     }
@@ -88,7 +95,7 @@
       align-self: end;
 
       position: relative;
-
+      top: -5px;
 
       grid-area: button;
       justify-self: end;
@@ -101,18 +108,20 @@
 
         span {
           @include size(70px);
+          position: relative;
 
 
           margin-left: 18px;
 
           border: 1px solid $color__dark_6;
           border-radius: 50%;
-          position: relative;
+
           &:before {
             @include pseudoElement(20px, 'Arrow.svg');
-            transform: translate(-50%,-50%);
             top: 50%;
             left: 50%;
+
+            transform: translate(-50%,-50%) rotate(-45deg);
           }
         }
       }
@@ -171,4 +180,21 @@
     }
   }
 
+  &__copyright {
+    @include body-tertiary;
+    color: $color__font--tertiary
+  }
+
+  &__bottom {
+    align-items: center;
+    justify-content: space-between;
+
+    display: flex;
+
+    padding: 28px 0;
+
+    &-tags {
+      display: flex;
+    }
+  }
 }

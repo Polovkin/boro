@@ -9,11 +9,13 @@
     grid: {
       template: {
         columns: 8fr 4fr;
+        rows: auto;
       };
     }
   }
 
   &__img {
+    margin-bottom: 8px;
 
     img {
       border-radius: 50%;
@@ -33,18 +35,24 @@
     justify-content: flex-end;
 
     display: flex;
+
     &-info {
-      margin-right: 53px;
       align-self: flex-end;
+
+      margin-right: 40px;
     }
+
     &-tags {
-      display: flex;
       align-self: flex-end;
+
+      display: flex;
     }
 
   }
 
-
+  &__header {
+    @extend h3;
+  }
 
   &__contact {
     display: flex;

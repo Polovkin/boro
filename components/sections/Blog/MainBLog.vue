@@ -1,26 +1,33 @@
 <template>
   <Section
-    v-in-viewport
-    num-elem
-    class="main-blog"
+      v-in-viewport
+      num-elem
+      class="main-blog"
   >
     <h2 slot="title">
       Blog
     </h2>
     <LinkPrimary
-      slot="elem"
-      :payload="'24'"
-      link="/"
+        slot="elem"
+        :payload="'24'"
+        link="/"
     >
       Read more posts
     </LinkPrimary>
     <div
-      slot="content"
-      class="main-blog__content"
+        slot="content"
+        class="main-blog__content"
     >
-      <PostCard :key="index" v-for="(post,index) of posts" :post="post" />
+      <div class="main-blog__posts">
+        <PostCard
+            v-for="(post,index) of posts"
+            :key="index"
+            :post="post"
+        />
+      </div>
+
+      <hr class="divider">
     </div>
-    <hr class="divider">
   </Section>
 </template>
 
@@ -28,10 +35,11 @@
 import Section from '../../reusable/Section'
 import LinkPrimary from '../../reusable/LinkPrimary'
 import PostCard from './PostCard'
+
 export default {
   name: 'MainBLog',
-  components: { PostCard, LinkPrimary, Section },
-  data () {
+  components: {PostCard, LinkPrimary, Section},
+  data() {
     return {
       posts: [
         {
@@ -66,12 +74,34 @@ export default {
 
 <style lang="scss">
 .main-blog {
+  $grid_gap: 29px;
 
   &__content {
-    padding-top: 32px;
+.divider {
+  margin-top: 23px;
+}
+  }
+
+  &__posts {
     display: grid;
-    grid-column-gap: 20px;
-    grid-template-columns: repeat(3,1fr);
+
+    padding-top: 32px;
+    grid-column-gap: $grid_gap;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .blog-card {
+    $width: calc(((1312 / 3) / 1400) * 100vw);
+    $height: calc((294 / 400) * #{$width});
+
+    &__img {
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
   }
 }
 
