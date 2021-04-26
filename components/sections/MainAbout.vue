@@ -102,6 +102,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "/assets/scss/core/headings";
+
 @import "/assets/scss/sections/main-about.scss";
 </style>

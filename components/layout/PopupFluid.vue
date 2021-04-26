@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'assets/scss/core/headings';
+
 
 .slide-fade-enter-active {
   transition: all .3s ease;
@@ -142,7 +142,7 @@ export default {
   }
 
   &__title {
-    @extend h3;
+    @include h3;
   }
 }
 </style>

@@ -171,10 +171,11 @@ $label_top_padding: 15px;
 $label_bottom_padding: 20px;
 $invalid_color: #fff;
 $valid_color: #fff;
-$border_weight: 1px;@import 'assets/scss/core/headings';
+$border_weight: 1px;
+
 
 .input-custom {
-  @extend h6;
+  @include h6;
   height: $input_height;
 
   padding-bottom: 16px;
@@ -199,7 +200,7 @@ $border_weight: 1px;@import 'assets/scss/core/headings';
   }
 
   &__placeholder {
-    @extend h5;
+    @include h5;
     position: absolute;
     top: 5px + $label_bottom_padding;
 

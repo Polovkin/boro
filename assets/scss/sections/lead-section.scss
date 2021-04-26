@@ -28,7 +28,7 @@
   }
 
   &__name {
-    @extend h6;
+    @include h6;
   }
 
   &__contact {
@@ -51,7 +51,7 @@
   }
 
   &__header {
-    @extend h3;
+    @include h3;
   }
 
   &__contact {

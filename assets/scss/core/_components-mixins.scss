@@ -27,6 +27,7 @@
     size: 14px;
   }
 }
+
 @mixin body-tertiary {
   letter-spacing: -.4px;
 
@@ -37,6 +38,7 @@
     size: 12px;
   }
 }
+
 @mixin title-link {
   letter-spacing: -.01em;
   line-height: 24px;
@@ -47,6 +49,7 @@
     size: 14px;
   }
 }
+
 @mixin caption-normal {
   letter-spacing: -.006em;
   line-height: 16px;
@@ -54,5 +57,62 @@
     style: normal;
     weight: normal;
     size: 12px;
+  }
+}
+
+@mixin h1 {
+  font-size: 100px;
+  font-weight: bold;
+  letter-spacing: -.056em;
+  line-height: 84px;
+}
+
+@mixin h2 {
+  letter-spacing: -.05em;
+  line-height: 60px;
+  font: {
+    style: normal;
+    weight: 500;
+    size: 54px;
+  }
+}
+
+@mixin h3 {
+  letter-spacing: -2.8px;
+  line-height: 48px;
+  font: {
+    style: normal;
+    weight: 500;
+    size: 46px;
+  }
+}
+
+@mixin h4 {
+  letter-spacing: -1.8px;
+  line-height: 32px;
+  font: {
+    style: normal;
+    weight: 500;
+    size: 32px;
+  }
+}
+
+@mixin h5 {
+  letter-spacing: -1px;
+  line-height: 36px;
+  font: {
+    style: normal;
+    weight: 500;
+    size: 24px;
+  }
+}
+
+@mixin h6 {
+  letter-spacing: -1px;
+  line-height: 24px;
+  font: {
+    style: normal;
+    weight: 500;
+    size: 18px;
   }
 }

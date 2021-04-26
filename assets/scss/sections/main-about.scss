@@ -1,7 +1,7 @@
 .main-about {
 
   &__title {
-    @extend h3;
+    @include h3;
     max-width: 730px;
   }
 
@@ -57,14 +57,14 @@
       justify-self: center;
 
       dt {
-        @extend h1;
+        @include h1;
         margin-right: 12px;
 
         color: $color__font--primary;
       }
 
       dl {
-        @extend  h6;
+        @include h6;
         max-width: 40px;
 
         color: $color__font--quaternary;

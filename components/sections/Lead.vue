@@ -74,6 +74,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "/assets/scss/core/headings";
+
 @import "/assets/scss/sections/lead-section";
 </style>
