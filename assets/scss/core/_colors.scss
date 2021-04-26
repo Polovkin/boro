@@ -6,6 +6,7 @@ $color__light              : #fff;
 $color__light_72           : rgba($color__light,.72);
 $color__light_54           : rgba($color__light,.54);
 $color__light_32           : rgba($color__light,.32);
+$color__light_24           : rgba($color__light,.24);
 $color__light_16           : rgba($color__light,.16);
 $color__light_6             : rgba($color__light,.06);
 
@@ -23,7 +24,7 @@ $color__gray_light: #f3f5f6;
 //font light theme
 $color__font--primary    : $color__dark;
 $color__font--secondary  : rgba($color__dark, .72) ;
-$color__font--tertiary   : rgba($color__dark, .54) ;
+$color__font--tertiary   : rgba($color__light, .54) ;
 $color__font--quaternary : rgba($color__dark, .32) ;
 
 //font dark theme

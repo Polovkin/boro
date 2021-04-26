@@ -1,0 +1,12 @@
+@import "assets/scss/core/headings";
+
+.form {
+
+  &__title {
+    @extend h3;
+  }
+
+  &__description {
+    @include body-secondary;
+  }
+}

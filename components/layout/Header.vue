@@ -29,11 +29,10 @@ import Navigation from '../reusable/Navigation'
 import LangSwitcher from '../LangSwitcher'
 import LayoutNav from '../reusable/LayoutNav'
 import ButtonPrimary from '../reusable/ButtonPrimary'
-import PopupScale from '../reusable/PopupScale'
 
 export default {
   name: 'Header',
-  components: { PopupScale, ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
+  components: { ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
   data () {
     return {
       firstLoad: false,

@@ -1,36 +1,39 @@
 <template>
-  <div
-    v-show="isShow"
-    v-in-viewport
-    class="popup"
-    :class="{'popup__light': isLight}"
-  >
-    <div class="container">
-      <div class="popup__header">
-        <Logo :is-light="!isLight" />
-        <button
-          class="popup__header-close"
-          @click="closePopup"
-        >
-          Close
-          <span class="popup__header-cross" />
-        </button>
-        <div class="divider" />
+  <transition name="slide-fade">
+    <div
+      v-show="isShow"
+      v-in-viewport
+      class="popup"
+      :class="{'popup__light': isLight}"
+    >
+      <div class="container">
+        <div class="popup__header">
+          <Logo :is-light="!isLight" />
+          <button
+            class="popup__header-close"
+            @click="closePopup"
+          >
+            Close
+            <span class="popup__header-cross" />
+          </button>
+          <div class="divider" />
+        </div>
+        <div class="popup__body">
+          <Form />
+        </div>
       </div>
     </div>
-    <div class="popup__content">
-      <slot />
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import Logo from '../reusable/Logo'
+import Form from '../reusable/Form'
 
 export default {
   name: 'PopupFluid',
-  components: { Logo },
+  components: { Form, Logo },
   props: {
     isLight: {
       type: Boolean,
@@ -55,6 +58,23 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'assets/scss/core/headings';
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, .5, .8, 1.0);
+}
+
+.slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active до версии 2.1.8 */
+{
+  transform: translateX(10px);
+  opacity: 0;
+}
+
 .popup {
   position: fixed;
   top: 50%;
@@ -67,6 +87,13 @@ export default {
   background-color: $color__dark;
 
   transform: translate(-50%, -50%);
+
+  .container {
+    flex-direction: column;
+
+    display: flex;
+    height: 100%;
+  }
 
   &__header {
     align-items: center;
@@ -107,5 +134,15 @@ export default {
     }
   }
 
+  &__body {
+    flex: 1;
+    padding: 42px 0;
+
+    color: $color__light;
+  }
+
+  &__title {
+    @extend h3;
+  }
 }
 </style>

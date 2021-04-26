@@ -3,7 +3,7 @@ export const state = () => ({
   headerBaseState: false,
   // preloaderDone: false
   preloaderDone: true,
-  popupState: false
+  popupState: true
 })
 
 export const mutations = {
