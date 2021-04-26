@@ -30,6 +30,7 @@
     v-else
     ref="button"
     class="button"
+    @click="openPopup"
     @mouseleave="mouseLeave"
     @mouseenter="mouseEnter"
   >
@@ -46,30 +47,55 @@
         class="button__wave"
       />
     </span>
+    <span
+      v-if="isPopupToggle"
+      class="button__popup-toggle"
+      :class="{'button__popup-toggle--active':isPopOpen}"
+    />
   </button>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'ButtonPrimary',
   props: {
     link: {
       type: String
+    },
+    isPopupToggle: {
+      type: Boolean,
+      default: false
+    },
+    isPopupToggleStatus: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
       wave: null,
       classHover: 'button--hover',
-      classLeave: 'button--leave'
+      classLeave: 'button--leave',
+      isPopOpen: false
     }
   },
-  mounted () {
-
+  computed: {
+    ...mapState({
+      popupState: s => s.app.popupState
+    }),
+    isScaled () {
+      return this.popupState && this.isPopOpen
+    }
+  },
+  watch: {
+    popupState (newValue) {
+      this.isPopOpen = newValue
+    }
   },
   methods: {
     mouseEnter (event) {
-
       this.$refs.button.classList.remove(this.classLeave)
 
       this.$refs.wave.style.left = event.clientX - this.$refs.circle.getBoundingClientRect().left + 'px'
@@ -82,6 +108,14 @@ export default {
     mouseLeave () {
       this.$refs.button.classList.remove(this.classHover)
       this.$refs.button.classList.add(this.classLeave)
+    },
+    openPopup () {
+      if (this.isPopupToggle) {
+        this.isPopOpen = true
+        setTimeout(() => {
+          this.$store.commit('app/SET_POPUP_STATE', true)
+        },400)
+      }
     }
   }
 }
@@ -129,10 +163,6 @@ export default {
 
   transition: all .1s ease-in;
 
-  &__link {
-    width: fit-content;
-  }
-
   &--hover {
 
     .button__wave {
@@ -154,6 +184,10 @@ export default {
         fill-mode: forwards;
       }
     }
+  }
+
+  &__link {
+    width: fit-content;
   }
 
   &__circle {
@@ -185,6 +219,26 @@ export default {
     background: $color__dark;
 
     transform: scale(0);
+  }
+
+  &__popup-toggle {
+    @include size($circle_size);
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: z(modal);
+
+    border-radius: 50%;
+
+    background-color: $color__dark;
+
+    transform: translateY(-50%) scale(0);
+
+    transition: all linear .4s;
+
+    &--active {
+      transform: translateY(-50%) scale(100);
+    }
   }
 
   &:hover {

@@ -12,7 +12,10 @@
         </div>
         <div class="header__wrap header__wrap-right">
           <LangSwitcher />
-          <ButtonPrimary>{{ $t('header.link') }}</ButtonPrimary>
+
+          <ButtonPrimary is-popup-toggle>
+            {{ $t('header.link') }}
+          </ButtonPrimary>
         </div>
       </div>
     </div>
@@ -26,13 +29,15 @@ import Navigation from '../reusable/Navigation'
 import LangSwitcher from '../LangSwitcher'
 import LayoutNav from '../reusable/LayoutNav'
 import ButtonPrimary from '../reusable/ButtonPrimary'
+import PopupScale from '../reusable/PopupScale'
 
 export default {
   name: 'Header',
-  components: { ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
+  components: { PopupScale, ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
   data () {
     return {
-      firstLoad: false
+      firstLoad: false,
+      scale: false
     }
   },
   computed: {
@@ -53,6 +58,9 @@ export default {
   },
   mounted () {
     this.firstLoad = true
+  },
+  methods: {
+
   }
 }
 </script>

@@ -6,7 +6,7 @@
       :getted-options="locomotiveOptions"
     >
       <MainSection data-scroll-section />
-    <Cases />
+      <Cases />
       <MainAbout />
       <Services />
       <MainBLog />

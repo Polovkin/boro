@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <!--    <Preloader/>-->
+    <PopupFluid />
     <Header />
     <main class="main">
       <div class="container">
@@ -13,10 +14,11 @@
 <script>
 import Footer from '../components/layout/Footer'
 import Preloader from '../components/reusable/Preloader'
+import PopupFluid from '../components/layout/PopupFluid'
 import Header from '~/components/layout/Header'
 
 export default {
-  components: { Preloader, Footer, Header },
+  components: { PopupFluid, Preloader, Footer, Header },
   data () {
     return {}
   }
