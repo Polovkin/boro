@@ -114,7 +114,7 @@ export default {
         this.isPopOpen = true
         setTimeout(() => {
           this.$store.commit('app/SET_POPUP_STATE', true)
-        },400)
+        },1000)
       }
     }
   }
@@ -234,7 +234,7 @@ export default {
 
     transform: translateY(-50%) scale(0);
 
-    transition: all linear .4s;
+    transition: all linear 1s;
 
     &--active {
       transform: translateY(-50%) scale(100);
