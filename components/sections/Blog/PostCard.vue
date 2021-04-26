@@ -51,7 +51,7 @@ export default {
   flex-direction: column;
 
   display: flex;
-  height: 522px;
+  min-height: 522px;
 
   &__img {
     margin-bottom: 12px;

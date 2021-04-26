@@ -77,9 +77,10 @@ export default {
   $grid_gap: 29px;
 
   &__content {
-.divider {
-  margin-top: 23px;
-}
+
+    .divider {
+      margin-top: 23px;
+    }
   }
 
   &__posts {
