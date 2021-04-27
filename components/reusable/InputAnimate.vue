@@ -55,7 +55,7 @@
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
       | {{ placeholder ? placeholder : 'email' }}
     input.input-custom.input-custom__animate(
-      v-model.lazy='$v.email.$model'
+      v-model='$v.email.$model'
       autocomplete='new-password'
       type='email'
       @click='placeholderAnimate=true'
@@ -114,6 +114,10 @@ export default {
     }
   },
   props: {
+    touch: {
+      type: Boolean,
+      default: false
+    },
     typePassword: {
       type: Boolean,
       default: false
@@ -145,6 +149,13 @@ export default {
       passwordState: false
     }
   },
+  watch: {
+    touch (newValue) {
+      if (newValue) {
+        this.$v.$touch()
+      }
+    }
+  },
   mounted () {
     this.type = this.typePassword ? 'password' : this.typeEmail ? 'email' : this.name ? 'name' : 'text'
   },
@@ -172,7 +183,6 @@ $label_bottom_padding: 20px;
 $invalid_color: #fff;
 $valid_color: #fff;
 $border_weight: 1px;
-
 
 .input-custom {
   @include h6;

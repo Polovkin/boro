@@ -1,25 +1,25 @@
 <template>
   <transition name="slide-fade">
     <div
-        v-show="isShow"
-        v-in-viewport
-        class="popup"
-        :class="{'popup__light': isLight}"
+      v-show="isShow"
+      v-in-viewport
+      class="popup"
+      :class="{'popup__light': isLight}"
     >
       <div class="container">
         <div class="popup__header">
-          <Logo :is-light="!isLight"/>
+          <Logo :is-light="!isLight" />
           <button
-              class="popup__header-close"
-              @click="closePopup"
+            class="popup__header-close"
+            @click="closePopup"
           >
             Close
-            <span class="popup__header-cross"/>
+            <span class="popup__header-cross" />
           </button>
-          <div class="divider"/>
+          <div class="divider" />
         </div>
         <div class="popup__body">
-          <Form/>
+          <Form />
         </div>
       </div>
     </div>
@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 import Logo from '../reusable/Logo'
 import Form from '../reusable/Form'
 
 export default {
   name: 'PopupFluid',
-  components: {Form, Logo},
+  components: { Form, Logo },
   props: {
     isLight: {
       type: Boolean,
@@ -43,14 +43,14 @@ export default {
 
   computed: {
     ...mapState({
-      popupState: s => s.app.popupState,
+      popupState: s => s.app.popupState
     }),
-    isShow() {
+    isShow () {
       return this.popupState
-    },
+    }
   },
   methods: {
-    closePopup() {
+    closePopup () {
       this.$store.commit('app/SET_POPUP_STATE')
     }
   }
@@ -58,7 +58,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 
 .slide-fade-enter-active {
   transition: all .2s ease;

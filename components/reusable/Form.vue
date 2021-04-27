@@ -18,6 +18,7 @@
         Estimate project
       </h2>
     </div>
+
     <div class="form__content">
       <form class="form__body">
         <template v-if="popupTypeTouch">
@@ -30,7 +31,7 @@
             :placeholder="'Your name'"
           />
           <InputCustom
-            v-model="formData.name"
+            v-model="formData.email"
             class="form__item"
             type-email
             :touch="touch"
@@ -52,7 +53,7 @@
             :placeholder="'Message'"
           />
         </template>
-        <template>
+        <template v-else>
           <div class="form__body-estimate">
             <InputCustom
               v-model="formData.name"
@@ -65,7 +66,7 @@
           </div>
         </template>
         <div class="form__submit">
-          <ButtonPrimary is-submit>
+          <ButtonPrimary is-submit @submitEvent="submit">
             Send
           </ButtonPrimary>
         </div>
@@ -115,7 +116,8 @@ export default {
       formData: {
         name: null,
         email: null,
-        phone: null
+        phone: null,
+        message: null
       },
       users: [
         {
@@ -185,6 +187,10 @@ export default {
     })
   },
   methods: {
+    submit () {
+      this.touch = true
+      const valid = false
+    },
     removeFile () {
       this.file = null
       this.fileError = false

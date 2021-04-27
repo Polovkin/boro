@@ -31,7 +31,7 @@
     ref="button"
     class="button"
     :type="isSubmit ? 'submit':'button'"
-    @click="openPopup"
+    @click.prevent="buttonClickEvents"
     @mouseleave="mouseLeave"
     @mouseenter="mouseEnter"
   >
@@ -117,7 +117,11 @@ export default {
       this.$refs.button.classList.remove(this.classHover)
       this.$refs.button.classList.add(this.classLeave)
     },
-    openPopup () {
+    buttonClickEvents () {
+      if (this.isSubmit) {
+        this.$emit('submitEvent')
+        return null
+      }
       if (this.isPopupToggle) {
         this.isPopOpen = true
         setTimeout(() => {
@@ -320,8 +324,6 @@ export default {
   &:active {
     transform: scale(.96);
   }
-
-
 
 }
 
