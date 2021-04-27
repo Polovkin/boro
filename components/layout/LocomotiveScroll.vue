@@ -63,9 +63,10 @@ export default {
   methods: {
     getScrollDirection (e) {
       const steps = e.scroll.y >= this.lastY
+      console.log(e.scroll.y >= this.lastY);
       this.$store.commit('app/SET_SCROLL_DIRECTION', steps)
-      this.$store.commit('app/SET_HEADER_BASE_STATE', e.scroll.y > 100 && steps)
-      this.lastY = steps
+      this.$store.commit('app/SET_HEADER_MOVE', e.scroll.y > 100 && steps)
+      this.lastY = e.scroll.y
     },
     onScroll (e) {
       if (typeof this.$store._mutations['app/setScroll'] !== 'undefined') {

@@ -3,15 +3,15 @@
     ref="header"
     class="header"
     :class="{
-    'header--scrolling': isHeaderBaseState,
-    'animation-header-hide': false,
-    'animation-base-state': isPreloaderDone}"
+      'header--scrolling': isHeaderMove,
+      //'animation-header-hide': false,
+      'animation-base-state': isPreloaderDone && !isHeaderMove}"
   >
     <div class="container">
       <div class="header__content">
         <div class="header__wrap header__wrap-left">
-          <Logo class="header__logo"/>
-          <LayoutNav class="header__navigation"/>
+          <Logo class="header__logo" />
+          <LayoutNav class="header__navigation" />
         </div>
         <div class="header__wrap header__wrap-right">
           <LangSwitcher />
@@ -46,22 +46,27 @@ export default {
   computed: {
     ...mapState({
       scrollDirection: s => s.app.scrollDirection,
-      headerBaseState: s => s.app.headerBaseState,
+      headerMove: s => s.app.headerMove,
       preloaderDone: s => s.app.preloaderDone
     }),
     isPreloaderDone () {
       return this.preloaderDone
     },
-    isHeaderBaseState () {
-      return this.headerBaseState
+    isHeaderMoveUp () {
+      return this.scrollDirection
+    },
+    isHeaderMove () {
+      return this.headerMove
     }
   },
   mounted () {
     this.firstLoad = true
   },
-  methods: {
-
-  }
+  watch: {
+    isHeaderMoveUp(newValue, oldValue) {
+      console.log(newValue);
+    }
+  },
 }
 </script>
 
