@@ -1,6 +1,6 @@
 <template>
   <div>
-<!--    <LocomotiveScroll
+   <LocomotiveScroll
       ref="scroller"
       data-scroll-container
       :getted-options="locomotiveOptions"
@@ -12,7 +12,7 @@
       <MainBLog />
       <Lead />
       <Footer />
-    </LocomotiveScroll>-->
+    </LocomotiveScroll>
   </div>
 
   <!--  <div>

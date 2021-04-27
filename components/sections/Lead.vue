@@ -12,7 +12,8 @@
         <span class="text-color-main">hello@boro.com</span>
       </h2>
       <div class="lead-section__contact">
-        <div class="lead-section__contact-info">
+        <UserInfo :data="data" :tags="socials" />
+        <!--        <div class="lead-section__contact-info">
           <figure class="lead-section__img">
             <nuxt-img
               loading="lazy"
@@ -37,7 +38,7 @@
           >
             {{ tags.name }}
           </ButtonTag>
-        </div>
+        </div>-->
       </div>
     </div>
     <hr class="divider">
@@ -46,11 +47,17 @@
 
 <script>
 import ButtonTag from '../reusable/ButtonTag'
+import UserInfo from '../reusable/UserInfo'
 export default {
   name: 'Lead',
-  components: { ButtonTag },
+  components: { UserInfo, ButtonTag },
   data () {
     return {
+      data: {
+        name: 'Stas Stashkevych',
+        position: 'CBDO',
+        img: 'stos.jpg'
+      },
       socials: [
         {
           name: 'Viber',
@@ -75,5 +82,5 @@ export default {
 
 <style lang="scss">
 
-@import "/assets/scss/sections/lead-section";
+@import '/assets/scss/sections/lead-section';
 </style>

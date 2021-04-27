@@ -3,6 +3,7 @@
     v-if="link"
     to="link"
     class="button-tag"
+    :class="{'button-tag--dark':isDark}"
   >
     <span class="button-tag__wrap">
       <img
@@ -17,6 +18,7 @@
   </nuxt-link>
   <button
     v-else
+    :class="{'button-tag--dark':isDark}"
     class="button-tag button-tag-simple"
   >
     <span class="button-tag__wrap">
@@ -31,6 +33,10 @@
 export default {
   name: 'ButtonTag',
   props: {
+    isDark: {
+      type: Boolean,
+      default: false
+    },
     icon: {
       type: String
     },
@@ -60,14 +66,33 @@ export default {
 
   background-color: $color__gray_light;
 
-  color: $color__font--tertiary;
+  color: $color__font_dark--tertiary;
 
   text-transform: capitalize;
 
   transition: $animation;
-&:last-child {
-  margin-right: 0;
-}
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--dark {
+    background-color: $color__light_6;
+
+    color: $color__light;
+
+    &:hover {
+      //border: 1px solid $color__gray_light;
+
+      background-color: $color__light_6 !important;
+
+      .button-tag__text {
+        color: $color__light !important;
+      }
+
+    }
+  }
+
   &-simple {
     cursor: auto;
   }

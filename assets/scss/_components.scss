@@ -4,6 +4,10 @@
 
 .divider {
   @include divider;
+
+  &.light {
+    background-color: $color__light_6;
+  }
 }
 
 

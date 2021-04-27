@@ -56,7 +56,7 @@
       | {{ placeholder ? placeholder : 'email' }}
     input.input-custom.input-custom__animate(
       v-model.lazy='$v.email.$model'
-      autocomplete='true'
+      autocomplete='new-password'
       type='email'
       @click='placeholderAnimate=true'
       @blur='unfocused'
@@ -254,7 +254,7 @@ $border_weight: 1px;
     top-color: transparent;
     left-color: transparent;
     right-color: transparent;
-    bottom-color: $color__light;
+    bottom-color: $color__light_24;
   };
 
   &--active {

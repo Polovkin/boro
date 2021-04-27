@@ -1,9 +1,12 @@
+import { POPUP_GET_IN_TOUCH } from './types'
+
 export const state = () => ({
   scrollDirection: null,
   headerBaseState: false,
   // preloaderDone: false
   preloaderDone: true,
-  popupState: true
+  popupState: true,
+  popupType: POPUP_GET_IN_TOUCH
 })
 
 export const mutations = {
@@ -16,6 +19,9 @@ export const mutations = {
     } else {
       s.popupState = payload
     }
+  },
+  SET_POPUP_TYPE (s, payload) {
+    s.popupState = payload
   },
   SET_HEADER_BASE_STATE (s, payload) {
     s.headerBaseState = payload

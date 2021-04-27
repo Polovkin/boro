@@ -1,0 +1,2 @@
+export const POPUP_GET_IN_TOUCH = 'POPUP_GET_IN_TOUCH'
+export const POPUP_ESTIMATE = 'POPUP_ESTIMATE'

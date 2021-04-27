@@ -30,6 +30,7 @@
     v-else
     ref="button"
     class="button"
+    :type="isSubmit ? 'submit':'button'"
     @click="openPopup"
     @mouseleave="mouseLeave"
     @mouseenter="mouseEnter"
@@ -57,21 +58,28 @@
 
 <script>
 import { mapState } from 'vuex'
+import { POPUP_GET_IN_TOUCH } from '../../store/types'
 
 export default {
   name: 'ButtonPrimary',
   props: {
     link: {
-      type: String
+      type: String,
+      default: ''
+    },
+    isSubmit: {
+      type: Boolean,
+      default: false
     },
     isPopupToggle: {
       type: Boolean,
       default: false
     },
-    isPopupToggleStatus: {
-      type: Boolean,
-      default: false
+    popupCalledType: {
+      type: String,
+      default: POPUP_GET_IN_TOUCH
     }
+
   },
   data () {
     return {
@@ -114,14 +122,15 @@ export default {
         this.isPopOpen = true
         setTimeout(() => {
           this.$store.commit('app/SET_POPUP_STATE', true)
-        },300)
+          this.$store.commit('app/SET_POPUP_TYPE', this.popupCalledType)
+        }, 300)
       }
     }
   }
 }
 </script>
 
-<style scoped
+<style
        lang="scss">
 @keyframes hover-animation {
 
@@ -162,18 +171,6 @@ export default {
   padding: 10px 0;
 
   transition: all .1s ease-in;
-
-  &--hover {
-
-    .button__wave {
-      animation: {
-        name: hover-animation;
-        duration: $wave_animation_duration;
-        fill-mode: forwards;
-        timing-function: cubic-bezier(.25, .74, .22, .99);
-      }
-    }
-  }
 
   &--leave {
 
@@ -221,6 +218,18 @@ export default {
     transform: scale(0);
   }
 
+  &--hover {
+
+    .button__wave {
+      animation: {
+        name: hover-animation;
+        duration: $wave_animation_duration;
+        fill-mode: forwards;
+        timing-function: cubic-bezier(.25, .74, .22, .99);
+      }
+    }
+  }
+
   &__popup-toggle {
     @include size($circle_size);
     position: absolute;
@@ -239,36 +248,6 @@ export default {
     &--active {
       transform: translateY(-50%) scale(100);
     }
-  }
-
-  &:hover {
-
-    .arrow {
-      background-color: $color__primary;
-
-      transform: translate(-50%, -50%) scale(.2) rotate(0deg);
-
-      &:after, &:before {
-        background-color: $color__primary;
-      }
-    }
-  }
-
-  &:active {
-    transform: scale(.96);
-  }
-
-  .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: z(content);
-
-    width: 80px;
-    height: 60px;
-
-    transform: translate(-50%, -50%);
-    cursor: pointer;
   }
 
   .arrow {
@@ -311,6 +290,39 @@ export default {
       transform: rotate(-45deg);
     }
   }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: z(content);
+
+    width: 80px;
+    height: 60px;
+
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+
+  &:hover {
+
+    .arrow {
+      background-color: $color__primary;
+
+      transform: translate(-50%, -50%) scale(.2) rotate(0deg);
+
+      &:after, &:before {
+        background-color: $color__primary;
+      }
+    }
+  }
+
+  &:active {
+    transform: scale(.96);
+  }
+
+
+
 }
 
 </style>

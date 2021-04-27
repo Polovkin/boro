@@ -14,47 +14,8 @@
     }
   }
 
-  &__img {
-    margin-bottom: 8px;
-
-    img {
-      border-radius: 50%;
-    }
-  }
-
-  &__text {
-    @include body-secondary;
-    color: $color__font--quaternary;
-  }
-
-  &__name {
-    @include h6;
-  }
-
-  &__contact {
-    justify-content: flex-end;
-
-    display: flex;
-
-    &-info {
-      align-self: flex-end;
-
-      margin-right: 40px;
-    }
-
-    &-tags {
-      align-self: flex-end;
-
-      display: flex;
-    }
-
-  }
-
   &__header {
     @include h3;
   }
 
-  &__contact {
-    display: flex;
-  }
 }

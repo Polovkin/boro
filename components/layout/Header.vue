@@ -29,13 +29,14 @@ import Navigation from '../reusable/Navigation'
 import LangSwitcher from '../LangSwitcher'
 import LayoutNav from '../reusable/LayoutNav'
 import ButtonPrimary from '../reusable/ButtonPrimary'
-
+import { POPUP_GET_IN_TOUCH } from '../../store/types'
 export default {
   name: 'Header',
   components: { ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
   data () {
     return {
       firstLoad: false,
+      popupCalledType: POPUP_GET_IN_TOUCH,
       scale: false
     }
   },
@@ -47,9 +48,6 @@ export default {
     }),
     isPreloaderDone () {
       return this.preloaderDone
-    },
-    isScrollDown () {
-      return this.scrollDirection
     },
     isHeaderBaseState () {
       return this.headerBaseState
