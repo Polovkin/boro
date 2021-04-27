@@ -59,7 +59,7 @@ export default {
 
   &__body {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     display: flex;
   }
@@ -74,6 +74,7 @@ export default {
     overflow: hidden;
 
     text-overflow: ellipsis;
+    margin-bottom: 20px;
 
   }
 

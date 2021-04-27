@@ -9,8 +9,9 @@
     </h2>
     <div slot="content" class="main-services__content">
       <ServiceItem v-for="(item,index) of items" :key="index" :data="item" />
+      <hr class="divider">
     </div>
-    <hr class="divider">
+
   </section>
 </template>
 

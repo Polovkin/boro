@@ -23,8 +23,7 @@
   &__wrap {
     display: grid;
 
-    padding-top: 40px;
-    padding-bottom: 25px;
+    padding: 32px 0;
     grid: {
       template: {
         columns: 1fr 9fr 3fr;

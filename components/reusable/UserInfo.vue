@@ -64,7 +64,7 @@ export default {
 
   &--dark {
     .user-info__position {
-      color: $color__font--quaternary;
+      color:$color__font_dark--quaternary
     }
   }
 

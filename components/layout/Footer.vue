@@ -63,7 +63,7 @@
       <p class="footer__copyright">
         © boro 2021
       </p>
-      <FooterTags/>
+      <FooterTags />
     </div>
   </footer>
 </template>

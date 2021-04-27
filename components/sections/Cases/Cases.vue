@@ -23,6 +23,7 @@
         :key="index"
         :data="item"
       />
+      <hr class="divider">
     </div>
   </Section>
 </template>

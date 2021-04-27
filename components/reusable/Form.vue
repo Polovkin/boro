@@ -91,10 +91,7 @@
         />
       </div>
     </div>
-    <div class="form__footer">
-      <hr class="divider light">
-      <FooterTags is-dark />
-    </div>
+
   </div>
 </template>
 
@@ -149,23 +146,7 @@ export default {
             position: 'Account manager',
             name: 'Anna Haiduk'
           },
-          tags: [
-            {
-              name: 'Viber',
-              icon: 'facebook.png',
-              link: '/'
-            },
-            {
-              name: 'WhatsApp',
-              icon: 'facebook.png',
-              link: '/'
-            },
-            {
-              name: 'Telegram',
-              icon: 'facebook.png',
-              link: '/'
-            }
-          ]
+
         }
       ]
     }

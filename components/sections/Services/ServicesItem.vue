@@ -33,7 +33,6 @@
         />
       </div>
     </div>
-    <hr class="divider">
   </div>
 </template>
 

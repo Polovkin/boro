@@ -16,14 +16,14 @@
   }
 
   &__item {
-   margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   &__body {
     flex-direction: column;
+    justify-content: space-between;
 
     display: flex;
-    justify-content: space-between;
   }
 
   &__content {
@@ -81,14 +81,19 @@
 
   &__footer {
     position: relative;
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 28px 0;
 
     .divider {
       position: absolute;
       top: 0;
+
       padding-top: 0;
     }
+
+
   }
 
   .user-info {

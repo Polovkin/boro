@@ -134,8 +134,7 @@ export default {
 }
 </script>
 
-<style
-       lang="scss">
+<style lang="scss">
 @keyframes hover-animation {
 
   from {
@@ -172,7 +171,7 @@ export default {
 
   display: flex;
 
-  padding: 10px 0;
+  //padding: 10px 0;
 
   transition: all .1s ease-in;
 

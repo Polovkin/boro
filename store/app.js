@@ -5,7 +5,7 @@ export const state = () => ({
   headerBaseState: false,
   // preloaderDone: false
   preloaderDone: true,
-  popupState: false,
+  popupState: true,
   popupType: POPUP_GET_IN_TOUCH
 })
 

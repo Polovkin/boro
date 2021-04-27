@@ -21,6 +21,22 @@
         <div class="popup__body">
           <Form />
         </div>
+        <div class="popup__footer">
+          <hr class="divider light">
+          <div class="popup__wrap">
+            <div class="popup__footer-info">
+              <p class="popup__footer-item">
+                <span>Write</span>
+                <span>hello@boro.com</span>
+              </p>
+              <p class="popup__footer-item">
+                <span>Call</span>
+                <span> +3 (8093) 93 12 641</span>
+              </p>
+            </div>
+            <FooterTags is-dark />
+          </div>
+        </div>
       </div>
     </div>
   </transition>
@@ -30,17 +46,38 @@
 import { mapState } from 'vuex'
 import Logo from '../reusable/Logo'
 import Form from '../reusable/Form'
+import FooterTags from '../reusable/FooterTags'
 
 export default {
   name: 'PopupFluid',
-  components: { Form, Logo },
+  components: { FooterTags, Form, Logo },
   props: {
     isLight: {
       type: Boolean,
       default: false
     }
   },
-
+  data () {
+    return {
+      tags: [
+        {
+          name: 'Viber',
+          icon: 'facebook.png',
+          link: '/'
+        },
+        {
+          name: 'WhatsApp',
+          icon: 'facebook.png',
+          link: '/'
+        },
+        {
+          name: 'Telegram',
+          icon: 'facebook.png',
+          link: '/'
+        }
+      ]
+    }
+  },
   computed: {
     ...mapState({
       popupState: s => s.app.popupState
@@ -75,7 +112,6 @@ export default {
 }
 
 .popup {
-  overflow: auto;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -83,6 +119,7 @@ export default {
 
   width: 100vw;
   height: 100vh;
+  overflow: auto;
 
   background-color: $color__dark;
 
@@ -136,13 +173,47 @@ export default {
 
   &__body {
     flex: 1;
-    padding-top: 42px;
+
     display: flex;
+
+    padding-top: 42px;
+
     color: $color__light;
   }
 
   &__title {
     @include h3;
   }
+
+  &__footer {
+    align-items: center;
+    justify-content: space-between;
+
+    display: flex;
+
+    &-info {
+      display: flex;
+    }
+
+    &-item {
+      flex-direction: column;
+
+      display: flex;
+
+      margin-right: 50px;
+      margin-bottom: 10px;
+
+      span:first-child {
+        @include title-link;
+        color: $color__light;
+      }
+
+      a {
+        @include body-secondary;
+        color: $color__font--quaternary;
+      }
+    }
+  }
+
 }
 </style>

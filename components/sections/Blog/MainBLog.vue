@@ -1,28 +1,28 @@
 <template>
   <Section
-      v-in-viewport
-      num-elem
-      class="main-blog"
+    v-in-viewport
+    num-elem
+    class="main-blog"
   >
     <h2 slot="title">
       Blog
     </h2>
     <LinkPrimary
-        slot="elem"
-        :payload="'24'"
-        link="/"
+      slot="elem"
+      :payload="'24'"
+      link="/"
     >
       Read more posts
     </LinkPrimary>
     <div
-        slot="content"
-        class="main-blog__content"
+      slot="content"
+      class="main-blog__content"
     >
       <div class="main-blog__posts">
         <PostCard
-            v-for="(post,index) of posts"
-            :key="index"
-            :post="post"
+          v-for="(post,index) of posts"
+          :key="index"
+          :post="post"
         />
       </div>
 
@@ -38,8 +38,8 @@ import PostCard from './PostCard'
 
 export default {
   name: 'MainBLog',
-  components: {PostCard, LinkPrimary, Section},
-  data() {
+  components: { PostCard, LinkPrimary, Section },
+  data () {
     return {
       posts: [
         {

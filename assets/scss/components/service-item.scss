@@ -6,13 +6,10 @@
     }
   }
 
-
-
-
   &__wrap {
     display: grid;
 
-    padding: 39px 0 28px;
+    padding: 32px 0;
 
     grid: {
       column-gap: 58px;
@@ -24,12 +21,14 @@
   }
 
   &__img {
+    @include image-wrap-animation;
     width: 326px;
     height: 245px;
-    background-color: gray;
-    @include image-wrap-animation;
-    border-radius: 4px;
     overflow: hidden;
+
+    border-radius: 4px;
+
+    background-color: gray;
   }
 
   &__content {
