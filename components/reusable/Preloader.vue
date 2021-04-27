@@ -32,7 +32,7 @@ export default {
     }
   },
   mounted () {
-    //this.$store.commit('app/SET_PRELOADER_STATE', true)
+   // this.$store.commit('app/SET_PRELOADER_STATE', true)
     setTimeout(() => {
       this.preload = true
     }, this.animationDelay)

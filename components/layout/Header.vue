@@ -2,13 +2,16 @@
   <header
     ref="header"
     class="header"
-    :class="{'header--scrolling': isHeaderBaseState,'animation-base-state': isPreloaderDone}"
+    :class="{
+    'header--scrolling': isHeaderBaseState,
+    'animation-header-hide': false,
+    'animation-base-state': isPreloaderDone}"
   >
     <div class="container">
       <div class="header__content">
         <div class="header__wrap header__wrap-left">
-          <Logo class="header__logo" />
-          <LayoutNav class="header__navigation" />
+          <Logo class="header__logo"/>
+          <LayoutNav class="header__navigation"/>
         </div>
         <div class="header__wrap header__wrap-right">
           <LangSwitcher />

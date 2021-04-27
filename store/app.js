@@ -3,9 +3,9 @@ import { POPUP_GET_IN_TOUCH } from './types'
 export const state = () => ({
   scrollDirection: null,
   headerBaseState: false,
-  // preloaderDone: false
-  preloaderDone: true,
-  popupState: true,
+   preloaderDone: false,
+  //preloaderDone: true,
+  popupState: false,
   popupType: POPUP_GET_IN_TOUCH
 })
 
