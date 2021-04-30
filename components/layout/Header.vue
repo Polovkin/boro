@@ -3,9 +3,9 @@
     ref="header"
     class="header"
     :class="{
-      'header--scrolling': isHeaderMove,
-      //'animation-header-hide': false,
-      'animation-base-state': isPreloaderDone && !isHeaderMove}"
+      'header--base': isPreloaderDone,
+      'header--on-top': isHeaderOnTop,
+      'header--animate animation-base-state': isPreloaderDone && !isHeaderMove}"
   >
     <div class="container">
       <div class="header__content">
@@ -19,6 +19,11 @@
           <ButtonPrimary is-popup-toggle>
             {{ $t('header.link') }}
           </ButtonPrimary>
+
+          <button v-show="!isHeaderOnTop" class="header__menu-toggle" @click="openMenu">
+            menu
+            <span class="burger" />
+          </button>
         </div>
       </div>
     </div>
@@ -32,7 +37,8 @@ import Navigation from '../reusable/Navigation'
 import LangSwitcher from '../LangSwitcher'
 import LayoutNav from '../reusable/LayoutNav'
 import ButtonPrimary from '../reusable/ButtonPrimary'
-import { POPUP_GET_IN_TOUCH } from '../../store/types'
+import { POPUP_GET_IN_TOUCH, POPUP_MENU } from '../../store/types'
+
 export default {
   name: 'Header',
   components: { ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
@@ -46,14 +52,15 @@ export default {
   computed: {
     ...mapState({
       scrollDirection: s => s.app.scrollDirection,
+      headerTopState: s => s.app.headerTopState,
       headerMove: s => s.app.headerMove,
       preloaderDone: s => s.app.preloaderDone
     }),
     isPreloaderDone () {
       return this.preloaderDone
     },
-    isHeaderMoveUp () {
-      return this.scrollDirection
+    isHeaderOnTop () {
+      return this.headerTopState
     },
     isHeaderMove () {
       return this.headerMove
@@ -62,11 +69,12 @@ export default {
   mounted () {
     this.firstLoad = true
   },
-  watch: {
-    isHeaderMoveUp(newValue, oldValue) {
-      console.log(newValue);
+  methods: {
+    openMenu () {
+      this.$store.commit('app/SET_POPUP_STATE', true)
+      this.$store.commit('app/SET_POPUP_TYPE', POPUP_MENU)
     }
-  },
+  }
 }
 </script>
 
