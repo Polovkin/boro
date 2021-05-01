@@ -52,7 +52,7 @@ export default {
 
   position: relative;
 
-  display: none;
+  display: flex;
   width: $width_dropdown + 2;
   height: inherit;
 

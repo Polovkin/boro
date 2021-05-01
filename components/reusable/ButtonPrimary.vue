@@ -124,9 +124,9 @@ export default {
       }
       if (this.isPopupToggle) {
         this.isPopOpen = true
+        this.$store.commit('app/SET_POPUP_TYPE', this.popupCalledType)
         setTimeout(() => {
           this.$store.commit('app/SET_POPUP_STATE', true)
-          this.$store.commit('app/SET_POPUP_TYPE', this.popupCalledType)
         }, 300)
       }
     }

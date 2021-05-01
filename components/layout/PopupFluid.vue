@@ -1,40 +1,40 @@
 <template>
   <transition name="slide-fade">
     <div
-      v-show="isShow"
-      v-in-viewport
-      class="popup"
-      :class="{'popup__light': isLight}"
+        v-show="isShow"
+        v-in-viewport
+        class="popup"
+        :class="{'popup--light':isLight}"
     >
       <div class="container">
         <div class="popup__header">
-          <Logo :is-light="!isLight" />
+          <Logo :is-light="!isLight"/>
           <button
-            class="popup__header-close"
-            @click="closePopup"
+              class="popup__header-close"
+              @click="closePopup"
           >
             Close
-            <span class="popup__header-cross" />
+            <span class="popup__header-cross"/>
           </button>
-          <div class="divider" />
+          <div class="divider"/>
         </div>
         <div class="popup__body">
-          <Form />
+          <Form v-if="popupGetInTouch"/>
         </div>
         <div class="popup__footer">
-          <hr class="divider light">
+          <hr class="divider">
           <div class="popup__wrap">
             <div class="popup__footer-info">
               <p class="popup__footer-item">
                 <span>Write</span>
-                <span>hello@boro.com</span>
+                <a href="mailto:hello@boro.com">hello@boro.com</a>
               </p>
               <p class="popup__footer-item">
                 <span>Call</span>
-                <span> +3 (8093) 93 12 641</span>
+                <a href="tel:380939312641"> +3 (8093) 93 12 641</a>
               </p>
             </div>
-            <FooterTags is-dark />
+            <FooterTags :is-dark="!isLight"/>
           </div>
         </div>
       </div>
@@ -43,21 +43,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
 import Logo from '../reusable/Logo'
 import Form from '../reusable/Form'
 import FooterTags from '../reusable/FooterTags'
+import {POPUP_GET_IN_TOUCH, POPUP_MENU, POPUP_ESTIMATE, POPUP_SUCCESS} from '../../store/types'
 
 export default {
   name: 'PopupFluid',
-  components: { FooterTags, Form, Logo },
-  props: {
-    isLight: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data () {
+  components: {FooterTags, Form, Logo},
+
+  data() {
     return {
       tags: [
         {
@@ -80,14 +76,31 @@ export default {
   },
   computed: {
     ...mapState({
-      popupState: s => s.app.popupState
+      popupState: s => s.app.popupState,
+      popupType: s => s.app.popupType
     }),
-    isShow () {
+    isShow() {
       return this.popupState
+    },
+    isLight() {
+      return this.popupMenu || this.popupSuccess
+    },
+    popupMenu() {
+      return this.popupType === POPUP_MENU
+    },
+    popupEstimate() {
+      return this.popupType === POPUP_ESTIMATE
+    },
+
+    popupSuccess() {
+      return this.popupType === POPUP_ESTIMATE
+    },
+    popupGetInTouch() {
+      return this.popupType === POPUP_GET_IN_TOUCH
     }
   },
   methods: {
-    closePopup () {
+    closePopup() {
       this.$store.commit('app/SET_POPUP_STATE')
     }
   }
@@ -124,6 +137,40 @@ export default {
   background-color: $color__dark;
 
   transform: translate(-50%, -50%);
+
+  .divider {
+    position: absolute;
+    background-color: $color__light_6;
+  }
+
+  &--light {
+    background-color: $color__light;
+
+    .popup__header-close {
+      color: $color__dark;
+    }
+
+    .popup__header-cross {
+
+      @include cross(40px, 16px, 1px, $color__dark);
+      position: relative;
+      border: 1px solid $color__dark_6;
+    }
+
+    .divider {
+      background-color: $color__dark_6;
+    }
+
+    .popup__footer-item {
+      span:first-child {
+        color: $color__dark;
+      }
+
+      a {
+        color:  $color__font_dark--quaternary;
+      }
+    }
+  }
 
   .container {
     flex-direction: column;
@@ -163,12 +210,6 @@ export default {
       border-radius: 50%;
     }
 
-    .divider {
-      position: absolute;
-      bottom: 0;
-
-      background-color: $color__light_6;
-    }
   }
 
   &__body {
@@ -186,10 +227,10 @@ export default {
   }
 
   &__footer {
-    align-items: center;
-    justify-content: space-between;
-
-    display: flex;
+    position: relative;
+    .divider {
+      top: 0;
+    }
 
     &-info {
       display: flex;
@@ -213,6 +254,16 @@ export default {
         color: $color__font--quaternary;
       }
     }
+  }
+
+  &__wrap {
+    align-items: center;
+    justify-content: space-between;
+
+    display: flex;
+
+    padding-top: 38px;
+    padding-bottom: 28px;
   }
 
 }

@@ -14,14 +14,19 @@
           <LayoutNav class="header__navigation" />
         </div>
         <div class="header__wrap header__wrap-right">
-          <LangSwitcher />
-
-          <ButtonPrimary is-popup-toggle>
+          <transition name="fade">
+            <LangSwitcher v-show="isHeaderOnTop" />
+          </transition>
+        <ButtonPrimary is-popup-toggle>
             {{ $t('header.link') }}
           </ButtonPrimary>
 
-          <button v-show="!isHeaderOnTop" class="header__menu-toggle" @click="openMenu">
-            menu
+          <button
+            :class="{'header__menu-toggle--show': !isHeaderOnTop}"
+            class="header__menu-toggle"
+            @click="openMenu"
+          >
+            Menu
             <span class="burger" />
           </button>
         </div>

@@ -22,7 +22,7 @@ export const mutations = {
     }
   },
   SET_POPUP_TYPE (s, payload) {
-    s.popupState = payload
+    s.popupType = payload
   },
   SET_HEADER_MOVE (s, payload) {
     s.headerMove = payload
