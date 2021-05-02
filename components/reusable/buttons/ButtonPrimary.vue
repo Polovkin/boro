@@ -51,14 +51,14 @@
     <span
       v-if="isPopupToggle"
       class="button__popup-toggle"
-      :class="{'button__popup-toggle--active':isPopOpen}"
+      :class="{'button__popup-toggle--active':isPopOpen,'button__popup-toggle--active-menu':isInMenuOpen}"
     />
   </button>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { POPUP_GET_IN_TOUCH } from '../../store/types'
+import { POPUP_GET_IN_TOUCH, POPUP_MENU } from '../../../store/types'
 
 export default {
   name: 'ButtonPrimary',
@@ -86,21 +86,28 @@ export default {
       wave: null,
       classHover: 'button--hover',
       classLeave: 'button--leave',
-      isPopOpen: false
+      isPopOpen: false,
+      isInMenuOpen: false
     }
   },
   computed: {
     ...mapState({
-      popupState: s => s.app.popupState
-    }),
-    isScaled () {
-      return this.popupState && this.isPopOpen
-    }
+      popupState: s => s.app.popupState,
+      popupType: s => s.app.popupType
+    })
   },
+
   watch: {
     popupState (newValue) {
-      this.isPopOpen = newValue
+      if (!newValue) {
+        this.isPopOpen = newValue
+      }
     }
+    /* popupType (newValue, oldValue) {
+      if (newValue === POPUP_GET_IN_TOUCH && oldValue === POPUP_MENU) {
+        this.isInMenuOpen = true
+      }
+    } */
   },
   methods: {
     mouseEnter (event) {
@@ -119,16 +126,36 @@ export default {
     },
     buttonClickEvents () {
       if (this.isSubmit) {
-        this.$emit('submitEvent')
-        return null
+        this.buttonSubmit()
       }
-      if (this.isPopupToggle) {
-        this.isPopOpen = true
-        this.$store.commit('app/SET_POPUP_TYPE', this.popupCalledType)
+
+      if (this.isPopupToggle && this.popupType !== POPUP_MENU) {
+        this.togglePopup()
+      } else {
+        this.openTouchInMenu()
+      }
+    },
+    buttonSubmit () {
+      this.$emit('submitEvent')
+      return null
+    },
+    togglePopup () {
+      this.isInMenuOpen = false
+      this.isPopOpen = true
+
+      this.$store.commit('app/SET_POPUP_TYPE', this.popupCalledType)
+      if (!this.popupState) {
         setTimeout(() => {
           this.$store.commit('app/SET_POPUP_STATE', true)
         }, 300)
       }
+    },
+    openTouchInMenu () {
+      this.isPopOpen = false
+      this.isInMenuOpen = true
+      setTimeout(() => {
+        this.$store.commit('app/SET_POPUP_TYPE', POPUP_GET_IN_TOUCH)
+      }, 300)
     }
   }
 }
@@ -154,6 +181,27 @@ export default {
 
   to {
     transform: scale(0);
+  }
+}
+
+@keyframes toggle-animation {
+
+  0% {
+   visibility: visible;
+
+    transform: translateY(-50%) scale(0);
+  }
+
+  99% {
+    visibility: visible;
+
+    transform: translateY(-50%) scale(100);
+  }
+
+  100% {
+    visibility: hidden;
+
+    transform: translateY(-50%) scale(100);
   }
 }
 
@@ -250,6 +298,15 @@ export default {
 
     &--active {
       transform: translateY(-50%) scale(100);
+
+    }
+    &--active-menu {
+      animation: {
+        name: toggle-animation;
+        duration: .3s;
+        fill-mode: forwards;
+        timing-function: linear;
+      };
     }
   }
 

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ButtonPrimary from '../../reusable/ButtonPrimary'
+import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 
 export default {
   name: 'ServiceItem',

@@ -41,7 +41,7 @@
 import { mapState } from 'vuex'
 import Navigation from '../reusable/Navigation'
 import TextFlip from '../reusable/TextFlip'
-import ButtonTag from '../reusable/ButtonTag'
+import ButtonTag from '../reusable/buttons/ButtonTag'
 
 export default {
   name: 'MainSection',

@@ -31,11 +31,11 @@
 $z-indexes: (
         'preloader',
         'modal',
+        'menu',
         'header',
         'top-content',
         'content',
         'bg-content',
-        'footer'
 );
 
 @function is-direction($value) {

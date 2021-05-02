@@ -71,10 +71,10 @@
 <script>
 import Logo from '../reusable/Logo'
 import LayoutNav from '../reusable/LayoutNav'
-import ButtonPrimary from '../reusable/ButtonPrimary'
+import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import Navigation from '../reusable/Navigation'
 import LinkPrimary from '../reusable/LinkPrimary'
-import ButtonTag from '../reusable/ButtonTag'
+import ButtonTag from '../reusable/buttons/ButtonTag'
 import FooterTags from "../reusable/FooterTags";
 
 export default {

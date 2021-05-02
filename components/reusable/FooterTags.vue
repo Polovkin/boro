@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ButtonTag from './ButtonTag'
+import ButtonTag from './buttons/ButtonTag'
 export default {
   name: 'FooterTags',
   components: { ButtonTag },

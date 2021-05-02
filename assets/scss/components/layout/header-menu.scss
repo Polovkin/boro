@@ -1,0 +1,10 @@
+@import 'popup';
+
+.header-menu {
+  z-index: z(menu);
+  @extend .popup;
+  &__body {
+    @extend .popup__body;
+  }
+
+}

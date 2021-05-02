@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import ButtonTag from '../reusable/ButtonTag'
+import ButtonTag from '../reusable/buttons/ButtonTag'
 import UserInfo from '../reusable/UserInfo'
 export default {
   name: 'Lead',

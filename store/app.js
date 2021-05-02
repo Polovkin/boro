@@ -3,9 +3,10 @@ import { POPUP_GET_IN_TOUCH } from './types'
 export const state = () => ({
   scrollDirection: null,
   headerMove: false,
-  preloaderDone: false,
-  // preloaderDone: true,
+  // preloaderDone: false,
+  preloaderDone: true,
   popupState: false,
+  menuState: false,
   headerTopState: true,
   popupType: POPUP_GET_IN_TOUCH
 })
@@ -13,6 +14,13 @@ export const state = () => ({
 export const mutations = {
   SET_SCROLL_DIRECTION (s, payload) {
     s.scrollDirection = payload
+  },
+  SET_MENU_STATE (s, payload) {
+    if (payload === undefined) {
+      s.menuState = !s.menuState
+    } else {
+      s.menuState = payload
+    }
   },
   SET_POPUP_STATE (s, payload) {
     if (payload === undefined) {

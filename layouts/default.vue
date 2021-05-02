@@ -1,7 +1,8 @@
 <template>
   <div class="app">
-    <Preloader />
+    <!--    <Preloader />-->
     <PopupFluid />
+    <Menu />
     <Header />
     <main class="main">
       <div class="container">
@@ -12,13 +13,13 @@
 </template>
 
 <script>
-import Footer from '../components/layout/Footer'
-import Preloader from '../components/reusable/Preloader'
-import PopupFluid from '../components/layout/PopupFluid'
+
+import PopupFluid from '../components/layout/Popup/PopupFluid'
+import Menu from '../components/layout/Menu'
 import Header from '~/components/layout/Header'
 
 export default {
-  components: { PopupFluid, Preloader, Footer, Header },
+  components: { Menu, PopupFluid, Header },
   data () {
     return {}
   }

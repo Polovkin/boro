@@ -1,0 +1,177 @@
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: z(modal);
+
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+
+  background-color: $color__dark;
+
+
+
+  &--light {
+    background-color: $color__light;
+
+    .popup__header-close {
+      color: $color__dark;
+    }
+
+    .popup__header-cross {
+
+      @include cross(40px, 16px, 1px, $color__dark);
+      position: relative;
+
+      border: 1px solid $color__dark_6;
+    }
+
+    .divider {
+      background-color: $color__dark_6;
+    }
+
+    .popup__footer-item {
+
+      span:first-child {
+        color: $color__dark;
+      }
+
+      a {
+        color: $color__font_dark--quaternary;
+      }
+    }
+  }
+
+  .divider {
+    position: absolute;
+
+    background-color: $color__light_6;
+  }
+
+  .container {
+    flex-direction: column;
+
+    display: flex;
+    height: 100%;
+  }
+
+  &__header {
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    z-index: z(modal);
+
+    display: flex;
+    height: 80px;
+
+    &:after {
+      @include pseudoElement(100%);
+      @include divider;
+      position: absolute;
+      top: unset !important;
+
+      bottom: -1px;
+
+      max-width: 100%;
+    }
+
+    &-wrap {
+      align-items: center;
+
+      position: relative;
+
+      display: flex;
+      height: 100%;
+
+    }
+
+    &-buttons {
+      align-items: center;
+
+      display: flex;
+    }
+
+    &-close {
+      @include title-link;
+      align-items: center;
+
+      display: flex;
+
+      margin-left: 40px;
+
+      color: $color__light;
+    }
+
+    &-cross {
+
+      @include cross(40px, 16px, 1px, $color__light);
+      position: relative;
+
+      margin-left: 12px;
+
+      border: 1px solid $color__light_6;
+      border-radius: 50%;
+    }
+
+  }
+
+  &__body {
+    flex: 1;
+
+    display: flex;
+
+    padding-top: 42px;
+
+    color: $color__light;
+  }
+
+  &__footer {
+    position: relative;
+
+    .divider {
+      top: 0;
+    }
+
+    &-info {
+      display: flex;
+    }
+
+    &-item {
+      flex-direction: column;
+
+      display: flex;
+
+      margin-right: 50px;
+      margin-bottom: 10px;
+
+      span:first-child {
+        @include title-link;
+        color: $color__light;
+      }
+
+      a {
+        @include body-secondary;
+        color: $color__font--quaternary;
+      }
+    }
+  }
+
+  &__title {
+    @include h3;
+  }
+
+  &__wrap {
+    align-items: center;
+    justify-content: space-between;
+
+    display: flex;
+
+    padding-top: 38px;
+    padding-bottom: 28px;
+  }
+
+
+}

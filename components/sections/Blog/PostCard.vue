@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import ButtonTag from '../../reusable/ButtonTag'
-import ButtonPrimary from '../../reusable/ButtonPrimary'
+import ButtonTag from '../../reusable/buttons/ButtonTag'
+import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 
 export default {
   name: 'PostCard',

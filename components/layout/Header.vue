@@ -17,18 +17,11 @@
           <transition name="fade">
             <LangSwitcher v-show="isHeaderOnTop" />
           </transition>
-        <ButtonPrimary is-popup-toggle>
+          <ButtonPrimary is-popup-toggle>
             {{ $t('header.link') }}
           </ButtonPrimary>
 
-          <button
-            :class="{'header__menu-toggle--show': !isHeaderOnTop}"
-            class="header__menu-toggle"
-            @click="openMenu"
-          >
-            Menu
-            <span class="burger" />
-          </button>
+          <MenuBurger :class="{'menu-burger--show': !isHeaderOnTop}" />
         </div>
       </div>
     </div>
@@ -38,19 +31,17 @@
 <script>
 import { mapState } from 'vuex'
 import Logo from '../reusable/Logo'
-import Navigation from '../reusable/Navigation'
 import LangSwitcher from '../LangSwitcher'
 import LayoutNav from '../reusable/LayoutNav'
-import ButtonPrimary from '../reusable/ButtonPrimary'
-import { POPUP_GET_IN_TOUCH, POPUP_MENU } from '../../store/types'
+import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
+import MenuBurger from '../reusable/buttons/MenuBurger'
 
 export default {
   name: 'Header',
-  components: { ButtonPrimary, LayoutNav, LangSwitcher, Navigation, Logo },
+  components: { MenuBurger, ButtonPrimary, LayoutNav, LangSwitcher, Logo },
   data () {
     return {
       firstLoad: false,
-      popupCalledType: POPUP_GET_IN_TOUCH,
       scale: false
     }
   },
@@ -74,12 +65,7 @@ export default {
   mounted () {
     this.firstLoad = true
   },
-  methods: {
-    openMenu () {
-      this.$store.commit('app/SET_POPUP_STATE', true)
-      this.$store.commit('app/SET_POPUP_TYPE', POPUP_MENU)
-    }
-  }
+
 }
 </script>
 

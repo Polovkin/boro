@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link to="/">
+  <nuxt-link
+    class="logotype"
+    to="/"
+  >
     <img
       width="142"
       height="32"
@@ -22,5 +25,9 @@ export default {
 </script>
 
 <style scoped>
+.logotype {
+  position: relative;
 
+  display: block;
+}
 </style>

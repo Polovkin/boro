@@ -99,7 +99,7 @@
 import { mapState } from 'vuex'
 import { POPUP_GET_IN_TOUCH } from '../../store/types'
 import InputCustom from './InputAnimate'
-import ButtonPrimary from './ButtonPrimary'
+import ButtonPrimary from './buttons/ButtonPrimary'
 import UserInfo from './UserInfo'
 import FooterTags from './FooterTags'
 
