@@ -28,4 +28,7 @@ export default {
 <style lang="scss">
 @import "~@/assets/scss/_app.scss";
 @import "~@/assets/scss/_layout.scss";
+
+.app {overflow: hidden;
+}
 </style>

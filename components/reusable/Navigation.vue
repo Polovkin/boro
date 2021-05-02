@@ -2,7 +2,8 @@
   <nav class="navigation">
     <ul class="navigation__list">
       <li
-        v-for="item of navs"
+        v-for="(item,index) of navs"
+        :key="index"
         class="navigation__item"
       >
         <LinkPrimary
@@ -29,7 +30,7 @@ export default {
         { name: 'navigation.link2', link: '/' },
         { name: 'navigation.link3', link: '/' },
         { name: 'navigation.link4', link: '/' },
-        { name: 'navigation.link5', link: '/' }
+        { name: 'navigation.link6', link: '/' }
       ]
     }
   }

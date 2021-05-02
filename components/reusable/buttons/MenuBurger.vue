@@ -15,7 +15,6 @@
 <script>
 
 import { mapState } from 'vuex'
-import { POPUP_MENU } from '../../../store/types'
 
 export default {
   name: 'MenuBurger',
@@ -61,6 +60,7 @@ export default {
   display: flex;
   max-width: 0;
   //overflow: hidden;
+  opacity: 0;
 
   transition: all ease .2s .3s;
 
@@ -87,7 +87,10 @@ export default {
 
   &--show {
     max-width: 100px;
+
     margin-left: 40px;
+
+    opacity: 1;
 
     transition: all ease .2s 1s;
   }

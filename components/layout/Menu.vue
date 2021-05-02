@@ -17,7 +17,7 @@
               </ButtonPrimary>
               <button
                 class="popup__header-close"
-                @click="closePopup"
+                @click="closeMenu"
               >
                 Close
                 <span class="popup__header-cross" />
@@ -26,7 +26,32 @@
           </div>
         </div>
         <div class="header-menu__body">
-          content
+          <nav class="header-menu__nav">
+            <ul>
+              <li
+                v-for="(item,index) of navs"
+                :key="index"
+              >
+                <nuxt-link
+                  class="header-menu__item"
+                  :to="item.link"
+                >
+                  {{ $t(item.name) }}
+                  <span>{{ `0${index + 1}` }}</span>
+                </nuxt-link>
+              </li>
+            </ul>
+          </nav>
+          <ul class="header-menu__links">
+            <li>
+              <LinkPrimary link="/">
+                Privacy policy
+              </LinkPrimary>
+              <LinkPrimary link="/">
+                Terms&Conditions
+              </LinkPrimary>
+            </li>
+          </ul>
         </div>
         <PopupFooter is-light />
       </div>
@@ -38,15 +63,25 @@
 import { mapState } from 'vuex'
 import { MENU } from '../../store/types'
 import Logo from '../reusable/Logo'
-import PopupHeader from './Popup/PopupHeader'
+import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
+import Navigation from '../reusable/Navigation'
+import LinkPrimary from '../reusable/LinkPrimary'
 import PopupFooter from './Popup/PopupFooter'
-import ButtonPrimary from "../reusable/buttons/ButtonPrimary";
+
 export default {
   name: 'Menu',
-  components: {ButtonPrimary, Logo, PopupFooter, PopupHeader },
+  components: { LinkPrimary, Navigation, ButtonPrimary, Logo, PopupFooter },
   data () {
     return {
-      type: MENU
+      type: MENU,
+      navs: [
+        { name: 'navigation.link1', link: '/' },
+        { name: 'navigation.link2', link: '/' },
+        { name: 'navigation.link3', link: '/' },
+        { name: 'navigation.link4', link: '/' },
+        { name: 'navigation.link5', link: '/' },
+        { name: 'navigation.link6', link: '/' }
+      ]
     }
   },
   computed: {
@@ -58,7 +93,7 @@ export default {
     }
   },
   methods: {
-    closePopup () {
+    closeMenu () {
       this.$store.commit('app/SET_MENU_STATE', false)
     }
   }

@@ -1,10 +1,74 @@
 @import 'popup';
 
 .header-menu {
-  z-index: z(menu);
   @extend .popup;
+  z-index: z(menu);
+overflow: hidden;
+
+
   &__body {
     @extend .popup__body;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding-bottom: 7%
   }
+
+  &__links {
+    padding-right: 300px;
+  }
+
+  &__item {
+    display: flex;
+
+    color: $color__dark;
+    letter-spacing: -.056em;
+    line-height: 60px;
+
+    transition: all ease .4s;
+    font: {
+      weight: 500;
+      size: 54px;
+    };
+
+    span {
+      @include caption-normal;
+      position: relative;
+      top: 10px;
+      left: 10px;
+
+      color: $color__font_dark--quaternary;
+
+      transition: all ease .4s;
+    }
+
+    &:hover {
+
+
+      transform: translateX(20px);
+
+      span {
+        top: 27px;
+
+        color: $color__dark;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__nav {
+    align-items: center;
+
+    display: flex;
+
+    ul {
+      flex-direction: column;
+      justify-content: space-between;
+
+      display: flex;
+      height: 380px;
+    }
+  }
+
 
 }

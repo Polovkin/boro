@@ -11,7 +11,8 @@
     "link2" : "Services",
     "link3" : "About us",
     "link4" : "How we work",
-    "link5" : "Contacts"
+    "link5" : "Blog",
+    "link6" : "Contacts"
   },
   "message": "Welcome",
   "about": "About"
