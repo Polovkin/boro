@@ -63,6 +63,7 @@ export default {
   display: flex;
 
   &--dark {
+
     .user-info__position {
       color:$color__font_dark--quaternary
     }
@@ -74,11 +75,19 @@ export default {
     img {
       border-radius: 50%;
     }
+    @include breakpoint ($mobile__all) {
+      justify-content: flex-end;
+
+      display: flex;
+    }
   }
 
   &__position {
     @include body-secondary;
-    color: $color__font--quaternary;
+    color: $color__font_dark--quaternary;
+    @include breakpoint ($mobile__all) {
+      text-align: right;
+    }
   }
 
   &__name {
@@ -94,6 +103,10 @@ export default {
       align-self: flex-end;
 
       margin-right: 40px;
+      @include breakpoint ($mobile__all) {
+        margin-right: 0;
+        margin-bottom: 12px;
+      }
     }
 
     &-tags {
@@ -101,6 +114,11 @@ export default {
 
       display: flex;
     }
+  }
+
+  @include breakpoint ($mobile__all) {
+
+    flex-direction: column;
   }
 }
 

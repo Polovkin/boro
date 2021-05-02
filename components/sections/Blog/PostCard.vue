@@ -2,10 +2,10 @@
   <section class="blog-card">
     <figure class="blog-card__img">
       <nuxt-img
-        width="430"
-        height="248"
-        lazyload="true"
-        :src="post.img"
+          width="430"
+          height="248"
+          lazyload="true"
+          :src="post.img"
       />
     </figure>
     <div class="blog-card__body">
@@ -15,8 +15,8 @@
       <time class="blog-card__date">{{ post.date }}</time>
       <div class="blog-card__tags">
         <ButtonTag
-          v-for="(tag,index) of post.tags"
-          :key="index"
+            v-for="(tag,index) of post.tags"
+            :key="index"
         >
           {{ tag }}
         </ButtonTag>
@@ -26,8 +26,8 @@
       </p>
     </div>
     <ButtonPrimary
-      class="blog-card__button"
-      :link="post.link"
+        class="blog-card__button"
+        :link="post.link"
     >
       Read more
     </ButtonPrimary>
@@ -40,7 +40,7 @@ import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 
 export default {
   name: 'PostCard',
-  components: { ButtonPrimary, ButtonTag },
+  components: {ButtonPrimary, ButtonTag},
   props: ['post']
 
 }
@@ -62,10 +62,20 @@ export default {
     justify-content: flex-start;
 
     display: flex;
+    @include breakpoint($mobile__all) {
+      display: grid;
+      grid: {
+        template: {
+          columns: repeat(2,1fr);
+          areas: 'title tags' 'date tags' 'text tags';
+        };
+      }
+    }
   }
 
   &__title {
     margin: 8px 0 4px;
+    grid-area: title;
   }
 
   &__text {
@@ -73,20 +83,29 @@ export default {
     height: 44px;
     overflow: hidden;
 
-    text-overflow: ellipsis;
     margin-bottom: 20px;
+
+    text-overflow: ellipsis;
+    grid-area: text;
 
   }
 
   &__date {
     @include body-secondary;
     margin-bottom: 14px;
+
+    color: $color__font_dark--secondary;
+    grid-area: date;
   }
 
   &__tags {
     display: flex;
+    grid-area: tags;
 
     margin-bottom: 20px;
+    @include breakpoint ($mobile__all) {
+      justify-self: end;
+    }
   }
 
   &__button {

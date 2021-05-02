@@ -1,24 +1,24 @@
 <template>
   <button
-    class="menu-burger"
-    @click="openMenu"
+      class="menu-burger"
+      @click="openMenu"
   >
     Menu
-    <span class="burger" />
+    <span class="burger"/>
     <span
-      class="menu-burger-toggle"
-      :class="{'menu-burger-toggle--active':isPopOpen}"
+        class="menu-burger-toggle"
+        :class="{'menu-burger-toggle--active':isPopOpen}"
     />
   </button>
 </template>
 
 <script>
 
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: 'MenuBurger',
-  data () {
+  data() {
     return {
       isPopOpen: false
     }
@@ -27,19 +27,19 @@ export default {
     ...mapState({
       menu: s => s.app.menuState
     }),
-    menuState () {
+    menuState() {
       return this.menu
     }
   },
   watch: {
-    menuState (newValue) {
+    menuState(newValue) {
       if (!newValue) {
         this.isPopOpen = this.menu
       }
     }
   },
   methods: {
-    openMenu () {
+    openMenu() {
       this.isPopOpen = true
 
       setTimeout(() => {
@@ -58,9 +58,6 @@ export default {
   position: relative;
 
   display: flex;
-  max-width: 0;
-  //overflow: hidden;
-  opacity: 0;
 
   transition: all ease .2s .3s;
 
@@ -86,13 +83,16 @@ export default {
   }
 
   &--show {
-    max-width: 100px;
+    @include breakpoint($desktop__all) {
+      max-width: 100px;
 
-    margin-left: 40px;
+      margin-left: 40px;
 
-    opacity: 1;
+      opacity: 1;
 
-    transition: all ease .2s 1s;
+      transition: all ease .2s 1s;
+    }
+
   }
 
   .burger {
@@ -125,6 +125,14 @@ export default {
       position: relative;
 
     }
+  }
+  @include breakpoint ($mobile__all) {
+    margin-left: 40px;
+  }
+  @include breakpoint ($desktop__all) {
+    max-width: 0;
+
+    opacity: 0;
   }
 }
 </style>

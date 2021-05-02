@@ -16,6 +16,9 @@
         areas: 'logo nav . buttons';
       };
     };
+    @include breakpoint($mobile__all) {
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+    }
   }
 
   &__main {
@@ -87,6 +90,10 @@
       .link {
         color: $color__font--primary;
       }
+
+      @include breakpoint($mobile__all) {
+        padding-left: 0;
+      }
     }
 
     &-button {
@@ -121,11 +128,15 @@
             top: 50%;
             left: 50%;
 
-            transform: translate(-50%,-50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
           }
         }
       }
 
+    }
+
+    @include breakpoint($mobile__all) {
+      grid-template-columns: 2fr 1fr 1fr 2fr;
     }
 
   }
@@ -174,15 +185,20 @@
 
     display: flex;
     grid-area: buttons;
-
-    button:last-child {
-      margin-left: 45px;
+    @include breakpoint($desktop__all) {
+      button:last-child {
+        margin-left: 45px;
+      }
     }
+    @include breakpoint ($mobile__all) {
+      justify-content: space-between;
+     }
+
   }
 
   &__copyright {
     @include body-tertiary;
-    color: $color__font_dark--tertiary
+    color: $color__font_dark--tertiary;
   }
 
   &__bottom {

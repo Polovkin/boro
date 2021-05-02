@@ -53,6 +53,9 @@
 
   &__navigation {
     padding-bottom: 20px;
+    @include breakpoint ($mobile__all) {
+      display: none !important;
+    }
   }
 
   .divider {

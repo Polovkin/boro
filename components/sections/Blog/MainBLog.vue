@@ -89,6 +89,11 @@ export default {
     padding-top: 32px;
     grid-column-gap: $grid_gap;
     grid-template-columns: repeat(3, 1fr);
+    @include breakpoint ($mobile__all) {
+      flex-direction: column;
+
+      display: flex;
+    }
   }
 
   .blog-card {
@@ -102,6 +107,10 @@ export default {
         height: auto;
         object-fit: cover;
       }
+    }
+
+    @include breakpoint ($mobile__all) {
+      margin-bottom: 40px;
     }
   }
 }

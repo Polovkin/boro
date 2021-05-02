@@ -8,10 +8,13 @@
     <!--    TOP-->
     <div class="footer__top">
       <Logo class="footer__logo" />
-      <LayoutNav class="footer__nav" />
+      <div class="footer__nav" />
+<!--      <LayoutNav class="footer__nav" />-->
       <div class="footer__buttons">
         <ButtonPrimary>Estimate project</ButtonPrimary>
-        <ButtonPrimary>Get In Touch</ButtonPrimary>
+        <ButtonPrimary is-popup-toggle>
+          {{ $t('header.link') }}
+        </ButtonPrimary>
       </div>
     </div>
     <hr class="divider">

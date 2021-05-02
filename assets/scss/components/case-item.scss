@@ -30,6 +30,9 @@
         areas: 'time content img';
       };
     }
+    @include breakpoint ($tablet__landscape) {
+      grid-template-columns: 2fr 6fr 4fr;
+    }
   }
 
   &__description {
@@ -41,7 +44,7 @@
 
   &__content {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:flex-start;
 
     display: flex;
 
@@ -57,6 +60,8 @@
     &-buttons {
       display: flex;
 
+      margin-top: auto;
+
       button, a {
         margin-right: 13px;
 
@@ -65,5 +70,9 @@
         }
       }
     }
+
+     @include breakpoint ($tablet__landscape) {
+       padding-left: 0;
+      }
   }
 }

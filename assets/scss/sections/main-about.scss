@@ -11,15 +11,12 @@
 
   &__images {
     display: grid;
-    //@todo: fix;
-    height: 1000px;
 
     padding-bottom: 32px;
     grid-template-columns: repeat(3,1fr);
     grid-column-gap: 26px;
-    @include breakpoint ($desktop__laptop) {
-      height: 800px;
-    }
+
+
   }
 
   &__img {

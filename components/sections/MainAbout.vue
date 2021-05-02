@@ -19,7 +19,7 @@
       slot="content"
       class="main-about__content"
     >
-    <div class="main-about__images">
+      <div :style="`height: ${height}px`" class="main-about__images">
         <figure class="main-about__img">
           <nuxt-img
             alt="Elena"
@@ -90,13 +90,21 @@ export default {
           number: '14',
           text: 'Focused specialists'
         }
-      ]
+      ],
+      width: 0
     }
   },
-  mounted() {
-    //@TODO: fix update
-    this.$nuxt.$emit('update-locomotive')
+  computed: {
+    height () {
+      return (724 / 430) * (this.width / 3)
+    }
   },
+  mounted () {
+    window.addEventListener('resize', () => {
+      this.width = window.innerWidth
+    })
+    this.$nuxt.$emit('update-locomotive')
+  }
 
 }
 </script>
