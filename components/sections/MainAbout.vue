@@ -19,7 +19,10 @@
       slot="content"
       class="main-about__content"
     >
-      <div :style="`height: ${height}px`" class="main-about__images">
+      <div
+        :style="`height: ${height}px`"
+        class="main-about__images"
+      >
         <figure class="main-about__img">
           <nuxt-img
             alt="Elena"
@@ -77,6 +80,7 @@ export default {
 
   data () {
     return {
+      height: 1000,
       numbersData: [
         {
           number: '7+',
@@ -95,17 +99,21 @@ export default {
     }
   },
   computed: {
-    height () {
+    /* heightChange() {
       return (724 / 430) * (this.width / 3)
-    }
+    } */
   },
-
   mounted () {
-    this.width = window.innerWidth
+    this.heightChange()
     window.addEventListener('resize', () => {
-      this.width = window.innerWidth
+      this.heightChange()
     })
     this.$nuxt.$emit('update-locomotive')
+  },
+  methods: {
+    heightChange () {
+      this.height = Math.ceil((724 / 430) * (window.innerWidth / 3))
+    }
   }
 
 }
