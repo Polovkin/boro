@@ -99,7 +99,9 @@ export default {
       return (724 / 430) * (this.width / 3)
     }
   },
+
   mounted () {
+    this.width = window.innerWidth
     window.addEventListener('resize', () => {
       this.width = window.innerWidth
     })
