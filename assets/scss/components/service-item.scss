@@ -33,11 +33,14 @@
 
   &__content {
     flex-direction: column;
-justify-content: flex-start;
+    justify-content: flex-start;
+
     display: flex;
-a {
-  margin-top: auto;
-}
+
+    a {
+      margin-top: auto;
+    }
+
     &-buttons {
       justify-self: end;
 
@@ -48,7 +51,7 @@ a {
     @include body-secondary;
     max-width: 310px;
 
-    margin-top: 66px;
+    margin-top: 16px;
     //margin-bottom: auto;
   }
 

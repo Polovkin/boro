@@ -13,7 +13,10 @@
       };
     }
   }
-
+&__contact {
+  display: flex;
+  justify-content: flex-end;
+}
   &__header {
     @include h3;
   }

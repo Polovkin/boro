@@ -1,0 +1,51 @@
+.menu-burger {
+
+  .burger {
+
+    &:before, &:after {
+      transition: all cubic-bezier(.405, 0, .025, 1) 1s;
+    }
+  }
+
+  &__text {
+
+    span {
+      transition: all cubic-bezier(.405, 0, .025, 1) 1s;
+    }
+  }
+
+  &--active {
+
+    .menu-burger__text {
+
+      span {
+        transform: translateY(-100%);
+      }
+    }
+
+    .burger {
+      border: 1px solid $color__dark_6;
+      border-radius: 50%;
+
+
+      &:before {
+        @include pseudoElement(18px);
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%) rotate(135deg);
+      }
+
+      &:after {
+        @include pseudoElement(18px);
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%) rotate(225deg);
+      }
+    }
+  }
+}
+
+
+

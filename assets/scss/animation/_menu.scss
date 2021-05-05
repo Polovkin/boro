@@ -1,0 +1,42 @@
+.header-menu {
+  //opacity: 1;
+
+  &__item {
+    transform: translateY(100%);
+    opacity: 0;
+
+    transition: transform cubic-bezier(.41, 0, .13, 1.005) 1s .8s, color ease .3s;
+
+  }
+
+}
+
+.in-viewport {
+
+  .header-menu__item {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*.popup-fade-enter-active, .popup-fade-leave-active {
+  transition: opacity 2s;
+  opacity: 1;
+}
+
+.popup-fade-enter, .popup-fade-leave-to !* .fade-leave-active до версии 2.1.8 *!
+{
+  opacity: 0;
+}*/
+
+/* Анимации появления и исчезновения могут иметь */
+/* различные продолжительности и динамику.       */
+.popup-fade-enter-active {
+  transition: all 1.3s ease;
+}
+.popup-fade-leave-active {
+  transition: all 1.8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.popup-fade-enter, .popup-fade-leave-to {
+  opacity: 0;
+}

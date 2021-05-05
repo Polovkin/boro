@@ -1,50 +1,32 @@
 <template>
   <button
-      class="menu-burger"
-      @click="openMenu"
+    class="menu-burger"
+    :class="{'menu-burger--active':menu}"
+    @click="openMenu"
   >
-    Menu
-    <span class="burger"/>
-    <span
-        class="menu-burger-toggle"
-        :class="{'menu-burger-toggle--active':isPopOpen}"
-    />
+    <span class="menu-burger__text">
+      <span>Menu</span>
+      <span>Close</span>
+    </span>
+    <span class="burger" />
   </button>
 </template>
 
 <script>
 
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'MenuBurger',
-  data() {
-    return {
-      isPopOpen: false
-    }
-  },
+
   computed: {
     ...mapState({
       menu: s => s.app.menuState
-    }),
-    menuState() {
-      return this.menu
-    }
-  },
-  watch: {
-    menuState(newValue) {
-      if (!newValue) {
-        this.isPopOpen = this.menu
-      }
-    }
+    })
   },
   methods: {
-    openMenu() {
-      this.isPopOpen = true
-
-      setTimeout(() => {
-        this.$store.commit('app/SET_MENU_STATE', true)
-      }, 300)
+    openMenu () {
+      this.$store.commit('app/SET_MENU_STATE')
     }
   }
 }
@@ -53,6 +35,7 @@ export default {
 <style lang="scss">
 .menu-burger {
   @include body-secondary;
+
   align-items: center;
 
   position: relative;
@@ -82,6 +65,56 @@ export default {
     }
   }
 
+  &__text {
+    flex-direction: column;
+
+    display: flex;
+    width: fit-content;
+    height: 25px;
+    overflow: hidden;
+
+  }
+
+  .burger {
+    @include size(35px);
+    flex-direction: column;
+    justify-content: space-around;
+
+    position: relative;
+
+    display: flex;
+
+    margin-left: 10px;
+
+    &:before, &:after {
+      position: absolute;
+
+      height: 2px !important;
+
+      background-color: $color__dark;
+
+
+    }
+
+    &:before {
+      @include pseudoElement(16px);
+      top:calc(50% - 3px) ;
+      left: 50%;
+
+      transform: translate(-50%,-50%);
+    }
+
+    &:after {
+      @include pseudoElement(8px);
+      top:calc(50% + 3px) ;
+      left: calc(50% - 3px) ;
+
+      transform: translate(-50%,-50%);
+    }
+  }
+
+
+
   &--show {
     @include breakpoint($desktop__all) {
       max-width: 100px !important;
@@ -95,37 +128,6 @@ export default {
 
   }
 
-  .burger {
-    flex-direction: column;
-    justify-content: space-around;
-
-    position: relative;
-
-    display: flex;
-    height: 12px;
-
-    margin-left: 12px;
-
-    &:before, &:after {
-
-      height: 1.5px !important;
-
-      background-color: $color__dark;
-
-    }
-
-    &:before {
-      @include pseudoElement(16px);
-
-      position: relative;
-    }
-
-    &:after {
-      @include pseudoElement(8px);
-      position: relative;
-
-    }
-  }
   @include breakpoint ($mobile__all) {
     margin-left: 40px;
   }

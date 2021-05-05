@@ -1,48 +1,40 @@
 <template>
-  <transition name="slide-fade">
+  <transition name="popup-fade">
     <div
-      v-if="menuState"
+      v-show="menuState"
       v-in-viewport
       class="header-menu popup--light"
+      :class="{'header-menu--active':menuState}"
     >
       <div class="container">
-        <div class="popup__header">
-          <div class="popup__header-wrap popup__header-left">
-            <Logo />
-          </div>
-          <div class="popup__header-wrap popup__header-right">
-            <div class="popup__header-buttons">
-              <ButtonPrimary is-popup-toggle>
-                {{ $t('header.link') }}
-              </ButtonPrimary>
-              <button
-                class="popup__header-close"
-                @click="closeMenu"
-              >
-                Close
-                <span class="popup__header-cross" />
-              </button>
-            </div>
-          </div>
-        </div>
         <div class="header-menu__body">
           <nav class="header-menu__nav">
-            <ul>
+            <ul
+              :class="{'header-menu__nav--hover': hoverList}"
+              @mouseover="listHoverIn"
+              @mouseleave="listHoverOut"
+            >
               <li
                 v-for="(item,index) of navs"
                 :key="index"
+                class="header-menu__elem"
               >
-                <nuxt-link
-                  class="header-menu__item"
-                  :to="item.link"
-                >
-                  {{ $t(item.name) }}
-                  <span>{{ `0${index + 1}` }}</span>
-                </nuxt-link>
+                <transition name="menu-item-fade">
+                  <nuxt-link
+                    class="header-menu__item"
+                    :to="item.link"
+                  >
+                    {{ $t(item.name) }}
+                    <span>{{ `0${index + 1}` }}</span>
+                  </nuxt-link>
+                  <transition />
+                </transition>
               </li>
             </ul>
           </nav>
-          <ul class="header-menu__links">
+          <ul
+            class="header-menu__links"
+          >
             <li>
               <LinkPrimary link="/">
                 Privacy policy
@@ -62,18 +54,17 @@
 <script>
 import { mapState } from 'vuex'
 import { MENU } from '../../store/types'
-import Logo from '../reusable/Logo'
-import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
-import Navigation from '../reusable/Navigation'
+
 import LinkPrimary from '../reusable/LinkPrimary'
 import PopupFooter from './Popup/PopupFooter'
 
 export default {
   name: 'Menu',
-  components: { LinkPrimary, Navigation, ButtonPrimary, Logo, PopupFooter },
+  components: { LinkPrimary, PopupFooter },
   data () {
     return {
       type: MENU,
+      hoverList: false,
       navs: [
         { name: 'navigation.link1', link: '/' },
         { name: 'navigation.link2', link: '/' },
@@ -93,6 +84,12 @@ export default {
     }
   },
   methods: {
+    listHoverIn () {
+      this.hoverList = true
+    },
+    listHoverOut () {
+      this.hoverList = false
+    },
     closeMenu () {
       this.$store.commit('app/SET_MENU_STATE', false)
     }

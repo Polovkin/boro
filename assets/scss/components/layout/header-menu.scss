@@ -2,8 +2,13 @@
 
 .header-menu {
   @extend .popup;
-  z-index: z(menu);
-overflow: hidden;
+  z-index: z(header);
+
+  overflow: hidden;
+  background-color: $color__background_primary;
+  .container {
+    background-color: $color__background_primary;
+  }
 
 
   &__body {
@@ -11,11 +16,19 @@ overflow: hidden;
     align-items: flex-end;
     justify-content: space-between;
 
-    padding-bottom: 7%
+    padding-bottom: 7%;
+
   }
 
   &__links {
     padding-right: 300px;
+  }
+
+  &__elem {
+
+    width: 345px;
+    height: 62px;
+    overflow: hidden;
   }
 
   &__item {
@@ -25,7 +38,9 @@ overflow: hidden;
     letter-spacing: -.056em;
     line-height: 60px;
 
-    transition: all ease .4s;
+
+
+
     font: {
       weight: 500;
       size: 54px;
@@ -37,21 +52,13 @@ overflow: hidden;
       top: 10px;
       left: 10px;
 
-      color: $color__font_dark--quaternary;
-
-      transition: all ease .4s;
     }
 
     &:hover {
-
-
-      transform: translateX(20px);
+      color: $color__dark;
 
       span {
-        top: 27px;
-
-        color: $color__dark;
-        font-weight: bold;
+        color: $color__primary;
       }
     }
   }
@@ -60,6 +67,14 @@ overflow: hidden;
     align-items: center;
 
     display: flex;
+
+    &--hover {
+
+      a {
+        transition-delay: 0s !important;
+        color: $color__font_dark--quaternary;
+      }
+    }
 
     ul {
       flex-direction: column;
