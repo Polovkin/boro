@@ -5,7 +5,7 @@
       :key="index"
       :is-dark="isDark"
       class="footer-tags__tag"
-
+      is-icon-animate
       :link="tags.link"
       :icon="tags.icon"
     >

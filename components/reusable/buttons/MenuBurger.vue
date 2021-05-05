@@ -84,11 +84,11 @@ export default {
 
   &--show {
     @include breakpoint($desktop__all) {
-      max-width: 100px;
+      max-width: 100px !important;
 
       margin-left: 40px;
 
-      opacity: 1;
+      opacity: 1 !important;
 
       transition: all ease .2s 1s;
     }

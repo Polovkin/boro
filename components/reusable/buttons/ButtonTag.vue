@@ -3,7 +3,7 @@
     v-if="link"
     to="link"
     class="button-tag"
-    :class="{'button-tag--dark':isDark}"
+    :class="{'button-tag--dark':isDark,'button-tag--icon':isIconAnimate}"
   >
     <span class="button-tag__wrap">
       <img
@@ -37,11 +37,17 @@ export default {
       type: Boolean,
       default: false
     },
+    isIconAnimate: {
+      type: Boolean,
+      default: false
+    },
     icon: {
-      type: String
+      type: String,
+      default: ''
     },
     link: {
-      type: String
+      type: String,
+      default: ''
     }
   }
 }
@@ -92,7 +98,16 @@ export default {
 
     }
   }
+&--icon {
+  &:hover {
+    .button-tag__icon {
+      @include size($icon_size);
+      margin-right: 7px;
 
+      transform: scale(1.2);
+    }
+  }
+}
   &-simple {
     cursor: auto;
   }
@@ -107,12 +122,7 @@ export default {
       text-decoration: underline;
     }
 
-    .button-tag__icon {
-      @include size($icon_size);
-      margin-right: 7px;
 
-      transform: scale(1.2);
-    }
 
   }
 

@@ -26,6 +26,7 @@
           <ButtonTag
             v-for="(tags,index) of socials"
             :key="index"
+            is-icon-animate
             :link="tags.link"
             :icon="tags.icon"
           >

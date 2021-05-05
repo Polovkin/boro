@@ -117,11 +117,12 @@ export default {
         message: null
       },
       users: [
+
         {
           info: {
-            img: 'stos.jpg',
-            position: 'CBDO',
-            name: 'Stas Stashkevych'
+            img: 'anna.jpg',
+            position: 'Account manager',
+            name: 'Anna Haiduk'
           },
           tags: [
             {
@@ -140,13 +141,6 @@ export default {
               link: '/'
             }
           ]
-        }, {
-          info: {
-            img: 'anna.jpg',
-            position: 'Account manager',
-            name: 'Anna Haiduk'
-          },
-
         }
       ]
     }

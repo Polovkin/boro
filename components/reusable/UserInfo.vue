@@ -21,9 +21,9 @@
     >
       <ButtonTag
         v-for="(tag,index) of tags"
+        class="user-info__contact-tag"
         :key="index"
         :is-dark="isDark"
-        class="user-info__contact-tag"
         :link="tag.link"
         :icon="tag.icon"
       >
@@ -65,7 +65,7 @@ export default {
   &--dark {
 
     .user-info__position {
-      color:$color__font_dark--quaternary
+      color:$color__font--quaternary
     }
   }
 
