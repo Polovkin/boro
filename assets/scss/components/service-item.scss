@@ -33,9 +33,11 @@
 
   &__content {
     flex-direction: column;
-
+justify-content: flex-start;
     display: flex;
-
+a {
+  margin-top: auto;
+}
     &-buttons {
       justify-self: end;
 
@@ -46,8 +48,8 @@
     @include body-secondary;
     max-width: 310px;
 
-    margin-top: auto;
-    margin-bottom: 19px;
+    margin-top: 66px;
+    //margin-bottom: auto;
   }
 
   &__btn-open {

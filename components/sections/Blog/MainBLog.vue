@@ -79,7 +79,7 @@ export default {
   &__content {
 
     .divider {
-      margin-top: 23px;
+      margin-top: 32px;
     }
   }
 
