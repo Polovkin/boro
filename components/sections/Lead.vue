@@ -54,9 +54,9 @@ export default {
   data () {
     return {
       data: {
-        name: 'Stas Stashkevych',
-        position: 'CBDO',
-        img: 'stos.jpg'
+        img: 'anna.jpg',
+        position: 'Account manager',
+        name: 'Anna Haiduk'
       },
       socials: [
         {

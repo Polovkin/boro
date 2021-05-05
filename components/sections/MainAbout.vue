@@ -108,14 +108,16 @@ export default {
     window.addEventListener('resize', () => {
       this.heightChange()
     })
-    this.$nuxt.$emit('update-locomotive')
+    this.$nextTick(function () {
+      this.$nuxt.$emit('update-locomotive')
+    })
   },
   methods: {
     heightChange () {
       this.height = Math.ceil((724 / 430) * (window.innerWidth / 3))
+      this.$nuxt.$emit('update-locomotive')
     }
   }
-
 }
 </script>
 

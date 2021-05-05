@@ -22,6 +22,9 @@ export default {
   components: { Menu, PopupFluid, Header },
   data () {
     return {}
+  },
+  mounted() {
+
   }
 }
 </script>
