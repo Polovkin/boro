@@ -10,13 +10,13 @@
 
   background-color: $color__dark;
 
-
-
   &--light {
     background-color: $color__background_primary;
-.container {
-  background-color: $color__background_primary;
-}
+
+    .container {
+      background-color: $color__background_primary;
+    }
+
     .popup__header-close {
       color: $color__dark;
     }
@@ -117,7 +117,6 @@
       border: 1px solid $color__light_6;
       border-radius: 50%;
     }
-
   }
 
   &__body {

@@ -1,11 +1,22 @@
 @import 'popup';
 
 .header-menu {
+  $menu_animation: .5s;
+  $items_animation: 1s;
+  $header_fu: cubic-bezier(.41, 0, .13, 1.005);
   @extend .popup;
   z-index: z(header);
 
   overflow: hidden;
 
+  opacity: 0;
+
+  transition: opacity ease $menu_animation $items_animation;
+  .container {
+    opacity: 0;
+
+    transition: opacity ease 1s ;
+  }
 
   &__body {
     @extend .popup__body;
@@ -38,7 +49,10 @@
       weight: 500;
       size: 54px;
     };
+    transform: translateY(100%);
+    opacity: 0;
 
+    transition: transform $header_fu $items_animation, opacity $header_fu $items_animation, color ease .3s;
     span {
       @include caption-normal;
       position: relative;
@@ -79,5 +93,23 @@
     }
   }
 
+  &--active {
+    opacity: 1;
+
+    transition: opacity ease $menu_animation;
+
+    .container {
+      opacity: 1;
+
+      transition: opacity ease 1s $menu_animation;
+    }
+
+    .header-menu__item {
+      transform: translateY(0);
+      opacity: 1;
+
+      transition: transform $header_fu $items_animation $menu_animation, opacity $header_fu $items_animation $menu_animation, color ease .3s;
+    }
+  }
 
 }

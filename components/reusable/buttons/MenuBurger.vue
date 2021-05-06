@@ -34,14 +34,12 @@ export default {
   },
   methods: {
     menuToggle () {
-      if (!this.menuAnimationInProgress) {
-        if (this.menuState) {
-          this.burgerAnimate = false
-          this.$store.dispatch('popups/CLOSE_MENU')
-        } else {
-          this.burgerAnimate = true
-          this.$store.dispatch('popups/OPEN_MENU')
-        }
+      if (this.menuState) {
+        this.burgerAnimate = false
+        this.$store.dispatch('popups/CLOSE_MENU')
+      } else {
+        this.burgerAnimate = true
+        this.$store.dispatch('popups/OPEN_MENU')
       }
     }
   }
@@ -88,7 +86,9 @@ export default {
     width: fit-content;
     height: 25px;
     overflow: hidden;
-
+    span {
+      transition: all cubic-bezier(.405, 0, .025, 1) 1s;
+    }
   }
 
   .burger {
@@ -108,7 +108,7 @@ export default {
       height: 2px !important;
 
       background-color: $color__dark;
-
+      transition: all cubic-bezier(.405, 0, .025, 1) 1s;
     }
 
     &:before {
@@ -140,7 +140,37 @@ export default {
     }
 
   }
+  &--active {
 
+    .menu-burger__text {
+
+      span {
+        transform: translateY(-100%);
+      }
+    }
+
+    .burger {
+      border: 1px solid $color__dark_6;
+      border-radius: 50%;
+
+
+      &:before {
+        @include pseudoElement(18px);
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%) rotate(135deg);
+      }
+
+      &:after {
+        @include pseudoElement(18px);
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%) rotate(225deg);
+      }
+    }
+  }
   @include breakpoint($mobile__all) {
     margin-left: 40px;
   }

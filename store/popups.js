@@ -31,7 +31,6 @@ export const mutations = {
   SET_POPUP_TYPE (s, payload) {
     s.popupType = payload
   }
-
 }
 
 export const actions = {
@@ -49,7 +48,7 @@ export const actions = {
   },
   CLOSE_MENU ({ commit }) {
     commit('SET_MENU_ANIMATION_CLASS', false)
-  setTimeout(() => {
+    setTimeout(() => {
       commit('SET_MENU_STATE', false)
     }, 1500)
   }
