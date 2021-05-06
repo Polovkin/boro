@@ -50,7 +50,7 @@ export const actions = {
     commit('SET_MENU_ANIMATION_CLASS', false)
     setTimeout(() => {
       commit('SET_MENU_STATE', false)
-    }, 1000)
+    }, 1200)
   }
 }
 
