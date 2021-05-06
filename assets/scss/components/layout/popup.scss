@@ -14,7 +14,9 @@
 
   &--light {
     background-color: $color__background_primary;
-
+.container {
+  background-color: $color__background_primary;
+}
     .popup__header-close {
       color: $color__dark;
     }

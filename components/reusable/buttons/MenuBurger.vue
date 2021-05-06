@@ -1,7 +1,7 @@
 <template>
   <button
     class="menu-burger"
-    :class="{'menu-burger--active':menuState}"
+    :class="{'menu-burger--active':burgerAnimate}"
     @click="menuToggle"
   >
     <span class="menu-burger__text">
@@ -18,7 +18,11 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'MenuBurger',
-
+  data() {
+    return {
+      burgerAnimate: false
+    }
+  },
   computed: {
     ...mapState({
       menu: s => s.popups.menuState,
@@ -32,8 +36,10 @@ export default {
     menuToggle () {
       if (!this.menuAnimationInProgress) {
         if (this.menuState) {
+          this.burgerAnimate = false
           this.$store.dispatch('popups/CLOSE_MENU')
         } else {
+          this.burgerAnimate = true
           this.$store.dispatch('popups/OPEN_MENU')
         }
       }
