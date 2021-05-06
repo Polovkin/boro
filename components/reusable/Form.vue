@@ -148,7 +148,7 @@ export default {
 
   computed: {
     ...mapState({
-      storeType: s => s.app.popupType
+      storeType: s => s.popups.popupType
     }),
     popupTypeTouch () {
       return this.storeType === this.type

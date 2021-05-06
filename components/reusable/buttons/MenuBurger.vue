@@ -1,8 +1,8 @@
 <template>
   <button
     class="menu-burger"
-    :class="{'menu-burger--active':menu}"
-    @click="openMenu"
+    :class="{'menu-burger--active':menuState}"
+    @click="menuToggle"
   >
     <span class="menu-burger__text">
       <span>Menu</span>
@@ -21,12 +21,22 @@ export default {
 
   computed: {
     ...mapState({
-      menu: s => s.app.menuState
-    })
+      menu: s => s.popups.menuState,
+      menuAnimationInProgress: s => s.popups.menuAnimationInProgress
+    }),
+    menuState () {
+      return this.menu
+    }
   },
   methods: {
-    openMenu () {
-      this.$store.commit('app/SET_MENU_STATE')
+    menuToggle () {
+      if (!this.menuAnimationInProgress) {
+        if (this.menuState) {
+          this.$store.dispatch('popups/CLOSE_MENU')
+        } else {
+          this.$store.dispatch('popups/OPEN_MENU')
+        }
+      }
     }
   }
 }
@@ -93,27 +103,24 @@ export default {
 
       background-color: $color__dark;
 
-
     }
 
     &:before {
       @include pseudoElement(16px);
-      top:calc(50% - 3px) ;
+      top: calc(50% - 3px);
       left: 50%;
 
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
     }
 
     &:after {
       @include pseudoElement(8px);
-      top:calc(50% + 3px) ;
-      left: calc(50% - 3px) ;
+      top: calc(50% + 3px);
+      left: calc(50% - 3px);
 
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
     }
   }
-
-
 
   &--show {
     @include breakpoint($desktop__all) {
@@ -128,10 +135,10 @@ export default {
 
   }
 
-  @include breakpoint ($mobile__all) {
+  @include breakpoint($mobile__all) {
     margin-left: 40px;
   }
-  @include breakpoint ($desktop__all) {
+  @include breakpoint($desktop__all) {
     max-width: 0;
 
     opacity: 0;

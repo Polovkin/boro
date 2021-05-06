@@ -1,54 +1,49 @@
 <template>
-  <transition name="popup-fade">
-    <div
-      v-show="menuState"
-      v-in-viewport
-      class="header-menu popup--light"
-      :class="{'header-menu--active':menuState}"
-    >
-      <div class="container">
-        <div class="header-menu__body">
-          <nav class="header-menu__nav">
-            <ul
-              :class="{'header-menu__nav--hover': hoverList}"
-              @mouseover="listHoverIn"
-              @mouseleave="listHoverOut"
-            >
-              <li
-                v-for="(item,index) of navs"
-                :key="index"
-                class="header-menu__elem"
-              >
-                <transition name="menu-item-fade">
-                  <nuxt-link
-                    class="header-menu__item"
-                    :to="item.link"
-                  >
-                    {{ $t(item.name) }}
-                    <span>{{ `0${index + 1}` }}</span>
-                  </nuxt-link>
-                  <transition />
-                </transition>
-              </li>
-            </ul>
-          </nav>
+  <div
+    v-show="menuState"
+    v-in-viewport
+    class="header-menu popup--light"
+    :class="{'header-menu--active':menuAnimationClass}"
+  >
+    <div class="container">
+      <div class="header-menu__body">
+        <nav class="header-menu__nav">
           <ul
-            class="header-menu__links"
+            :class="{'header-menu__nav--hover': hoverList}"
+            @mouseover="listHoverIn"
+            @mouseleave="listHoverOut"
           >
-            <li>
-              <LinkPrimary link="/">
-                Privacy policy
-              </LinkPrimary>
-              <LinkPrimary link="/">
-                Terms&Conditions
-              </LinkPrimary>
+            <li
+              v-for="(item,index) of navs"
+              :key="index"
+              class="header-menu__elem"
+            >
+              <nuxt-link
+                class="header-menu__item"
+                :to="item.link"
+              >
+                {{ $t(item.name) }}
+                <span>{{ `0${index + 1}` }}</span>
+              </nuxt-link>
             </li>
           </ul>
-        </div>
-        <PopupFooter is-light />
+        </nav>
+        <ul
+          class="header-menu__links"
+        >
+          <li>
+            <LinkPrimary link="/">
+              Privacy policy
+            </LinkPrimary>
+            <LinkPrimary link="/">
+              Terms&Conditions
+            </LinkPrimary>
+          </li>
+        </ul>
       </div>
+      <PopupFooter is-light />
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -77,22 +72,39 @@ export default {
   },
   computed: {
     ...mapState({
-      menu: s => s.app.menuState
+      menu: s => s.popups.menuState,
+      menuAnimation: s => s.popups.menuAnimationClass
     }),
+    menuAnimationClass () {
+      return this.menuAnimation
+    },
     menuState () {
       return this.menu
-    }
+    },
   },
+  /*watch: {
+    menu (newValue, oldValue) {
+      if (newValue) {
+        this.menuState = newValue
+
+        setTimeout(() => {
+          this.menuAnimate = newValue
+        }, 0)
+        this.$store.dispatch('popups/START_MENU_ANIMATION')
+      } else {
+        this.menuState = newValue
+        this.menuAnimate = newValue
+      }
+    }
+  },*/
   methods: {
     listHoverIn () {
       this.hoverList = true
     },
     listHoverOut () {
       this.hoverList = false
-    },
-    closeMenu () {
-      this.$store.commit('app/SET_MENU_STATE', false)
     }
+
   }
 }
 </script>

@@ -92,8 +92,8 @@ export default {
   },
   computed: {
     ...mapState({
-      popupState: s => s.app.popupState,
-      popupType: s => s.app.popupType
+      popupState: s => s.popups.popupState,
+      popupType: s => s.popups.popupType
     })
   },
 
@@ -143,10 +143,10 @@ export default {
       this.isInMenuOpen = false
       this.isPopOpen = true
 
-      this.$store.commit('app/SET_POPUP_TYPE', this.popupCalledType)
+      this.$store.commit('popups/SET_POPUP_TYPE', this.popupCalledType)
       if (!this.popupState) {
         setTimeout(() => {
-          this.$store.commit('app/SET_POPUP_STATE', true)
+          this.$store.commit('popups/SET_POPUP_STATE', true)
         }, 300)
       }
     },
@@ -154,7 +154,7 @@ export default {
       this.isPopOpen = false
       this.isInMenuOpen = true
       setTimeout(() => {
-        this.$store.commit('app/SET_POPUP_TYPE', POPUP_GET_IN_TOUCH)
+        this.$store.commit('popups/SET_POPUP_TYPE', POPUP_GET_IN_TOUCH)
       }, 300)
     }
   }

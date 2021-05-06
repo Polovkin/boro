@@ -5,9 +5,11 @@
   z-index: z(header);
 
   overflow: hidden;
-  background-color: $color__background_primary;
+
+
+
   .container {
-    background-color: $color__background_primary;
+    background-color: inherit;
   }
 
 
@@ -37,9 +39,6 @@
     color: $color__dark;
     letter-spacing: -.056em;
     line-height: 60px;
-
-
-
 
     font: {
       weight: 500;
@@ -71,8 +70,9 @@
     &--hover {
 
       a {
-        transition-delay: 0s !important;
         color: $color__font_dark--quaternary;
+
+        transition-delay: 0s !important;
       }
     }
 

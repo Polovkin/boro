@@ -48,8 +48,8 @@ export default {
   computed: {
     ...mapState({
       scrollDirection: s => s.app.scrollDirection,
-      headerTopState: s => s.app.headerTopState,
-      headerMove: s => s.app.headerMove,
+      headerTopState: s => s.header.headerTopState,
+      headerMove: s => s.header.headerMove,
       preloaderDone: s => s.app.preloaderDone
     }),
     isPreloaderDone () {

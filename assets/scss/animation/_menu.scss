@@ -1,23 +1,43 @@
 .header-menu {
-  //opacity: 1;
+  $menu_animation: .5s;
+  $items_animation: 1s;
+  $header_fu: cubic-bezier(.41, 0, .13, 1.005);
+  opacity: 0;
+
+  transition: all ease $menu_animation .8s;
+
+  .container {
+    opacity: 0;
+
+    transition: opacity ease .4s $menu_animation;
+  }
 
   &__item {
     transform: translateY(100%);
     opacity: 0;
 
-    transition: transform cubic-bezier(.41, 0, .13, 1.005) 1s .8s, color ease .3s;
+    transition: transform $header_fu $items_animation, opacity $header_fu $items_animation, color ease .3s;
 
   }
 
-}
-
-.in-viewport {
-
-  .header-menu__item {
-    transform: translateY(0);
+  &--active {
     opacity: 1;
+
+    transition: all ease $menu_animation;
+
+    .container {
+      opacity: 1;
+    }
+
+    .header-menu__item {
+      transform: translateY(0);
+      opacity: 1;
+
+      transition: transform $header_fu $items_animation $menu_animation, opacity $header_fu $items_animation $menu_animation, color ease .3s;
+    }
   }
 }
+
 
 /*.popup-fade-enter-active, .popup-fade-leave-active {
   transition: opacity 2s;
@@ -31,12 +51,4 @@
 
 /* Анимации появления и исчезновения могут иметь */
 /* различные продолжительности и динамику.       */
-.popup-fade-enter-active {
-  transition: all 1.3s ease;
-}
-.popup-fade-leave-active {
-  transition: all 1.8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.popup-fade-enter, .popup-fade-leave-to {
-  opacity: 0;
-}
+

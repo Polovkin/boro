@@ -35,8 +35,8 @@ export default {
   },
   computed: {
     ...mapState({
-      popupState: s => s.app.popupState,
-      popupType: s => s.app.popupType
+      popupState: s => s.popups.popupState,
+      popupType: s => s.popups.popupType
     }),
     isShow () {
       return this.popupState

@@ -65,8 +65,8 @@ export default {
       const steps = e.scroll.y >= this.lastY
 
       this.$store.commit('app/SET_SCROLL_DIRECTION', steps)
-      this.$store.commit('app/SET_HEADER_MOVE', e.scroll.y > 100 && steps)
-      this.$store.commit('app/SET_HEADER_TOP_STATE', e.scroll.y < 150)
+      this.$store.commit('header/SET_HEADER_MOVE', e.scroll.y > 100 && steps)
+      this.$store.commit('header/SET_HEADER_TOP_STATE', e.scroll.y < 150)
       this.lastY = e.scroll.y
     },
     onScroll (e) {
