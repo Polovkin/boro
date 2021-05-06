@@ -80,23 +80,8 @@ export default {
     },
     menuState () {
       return this.menu
-    },
-  },
-  /*watch: {
-    menu (newValue, oldValue) {
-      if (newValue) {
-        this.menuState = newValue
-
-        setTimeout(() => {
-          this.menuAnimate = newValue
-        }, 0)
-        this.$store.dispatch('popups/START_MENU_ANIMATION')
-      } else {
-        this.menuState = newValue
-        this.menuAnimate = newValue
-      }
     }
-  },*/
+  },
   methods: {
     listHoverIn () {
       this.hoverList = true

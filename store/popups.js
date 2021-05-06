@@ -2,7 +2,7 @@ import { POPUP_GET_IN_TOUCH } from './types'
 
 export const state = () => ({
   popupState: false,
-  menuState: false,
+  menuState: null,
   menuAnimationClass: false,
   menuAnimationInProgress: false,
   popupType: POPUP_GET_IN_TOUCH
@@ -44,13 +44,13 @@ export const actions = {
     commit('SET_MENU_STATE', true)
     setTimeout(() => {
       commit('SET_MENU_ANIMATION_CLASS', true)
-    }, 0)
+    }, 100)
   },
   CLOSE_MENU ({ commit }) {
     commit('SET_MENU_ANIMATION_CLASS', false)
     setTimeout(() => {
       commit('SET_MENU_STATE', false)
-    }, 1500)
+    }, 1000)
   }
 }
 

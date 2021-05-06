@@ -18,7 +18,7 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'MenuBurger',
-  data() {
+  data () {
     return {
       burgerAnimate: false
     }
@@ -34,12 +34,12 @@ export default {
   },
   methods: {
     menuToggle () {
-      if (this.menuState) {
-        this.burgerAnimate = false
-        this.$store.dispatch('popups/CLOSE_MENU')
-      } else {
+      if (this.menuState === null) {
         this.burgerAnimate = true
         this.$store.dispatch('popups/OPEN_MENU')
+      } else {
+        this.burgerAnimate = !this.menuState
+        this.$store.dispatch(this.menuState ? 'popups/CLOSE_MENU' : 'popups/OPEN_MENU')
       }
     }
   }
@@ -86,6 +86,7 @@ export default {
     width: fit-content;
     height: 25px;
     overflow: hidden;
+
     span {
       transition: all cubic-bezier(.405, 0, .025, 1) 1s;
     }
@@ -140,6 +141,7 @@ export default {
     }
 
   }
+
   &--active {
 
     .menu-burger__text {
@@ -152,7 +154,6 @@ export default {
     .burger {
       border: 1px solid $color__dark_6;
       border-radius: 50%;
-
 
       &:before {
         @include pseudoElement(18px);
@@ -171,6 +172,7 @@ export default {
       }
     }
   }
+
   @include breakpoint($mobile__all) {
     margin-left: 40px;
   }
