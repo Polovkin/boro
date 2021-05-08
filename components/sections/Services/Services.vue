@@ -5,7 +5,7 @@
     <h2
       slot="title"
     >
-      Services
+      {{ $t('services.title') }}
     </h2>
     <div slot="content" class="main-services__content">
       <ServiceItem v-for="(item,index) of items" :key="index" :data="item" />
@@ -31,7 +31,7 @@ export default {
           title: 'Web and Mobile Apps',
           description: 'Don’t rely on imagination only. We can picture your product before it comes to life.',
           button: {
-            text: 'Work with us',
+            text: 'buttons.call-service',
             link: '/'
           }
         },
@@ -40,7 +40,7 @@ export default {
           title: 'Websites',
           description: 'For any product, graphics and motion design are now becoming a necessary part of development.',
           button: {
-            text: 'Work with us',
+            text: 'buttons.call-service',
             link: '/'
           }
         },
@@ -49,7 +49,7 @@ export default {
           title: 'Motion & 3D',
           description: 'We can create any projects with  3D animation - instructions, infographics, pre-rolls, teasers, intros, titles, video advertisements and others.',
           button: {
-            text: 'Work with us',
+            text: 'buttons.call-service',
             link: '/'
           }
         },
@@ -58,7 +58,7 @@ export default {
           title: 'Graphic',
           description: 'Don’t rely on imagination only. We can picture your product before it comes to life.',
           button: {
-            text: 'Work with us',
+            text: 'buttons.call-service',
             link: '/'
           }
         }

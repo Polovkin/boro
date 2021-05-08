@@ -24,7 +24,7 @@
             :key="index"
             :link="buttons.link"
           >
-            {{ buttons.text }}
+            {{ $t(buttons.text) }}
           </ButtonPrimary>
         </div>
       </div>

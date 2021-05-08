@@ -5,7 +5,6 @@ export const state = () => ({
   content: {
     phone: '+3 (8093) 93 12 641',
     email: 'hello@boro.com',
-    address: ''
   }
 })
 

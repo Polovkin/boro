@@ -22,7 +22,7 @@
         <ButtonPrimary
           :link="data.button.link"
         >
-          {{ data.button.text }}
+          {{ $t(data.button.text) }}
         </ButtonPrimary>
       </div>
 

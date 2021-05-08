@@ -5,14 +5,14 @@
     class="main-blog"
   >
     <h2 slot="title">
-      Blog
+      {{ $t('blog.title') }}
     </h2>
     <LinkPrimary
       slot="elem"
       :payload="'24'"
       link="/"
     >
-      Read more posts
+      {{ $t('buttons.call-posts') }}
     </LinkPrimary>
     <div
       slot="content"

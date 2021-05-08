@@ -1,8 +1,17 @@
 {
   "buttons": {
     "call-form": "Get In Touch",
-    "call-estimate": "Estimate"
+    "call-estimate": "Estimate",
+    "call-projects": "All projects",
+    "call-about": "About us",
+    "call-service": "Work with us",
+    "call-posts": "Read more posts",
+    "open-case": "Open case",
+    "show-reel": "Showreel",
+    "read-more": "Read more",
+    "to-top": "Go top"
   },
+  "message": "Welcome",
   "header": {
     "menu": "Menu",
     "menu-close": "Close"
@@ -11,7 +20,9 @@
     "mail": "Write",
     "call": "Call",
     "privacy": "Privacy",
-    "terms": "Terms&Conditions"
+    "terms": "Terms&Conditions",
+    "office": "Office",
+    "address": "Kyivska Street, 14, Vinnytsia, , 21000"
   },
   "form": {
     "title-touch": "Get In Touch",
@@ -66,6 +77,30 @@
     "link5": "Blog",
     "link6": "Contacts"
   },
-  "message": "Welcome",
-  "about": "About"
+  "main" : {
+    "title": "We are design agency with solid expertise in",
+    "description": "We put aesthetics in the right direction"
+  },
+  "cases": {
+    "title": "Cases"
+  },
+  "about": {
+    "title": "We work in close collaboration with the customer's business to create the most successful product",
+    "years": "Years experience",
+    "cases": "Successful cases",
+    "specialists": "Focused specialists"
+  },
+  "services": {
+    "title": "Services"
+  },
+  "blog": {
+    "title": "Bloog"
+  },
+  "lead": {
+    "title1": "Ready to Discuss a Project?",
+    "title2": " Prepare for a quick response"
+  },
+  "user": {
+    "account-manager": "Account manager"
+  }
 }

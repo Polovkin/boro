@@ -7,13 +7,13 @@
       slot="title"
       class="main-about__title"
     >
-      We work in close collaboration with the customer's business to create the most successful product
+      {{ $t('about.title') }}
     </h2>
     <LinkPrimary
       slot="elem"
       link="/"
     >
-      About us
+      {{ $t('buttons.call-about') }}
     </LinkPrimary>
     <div
       slot="content"
@@ -61,8 +61,8 @@
           :key="index"
           class="main-about__grid-item"
         >
-          <dt>{{ item.number }}</dt>
-          <dl>{{ item.text }}</dl>
+          <dt>{{ $t(item.number) }}</dt>
+          <dl>{{ $t(item.text) }}</dl>
         </div>
       </dl>
       <hr class="divider">
@@ -84,15 +84,15 @@ export default {
       numbersData: [
         {
           number: '7+',
-          text: 'years experience'
+          text: 'about.years'
         },
         {
           number: '50',
-          text: 'Successful cases'
+          text: 'about.cases'
         },
         {
           number: '14',
-          text: 'Focused specialists'
+          text: 'about.specialists'
         }
       ],
       width: 0

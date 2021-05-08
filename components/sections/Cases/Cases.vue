@@ -5,14 +5,14 @@
     class="cases-section"
   >
     <h2 slot="title">
-      Cases
+      {{ $t('cases.title') }}
     </h2>
     <LinkPrimary
       slot="elem"
       :payload="'24'"
       link="/"
     >
-      All projects
+      {{ $t('buttons.call-projects') }}
     </LinkPrimary>
     <div
       slot="content"
@@ -46,11 +46,11 @@ export default {
           description: 'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
           buttons: [
             {
-              text: 'Showreel',
+              text: 'buttons.show-reel',
               link: '/about'
             },
             {
-              text: 'Open Case',
+              text: 'buttons.open-case',
               link: '/'
             }
           ],
@@ -63,7 +63,7 @@ export default {
           description: 'Since most of devices are controlled via smartphone and tablet apps, we wanted to take a perfect UX for this',
           buttons: [
             {
-              text: 'OpenCase',
+              text: 'buttons.open-case',
               link: '/'
             }
           ],
@@ -76,7 +76,7 @@ export default {
           description: 'The Most Organized Online Catalog. It’s a website and application designed to facilitate the purchase of goods and services.',
           buttons: [
             {
-              text: 'OpenCase',
+              text: 'buttons.open-case',
               link: '/'
             }
           ],
@@ -89,11 +89,11 @@ export default {
           description: 'Foxxiz - is a mobile technology company specializing in language learning, skills development and employee engagement solutions.',
           buttons: [
             {
-              text: 'Showreel',
+              text: 'buttons.show-reel',
               link: '/about'
             },
             {
-              text: 'OpenCase',
+              text: 'buttons.open-case',
               link: '/'
             }
           ],

@@ -2,10 +2,10 @@
   <section class="blog-card">
     <figure class="blog-card__img">
       <nuxt-img
-          width="430"
-          height="248"
-          lazyload="true"
-          :src="post.img"
+        width="430"
+        height="248"
+        lazyload="true"
+        :src="post.img"
       />
     </figure>
     <div class="blog-card__body">
@@ -15,8 +15,8 @@
       <time class="blog-card__date">{{ post.date }}</time>
       <div class="blog-card__tags">
         <ButtonTag
-            v-for="(tag,index) of post.tags"
-            :key="index"
+          v-for="(tag,index) of post.tags"
+          :key="index"
         >
           {{ tag }}
         </ButtonTag>
@@ -26,10 +26,10 @@
       </p>
     </div>
     <ButtonPrimary
-        class="blog-card__button"
-        :link="post.link"
+      class="blog-card__button"
+      :link="post.link"
     >
-      Read more
+      {{ $t('buttons.read-more') }}
     </ButtonPrimary>
   </section>
 </template>
@@ -40,7 +40,7 @@ import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 
 export default {
   name: 'PostCard',
-  components: {ButtonPrimary, ButtonTag},
+  components: { ButtonPrimary, ButtonTag },
   props: ['post']
 
 }

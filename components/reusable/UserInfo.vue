@@ -9,7 +9,7 @@
         />
       </figure>
       <p class="user-info__position">
-        {{ data.position }}
+        {{ $t(data.position) }}
       </p>
       <p class="user-info__name">
         {{ data.name }}

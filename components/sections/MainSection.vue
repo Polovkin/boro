@@ -8,7 +8,7 @@
         class="main-section__title"
       >
         <h1>
-          We are design agency with solid expertise in
+          {{ $t('main.title') }}
           <TextFlip :data="text" />
         </h1>
       </div>
@@ -20,7 +20,7 @@
       <hr class="divider">
       <div class="main-section__tags">
         <p class="body-tertiary text-color-tertiary">
-          We put aesthetics in the right direction
+          {{ $t('main.description') }}
         </p>
         <div class="main-section__tags-wrap">
           <ButtonTag

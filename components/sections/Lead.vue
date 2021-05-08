@@ -7,38 +7,15 @@
     <hr class="divider">
     <div class="lead-section__content">
       <h2 class="lead-section__header">
-        Ready to Discuss a Project?<br>
-        Prepare for a quick response <br>
-        <span class="text-color-main">hello@boro.com</span>
+        {{ $t('lead.title1') }} <br>
+        {{ $t('lead.title2') }} <br>
+        <span class="text-color-main">{{ content.email }}</span>
       </h2>
       <div class="lead-section__contact">
-        <UserInfo :data="data" :tags="socials" />
-        <!--        <div class="lead-section__contact-info">
-          <figure class="lead-section__img">
-            <nuxt-img
-              loading="lazy"
-              src="/img/stos.jpg"
-              alt="stos"
-            />
-          </figure>
-          <p class="lead-section__text">
-            CBDO
-          </p>
-          <p class="lead-section__name">
-            Stas Stashkevych
-          </p>
-        </div>
-        <div class="lead-section__contact-tags">
-          <ButtonTag
-            v-for="(tags,index) of socials"
-            :key="index"
-            class="lead-section__contact-tag"
-            :link="tags.link"
-            :icon="tags.icon"
-          >
-            {{ tags.name }}
-          </ButtonTag>
-        </div>-->
+        <UserInfo
+          :data="data"
+          :tags="socials"
+        />
       </div>
     </div>
     <hr class="divider">
@@ -48,6 +25,7 @@
 <script>
 import ButtonTag from '../reusable/buttons/ButtonTag'
 import UserInfo from '../reusable/UserInfo'
+
 export default {
   name: 'Lead',
   components: { UserInfo, ButtonTag },
@@ -55,7 +33,7 @@ export default {
     return {
       data: {
         img: 'anna.jpg',
-        position: 'Account manager',
+        position: 'user.account-manager',
         name: 'Anna Haiduk'
       },
       socials: [
@@ -75,6 +53,11 @@ export default {
           link: '/'
         }
       ]
+    }
+  },
+  computed: {
+    content () {
+      return this.$store.state.app.content
     }
   }
 }
