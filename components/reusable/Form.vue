@@ -88,7 +88,6 @@
             <InputCustom
               v-model="formData.budget"
               class="form__item"
-              :select-data="['test']"
               :touch="touch"
               :input-name="'budget'"
               :placeholder="$t('form.placeholder.budget')"
