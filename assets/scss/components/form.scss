@@ -24,6 +24,24 @@
     justify-content: space-between;
 
     display: flex;
+
+    &-estimate {
+      @for $i from 1 through 6 {
+
+        & > label:nth-of-type(#{$i}) {
+          grid-area: input#{$i};
+        }
+      }
+      display: grid;
+      grid: {
+        column-gap: 24px;
+        template: {
+          columns: repeat(2,1fr);
+          rows: auto;
+          areas: 'input1 input1' 'input2 input3' 'input4 input5' 'input6 input6';
+        };
+      };
+    }
   }
 
   &__content {
@@ -36,10 +54,10 @@
 
   &__submit {
     @include title-link;
-    width: fit-content;
-
-    margin-left: auto;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     transition: all ease .2s;
 
     .button__wave {
@@ -77,23 +95,30 @@
 
     display: flex;
     width: 100%;
+
     .user-info {
       align-items: flex-end;
+
       &__contact-info {
         margin-right: 0;
       }
+
       &__img {
-        display: flex;
         justify-content: flex-end;
+
+        display: flex;
       }
     }
   }
 
   &__footer {
-    position: relative;
-    display: flex;
     align-items: center;
     justify-content: space-between;
+
+    position: relative;
+
+    display: flex;
+
     padding: 28px 0;
 
     .divider {

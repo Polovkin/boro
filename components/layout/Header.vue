@@ -23,7 +23,6 @@
           <ButtonPrimary is-popup-toggle :popup-called-type="popupType">
             {{ $t('buttons.call-estimate') }}
           </ButtonPrimary>
-
           <MenuBurger :class="{'menu-burger--show': !isHeaderOnTop}" />
         </div>
       </div>
@@ -38,7 +37,7 @@ import LangSwitcher from '../LangSwitcher'
 import LayoutNav from '../reusable/LayoutNav'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import MenuBurger from '../reusable/buttons/MenuBurger'
-import {POPUP_ESTIMATE} from '../../store/types';
+import { POPUP_ESTIMATE } from '../../store/types'
 export default {
   name: 'Header',
   components: { MenuBurger, ButtonPrimary, LayoutNav, LangSwitcher, Logo },

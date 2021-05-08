@@ -85,9 +85,35 @@
               :input-name="'deadline'"
               :placeholder="$t('form.placeholder.deadline')"
             />
+            <InputCustom
+              v-model="formData.budget"
+              class="form__item"
+              :select-data="['test']"
+              :touch="touch"
+              :input-name="'budget'"
+              :placeholder="$t('form.placeholder.budget')"
+            />
+            <InputCustom
+              v-model="formData.message"
+              class="form__item"
+              :touch="touch"
+              :input-name="'message'"
+              :placeholder="$t('form.placeholder.description')"
+            />
           </div>
         </template>
         <div class="form__submit">
+          <div v-if="!popupTypeTouch" class="file__item">
+            <input
+              id="formImage"
+              ref="file"
+              autocomplete="off"
+              type="file"
+              name="file"
+              class="file__input"
+              @change="handleFileUpload()"
+            >
+          </div>
           <ButtonPrimary is-submit @submitEvent="submit">
             {{ $t('form.submit') }}
           </ButtonPrimary>
@@ -122,7 +148,6 @@ import { POPUP_GET_IN_TOUCH } from '../../store/types'
 import InputCustom from './InputAnimate'
 import ButtonPrimary from './buttons/ButtonPrimary'
 import UserInfo from './UserInfo'
-import FooterTags from './FooterTags'
 
 export default {
   name: 'Form',
@@ -135,10 +160,11 @@ export default {
         name: null,
         email: null,
         phone: null,
-        message: null
+        message: null,
+        budget: null,
+        deadline: null
       },
       users: [
-
         {
           info: {
             img: 'anna.jpg',
@@ -169,10 +195,21 @@ export default {
 
   computed: {
     ...mapState({
-      storeType: s => s.popups.popupType
+      storeType: s => s.popups.popupType,
+      storePopupState: s => s.popups.popupState
     }),
     popupTypeTouch () {
       return this.storeType === this.type
+    },
+    popupState () {
+      return this.storePopupState
+    }
+  },
+  watch: {
+    popupState (newValue) {
+      if (!newValue) {
+        this.touch = false
+      }
     }
   },
   mounted () {

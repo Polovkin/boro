@@ -65,6 +65,20 @@
       | {{ $t('form.error.required') }}
     span.input-custom__error-msg.animation-shake(v-if='!$v.email.email')
       | {{ $t('form.error.invalid-email') }}
+  //Select
+  label.input-custom__label(
+    v-else-if="selectData"
+    :class="{'input-custom--valid': !$v.select.$error && $v.select.$dirty}")
+    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
+      | {{ placeholder ? placeholder : 'select' }}
+    select.select-custom.input-custom__animate(
+      v-model='$v.select.$model'
+      @click='placeholderAnimate=true'
+      @blur='unfocused'
+      @input='updateValue($event.target.value)')
+      option(v-for="item of selectData") {{item}}
+    span.input-custom__error-msg.animation-shake(v-if='!$v.select.required && $v.select.$dirty')
+      | {{ $t('form.error.required') }}
   //Text
   label.input-custom__label(
     v-else
@@ -94,6 +108,9 @@ export default {
   name: 'InputCustom',
   mixins: [validationMixin],
   validations: {
+    select: {
+      required,
+    },
     name: {
       required,
       minLength: minLength(3),
@@ -114,6 +131,9 @@ export default {
     }
   },
   props: {
+    selectData: {
+      type: Object,
+    },
     touch: {
       type: Boolean,
       default: false
@@ -145,6 +165,7 @@ export default {
       name: '',
       email: '',
       text: '',
+      select: '',
       password: null,
       passwordState: false
     }
@@ -300,4 +321,7 @@ $border_weight: 1px;
   }
 }
 
+.select-custom {
+  @extend .input-custom;
+}
 </style>

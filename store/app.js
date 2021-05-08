@@ -4,7 +4,7 @@ export const state = () => ({
   preloaderDone: true,
   content: {
     phone: '+3 (8093) 93 12 641',
-    email: 'hello@boro.com',
+    email: 'hello@boro.com'
   }
 })
 
