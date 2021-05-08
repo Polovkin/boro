@@ -36,10 +36,7 @@ export default {
   },
   methods: {
     closePopup () {
-      this.$store.commit('popups/SET_POPUP_STATE', false)
-      setTimeout(() => {
-        this.$store.commit('popups/SET_POPUP_TYPE', this.closeType)
-      }, 300)
+      this.$store.dispatch('popups/CLOSE_MODAL')
     }
   }
 }

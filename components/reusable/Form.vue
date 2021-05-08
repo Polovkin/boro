@@ -4,10 +4,10 @@
       <template
         v-if="popupTypeTouch"
       >
-        <h2 class="form__title">
+        <h2 class="form__title animation-move-from-down">
           Get In Touch
         </h2>
-        <p class="form__description">
+        <p class="form__description animation-move-from-down">
           Fill out the form or send an email
         </p>
       </template>
@@ -71,7 +71,7 @@
           </ButtonPrimary>
         </div>
       </form>
-      <div class="form__right">
+      <div class="form__right animation-move-from-left">
         <div
           v-if="popupTypeTouch"
 

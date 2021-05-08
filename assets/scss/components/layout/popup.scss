@@ -6,9 +6,33 @@
 
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
 
   background-color: $color__dark;
+
+  opacity: 0;
+
+  transition: opacity ease $menu_animation $items_animation;
+
+  .container {
+    opacity: 0;
+
+    transition: opacity ease 1s;
+  }
+
+  &--active {
+    opacity: 1;
+
+    transition: opacity ease $menu_animation;
+
+    .container {
+      opacity: 1;
+
+      transition: opacity ease 1s $menu_animation;
+    }
+  }
+
+
 
   &--light {
     background-color: $color__background_primary;

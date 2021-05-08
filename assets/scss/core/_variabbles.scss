@@ -23,9 +23,16 @@ $imgPath: '~static/img';
 $iconsPath: '~static/icons/';
 
 $filter_from_black_to_primary: invert(89%) sepia(29%) saturate(3128%) hue-rotate(328deg) brightness(114%) contrast(99%);
-$videinfa_function: cubic-bezier(.25,.74,.22,.99);
+
 
 @import 'components-mixins';
+
+
+
+//animations
+$menu_animation: .5s;
+$items_animation: 1s;
+$header_fu: cubic-bezier(.41, 0, .13, 1.005);
+$videinfa_function: cubic-bezier(.25,.74,.22,.99);
+
 @import '../animation/image';
-
-

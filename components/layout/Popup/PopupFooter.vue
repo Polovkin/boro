@@ -2,7 +2,7 @@
   <div class="popup__footer">
     <hr class="divider">
     <div class="popup__wrap">
-      <div class="popup__footer-info">
+      <div class="popup__footer-info animation-move-from-right">
         <p class="popup__footer-item">
           <span>Write</span>
           <a href="mailto:hello@boro.com">hello@boro.com</a>
@@ -12,7 +12,7 @@
           <a href="tel:380939312641"> +3 (8093) 93 12 641</a>
         </p>
       </div>
-      <FooterTags :is-dark="!isLight" />
+      <FooterTags class="animation-move-from-left" :is-dark="!isLight" />
     </div>
   </div>
 </template>

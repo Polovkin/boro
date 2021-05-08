@@ -1,0 +1,41 @@
+$base_fu: cubic-bezier(.250, .460, .450, .94);
+$base_duration: 1.2s;
+
+.animation-fade {
+  opacity: 0;
+
+  transition: opacity cubic-bezier(.390, .575, .565, 1.000) $base_duration;
+}
+
+.animation-move-from-down {
+  transform: translateY(50px);
+  opacity: 0;
+
+  transition: all $base_duration $base_fu;
+}
+
+.animation-move-from-left {
+  transform: translateX(150px);
+  opacity: 0;
+
+  transition: all $base_duration $base_fu;
+}
+
+.animation-move-from-right {
+  transform: translateX(-150px);
+  opacity: 0;
+
+  transition: all $base_duration $base_fu;
+}
+
+.in-viewport, .popup--active, .header-menu--active {
+
+  .animation-fade {
+    opacity: 1;
+  }
+
+  .animation-move-from-down, .animation-move-from-left, .animation-move-from-right {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}

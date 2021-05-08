@@ -5,7 +5,7 @@
     :class="{
       'header--base': isPreloaderDone,
       'header--on-top': isHeaderOnTop,
-      'header--animate animation-base-state': isPreloaderDone && !isHeaderMove}"
+      'animation-base-state': (isPreloaderDone && !isHeaderMove) || isPopupsOpen}"
   >
     <div class="container">
       <div class="header__content">
@@ -50,8 +50,13 @@ export default {
       scrollDirection: s => s.app.scrollDirection,
       headerTopState: s => s.header.headerTopState,
       headerMove: s => s.header.headerMove,
-      preloaderDone: s => s.app.preloaderDone
+      preloaderDone: s => s.app.preloaderDone,
+      PopupOpen: s => s.popups.popupState,
+      MenuOpen: s => s.popups.menuState
     }),
+    isPopupsOpen () {
+      return this.PopupOpen || this.MenuOpen
+    },
     isPreloaderDone () {
       return this.preloaderDone
     },
@@ -64,7 +69,7 @@ export default {
   },
   mounted () {
     this.firstLoad = true
-  },
+  }
 
 }
 </script>

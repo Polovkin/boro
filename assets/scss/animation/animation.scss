@@ -24,9 +24,12 @@ $ring-weight: 5px;
 .animation-shake {
   animation: shake-horizontal .8s cubic-bezier(.455, .030, .515, .955) both;
 }
+
 @import 'keyframes';
+@import 'base';
 @import 'header';
 @import 'divider';
 @import 'image';
 @import 'about';
+
 

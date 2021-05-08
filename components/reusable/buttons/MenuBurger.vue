@@ -15,6 +15,7 @@
 <script>
 
 import { mapState } from 'vuex'
+import { MENU } from '../../../store/types'
 
 export default {
   name: 'MenuBurger',
@@ -35,11 +36,14 @@ export default {
   methods: {
     menuToggle () {
       if (this.menuState === null) {
+        // First run
         this.burgerAnimate = true
-        this.$store.dispatch('popups/OPEN_MENU')
+        this.$store.commit('popups/SET_POPUP_TYPE', MENU)
+        this.$store.dispatch('popups/OPEN_MODAL')
       } else {
         this.burgerAnimate = !this.menuState
-        this.$store.dispatch(this.menuState ? 'popups/CLOSE_MENU' : 'popups/OPEN_MENU')
+        this.$store.commit('popups/SET_POPUP_TYPE', MENU)
+        this.$store.dispatch(this.menuState ? 'popups/CLOSE_MODAL' : 'popups/OPEN_MODAL')
       }
     }
   }

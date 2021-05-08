@@ -1,26 +1,24 @@
 <template>
-  <transition name="slide-fade">
-    <div
-      v-show="isShow"
-      v-in-viewport
-      class="popup"
-      :class="{'popup--light':isLight}"
-    >
-      <div class="container">
-        <PopupHeader :is-light="isLight" />
-        <div class="popup__body">
-          <Form v-if="popupGetInTouch" />
-        </div>
-        <PopupFooter :is-light="isLight" />
+  <div
+    v-show="isShow"
+    v-in-viewport
+    class="popup"
+    :class="{'popup--light':isLight,'popup--active':popupAnimationClass}"
+  >
+    <div class="container">
+      <PopupHeader :is-light="isLight" />
+      <div class="popup__body">
+        <Form v-if="popupGetInTouch" />
       </div>
+      <PopupFooter :is-light="isLight" />
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import Form from '../../reusable/Form'
-import {POPUP_GET_IN_TOUCH, POPUP_ESTIMATE, POPUP_SUCCESS} from '../../../store/types'
+import { POPUP_GET_IN_TOUCH, POPUP_ESTIMATE, POPUP_SUCCESS } from '../../../store/types'
 import PopupFooter from './PopupFooter'
 import PopupHeader from './PopupHeader'
 
@@ -29,15 +27,17 @@ export default {
   components: { PopupHeader, PopupFooter, Form },
 
   data () {
-    return {
-
-    }
+    return {}
   },
   computed: {
     ...mapState({
       popupState: s => s.popups.popupState,
-      popupType: s => s.popups.popupType
+      popupType: s => s.popups.popupType,
+      popupAnimation: s => s.popups.popupAnimationClass
     }),
+    popupAnimationClass () {
+      return this.popupAnimation
+    },
     isShow () {
       return this.popupState
     },

@@ -1,9 +1,6 @@
 @import 'popup';
 
 .header-menu {
-  $menu_animation: .5s;
-  $items_animation: 1s;
-  $header_fu: cubic-bezier(.41, 0, .13, 1.005);
   @extend .popup;
   z-index: z(header);
 
@@ -16,7 +13,7 @@
   .container {
     opacity: 0;
 
-    transition: opacity ease 1s ;
+    transition: opacity ease 1s;
   }
 
   &__body {
@@ -25,6 +22,10 @@
     justify-content: space-between;
 
     padding-bottom: 7%;
+    padding-top: $header_height;
+    @include breakpoint($desktop__laptop) {
+      padding-bottom: 0;
+    }
 
   }
 
@@ -54,6 +55,7 @@
     opacity: 0;
 
     transition: transform $header_fu $items_animation, opacity $header_fu $items_animation, color ease .3s;
+
     span {
       @include caption-normal;
       position: relative;

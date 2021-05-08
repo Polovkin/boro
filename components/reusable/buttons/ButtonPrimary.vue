@@ -48,17 +48,17 @@
         class="button__wave"
       />
     </span>
-    <span
-      v-if="isPopupToggle"
-      class="button__popup-toggle"
-      :class="{'button__popup-toggle--active':isPopOpen,'button__popup-toggle--active-menu':isInMenuOpen}"
-    />
+    <!--    <span
+          v-if="isPopupToggle"
+          class="button__popup-toggle"
+          :class="{'button__popup-toggle&#45;&#45;active':isPopOpen,'button__popup-toggle&#45;&#45;active-menu':isInMenuOpen}"
+        />-->
   </button>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { POPUP_GET_IN_TOUCH, POPUP_MENU } from '../../../store/types'
+import { POPUP_GET_IN_TOUCH } from '../../../store/types'
 
 export default {
   name: 'ButtonPrimary',
@@ -85,9 +85,7 @@ export default {
     return {
       wave: null,
       classHover: 'button--hover',
-      classLeave: 'button--leave',
-      isPopOpen: false,
-      isInMenuOpen: false
+      classLeave: 'button--leave'
     }
   },
   computed: {
@@ -97,18 +95,18 @@ export default {
     })
   },
 
-  watch: {
+  /*  watch: {
     popupState (newValue) {
       if (!newValue) {
         this.isPopOpen = newValue
       }
     }
-    /* popupType (newValue, oldValue) {
+   popupType (newValue, oldValue) {
       if (newValue === POPUP_GET_IN_TOUCH && oldValue === POPUP_MENU) {
         this.isInMenuOpen = true
       }
-    } */
-  },
+    }
+  }, */
   methods: {
     mouseEnter (event) {
       this.$refs.button.classList.remove(this.classLeave)
@@ -129,9 +127,7 @@ export default {
         this.buttonSubmit()
       }
 
-      if (this.isPopupToggle && this.popupType !== POPUP_MENU) {
-        this.togglePopup()
-      } else {
+      if (this.isPopupToggle) {
         this.openTouchInMenu()
       }
     },
@@ -139,23 +135,9 @@ export default {
       this.$emit('submitEvent')
       return null
     },
-    togglePopup () {
-      this.isInMenuOpen = false
-      this.isPopOpen = true
-
-      this.$store.commit('popups/SET_POPUP_TYPE', this.popupCalledType)
-      if (!this.popupState) {
-        setTimeout(() => {
-          this.$store.commit('popups/SET_POPUP_STATE', true)
-        }, 300)
-      }
-    },
     openTouchInMenu () {
-      this.isPopOpen = false
-      this.isInMenuOpen = true
-      setTimeout(() => {
-        this.$store.commit('popups/SET_POPUP_TYPE', POPUP_GET_IN_TOUCH)
-      }, 300)
+      this.$store.commit('popups/SET_POPUP_TYPE', POPUP_GET_IN_TOUCH)
+      this.$store.dispatch('popups/OPEN_MODAL')
     }
   }
 }
@@ -187,7 +169,7 @@ export default {
 @keyframes toggle-animation {
 
   0% {
-   visibility: visible;
+    visibility: visible;
 
     transform: translateY(-50%) scale(0);
   }
@@ -300,6 +282,7 @@ export default {
       transform: translateY(-50%) scale(100);
 
     }
+
     &--active-menu {
       animation: {
         name: toggle-animation;
