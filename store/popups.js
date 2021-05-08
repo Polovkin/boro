@@ -1,4 +1,4 @@
-import { POPUP_GET_IN_TOUCH, MENU } from './types'
+import {POPUP_GET_IN_TOUCH, MENU, POPUP_ESTIMATE} from './types';
 
 export const state = () => ({
   popupState: false,
@@ -37,6 +37,12 @@ export const actions = {
   OPEN_MODAL ({ commit, state }) {
     const openDelay = 100
     switch (state.popupType) {
+      case POPUP_ESTIMATE:
+        commit('SET_POPUP_STATE', true)
+        setTimeout(() => {
+          commit('SET_POPUP_ANIMATION_CLASS', true)
+        }, openDelay)
+        break
       case POPUP_GET_IN_TOUCH:
         commit('SET_POPUP_STATE', true)
         setTimeout(() => {
@@ -54,18 +60,25 @@ export const actions = {
     }
   },
   CLOSE_MODAL ({ commit, state }) {
+    const closeDelay = 1200
     switch (state.popupType) {
+      case POPUP_ESTIMATE:
+        commit('SET_POPUP_ANIMATION_CLASS', false)
+        setTimeout(() => {
+          commit('SET_POPUP_STATE', false)
+        }, closeDelay)
+        break
       case POPUP_GET_IN_TOUCH:
         commit('SET_POPUP_ANIMATION_CLASS', false)
         setTimeout(() => {
           commit('SET_POPUP_STATE', false)
-        }, 1200)
+        }, closeDelay)
         break
       case MENU:
         commit('SET_MENU_ANIMATION_CLASS', false)
         setTimeout(() => {
           commit('SET_MENU_STATE', false)
-        }, 1200)
+        }, closeDelay)
         break
       default:
         return null

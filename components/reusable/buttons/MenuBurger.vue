@@ -5,8 +5,8 @@
     @click="menuToggle"
   >
     <span class="menu-burger__text">
-      <span>Menu</span>
-      <span>Close</span>
+      <span>{{ $t('header.menu') }}</span>
+      <span>{{ $t('header.menu-close') }}</span>
     </span>
     <span class="burger" />
   </button>

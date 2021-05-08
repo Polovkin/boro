@@ -33,10 +33,10 @@
         >
           <li>
             <LinkPrimary link="/">
-              Privacy policy
+              {{ $t('footer.privacy') }}
             </LinkPrimary>
             <LinkPrimary link="/">
-              Terms&Conditions
+              {{ $t('footer.terms') }}
             </LinkPrimary>
           </li>
         </ul>

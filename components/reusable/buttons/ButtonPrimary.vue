@@ -95,18 +95,6 @@ export default {
     })
   },
 
-  /*  watch: {
-    popupState (newValue) {
-      if (!newValue) {
-        this.isPopOpen = newValue
-      }
-    }
-   popupType (newValue, oldValue) {
-      if (newValue === POPUP_GET_IN_TOUCH && oldValue === POPUP_MENU) {
-        this.isInMenuOpen = true
-      }
-    }
-  }, */
   methods: {
     mouseEnter (event) {
       this.$refs.button.classList.remove(this.classLeave)
@@ -128,7 +116,8 @@ export default {
       }
 
       if (this.isPopupToggle) {
-        this.openTouchInMenu()
+        this.$store.commit('popups/SET_POPUP_TYPE', this.popupCalledType)
+        this.$store.dispatch('popups/OPEN_MODAL')
       }
     },
     buttonSubmit () {
@@ -136,8 +125,7 @@ export default {
       return null
     },
     openTouchInMenu () {
-      this.$store.commit('popups/SET_POPUP_TYPE', POPUP_GET_IN_TOUCH)
-      this.$store.dispatch('popups/OPEN_MODAL')
+
     }
   }
 }

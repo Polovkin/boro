@@ -1,18 +1,70 @@
 {
-  "header":{
-    "link" : "Get In Touch"
+  "buttons": {
+    "call-form": "Get In Touch",
+    "call-estimate": "Estimate"
+  },
+  "header": {
+    "menu": "Menu",
+    "menu-close": "Close"
+  },
+  "footer": {
+    "mail": "Write",
+    "call": "Call",
+    "privacy": "Privacy",
+    "terms": "Terms&Conditions"
+  },
+  "form": {
+    "title-touch": "Get In Touch",
+    "description-touch": " Fill out the form or send an email",
+    "title-estimate": "Estimate project",
+    "submit": "Submit",
+    "send": "Send",
+    "checkboxes": {
+      "mobile": "Mobile App Design",
+      "web": "Web App Design",
+      "website": "Website Design",
+      "illustration": "Illustration",
+      "3d": "3D models",
+      "motion": "Motion Design",
+      "ux": "UX expertise",
+      "design": "Design concept",
+      "graphic": "Graphics",
+      "front": "Front End",
+      "back": "Back End",
+      "other": "Other type of project"
+    },
+    "placeholder": {
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone number",
+      "message": "Message",
+      "deadline": "Deadline",
+      "budget": "Project budget",
+      "description": "Tell us about the project",
+      "file": "Choose File"
+    },
+    "error": {
+      "required": "Field is required",
+      "min": "Minimum number of characters: ",
+      "max": "Maximum number of characters: ",
+      "invalid-email": "Email is not valid"
+    },
+    "success": {
+      "title": "GOT IT!",
+      "description": "Thank you for contacting boro! We will get in touch with you shortly."
+    }
   },
   "layout-links": {
-    "link1" : "Academy",
-    "link2" : "Products"
+    "link1": "Academy",
+    "link2": "Products"
   },
   "navigation": {
-    "link1" : "Cases",
-    "link2" : "Services",
-    "link3" : "About us",
-    "link4" : "How we work",
-    "link5" : "Blog",
-    "link6" : "Contacts"
+    "link1": "Cases",
+    "link2": "Services",
+    "link3": "About us",
+    "link4": "How we work",
+    "link5": "Blog",
+    "link6": "Contacts"
   },
   "message": "Welcome",
   "about": "About"

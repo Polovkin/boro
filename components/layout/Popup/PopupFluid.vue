@@ -8,7 +8,7 @@
     <div class="container">
       <PopupHeader :is-light="isLight" />
       <div class="popup__body">
-        <Form v-if="popupGetInTouch" />
+        <Form />
       </div>
       <PopupFooter :is-light="isLight" />
     </div>

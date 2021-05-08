@@ -16,11 +16,11 @@
       @input='updateValue($event.target.value)')
 
     span.input-custom__error-msg.animation-shake(v-if='!$v.name.required && $v.name.$dirty')
-      | Field is required
+      | {{ $t('form.error.required') }}
     span.input-custom__error-msg.animation-shake(v-if='!$v.name.minLength')
-      | Password must have at least {{ $v.name.$params.minLength.min }} letters.
+      | {{ $t('form.error.min') }} {{ $v.name.$params.minLength.min }}
     span.input-custom__error-msg.animation-shake(v-if='!$v.name.maxLength')
-      | Password must have no more than {{ $v.name.$params.maxLength.max }} letters.
+      | {{ $t('form.error.max') }} {{ $v.name.$params.maxLength.max }}
   //Password
   label.input-custom__label(
     v-else-if="typePassword"
@@ -42,11 +42,11 @@
       :class="{'input-custom__eye--hidden':passwordState}"
       @click='passwordState=!passwordState')
     span.input-custom__error-msg.animation-shake(v-if='!$v.password.required && $v.password.$dirty')
-      | Field is required
+      | {{ $t('form.error.required') }}
     span.input-custom__error-msg.animation-shake(v-if='!$v.password.minLength')
-      | Password must have at least {{ $v.password.$params.minLength.min }} letters.
+      | {{ $t('form.error.min') }} {{ $v.name.$params.minLength.min }}
     span.input-custom__error-msg.animation-shake(v-if='!$v.password.maxLength')
-      | Password must have no more than {{ $v.password.$params.maxLength.max }} letters.
+      | {{ $t('form.error.max') }} {{ $v.name.$params.maxLength.max }}
 
   //Email
   label.input-custom__label(
@@ -62,9 +62,9 @@
       @blur='unfocused'
       @input='updateValue($event.target.value)')
     span.input-custom__error-msg.animation-shake(v-if='!$v.email.required && $v.email.$dirty')
-      | Field is required
+      | {{ $t('form.error.required') }}
     span.input-custom__error-msg.animation-shake(v-if='!$v.email.email')
-      | Email is not valid
+      | {{ $t('form.error.invalid-email') }}
   //Text
   label.input-custom__label(
     v-else

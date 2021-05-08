@@ -5,17 +5,17 @@
         v-if="popupTypeTouch"
       >
         <h2 class="form__title animation-move-from-down">
-          Get In Touch
+          {{ $t('form.title-touch') }}
         </h2>
         <p class="form__description animation-move-from-down">
-          Fill out the form or send an email
+          {{ $t('form.description-touch') }}
         </p>
       </template>
       <h2
         v-else
         class="form__title"
       >
-        Estimate project
+        {{ $t('form.title-estimate') }}
       </h2>
     </div>
 
@@ -28,7 +28,7 @@
             type-name
             :touch="touch"
             :input-name="'name'"
-            :placeholder="'Your name'"
+            :placeholder="$t('form.placeholder.name')"
           />
           <InputCustom
             v-model="formData.email"
@@ -36,21 +36,21 @@
             type-email
             :touch="touch"
             :input-name="'email'"
-            :placeholder="'Email'"
+            :placeholder="$t('form.placeholder.email')"
           />
           <InputCustom
             v-model="formData.phone"
             class="form__item"
             :touch="touch"
             :input-name="'phone'"
-            :placeholder="'Phone number'"
+            :placeholder="$t('form.placeholder.phone')"
           />
           <InputCustom
             v-model="formData.message"
             class="form__item"
             :touch="touch"
             :input-name="'message'"
-            :placeholder="'Message'"
+            :placeholder="$t('form.placeholder.message')"
           />
         </template>
         <template v-else>
@@ -61,13 +61,35 @@
               type-name
               :touch="touch"
               :input-name="'name'"
-              :placeholder="'Your name'"
+              :placeholder="$t('form.placeholder.name')"
+            />
+            <InputCustom
+              v-model="formData.email"
+              class="form__item"
+              type-email
+              :touch="touch"
+              :input-name="'email'"
+              :placeholder="$t('form.placeholder.email')"
+            />
+            <InputCustom
+              v-model="formData.phone"
+              class="form__item"
+              :touch="touch"
+              :input-name="'phone'"
+              :placeholder="$t('form.placeholder.phone')"
+            />
+            <InputCustom
+              v-model="formData.deadline"
+              class="form__item"
+              :touch="touch"
+              :input-name="'deadline'"
+              :placeholder="$t('form.placeholder.deadline')"
             />
           </div>
         </template>
         <div class="form__submit">
           <ButtonPrimary is-submit @submitEvent="submit">
-            Send
+            {{ $t('form.submit') }}
           </ButtonPrimary>
         </div>
       </form>
@@ -91,7 +113,6 @@
         />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -105,7 +126,7 @@ import FooterTags from './FooterTags'
 
 export default {
   name: 'Form',
-  components: { FooterTags, UserInfo, ButtonPrimary, InputCustom },
+  components: { UserInfo, ButtonPrimary, InputCustom },
   data () {
     return {
       touch: false,

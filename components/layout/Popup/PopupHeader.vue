@@ -9,7 +9,7 @@
           class="popup__header-close"
           @click="closePopup"
         >
-          Close
+          {{ $t('header.menu-close') }}
           <span class="popup__header-cross" />
         </button>
       </div>

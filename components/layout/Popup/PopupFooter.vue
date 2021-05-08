@@ -4,12 +4,12 @@
     <div class="popup__wrap">
       <div class="popup__footer-info animation-move-from-right">
         <p class="popup__footer-item">
-          <span>Write</span>
-          <a href="mailto:hello@boro.com">hello@boro.com</a>
+          <span>{{ $t('footer.mail') }}</span>
+          <a :href="`mailto:${content.email}`">{{ content.email }}</a>
         </p>
         <p class="popup__footer-item">
-          <span>Call</span>
-          <a href="tel:380939312641"> +3 (8093) 93 12 641</a>
+          <span>{{ $t('footer.call') }}</span>
+          <a :href="`tel:${content.phone}`">{{ content.phone }}</a>
         </p>
       </div>
       <FooterTags class="animation-move-from-left" :is-dark="!isLight" />
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
 import FooterTags from '../../reusable/FooterTags'
 export default {
   name: 'PopupFooter',
@@ -47,6 +48,11 @@ export default {
           link: '/'
         }
       ]
+    }
+  },
+  computed: {
+    content () {
+      return this.$store.state.app.content
     }
   }
 }
