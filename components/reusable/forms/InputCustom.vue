@@ -5,12 +5,13 @@
     div.select-custom.input-custom__animate(@click='selectDropdownState=!selectDropdownState')
       span.select-custom__selected {{selectedItem}}
     div.select-custom__dropdown(:class="{'select-custom__dropdown--active':selectDropdownState}")
+      input(:value="selectedItem" type="hidden" :name="name")
       ul
         li.select-custom__dropdown-item(
           :key="index"
           v-for="(item,index) of selectData",
           @click="selectedValue(item)") {{item}}
-    span.input-custom__error-msg.animation-shake(v-if="false")
+    span.input-custom__error-msg.animation-shake(v-if="!selectedItem && formTouch")
       | {{ $t('form.error.required') }}
 
   label.input-custom__label(v-else
@@ -256,7 +257,9 @@ export default {
       this.$v.$touch()
       const value = e.target.value
       this.isActive = !!value
-      if (!this.$v[this.validatorType].$invalid) {
+      if (this.selectData) {
+        this.$emit('input', this.selectData)
+      } else if (!this.$v[this.validatorType].$invalid) {
         this.$emit('input', value)
       } else {
         this.$emit('input', null)

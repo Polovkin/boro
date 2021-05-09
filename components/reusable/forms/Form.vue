@@ -98,9 +98,17 @@
               :placeholder="$t('form.placeholder.phone')"
             />
             <InputCustom
+              v-model="formData.deadline"
+              :form-touch="touch"
+              class="form__item"
+              :form-id="'form'"
+              :name="'deadlineField'"
+              :placeholder="$t('form.placeholder.phone')"
+            />
+            <InputCustom
               v-model="formData.budget"
               :form-touch="touch"
-              :name="'nameField'"
+              :name="'budgetField'"
               class="form__item"
               :select-data="selectData"
               :placeholder="$t('form.placeholder.budget')"
@@ -248,11 +256,11 @@ export default {
     },
     async sendForm () {
       this.touch = true
-      console.log(this.formData)
+     // console.log(this.formData)
       const form = new FormData(this.$refs.form)
 
       for (const value of form.values()) {
-        // console.log(value)
+         console.log(value)
       }
     }
   }
