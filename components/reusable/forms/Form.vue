@@ -23,38 +23,46 @@
       <form
         id="form"
         ref="form"
+        autocomplete="off"
         class="form__body"
       >
         <template v-if="popupTypeTouch">
           <InputCustom
             v-model="formData.name"
+            :form-touch="touch"
+            is-required
             class="form__item"
-            type-name
-            :touch="touch"
-            :input-name="'name'"
+            form-id="form"
+            :name="'nameField'"
             :placeholder="$t('form.placeholder.name')"
           />
           <InputCustom
             v-model="formData.email"
+            :form-touch="touch"
+            is-required
+            is-email
             class="form__item"
-            type-email
-            :touch="touch"
-            :input-name="'email'"
+            :form-id="'form'"
+            :name="'emailField'"
             :placeholder="$t('form.placeholder.email')"
           />
           <InputCustom
             v-model="formData.phone"
+            :form-touch="touch"
+            is-required
+            is-phone
             class="form__item"
-            type-phone
-            :touch="touch"
-            :input-name="'phone'"
+            :form-id="'form'"
+            :name="'phoneField'"
             :placeholder="$t('form.placeholder.phone')"
           />
           <InputCustom
-            v-model="formData.message"
+            v-model="formData.name"
+            :form-touch="touch"
+            is-textarea
             class="form__item"
-            :touch="touch"
-            :input-name="'message'"
+            :form-id="'form'"
+            :name="'message'"
             :placeholder="$t('form.placeholder.message')"
           />
         </template>
@@ -62,49 +70,40 @@
           <div class="form__body-estimate">
             <InputCustom
               v-model="formData.name"
+              :form-touch="touch"
+              is-required
               class="form__item"
-              type-name
-              :touch="touch"
-              :input-name="'name'"
+              form-id="form"
+              :name="'nameField'"
               :placeholder="$t('form.placeholder.name')"
             />
             <InputCustom
               v-model="formData.email"
+              :form-touch="touch"
+              is-required
+              is-email
               class="form__item"
-              type-email
-              :touch="touch"
-              :input-name="'email'"
+              :form-id="'form'"
+              :name="'emailField'"
               :placeholder="$t('form.placeholder.email')"
             />
             <InputCustom
               v-model="formData.phone"
+              :form-touch="touch"
+              is-required
+              is-phone
               class="form__item"
-              type-phone
-              :touch="touch"
-              :input-name="'phone'"
+              :form-id="'form'"
+              :name="'phoneField'"
               :placeholder="$t('form.placeholder.phone')"
             />
             <InputCustom
-              v-model="formData.deadline"
-              class="form__item"
-              :touch="touch"
-              :input-name="'deadline'"
-              :placeholder="$t('form.placeholder.deadline')"
-            />
-            <InputCustom
               v-model="formData.budget"
+              :form-touch="touch"
+              :name="'nameField'"
               class="form__item"
               :select-data="selectData"
-              :touch="touch"
-              :input-name="'budget'"
               :placeholder="$t('form.placeholder.budget')"
-            />
-            <InputCustom
-              v-model="formData.message"
-              class="form__item"
-              :touch="touch"
-              :input-name="'message'"
-              :placeholder="$t('form.placeholder.description')"
             />
           </div>
         </template>
@@ -156,14 +155,14 @@
 
 <script>
 import { mapState } from 'vuex'
-import { POPUP_GET_IN_TOUCH } from '../../store/types'
-import InputCustom from './InputAnimate'
-import ButtonPrimary from './buttons/ButtonPrimary'
-import UserInfo from './UserInfo'
+import { POPUP_GET_IN_TOUCH } from '../../../store/types'
+import ButtonPrimary from './../buttons/ButtonPrimary'
+import UserInfo from './../UserInfo'
+import InputCustom from './InputCustom'
 
 export default {
   name: 'Form',
-  components: { UserInfo, ButtonPrimary, InputCustom },
+  components: { InputCustom, UserInfo, ButtonPrimary },
   data () {
     return {
       touch: false,
@@ -249,7 +248,7 @@ export default {
     },
     async sendForm () {
       this.touch = true
-
+      console.log(this.formData)
       const form = new FormData(this.$refs.form)
 
       for (const value of form.values()) {

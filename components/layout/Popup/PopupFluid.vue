@@ -17,7 +17,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import Form from '../../reusable/Form'
+import Form from '../../reusable/forms/Form'
 import { POPUP_GET_IN_TOUCH, POPUP_ESTIMATE, POPUP_SUCCESS } from '../../../store/types'
 import PopupFooter from './PopupFooter'
 import PopupHeader from './PopupHeader'
