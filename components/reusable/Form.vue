@@ -88,6 +88,7 @@
             <InputCustom
               v-model="formData.budget"
               class="form__item"
+              :select-data="selectData"
               :touch="touch"
               :input-name="'budget'"
               :placeholder="$t('form.placeholder.budget')"
@@ -167,7 +168,7 @@ export default {
         {
           info: {
             img: 'anna.jpg',
-            position: 'Account manager',
+            position: 'user.account-manager',
             name: 'Anna Haiduk'
           },
           tags: [
@@ -188,7 +189,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      selectData: ['< 5000','5-10K','10-30K','30-50K','>50k']
     }
   },
 

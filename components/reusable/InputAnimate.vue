@@ -66,17 +66,17 @@
     span.input-custom__error-msg.animation-shake(v-if='!$v.email.email')
       | {{ $t('form.error.invalid-email') }}
   //Select
-  label.input-custom__label(
+  label.input-custom__label.select-custom__label(
+
     v-else-if="selectData"
     :class="{'input-custom--valid': !$v.select.$error && $v.select.$dirty}")
-    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
+    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':selectedItem}")
       | {{ placeholder ? placeholder : 'select' }}
-    select.select-custom.input-custom__animate(
-      v-model='$v.select.$model'
-      @click='placeholderAnimate=true'
-      @blur='unfocused'
-      @input='updateValue($event.target.value)')
-      option(v-for="item of selectData") {{item}}
+    div.select-custom.input-custom__animate(v-model='$v.select.$model',  @click='selectDropdownState=true')
+      span.select-custom__selected {{selectedItem}}
+    div.select-custom__dropdown(:class="{'select-custom__dropdown--active':selectDropdownState}")
+      ul
+        li.select-custom__dropdown-item(v-key="index" v-for="(item,index) of selectData", @click="selectedValue(item)") {{item}}
     span.input-custom__error-msg.animation-shake(v-if='!$v.select.required && $v.select.$dirty')
       | {{ $t('form.error.required') }}
   //Text
@@ -109,7 +109,7 @@ export default {
   mixins: [validationMixin],
   validations: {
     select: {
-      required,
+      required
     },
     name: {
       required,
@@ -132,7 +132,7 @@ export default {
   },
   props: {
     selectData: {
-      type: Object,
+      type: Array
     },
     touch: {
       type: Boolean,
@@ -167,7 +167,10 @@ export default {
       text: '',
       select: '',
       password: null,
-      passwordState: false
+      passwordState: false,
+      selectActive: false,
+      selectDropdownState: false,
+      selectedItem: ''
     }
   },
   watch: {
@@ -181,6 +184,10 @@ export default {
     this.type = this.typePassword ? 'password' : this.typeEmail ? 'email' : this.name ? 'name' : 'text'
   },
   methods: {
+    selectedValue (item) {
+      this.selectedItem = item
+      this.selectDropdownState = false
+    },
     updateValue (value) {
       if (!this.$v[this.type].$invalid) {
         this.$emit('input', value)
@@ -197,13 +204,14 @@ export default {
 }
 </script>
 <style
-       lang="scss">
+    lang="scss">
 
 $label_top_padding: 15px;
 $label_bottom_padding: 20px;
 $invalid_color: #fff;
 $valid_color: #fff;
 $border_weight: 1px;
+$placeholder_animation_duration: .4s;
 
 .input-custom {
   @include h6;
@@ -214,7 +222,15 @@ $border_weight: 1px;
   color: $input__font-color;
   line-height: unset;
 
-  transition: all .4s ease;
+  transition: all $placeholder_animation_duration ease;
+
+  border: {
+    bottom: $border_weight solid $color__light;
+    top-color: transparent;
+    left-color: transparent;
+    right-color: transparent;
+    bottom-color: $color__light_24;
+  };
 
   &__animate {
     position: relative;
@@ -242,7 +258,7 @@ $border_weight: 1px;
 
     transform: translateY(0);
 
-    transition: all .4s ease;
+    transition: all $placeholder_animation_duration ease;
 
     &--animate {
       color: $color__font--tertiary;
@@ -280,19 +296,6 @@ $border_weight: 1px;
       //background-image: url('#{$img_path}/icons/eye-hide.svg?data') !important;
     }
   }
-  border: {
-    bottom: $border_weight solid $color__light;
-    top-color: transparent;
-    left-color: transparent;
-    right-color: transparent;
-    bottom-color: $color__light_24;
-  };
-
-  &--active {
-    border: {
-      //bottom: 1px solid green;
-    };
-  }
 
   &--valid {
 
@@ -323,5 +326,52 @@ $border_weight: 1px;
 
 .select-custom {
   @extend .input-custom;
+  position: relative;
+  z-index: z(content);
+  width: 100%;
+
+  background-color: transparent;
+
+  &__label {
+    width: 100%;
+  }
+
+  &__selected {
+    @extend .input-custom__placeholder;
+    @include h5;
+    top: 5px;
+
+
+    transition: opacity ease .2 $placeholder_animation_duration;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: $input_height+$label_bottom_padding+$label_top_padding;
+    left: 0;
+    z-index: z(content);
+
+    width: inherit;
+
+    padding: 24px;
+
+    border: 1px solid $color__light_16;
+    border-radius: 4px;
+
+    background-color: $color__dark;
+
+    opacity: 0;
+
+    &-item {
+      @include title-link();
+      color: $color__font-light--primary;
+
+      cursor: pointer;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
 }
 </style>

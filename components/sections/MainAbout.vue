@@ -61,7 +61,7 @@
           :key="index"
           class="main-about__grid-item"
         >
-          <dt>{{ $t(item.number) }}</dt>
+          <dt>{{ item.number }}</dt>
           <dl>{{ $t(item.text) }}</dl>
         </div>
       </dl>
