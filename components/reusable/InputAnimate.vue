@@ -72,7 +72,7 @@
     :class="{'input-custom--valid': !$v.select.$error && $v.select.$dirty}")
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':selectedItem}")
       | {{ placeholder ? placeholder : 'select' }}
-    div.select-custom.input-custom__animate(v-model='$v.select.$model',  @click='selectDropdownState=true')
+    div.select-custom.input-custom__animate(v-model='$v.select.$model',  @click='selectDropdownState=!selectDropdownState')
       span.select-custom__selected {{selectedItem}}
     div.select-custom__dropdown(:class="{'select-custom__dropdown--active':selectDropdownState}")
       ul
@@ -328,6 +328,7 @@ $placeholder_animation_duration: .4s;
   @extend .input-custom;
   position: relative;
   z-index: z(content);
+
   width: 100%;
 
   background-color: transparent;
@@ -361,6 +362,8 @@ $placeholder_animation_duration: .4s;
     background-color: $color__dark;
 
     opacity: 0;
+    visibility: hidden;
+    transition: all ease .2s;
 
     &-item {
       @include title-link();
@@ -371,6 +374,7 @@ $placeholder_animation_duration: .4s;
 
     &--active {
       opacity: 1;
+       visibility: visible;
     }
   }
 }
