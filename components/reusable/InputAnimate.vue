@@ -8,9 +8,9 @@
       | {{ placeholder ? placeholder : 'placeholder' }}
 
     input.input-custom.input-custom__animate(
+      :name="inputName"
       v-model='$v.name.$model'
       type='text'
-      autocomplete='new-password'
       @click='placeholderAnimate=true'
       @blur='unfocused'
       @input='updateValue($event.target.value)')
@@ -31,6 +31,7 @@
 
     input.input-custom.input-custom__animate(
       v-model='$v.password.$model'
+      :name="inputName"
       :type="passwordState ? 'text' : 'password'"
       autocomplete='new-password'
       @click='placeholderAnimate=true'
@@ -56,6 +57,7 @@
       | {{ placeholder ? placeholder : 'email' }}
     input.input-custom.input-custom__animate(
       v-model='$v.email.$model'
+      :name="inputName"
       autocomplete='new-password'
       type='email'
       @click='placeholderAnimate=true'
@@ -76,9 +78,53 @@
       span.select-custom__selected {{selectedItem}}
     div.select-custom__dropdown(:class="{'select-custom__dropdown--active':selectDropdownState}")
       ul
-        li.select-custom__dropdown-item(v-key="index" v-for="(item,index) of selectData", @click="selectedValue(item)") {{item}}
+        li.select-custom__dropdown-item(:key="index" v-for="(item,index) of selectData", @click="selectedValue(item)") {{item}}
     span.input-custom__error-msg.animation-shake(v-if='!$v.select.required && $v.select.$dirty')
       | {{ $t('form.error.required') }}
+  //Phone
+  label.input-custom__label(
+    v-else-if="typePhone"
+    :class="{'input-custom--error': ($v.phone.$error && $v.phone.$dirty) ,'input-custom--valid': !$v.phone.$error && $v.phone.$dirty}")
+
+    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
+      | {{ placeholder ? placeholder : 'placeholder' }}
+
+    input.input-custom.input-custom__animate(
+      v-model='$v.phone.$model'
+      @keypress="isNumber($event)"
+      :name="inputName"
+      type='tel'
+      autocomplete='new-password'
+      @click='placeholderAnimate=true'
+      @blur='unfocused'
+      @input='updateValue($event.target.value)')
+
+    span.input-custom__error-msg.animation-shake(v-if='!$v.phone.required && $v.phone.$dirty')
+      | {{ $t('form.error.required') }}
+    span.input-custom__error-msg.animation-shake(v-if='!$v.phone.minLength')
+      | {{ $t('form.error.min') }} {{ $v.phone.$params.minLength.min }}
+    span.input-custom__error-msg.animation-shake(v-if='!$v.phone.maxLength')
+      | {{ $t('form.error.max') }} {{ $v.phone.$params.maxLength.max }}
+  //Date
+  label.input-custom__label(
+    v-else-if="typePhone"
+    :class="{'input-custom--error': ($v.text.$error && $v.text.$dirty) ,'input-custom--valid': !$v.text.$error && $v.text.$dirty}")
+
+    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
+      | {{ placeholder ? placeholder : 'placeholder' }}
+
+    input.input-custom.input-custom__animate(
+      v-model='$v.text.$model'
+      v-mask="'380#########'"
+      :name="inputName"
+      type='tel'
+      autocomplete='new-password'
+      @click='placeholderAnimate=true'
+      @blur='unfocused'
+      @input='updateValue($event.target.value)')
+
+    //span.input-custom__error-msg.animation-shake(v-if='!$v.text.required && $v.text.$dirty')
+      | Field is required
   //Text
   label.input-custom__label(
     v-else
@@ -89,6 +135,7 @@
 
     input.input-custom.input-custom__animate(
       v-model='$v.text.$model'
+      :name="inputName"
       type='text'
       autocomplete='new-password'
       @click='placeholderAnimate=true'
@@ -120,6 +167,11 @@ export default {
       required,
       email
     },
+    phone: {
+      required,
+      minLength: minLength(12),
+      maxLength: maxLength(12)
+    },
     password: {
       required,
       minLength: minLength(6),
@@ -131,10 +183,20 @@ export default {
     }
   },
   props: {
+    inputName: {
+      type: String,
+      default: '',
+      required: true
+    },
     selectData: {
-      type: Array
+      type: Array,
+      default: null
     },
     touch: {
+      type: Boolean,
+      default: false
+    },
+    typePhone: {
       type: Boolean,
       default: false
     },
@@ -151,7 +213,8 @@ export default {
       default: false
     },
     placeholder: {
-      type: String
+      type: String,
+      default: ''
     },
     validate: {
       type: Boolean,
@@ -166,6 +229,7 @@ export default {
       email: '',
       text: '',
       select: '',
+      phone: '',
       password: null,
       passwordState: false,
       selectActive: false,
@@ -176,6 +240,10 @@ export default {
   watch: {
     touch (newValue) {
       if (newValue) {
+        if (this.typePhone) {
+          console.log('asdf')
+          console.log(this.$v)
+        }
         this.$v.$touch()
       }
     }
@@ -184,6 +252,15 @@ export default {
     this.type = this.typePassword ? 'password' : this.typeEmail ? 'email' : this.name ? 'name' : 'text'
   },
   methods: {
+    isNumber (evt) {
+      evt = (evt) || window.event
+      const charCode = (evt.which) ? evt.which : evt.keyCode
+      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault()
+      } else {
+        return true
+      }
+    },
     selectedValue (item) {
       this.selectedItem = item
       this.selectDropdownState = false
@@ -341,7 +418,6 @@ $placeholder_animation_duration: .4s;
     @extend .input-custom__placeholder;
     @include h5;
     top: 5px;
-
 
     transition: opacity ease .2 $placeholder_animation_duration;
   }

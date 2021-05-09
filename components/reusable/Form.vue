@@ -20,7 +20,11 @@
     </div>
 
     <div class="form__content">
-      <form class="form__body">
+      <form
+        id="form"
+        ref="form"
+        class="form__body"
+      >
         <template v-if="popupTypeTouch">
           <InputCustom
             v-model="formData.name"
@@ -41,6 +45,7 @@
           <InputCustom
             v-model="formData.phone"
             class="form__item"
+            type-phone
             :touch="touch"
             :input-name="'phone'"
             :placeholder="$t('form.placeholder.phone')"
@@ -74,6 +79,7 @@
             <InputCustom
               v-model="formData.phone"
               class="form__item"
+              type-phone
               :touch="touch"
               :input-name="'phone'"
               :placeholder="$t('form.placeholder.phone')"
@@ -103,7 +109,10 @@
           </div>
         </template>
         <div class="form__submit">
-          <div v-if="!popupTypeTouch" class="file__item">
+          <div
+            v-if="!popupTypeTouch"
+            class="file__item"
+          >
             <input
               id="formImage"
               ref="file"
@@ -114,7 +123,10 @@
               @change="handleFileUpload()"
             >
           </div>
-          <ButtonPrimary is-submit @submitEvent="submit">
+          <ButtonPrimary
+            is-submit
+            @submitEvent="sendForm"
+          >
             {{ $t('form.submit') }}
           </ButtonPrimary>
         </div>
@@ -190,7 +202,7 @@ export default {
           ]
         }
       ],
-      selectData: ['< 5000','5-10K','10-30K','30-50K','>50k']
+      selectData: ['< 5000', '5-10K', '10-30K', '30-50K', '>50k']
     }
   },
 
@@ -221,10 +233,6 @@ export default {
     })
   },
   methods: {
-    submit () {
-      this.touch = true
-      const valid = false
-    },
     removeFile () {
       this.file = null
       this.fileError = false
@@ -241,21 +249,11 @@ export default {
     },
     async sendForm () {
       this.touch = true
-      let valid = true
 
-      for (const data in this.formData) {
-        if (!this.formData[data]) {
-          valid = false
-        }
-      }
+      const form = new FormData(this.$refs.form)
 
-      if (valid && !this.fileError) {
-        this.buttonState = true
-        const form = new FormData(this.$refs.form)
-
-        const response = await this.$store.dispatch('form/SEND_FORM_DATA', form)
-      } else {
-        console.log('valid error')
+      for (const value of form.values()) {
+        // console.log(value)
       }
     }
   }
