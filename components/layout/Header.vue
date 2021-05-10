@@ -20,9 +20,6 @@
           <ButtonPrimary is-popup-toggle>
             {{ $t('buttons.call-form') }}
           </ButtonPrimary>
-          <ButtonPrimary is-popup-toggle :popup-called-type="popupType">
-            {{ $t('buttons.call-estimate') }}
-          </ButtonPrimary>
           <MenuBurger :class="{'menu-burger--show': !isHeaderOnTop}" />
         </div>
       </div>

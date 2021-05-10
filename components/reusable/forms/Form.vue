@@ -256,11 +256,11 @@ export default {
     },
     async sendForm () {
       this.touch = true
-     // console.log(this.formData)
+      // console.log(this.formData)
       const form = new FormData(this.$refs.form)
 
       for (const value of form.values()) {
-         console.log(value)
+        console.log(value)
       }
     }
   }
