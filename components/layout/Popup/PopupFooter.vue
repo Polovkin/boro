@@ -12,7 +12,7 @@
           <a :href="`tel:${content.phone}`">{{ content.phone }}</a>
         </p>
       </div>
-      <FooterTags class="animation-move-from-left" :is-dark="!isLight" />
+      <FooterTags class="animation-move-from-left " :is-dark="!isLight" />
     </div>
   </div>
 </template>

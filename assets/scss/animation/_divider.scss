@@ -4,8 +4,12 @@
   transition: transform .4s $videinfa_function;
 }
 
-.animation-trigger-start .divider, .in-viewport .divider {
-  max-width: 100%;
+.animation-trigger-start, .in-viewport ,.header-menu--active,.popup--active {
+
+  .divider {
+    max-width: 100%;
+  }
+
 }
 
 header.animation-base-state .header__content:after {

@@ -1,12 +1,13 @@
 <template>
   <div class="popup__header">
+    <hr class="divider">
     <div class="popup__header-wrap popup__header-left">
-      <Logo :is-light="!isLight" />
+      <Logo :is-light="!isLight" class="animation-move-from-right" />
     </div>
     <div class="popup__header-wrap popup__header-right">
       <div class="popup__header-buttons">
         <button
-          class="popup__header-close"
+          class="popup__header-close animation-move-from-left"
           @click="closePopup"
         >
           {{ $t('header.menu-close') }}

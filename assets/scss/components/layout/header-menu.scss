@@ -2,6 +2,7 @@
 
 .header-menu {
   @extend .popup;
+
   z-index: z(header);
 
   overflow: hidden;
@@ -21,16 +22,30 @@
     align-items: flex-end;
     justify-content: space-between;
 
-    padding-bottom: 7%;
     padding-top: $header_height;
+
+    padding-bottom: 7%;
     @include breakpoint($desktop__laptop) {
-      padding-bottom: 0;
+      //padding-bottom: 0;
     }
 
   }
 
   &__links {
     padding-right: 300px;
+
+    li {
+      @for $i from 1 through 2 {
+        &:nth-of-type(#{$i}) {
+          transition-delay: #{$i* .1s};
+        }
+      }
+      transform: translateY(100%);
+      opacity: 0;
+
+      transition: all $header_fu $items_animation;
+    }
+
   }
 
   &__elem {
@@ -41,27 +56,28 @@
   }
 
   &__item {
+
     display: flex;
 
     color: $color__dark;
     letter-spacing: -.056em;
     line-height: 60px;
 
-    font: {
-      weight: 500;
-      size: 54px;
-    };
     transform: translateY(100%);
     opacity: 0;
 
     transition: transform $header_fu $items_animation, opacity $header_fu $items_animation, color ease .3s;
+
+    font: {
+      weight: 500;
+      size: 54px;
+    };
 
     span {
       @include caption-normal;
       position: relative;
       top: 10px;
       left: 10px;
-
     }
 
     &:hover {
@@ -79,6 +95,7 @@
     display: flex;
 
     &--hover {
+      transition-delay: 0s;
 
       a {
         color: $color__font_dark--quaternary;
@@ -96,16 +113,36 @@
     }
   }
 
+  &--animation-in-progress {
+
+    .header-menu__elem {
+      @for $i from 1 through 6 {
+        &:nth-of-type(#{$i}) .header-menu__item {
+          transition-delay: #{$i * .1s};
+        }
+      }
+    }
+  }
+
   &--active {
     opacity: 1;
 
     transition: opacity ease $menu_animation;
+
+    .header-menu__links {
+
+      li {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
     .container {
       opacity: 1;
 
       transition: opacity ease 1s $menu_animation;
     }
+
 
     .header-menu__item {
       transform: translateY(0);

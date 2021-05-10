@@ -3,7 +3,9 @@
     v-show="menuState"
     v-in-viewport
     class="header-menu popup--light"
-    :class="{'header-menu--active':menuAnimationClass}"
+    :class="{
+      'header-menu--active':menuAnimationClass,
+      'header-menu--animation-in-progress':menuAnimationInProgress}"
   >
     <div class="container">
       <div class="header-menu__body">
@@ -32,10 +34,12 @@
           class="header-menu__links"
         >
           <li>
-            <LinkPrimary link="/">
+            <LinkPrimary is-static link="/">
               {{ $t('footer.privacy') }}
             </LinkPrimary>
-            <LinkPrimary link="/">
+          </li>
+          <li>
+            <LinkPrimary is-static link="/">
               {{ $t('footer.terms') }}
             </LinkPrimary>
           </li>
@@ -73,8 +77,12 @@ export default {
   computed: {
     ...mapState({
       menu: s => s.popups.menuState,
-      menuAnimation: s => s.popups.menuAnimationClass
+      menuAnimation: s => s.popups.menuAnimationClass,
+      animationProgress: s => s.popups.menuAnimationInProgress
     }),
+    menuAnimationInProgress () {
+      return this.animationProgress
+    },
     menuAnimationClass () {
       return this.menuAnimation
     },

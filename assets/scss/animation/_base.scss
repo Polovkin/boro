@@ -1,31 +1,41 @@
 $base_fu: cubic-bezier(.250, .460, .450, .94);
 $base_duration: 1.2s;
 
+
+@for $i from 1 through 10 {
+  .animation-delay-#{$i} {
+    transition-delay: #{$i * .1s} !important;
+    .animation-move-from-down, .animation-move-from-left, .animation-move-from-right {
+      transition-delay: #{$i * .1s} !important;
+    }
+  }
+}
+
 .animation-fade {
   opacity: 0;
 
-  transition: opacity cubic-bezier(.390, .575, .565, 1.000) $base_duration;
+  transition: opacity cubic-bezier(.390, .575, .565, 1.000) $base_duration,;
 }
 
 .animation-move-from-down {
   transform: translateY(50px);
   opacity: 0;
 
-  transition: all $base_duration $base_fu;
+  transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
 }
 
 .animation-move-from-left {
   transform: translateX(150px);
   opacity: 0;
 
-  transition: all $base_duration $base_fu;
+  transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
 }
 
 .animation-move-from-right {
   transform: translateX(-150px);
   opacity: 0;
 
-  transition: all $base_duration $base_fu;
+  transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
 }
 
 .in-viewport, .popup--active, .header-menu--active {

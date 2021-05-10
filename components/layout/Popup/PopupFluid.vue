@@ -7,10 +7,10 @@
   >
     <div class="container">
       <PopupHeader :is-light="isLight" />
-      <div class="popup__body">
+      <div class="popup__body animation-delay-2">
         <Form />
       </div>
-      <PopupFooter :is-light="isLight" />
+      <PopupFooter class="animation-delay-4" :is-light="isLight" />
     </div>
   </div>
 </template>

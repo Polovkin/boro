@@ -7,6 +7,7 @@
         class="navigation__item"
       >
         <LinkPrimary
+          :is-static="isStatic"
           :link="item.link"
           class="navigation__link"
         >
@@ -23,6 +24,12 @@ import LinkPrimary from './LinkPrimary'
 export default {
   name: 'Navigation',
   components: { LinkPrimary },
+  props: {
+    isStatic: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       navs: [

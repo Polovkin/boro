@@ -287,7 +287,7 @@ export default {
     left: 50%;
 
     width: 90%;
-    height: 10px;
+    height: 11px;
 
     background-color: $color__dark;
 
@@ -302,7 +302,7 @@ export default {
       right: -8px;
 
       width: 60%;
-      height: 10px;
+      height: 11px;
 
       background-color: $color__dark;
 

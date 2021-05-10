@@ -1,4 +1,4 @@
-import {POPUP_GET_IN_TOUCH, MENU, POPUP_ESTIMATE} from './types';
+import { POPUP_GET_IN_TOUCH, MENU, POPUP_ESTIMATE } from './types'
 
 export const state = () => ({
   popupState: false,
@@ -36,24 +36,37 @@ export const mutations = {
 export const actions = {
   OPEN_MODAL ({ commit, state }) {
     const openDelay = 100
+    const animationsDuration = 1500
     switch (state.popupType) {
       case POPUP_ESTIMATE:
         commit('SET_POPUP_STATE', true)
+        commit('SET_MENU_ANIMATION_PROGRESS', true)
         setTimeout(() => {
           commit('SET_POPUP_ANIMATION_CLASS', true)
         }, openDelay)
+        setTimeout(() => {
+          commit('SET_MENU_ANIMATION_PROGRESS', false)
+        }, animationsDuration)
         break
       case POPUP_GET_IN_TOUCH:
         commit('SET_POPUP_STATE', true)
+        commit('SET_MENU_ANIMATION_PROGRESS', true)
         setTimeout(() => {
           commit('SET_POPUP_ANIMATION_CLASS', true)
         }, openDelay)
+        setTimeout(() => {
+          commit('SET_MENU_ANIMATION_PROGRESS', false)
+        }, animationsDuration)
         break
       case MENU:
         commit('SET_MENU_STATE', true)
+        commit('SET_MENU_ANIMATION_PROGRESS', true)
         setTimeout(() => {
           commit('SET_MENU_ANIMATION_CLASS', true)
         }, openDelay)
+        setTimeout(() => {
+          commit('SET_MENU_ANIMATION_PROGRESS', false)
+        }, animationsDuration)
         break
       default:
         return null
@@ -64,20 +77,26 @@ export const actions = {
     switch (state.popupType) {
       case POPUP_ESTIMATE:
         commit('SET_POPUP_ANIMATION_CLASS', false)
+        commit('SET_MENU_ANIMATION_PROGRESS', true)
         setTimeout(() => {
           commit('SET_POPUP_STATE', false)
+          commit('SET_MENU_ANIMATION_PROGRESS', false)
         }, closeDelay)
         break
       case POPUP_GET_IN_TOUCH:
         commit('SET_POPUP_ANIMATION_CLASS', false)
+        commit('SET_MENU_ANIMATION_PROGRESS', true)
         setTimeout(() => {
           commit('SET_POPUP_STATE', false)
+          commit('SET_MENU_ANIMATION_PROGRESS', false)
         }, closeDelay)
         break
       case MENU:
         commit('SET_MENU_ANIMATION_CLASS', false)
+        commit('SET_MENU_ANIMATION_PROGRESS', true)
         setTimeout(() => {
           commit('SET_MENU_STATE', false)
+          commit('SET_MENU_ANIMATION_PROGRESS', false)
         }, closeDelay)
         break
       default:

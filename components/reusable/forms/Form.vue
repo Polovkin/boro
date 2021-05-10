@@ -4,10 +4,10 @@
       <template
         v-if="popupTypeTouch"
       >
-        <h2 class="form__title animation-move-from-down">
+        <h2 class="form__title animation-fade">
           {{ $t('form.title-touch') }}
         </h2>
-        <p class="form__description animation-move-from-down">
+        <p class="form__description animation-fade">
           {{ $t('form.description-touch') }}
         </p>
       </template>
