@@ -64,6 +64,7 @@
         @focus="focus"
         @blur="focusOut"
         @keypress="isNumber($event)"
+        @change="test2"
       )
       input.input-custom.input-custom__animate(
           v-else-if="isDate"
@@ -71,14 +72,13 @@
           :id="inputId"
           :name="name"
           :form="formId"
-          type='tel'
-          autocomplete="new-password"
+          type="search"
+          autocomplete="off"
           @focus="focus"
           @blur="focusOut"
           @keypress="isNumber($event)"
         )
       input.input-custom.input-custom__animate(
-
         v-else
         v-model='$v.simpleText.$model'
         :id="inputId"
@@ -211,11 +211,11 @@ export default {
         ? 'textarea'
         : this.isEmail
           ? 'email'
-            : this.isPhone
-              ? 'phone'
-              : this.isPassword
-                ? 'password'
-                : 'simpleText'
+          : this.isPhone
+            ? 'phone'
+            : this.isPassword
+              ? 'password'
+              : 'simpleText'
     },
     lengthValidatorTypes () {
       return 'minLength' in this.$v[this.validatorType] && 'maxLength' in this.$v[this.validatorType]
@@ -238,9 +238,15 @@ export default {
       if (newValue) {
         this.$v.$touch()
       }
+    },
+    deadline (newValue) {
+
     }
   },
   methods: {
+    test2(e) {
+      console.log(e);
+    },
     isNumber (evt) {
       evt = (evt) || window.event
       const charCode = (evt.which) ? evt.which : evt.keyCode
