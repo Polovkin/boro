@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'LocomotiveScroll',
   directives: {
@@ -44,6 +45,11 @@ export default {
     lastY: 0
   }),
   computed: {
+    ...mapState({
+      scrollDirection: s => s.app.scrollDirection,
+      headerTopState: s => s.header.headerTopState,
+      headerMove: s => s.header.headerMove
+    }),
     options () {
       return { ...this.defaultOptions, ...this.gettedOptions }
     }
@@ -63,10 +69,16 @@ export default {
   methods: {
     getScrollDirection (e) {
       const steps = e.scroll.y >= this.lastY
+      if (this.scrollDirection !== steps) {
+        this.$store.commit('app/SET_SCROLL_DIRECTION', steps)
+      }
+      if (this.headerMove !== (e.scroll.y > 100 && steps)) {
+        this.$store.commit('header/SET_HEADER_MOVE', e.scroll.y > 100 && steps)
+      }
+      if (this.headerTopState !== (e.scroll.y < 150)) {
+        this.$store.commit('header/SET_HEADER_TOP_STATE', e.scroll.y < 150)
+      }
 
-      this.$store.commit('app/SET_SCROLL_DIRECTION', steps)
-      this.$store.commit('header/SET_HEADER_MOVE', e.scroll.y > 100 && steps)
-      this.$store.commit('header/SET_HEADER_TOP_STATE', e.scroll.y < 150)
       this.lastY = e.scroll.y
     },
     onScroll (e) {
