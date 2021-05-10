@@ -1,6 +1,6 @@
 <template lang="pug">
   label.input-custom__label.select-custom__label(v-if="selectData")
-    span.input-custom__label-line
+    span.input-custom__label-line(:class="{'input-custom__label-line--active':selectDropdownState}")
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':selectedItem}")
       | {{ placeholder ? placeholder : 'select' }}
     div.select-custom.input-custom__animate(@click='selectDropdownState=!selectDropdownState')

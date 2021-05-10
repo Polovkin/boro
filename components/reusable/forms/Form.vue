@@ -19,11 +19,14 @@
       </h2>
     </div>
 
-    <div class="form__content">
-      <form
-        id="form"
-        ref="form"
-        autocomplete="off"
+    <form
+      id="form"
+      ref="form"
+      autocomplete="off"
+      class="form__content"
+    >
+      <div
+
         class="form__body"
       >
         <template v-if="popupTypeTouch">
@@ -114,14 +117,13 @@
               :placeholder="$t('form.placeholder.budget')"
             />
           </div>
-        </template>
-        <div class="form__submit">
+
           <div
-            v-if="!popupTypeTouch"
-            class="file__item"
+            class="form__file"
           >
+            <label for="formFile">{{ $t('form.file') }}</label>
             <input
-              id="formImage"
+              id="formFile"
               ref="file"
               autocomplete="off"
               type="file"
@@ -130,6 +132,15 @@
               @change="handleFileUpload()"
             >
           </div>
+        </template>
+        <div class="form__submit">
+          <p
+            v-if="!popupTypeTouch"
+            class="form__terms"
+          >
+            {{ $t('form.checkboxes.terms') }}
+            <a :href="'/'">{{ $t('footer.privacy') }}</a>.
+          </p>
           <ButtonPrimary
             is-submit
             @submitEvent="sendForm"
@@ -137,11 +148,10 @@
             {{ $t('form.submit') }}
           </ButtonPrimary>
         </div>
-      </form>
+      </div>
       <div class="form__right animation-move-from-left">
         <div
           v-if="popupTypeTouch"
-
           class="form__users"
         >
           <UserInfo
@@ -155,22 +165,42 @@
         <div
           v-else
           class="form__tags"
-        />
+        >
+          <div
+            v-for="(item,index) of types"
+            :key="index"
+            class="form__tags-item"
+          >
+            <input
+              :id="`tag_${index}`"
+              name="formTags"
+              :value="item"
+              :name="item"
+              hidden
+              type="checkbox"
+            >
+            <label
+              class="form__tags-label"
+              :for="`tag_${index}`"
+            > {{ $t(`form.checkboxes.${item}`) }}</label>
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import { POPUP_GET_IN_TOUCH } from '../../../store/types'
+import LinkPrimary from '../LinkPrimary'
 import ButtonPrimary from './../buttons/ButtonPrimary'
 import UserInfo from './../UserInfo'
 import InputCustom from './InputCustom'
 
 export default {
   name: 'Form',
-  components: { InputCustom, UserInfo, ButtonPrimary },
+  components: { LinkPrimary, InputCustom, UserInfo, ButtonPrimary },
   data () {
     return {
       touch: false,
@@ -209,7 +239,9 @@ export default {
           ]
         }
       ],
-      selectData: ['< 5000', '5-10K', '10-30K', '30-50K', '>50k']
+      selectData: ['< 5000', '5-10K', '10-30K', '30-50K', '>50k'],
+      types: ['mobile', 'web', 'website', 'illustration', '3d', 'motion', 'ux', 'design', 'graphic', 'front', 'back', 'other'],
+      fileText: 'form.file'
     }
   },
 

@@ -30,6 +30,7 @@
     "title-estimate": "Estimate project",
     "submit": "Submit",
     "send": "Send",
+    "file": "Choose File",
     "checkboxes": {
       "mobile": "Mobile App Design",
       "web": "Web App Design",
@@ -63,7 +64,8 @@
     "success": {
       "title": "GOT IT!",
       "description": "Thank you for contacting boro! We will get in touch with you shortly."
-    }
+    },
+    "terms": "All the details about personal data protection can be found in the"
   },
   "layout-links": {
     "link1": "Academy",

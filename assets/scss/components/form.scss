@@ -3,9 +3,11 @@
   flex-direction: column;
 
   display: flex;
-&__heading {
-  margin-bottom: 40px;
-}
+
+  &__heading {
+    margin-bottom: 40px;
+  }
+
   &__title {
     @include h3;
     margin-bottom: 8px;
@@ -46,6 +48,7 @@
 
   &__content {
     display: grid;
+    height: 100%;
 
     padding-bottom: 40px;
     grid-template-columns: repeat(2, 1fr);
@@ -53,17 +56,37 @@
   }
 
   &__submit {
-    @include title-link;
+
     align-items: center;
     justify-content: space-between;
 
     display: flex;
     width: 100%;
 
+
+    margin-top: auto;
+
     transition: all ease .2s;
+
     button {
       margin-left: auto;
+
+      &:hover {
+        transform: translateX(5px);
+
+        .arrow {
+          background-color: $color__dark;
+
+          &:after, &:before {
+
+
+            background-color: $color__dark;
+
+          }
+        }
+      }
     }
+
     .button__wave {
       background-color: transparent !important;
     }
@@ -72,24 +95,11 @@
       transform: translate(-50%, -50%) scale(.2) rotate(0);
     }
 
-    &:hover {
-      transform: translateX(5px);
 
-      .arrow {
-        background-color: $color__dark;
-
-        &:after, &:before {
-
-
-          background-color: $color__dark;
-
-        }
-      }
-    }
   }
 
   &__right {
-    align-items: flex-end;
+    align-items: flex-start;
 
     display: flex;
   }
@@ -133,6 +143,68 @@
     }
 
 
+  }
+
+  &__file {
+
+    label {
+
+      cursor: pointer;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  &__terms {
+    @include title-link;
+    text-decoration-line: none;
+
+    a {
+      color: $color__light;
+      text-decoration-line: underline;
+    }
+
+  }
+
+  &__tags {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    display: flex;
+    max-width: 700px;
+
+    &-label {
+
+    }
+
+    &-item {
+      @include caption-normal;
+      margin: 10px;
+
+
+
+
+      color: $color__light;
+
+      label {
+        display: block;
+
+        padding: 16px 24px;
+
+        border: 1px solid $color__light_16;
+        border-radius: 32px;
+
+        cursor: pointer;
+      }
+
+      input:checked + label {
+        background-color: $color__light;
+
+        color: $color__font--primary;
+      }
+    }
   }
 
   .user-info {
