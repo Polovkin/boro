@@ -1,10 +1,11 @@
 .form {
   flex: 1;
   flex-direction: column;
-  justify-content: space-between;
 
   display: flex;
-
+&__heading {
+  margin-bottom: 40px;
+}
   &__title {
     @include h3;
     margin-bottom: 8px;
@@ -12,11 +13,10 @@
 
   &__description {
     @include body-secondary;
-    margin-bottom: 40px;
   }
 
   &__item {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   &__body {
@@ -54,12 +54,16 @@
 
   &__submit {
     @include title-link;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    transition: all ease .2s;
+    justify-content: space-between;
 
+    display: flex;
+    width: 100%;
+
+    transition: all ease .2s;
+    button {
+      margin-left: auto;
+    }
     .button__wave {
       background-color: transparent !important;
     }

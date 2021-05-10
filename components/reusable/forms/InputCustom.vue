@@ -1,5 +1,6 @@
 <template lang="pug">
   label.input-custom__label.select-custom__label(v-if="selectData")
+    span.input-custom__label-line
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':selectedItem}")
       | {{ placeholder ? placeholder : 'select' }}
     div.select-custom.input-custom__animate(@click='selectDropdownState=!selectDropdownState')
@@ -14,10 +15,8 @@
     span.input-custom__error-msg.animation-shake(v-if="!selectedItem && formTouch")
       | {{ $t('form.error.required') }}
 
-  label.input-custom__label(v-else
-  :for="inputId"
-    :class="{'input-custom--error': invalid ,'input-custom--valid':valid}")
-
+  label.input-custom__label(v-else :for="inputId" :class="{'input-custom--error': invalid ,'input-custom--valid':valid}")
+    span.input-custom__label-line(:class="{'input-custom__label-line--active':isActive}")
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':isActive}")
       | {{ placeholder }}
     template(v-if="isTextarea")
@@ -278,24 +277,34 @@ $valid_color: #fff;
 $border_weight: 1px;
 $placeholder_animation_duration: .4s;
 
+.popup--active {
+
+  .input-custom__label-line {
+    max-width: 100%;
+  }
+}
+
 .input-custom {
   @include h6;
+  position: relative;
+
   height: $input_height;
 
   padding-bottom: 16px;
 
-  color: $input__font-color;
-  line-height: unset;
-
-  transition: all $placeholder_animation_duration ease;
-
-  border: {
+  /*border: {
     bottom: $border_weight solid $color__light;
     top-color: transparent;
     left-color: transparent;
     right-color: transparent;
     bottom-color: $color__light_24;
-  };
+  };*/
+  border: transparent;
+
+  color: $input__font-color;
+  line-height: unset;
+
+  transition: all $placeholder_animation_duration ease;
 
   &--valid {
 
@@ -335,6 +344,53 @@ $placeholder_animation_duration: .4s;
 
     padding-top: $label_top_padding;
     padding-bottom: $label_bottom_padding;
+
+    &-line {
+      position: absolute;
+      bottom: $label_bottom_padding;
+
+      width: 100%;
+      max-width: 0;
+      height: 1px;
+      overflow: hidden;
+
+      transition: max-width ease .6s .8s;
+
+      &:after,&:before {
+        @include pseudoElement(100%);
+      }
+
+      &:after {
+        z-index: z(bg-content);
+
+        background-color: $color__light_24;
+      }
+
+      &:before {
+        z-index: z(content);
+        will-change: transform,background-color;
+
+        background-color:$color__primary;
+
+        transform: scale(0);
+        transform-origin: 100% 50%;
+
+        transition: transform .35s;
+        transition-timing-function: cubic-bezier(.25,.46,.45,.94);
+      }
+
+      &--active {
+
+        &:before {
+
+          transform: scale(1);
+          transform-origin: 0 50%;
+
+          transition-timing-function: ease;
+        }
+      }
+    }
+
   }
 
   &__placeholder {
@@ -349,7 +405,8 @@ $placeholder_animation_duration: .4s;
 
     transform: translateY(0);
 
-    transition: all $placeholder_animation_duration ease;
+    transition: all cubic-bezier(.4,0,.2,1) .15s;
+  ;
 
     &--animate {
       color: $color__font--tertiary;
@@ -357,6 +414,8 @@ $placeholder_animation_duration: .4s;
 
       transform: translate(0%, -20px);
     }
+
+
   }
 
   &__error-msg {
@@ -390,10 +449,11 @@ $placeholder_animation_duration: .4s;
 
   &__textarea {
     @extend .input-custom;
-    height: unset;
-    max-height: $input_height;
+    height: $input_height;
+    //max-height: $input_height;
 
     padding-top: ($input_height - $input__font-size) / 2;
+    padding-bottom: 0;
 
     background-color: transparent;
 
@@ -402,6 +462,7 @@ $placeholder_animation_duration: .4s;
     resize: none;
 
     &::-webkit-scrollbar {
+
       width: 4px;
 
       &-track {
