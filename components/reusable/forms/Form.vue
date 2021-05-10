@@ -60,7 +60,7 @@
             :placeholder="$t('form.placeholder.phone')"
           />
           <InputCustom
-            v-model="formData.name"
+            v-model="formData.message"
             :form-touch="touch"
             is-textarea
             class="form__item"
@@ -102,11 +102,12 @@
             />
             <InputCustom
               v-model="formData.deadline"
+              is-date
               :form-touch="touch"
               class="form__item"
               :form-id="'form'"
               :name="'deadlineField'"
-              :placeholder="$t('form.placeholder.phone')"
+              :placeholder="$t('form.placeholder.deadline')"
             />
             <InputCustom
               v-model="formData.budget"
@@ -138,7 +139,7 @@
             v-if="!popupTypeTouch"
             class="form__terms"
           >
-            {{ $t('form.checkboxes.terms') }}
+            {{ $t('form.terms') }}
             <a :href="'/'">{{ $t('footer.privacy') }}</a>.
           </p>
           <ButtonPrimary
@@ -173,7 +174,6 @@
           >
             <input
               :id="`tag_${index}`"
-              name="formTags"
               :value="item"
               :name="item"
               hidden

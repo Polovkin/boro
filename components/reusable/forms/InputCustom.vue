@@ -25,7 +25,6 @@
         :id="inputId"
         :name="name"
         :form="formId"
-        autocomplete="new-password"
         @focus="focus"
         @blur="focusOut"
       )
@@ -67,13 +66,26 @@
         @keypress="isNumber($event)"
       )
       input.input-custom.input-custom__animate(
+          v-else-if="isDate"
+          v-model='deadline'
+          :id="inputId"
+          :name="name"
+          :form="formId"
+          type='tel'
+          autocomplete="new-password"
+          @focus="focus"
+          @blur="focusOut"
+          @keypress="isNumber($event)"
+        )
+      input.input-custom.input-custom__animate(
+
         v-else
         v-model='$v.simpleText.$model'
         :id="inputId"
         :name="name"
         :form="formId"
-        type="text"
-        autocomplete="new-password"
+        type="search"
+        autocomplete="off"
         @focus="focus"
         @blur="focusOut"
       )
@@ -139,6 +151,10 @@ export default {
       required: true,
       default: ''
     },
+    isDate: {
+      type: Boolean,
+      default: false
+    },
     isTextarea: {
       type: Boolean,
       default: false
@@ -176,9 +192,11 @@ export default {
       phone: '',
       email: '',
       password: '',
+      deadline: '',
       lengthTypes: ['textarea', 'simpleText', 'password'],
       selectedItem: '',
-      selectDropdownState: false
+      selectDropdownState: false,
+      test: false
     }
   },
   computed: {
@@ -193,11 +211,11 @@ export default {
         ? 'textarea'
         : this.isEmail
           ? 'email'
-          : this.isPhone
-            ? 'phone'
-            : this.isPassword
-              ? 'password'
-              : 'simpleText'
+            : this.isPhone
+              ? 'phone'
+              : this.isPassword
+                ? 'password'
+                : 'simpleText'
     },
     lengthValidatorTypes () {
       return 'minLength' in this.$v[this.validatorType] && 'maxLength' in this.$v[this.validatorType]
@@ -221,20 +239,7 @@ export default {
         this.$v.$touch()
       }
     }
-    /* formSuccess (newValue) {
-      if (newValue) {
-        this.simpleText = ''
-        this.textarea = ''
-        this.email = ''
-        this.password = ''
-        this.$v.$reset()
-      }
-    } */
   },
-  mounted () {
-
-  },
-
   methods: {
     isNumber (evt) {
       evt = (evt) || window.event
@@ -264,6 +269,7 @@ export default {
         this.$emit('input', null)
       }
     }
+
   }
 }
 </script>
@@ -276,6 +282,10 @@ $invalid_color: #fff;
 $valid_color: #fff;
 $border_weight: 1px;
 $placeholder_animation_duration: .4s;
+
+input[autocomplete='off']:read-only {
+  background-color: transparent!important;
+}
 
 .popup--active {
 
@@ -414,7 +424,6 @@ $placeholder_animation_duration: .4s;
 
       transform: translate(0%, -20px);
     }
-
 
   }
 
