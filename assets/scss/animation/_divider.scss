@@ -12,6 +12,6 @@
 
 }
 
-header.animation-base-state .header__content:after {
-  max-width: 100%;
+header.animation-base-state .header__content:after, .in-viewport .section__header:after {
+  max-width: 100% !important;
 }

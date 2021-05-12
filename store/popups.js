@@ -32,7 +32,7 @@ export const mutations = {
   SET_POPUP_TYPE (s, payload) {
     s.popupType = payload
   },
-  SET_MENU_ANIMATION_PROGRESS (s, payload) {
+  SET_ANIMATION_PROGRESS (s, payload) {
     s.menuAnimationInProgress = payload
   }
 }
@@ -41,40 +41,41 @@ export const actions = {
   OPEN_MODAL ({ commit, state }) {
     if (state.popupType !== MENU) {
       commit('SET_POPUP_STATE', true)
-      commit('SET_MENU_ANIMATION_PROGRESS', true)
+      commit('SET_ANIMATION_PROGRESS', true)
       setTimeout(() => {
         commit('SET_POPUP_ANIMATION_CLASS', true)
       }, openDelay)
       setTimeout(() => {
-        commit('SET_MENU_ANIMATION_PROGRESS', false)
+        commit('SET_ANIMATION_PROGRESS', false)
       }, animationsDuration)
     }
+
     commit('SET_MENU_STATE', true)
-    commit('SET_MENU_ANIMATION_PROGRESS', true)
+    commit('SET_ANIMATION_PROGRESS', true)
     setTimeout(() => {
       commit('SET_MENU_ANIMATION_CLASS', true)
     }, openDelay)
     setTimeout(() => {
-      commit('SET_MENU_ANIMATION_PROGRESS', false)
+      commit('SET_ANIMATION_PROGRESS', false)
     }, animationsDuration)
   },
   CLOSE_MODAL ({ commit, state }) {
     if (state.popupType !== MENU) {
       commit('SET_POPUP_ANIMATION_CLASS', false)
-      commit('SET_MENU_ANIMATION_PROGRESS', true)
+      commit('SET_ANIMATION_PROGRESS', true)
       setTimeout(() => {
         commit('SET_POPUP_STATE', false)
-        commit('SET_MENU_ANIMATION_PROGRESS', false)
+        commit('SET_ANIMATION_PROGRESS', false)
       }, closeDelay)
     }
     commit('SET_MENU_ANIMATION_CLASS', false)
-    commit('SET_MENU_ANIMATION_PROGRESS', true)
+    commit('SET_ANIMATION_PROGRESS', true)
+
     setTimeout(() => {
       commit('SET_MENU_STATE', false)
-      commit('SET_MENU_ANIMATION_PROGRESS', false)
+      commit('SET_ANIMATION_PROGRESS', false)
     }, closeDelay)
   }
-
 }
 
 export const getters = {}

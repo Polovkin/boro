@@ -34,18 +34,30 @@
   &__links {
     padding-right: 300px;
 
-    li {
-      @for $i from 1 through 2 {
-        &:nth-of-type(#{$i}) {
-          transition-delay: #{$i* .1s};
-        }
-      }
-      transform: translateY(100%);
-      opacity: 0;
-
-      transition: all $header_fu $items_animation;
+    &-wrap {
+      overflow: hidden;
     }
 
+    &-item {
+      &:nth-of-type(2) {
+        a {
+          transition-delay: .4s ;
+        }
+
+      }
+
+
+      a {
+
+        transform: translateY(100%);
+        //opacity: 0;
+
+        transition: all $header_fu $items_animation .2s;
+
+      }
+
+
+    }
   }
 
   &__elem {
@@ -131,9 +143,8 @@
 
     .header-menu__links {
 
-      li {
+      a {
         transform: translateY(0);
-        opacity: 1;
       }
     }
 

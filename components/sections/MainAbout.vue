@@ -65,7 +65,6 @@
           <dl>{{ $t(item.text) }}</dl>
         </div>
       </dl>
-      <hr class="divider">
     </div>
   </Section>
 </template>

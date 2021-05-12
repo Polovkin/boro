@@ -111,17 +111,12 @@
     width: 100%;
 
     .user-info {
-      align-items: flex-end;
+      align-items: flex-start;
 
       &__contact-info {
         margin-right: 0;
       }
 
-      &__img {
-        justify-content: flex-end;
-
-        display: flex;
-      }
     }
   }
 

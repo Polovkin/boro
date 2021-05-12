@@ -6,6 +6,9 @@
     &:after {
       @include pseudoElement(100%);
       @include divider;
+      position: absolute;
+      top: -24px;
+      bottom: unset;
     }
   }
 

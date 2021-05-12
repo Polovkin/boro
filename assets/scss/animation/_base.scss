@@ -48,7 +48,7 @@ $base_duration: 1.2s;
 
   & > * {
     transform: translateY(100%);
-
+    opacity: 0;
     transition: transform $base_fu $base_duration;
   }
 }
@@ -68,6 +68,7 @@ $base_duration: 1.2s;
   .animation-mask {
 
     & > * {
+      opacity: 1;
       transform: translateY(0);
     }
   }

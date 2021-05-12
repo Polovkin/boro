@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="true">
    <LocomotiveScroll
       ref="scroller"
       data-scroll-container
@@ -15,7 +15,7 @@
     </LocomotiveScroll>
   </div>
 
-<!--  <div>
+ <div v-else>
     <MainSection data-scroll-section />
     <Cases />
     <MainAbout />
@@ -23,7 +23,7 @@
     <MainBLog />
     <Lead />
     <Footer />
-  </div>-->
+  </div>
 </template>
 
 <script>

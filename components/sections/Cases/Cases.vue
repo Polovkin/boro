@@ -109,7 +109,6 @@ export default {
 
 .cases-section {
   padding-top: 25px;
-  padding-bottom: 89px;
 
   &__items {
     padding-top: 190px;

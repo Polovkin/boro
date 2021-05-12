@@ -170,9 +170,9 @@
       display: flex;
 
       margin-right: 50px;
-      margin-bottom: 10px;
 
       span:first-child {
+        margin-bottom: 4px;
         @include title-link;
         color: $color__light;
       }
@@ -193,9 +193,12 @@
     justify-content: space-between;
 
     display: flex;
+    min-height: 88px;
 
-    padding-top: 28px;
-    padding-bottom: 28px;
+    padding: 18px 0;
+
+    //padding-top: 28px;
+    // padding-bottom: 28px;
   }
 
 
