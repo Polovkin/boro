@@ -1,5 +1,9 @@
 import { POPUP_GET_IN_TOUCH, MENU, POPUP_ESTIMATE } from './types'
 
+const openDelay = 100
+const animationsDuration = 1500
+const closeDelay = 1200
+
 export const state = () => ({
   popupState: false,
   menuState: null,
@@ -35,73 +39,40 @@ export const mutations = {
 
 export const actions = {
   OPEN_MODAL ({ commit, state }) {
-    const openDelay = 100
-    const animationsDuration = 1500
-    switch (state.popupType) {
-      case POPUP_ESTIMATE:
-        commit('SET_POPUP_STATE', true)
-        commit('SET_MENU_ANIMATION_PROGRESS', true)
-        setTimeout(() => {
-          commit('SET_POPUP_ANIMATION_CLASS', true)
-        }, openDelay)
-        setTimeout(() => {
-          commit('SET_MENU_ANIMATION_PROGRESS', false)
-        }, animationsDuration)
-        break
-      case POPUP_GET_IN_TOUCH:
-        commit('SET_POPUP_STATE', true)
-        commit('SET_MENU_ANIMATION_PROGRESS', true)
-        setTimeout(() => {
-          commit('SET_POPUP_ANIMATION_CLASS', true)
-        }, openDelay)
-        setTimeout(() => {
-          commit('SET_MENU_ANIMATION_PROGRESS', false)
-        }, animationsDuration)
-        break
-      case MENU:
-        commit('SET_MENU_STATE', true)
-        commit('SET_MENU_ANIMATION_PROGRESS', true)
-        setTimeout(() => {
-          commit('SET_MENU_ANIMATION_CLASS', true)
-        }, openDelay)
-        setTimeout(() => {
-          commit('SET_MENU_ANIMATION_PROGRESS', false)
-        }, animationsDuration)
-        break
-      default:
-        return null
+    if (state.popupType !== MENU) {
+      commit('SET_POPUP_STATE', true)
+      commit('SET_MENU_ANIMATION_PROGRESS', true)
+      setTimeout(() => {
+        commit('SET_POPUP_ANIMATION_CLASS', true)
+      }, openDelay)
+      setTimeout(() => {
+        commit('SET_MENU_ANIMATION_PROGRESS', false)
+      }, animationsDuration)
     }
+    commit('SET_MENU_STATE', true)
+    commit('SET_MENU_ANIMATION_PROGRESS', true)
+    setTimeout(() => {
+      commit('SET_MENU_ANIMATION_CLASS', true)
+    }, openDelay)
+    setTimeout(() => {
+      commit('SET_MENU_ANIMATION_PROGRESS', false)
+    }, animationsDuration)
   },
   CLOSE_MODAL ({ commit, state }) {
-    const closeDelay = 1200
-    switch (state.popupType) {
-      case POPUP_ESTIMATE:
-        commit('SET_POPUP_ANIMATION_CLASS', false)
-        commit('SET_MENU_ANIMATION_PROGRESS', true)
-        setTimeout(() => {
-          commit('SET_POPUP_STATE', false)
-          commit('SET_MENU_ANIMATION_PROGRESS', false)
-        }, closeDelay)
-        break
-      case POPUP_GET_IN_TOUCH:
-        commit('SET_POPUP_ANIMATION_CLASS', false)
-        commit('SET_MENU_ANIMATION_PROGRESS', true)
-        setTimeout(() => {
-          commit('SET_POPUP_STATE', false)
-          commit('SET_MENU_ANIMATION_PROGRESS', false)
-        }, closeDelay)
-        break
-      case MENU:
-        commit('SET_MENU_ANIMATION_CLASS', false)
-        commit('SET_MENU_ANIMATION_PROGRESS', true)
-        setTimeout(() => {
-          commit('SET_MENU_STATE', false)
-          commit('SET_MENU_ANIMATION_PROGRESS', false)
-        }, closeDelay)
-        break
-      default:
-        return null
+    if (state.popupType !== MENU) {
+      commit('SET_POPUP_ANIMATION_CLASS', false)
+      commit('SET_MENU_ANIMATION_PROGRESS', true)
+      setTimeout(() => {
+        commit('SET_POPUP_STATE', false)
+        commit('SET_MENU_ANIMATION_PROGRESS', false)
+      }, closeDelay)
     }
+    commit('SET_MENU_ANIMATION_CLASS', false)
+    commit('SET_MENU_ANIMATION_PROGRESS', true)
+    setTimeout(() => {
+      commit('SET_MENU_STATE', false)
+      commit('SET_MENU_ANIMATION_PROGRESS', false)
+    }, closeDelay)
   }
 
 }

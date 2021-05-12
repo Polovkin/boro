@@ -33,12 +33,12 @@
         <ul
           class="header-menu__links"
         >
-          <li>
+          <li class="animation-mask">
             <LinkPrimary is-static link="/">
               {{ $t('footer.privacy') }}
             </LinkPrimary>
           </li>
-          <li>
+          <li class="animation-mask">
             <LinkPrimary is-static link="/">
               {{ $t('footer.terms') }}
             </LinkPrimary>

@@ -1,12 +1,36 @@
+$animation-directions: (top,bottom,left,right);
 $base_fu: cubic-bezier(.250, .460, .450, .94);
 $base_duration: 1.2s;
 
 
+
+@each $direction in $animation-directions {
+  $px_value: 150px;
+  .animation-move-from-#{$direction} {
+    @if $direction==top {
+      transform: translateY(-$px_value);
+    }
+    @if $direction==bottom {
+      transform: translateY($px_value);
+    }
+    @if $direction==left {
+      transform: translateX($px_value);
+    }
+    @if $direction==right {
+      transform: translateX(-$px_value);
+    }
+    opacity: 0;
+
+    transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
+  }
+}
+
 @for $i from 1 through 10 {
   .animation-delay-#{$i} {
-    transition-delay: #{$i * .1s} !important;
-    .animation-move-from-down, .animation-move-from-left, .animation-move-from-right {
-      transition-delay: #{$i * .1s} !important;
+    @each $direction in $animation-directions {
+      .animation-move-from-#{$direction} {
+        transition-delay: #{$i * .1s} !important;
+      }
     }
   }
 }
@@ -17,35 +41,35 @@ $base_duration: 1.2s;
   transition: opacity cubic-bezier(.390, .575, .565, 1.000) $base_duration,;
 }
 
-.animation-move-from-down {
-  transform: translateY(50px);
-  opacity: 0;
+.animation-mask {
+  position: relative;
 
-  transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
-}
+  overflow: hidden;
 
-.animation-move-from-left {
-  transform: translateX(150px);
-  opacity: 0;
+  & > * {
+    transform: translateY(100%);
 
-  transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
-}
-
-.animation-move-from-right {
-  transform: translateX(-150px);
-  opacity: 0;
-
-  transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
+    transition: transform $base_fu $base_duration;
+  }
 }
 
 .in-viewport, .popup--active, .header-menu--active {
+  @each $direction in $animation-directions {
+    .animation-move-from-#{$direction} {
+      transform: translateX(0) translateY(0);
+      opacity: 1;
+    }
+  }
 
   .animation-fade {
     opacity: 1;
   }
 
-  .animation-move-from-down, .animation-move-from-left, .animation-move-from-right {
-    transform: translateX(0) translateY(0);
-    opacity: 1;
+  .animation-mask {
+
+    & > * {
+      transform: translateY(0);
+    }
   }
+
 }
