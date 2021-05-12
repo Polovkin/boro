@@ -9,10 +9,12 @@
 
   &__time {
     @include body-secondary;
+    padding-top: 9px;
     color: $color__font_dark--secondary;
   }
 
   &__img {
+    min-height: 248px;
     @include image-wrap-animation;
 
     border-radius: 4px;
@@ -43,12 +45,13 @@
   }
 
   &__content {
+    padding-top: 10px;
     flex-direction: column;
     justify-content:flex-start;
 
     display: flex;
 
-    padding-left: 7%;
+    padding-left: 7.4%;
 
     &-tags {
       display: flex;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!--  <div>
    <LocomotiveScroll
       ref="scroller"
       data-scroll-container
@@ -13,15 +13,17 @@
       <Lead />
       <Footer />
     </LocomotiveScroll>
-  </div>
+  </div>-->
 
-  <!--  <div>
-      <MainSection data-scroll-sectio />
-      <Cases data-scroll-sectio />
-      <MainAbout data-scroll-sectio />
-      <Services data-scroll-sectio />
-      <Footer data-scroll-sectio />
-    </div>-->
+  <div>
+    <MainSection data-scroll-section />
+    <Cases />
+    <MainAbout />
+    <Services />
+    <MainBLog />
+    <Lead />
+    <Footer />
+  </div>
 </template>
 
 <script>

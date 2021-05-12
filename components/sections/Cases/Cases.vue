@@ -58,7 +58,7 @@ export default {
         },
         {
           time: 2020,
-          title: 'Smane',
+          title: 'Smame',
           tags: ['UI/UX Design', 'UX review', 'Motion design', '3D'],
           description: 'Since most of devices are controlled via smartphone and tablet apps, we wanted to take a perfect UX for this',
           buttons: [
@@ -108,6 +108,9 @@ export default {
 <style lang="scss">
 
 .cases-section {
+  padding-top: 25px;
+  padding-bottom: 89px;
+
   &__items {
     padding-top: 190px;
   }

@@ -1,5 +1,7 @@
 .main-about {
-
+.section__header .divider:first-child {
+  display: none;
+}
   &__title {
     @include h3;
     max-width: 730px;

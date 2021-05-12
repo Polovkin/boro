@@ -51,7 +51,7 @@
       "phone": "Phone number",
       "message": "Message",
       "deadline": "Deadline",
-      "budget": "Project budget",
+      "budget": "Project budget (USD)",
       "description": "Tell us about the project",
       "file": "Choose File"
     },

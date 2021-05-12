@@ -1,6 +1,6 @@
 <template>
   <div class="popup__footer">
-    <hr class="divider">
+    <hr class="divider ">
     <div class="popup__wrap">
       <div class="popup__footer-info animation-move-from-right">
         <p class="popup__footer-item">

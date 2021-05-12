@@ -64,7 +64,6 @@
         @focus="focus"
         @blur="focusOut"
         @keypress="isNumber($event)"
-        @change="test2"
       )
       input.input-custom.input-custom__animate(
           v-else-if="isDate"
@@ -244,9 +243,6 @@ export default {
     }
   },
   methods: {
-    test2(e) {
-      console.log(e);
-    },
     isNumber (evt) {
       evt = (evt) || window.event
       const charCode = (evt.which) ? evt.which : evt.keyCode

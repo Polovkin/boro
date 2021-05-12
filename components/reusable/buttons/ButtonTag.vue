@@ -64,7 +64,7 @@ export default {
   height: 33px;
   max-height: 33px;
 
-  margin-right: 12px;
+  margin-right: 10px;
   padding: 8px 10px;
 
   border: 1px solid transparent;

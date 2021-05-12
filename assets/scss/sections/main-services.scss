@@ -1,4 +1,14 @@
 .main-services {
+
+  .section__header {
+    position: relative;
+
+    &:after {
+      @include pseudoElement(100%);
+      @include divider;
+    }
+  }
+
   &__content {
     padding-top: 183px;
   }
