@@ -408,7 +408,7 @@ input[autocomplete='off']:read-only {
   &__placeholder {
     @include h5;
     position: absolute;
-    top: 5px + $label_bottom_padding;
+    top: 4px + $label_bottom_padding;
 
     z-index: z(content);
 
@@ -460,7 +460,7 @@ input[autocomplete='off']:read-only {
 
   &__textarea {
     @extend .input-custom;
-    height: $input_height;
+    height: $input_height - 2px;
     //max-height: $input_height;
 
     padding-top: ($input_height - $input__font-size) / 2;
@@ -471,6 +471,8 @@ input[autocomplete='off']:read-only {
     outline: none;
 
     resize: none;
+
+
 
     &::-webkit-scrollbar {
 

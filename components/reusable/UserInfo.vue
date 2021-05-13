@@ -70,7 +70,7 @@ export default {
   }
 
   &__img {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 
     img {
       border-radius: 50%;

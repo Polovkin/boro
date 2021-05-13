@@ -146,7 +146,7 @@
             is-submit
             @submitEvent="sendForm"
           >
-            {{ $t('form.submit') }}
+            {{ $t('form.send') }}
           </ButtonPrimary>
         </div>
       </div>

@@ -148,7 +148,7 @@
 
     display: flex;
 
-    padding-top: 42px;
+    padding-top: 60px;
 
     color: $color__light;
   }
@@ -169,9 +169,10 @@
 
       display: flex;
 
-      margin-right: 50px;
 
+      margin-right: 65px;
       span:first-child {
+
         margin-bottom: 4px;
         @include title-link;
         color: $color__light;
