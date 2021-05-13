@@ -31,6 +31,7 @@
     "submit": "Submit",
     "send": "Send",
     "file": "Choose File",
+    "optional": "Optional",
     "checkboxes": {
       "mobile": "Mobile App Design",
       "web": "Web App Design",

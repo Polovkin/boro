@@ -16,9 +16,10 @@
       | {{ $t('form.error.required') }}
 
   label.input-custom__label(v-else :for="inputId" :class="{'input-custom--error': invalid ,'input-custom--valid':valid}")
-    span.input-custom__label-line(:class="{'input-custom__label-line--active':isActive}")
+    span.input-custom__label-line(:class="{'input-custom__label-line--active':isLineActive}")
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':isActive}")
       | {{ placeholder }}
+    span.input-custom__optional(v-if="!isRequired  && !isActive") {{ $t('form.optional') }}
     template(v-if="isTextarea")
       textarea.input-custom__textarea(
         v-model='$v.textarea.$model'
@@ -186,6 +187,7 @@ export default {
   data () {
     return {
       isActive: false,
+      isLineActive: false,
       simpleText: '',
       textarea: '',
       phone: '',
@@ -258,11 +260,13 @@ export default {
     },
     focus () {
       this.isActive = true
+      this.isLineActive = this.isActive
     },
     focusOut (e) {
       this.$v.$touch()
       const value = e.target.value
       this.isActive = !!value
+      this.isLineActive = false
       if (this.selectData) {
         this.$emit('input', this.selectData)
       } else if (!this.$v[this.validatorType].$invalid) {
@@ -289,13 +293,6 @@ input[autocomplete='off']:read-only {
   background-color: transparent!important;
 }
 
-.popup--active {
-
-  .input-custom__label-line {
-    max-width: 100%;
-  }
-}
-
 .input-custom {
   @include h6;
   position: relative;
@@ -304,13 +301,6 @@ input[autocomplete='off']:read-only {
 
   padding-bottom: 16px;
 
-  /*border: {
-    bottom: $border_weight solid $color__light;
-    top-color: transparent;
-    left-color: transparent;
-    right-color: transparent;
-    bottom-color: $color__light_24;
-  };*/
   border: transparent;
 
   color: $input__font-color;
@@ -318,35 +308,32 @@ input[autocomplete='off']:read-only {
 
   transition: all $placeholder_animation_duration ease;
 
-  &--valid {
-
-    .input-custom__placeholder {
-      color: $valid_color;
-    }
-
-    input {
-      border-bottom: $border_weight solid $valid_color;
-
-      color: $valid_color;
-    }
-  }
-
-  &--error {
-
-    .input-custom__placeholder {
-      color: $invalid_color;
-    }
-
-    input {
-      border-bottom: $border_weight solid $invalid_color;
-
-      color: $invalid_color;
-    }
-  }
-
   &__animate {
     position: relative;
     z-index: z(bg-content);
+  }
+
+  &__placeholder {
+    @include h5;
+    position: absolute;
+    top: 4px + $label_bottom_padding;
+    left: 2px;
+    z-index: z(content);
+
+    color: $input__placeholder-color;
+    line-height: unset;
+
+    transform: translateY(0);
+
+    transition: all cubic-bezier(.4,0,.2,1) .15s;
+
+    &--animate {
+      color: $color__font--tertiary;
+      font-size: 10px;
+
+      transform: translate(0%, -20px);
+    }
+
   }
 
   &__label {
@@ -382,7 +369,7 @@ input[autocomplete='off']:read-only {
         z-index: z(content);
         will-change: transform,background-color;
 
-        background-color:$color__primary;
+        background-color:$color__light;
 
         transform: scale(0);
         transform-origin: 100% 50%;
@@ -405,33 +392,19 @@ input[autocomplete='off']:read-only {
 
   }
 
-  &__placeholder {
-    @include h5;
+  &__optional {
+    @include body-secondary;
     position: absolute;
-    top: 4px + $label_bottom_padding;
+    top: (($input_height - $input__font-size) / 2) + $label_top_padding - 2px;
+    right: 0;
 
-    z-index: z(content);
-
-    color: $input__placeholder-color;
-    line-height: unset;
-
-    transform: translateY(0);
-
-    transition: all cubic-bezier(.4,0,.2,1) .15s;
-  ;
-
-    &--animate {
-      color: $color__font--tertiary;
-      font-size: 10px;
-
-      transform: translate(0%, -20px);
-    }
-
+    color: $color__font--tertiary;
   }
 
   &__error-msg {
     position: absolute;
     bottom: 1px;
+    left: 2px;
 
     color: $invalid_color;
     font-size: 11px;
@@ -472,8 +445,6 @@ input[autocomplete='off']:read-only {
 
     resize: none;
 
-
-
     &::-webkit-scrollbar {
 
       width: 4px;
@@ -489,6 +460,32 @@ input[autocomplete='off']:read-only {
           background: #555;
         }
       }
+    }
+  }
+
+  &--valid {
+
+    .input-custom__placeholder {
+      color: $valid_color;
+    }
+
+    input {
+      //border-bottom: $border_weight solid $valid_color;
+
+      color: $valid_color;
+    }
+  }
+
+  &--error {
+
+    .input-custom__placeholder {
+      color: $invalid_color;
+    }
+
+    input {
+      //border-bottom: $border_weight solid $invalid_color;
+
+      color: $invalid_color;
     }
   }
 }
@@ -546,6 +543,13 @@ input[autocomplete='off']:read-only {
 
       opacity: 1;
     }
+  }
+}
+
+.popup--active {
+
+  .input-custom__label-line {
+    max-width: 100%;
   }
 }
 </style>
