@@ -1,12 +1,12 @@
 <template>
   <div v-if="true">
-   <LocomotiveScroll
+    <LocomotiveScroll
       ref="scroller"
       data-scroll-container
       :getted-options="locomotiveOptions"
     >
       <MainSection data-scroll-section />
-      <Cases />
+<!--      <Cases />-->
       <MainAbout />
       <Services />
       <MainBLog />
@@ -15,7 +15,7 @@
     </LocomotiveScroll>
   </div>
 
- <div v-else>
+  <div v-else>
     <MainSection data-scroll-section />
     <Cases />
     <MainAbout />

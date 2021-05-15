@@ -54,6 +54,45 @@
           />
         </figure>
       </div>
+      <hooper class="main-about__slider" :settings="hooperSettings">
+        <slide>
+          <figure class="main-about__img">
+            <nuxt-img
+              alt="Elena"
+              fit="cover"
+              loading="lazy"
+              width="430"
+              height="368"
+              src="/img/about1.jpg"
+            />
+          </figure>
+        </slide>
+        <slide>
+          <figure class="main-about__img">
+            <nuxt-img
+              alt="Khabib"
+              fit="cover"
+              loading="lazy"
+              width="430"
+              height="724"
+              src="/img/about2.jpg"
+            />
+          </figure>
+        </slide>
+        <slide>
+          <figure class="main-about__img">
+            <nuxt-img
+              alt="Yeghor"
+              fit="cover"
+              loading="lazy"
+              width="430"
+              height="458"
+              src="/img/about3.jpg"
+            />
+          </figure>
+        </slide>
+        <hooper-pagination slot="hooper-addons" />
+      </hooper>
       <hr class="divider">
       <dl class="main-about__grid">
         <div
@@ -70,12 +109,26 @@
 </template>
 
 <script>
+import {
+  Hooper,
+  Slide,
+  Progress as HooperProgress,
+  Pagination as HooperPagination,
+  Navigation as HooperNavigation
+} from 'hooper'
 import Section from '../reusable/Section'
 import LinkPrimary from '../reusable/LinkPrimary'
-
 export default {
   name: 'MainAbout',
-  components: { LinkPrimary, Section },
+  components: {
+    LinkPrimary,
+    Section,
+    Hooper,
+    Slide,
+    HooperProgress,
+    HooperPagination,
+    HooperNavigation
+  },
 
   data () {
     return {
@@ -94,7 +147,12 @@ export default {
           text: 'about.specialists'
         }
       ],
-      width: 0
+      width: 0,
+      hooperSettings: {
+        itemsToShow: 1.25,
+        wheelControl: false,
+        pagination: true
+      }
     }
   },
   computed: {
