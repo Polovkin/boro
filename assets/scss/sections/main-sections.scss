@@ -43,13 +43,7 @@
   }
 
   &__footer {
-    align-items: center;
-
-    position: relative;
-
-    display: flex;
-
-    padding: 28px 0;
+    @extend %footer-component;
   }
 
   &__navigation {

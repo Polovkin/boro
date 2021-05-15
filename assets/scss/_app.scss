@@ -1,7 +1,8 @@
 @import '~normalize.css';
-@import '~@/assets/scss/animation/animation';
-@import '~@/assets/scss/_components.scss';
-@import '~@/assets/scss/core/typography';
+@import 'animation/animation';
+@import '_components.scss';
+@import 'core/typography';
+
 
 .c-scrollbar {
   z-index: z(modal);
@@ -10,6 +11,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   background-color: $color__background_primary;
 }

@@ -183,13 +183,14 @@
     display: flex;
     grid-area: buttons;
     @include breakpoint($desktop__all) {
+
       button:last-child {
         margin-left: 45px;
       }
     }
     @include breakpoint ($mobile__all) {
       justify-content: space-between;
-     }
+    }
   }
 
   &__copyright {
@@ -198,12 +199,7 @@
   }
 
   &__bottom {
-    align-items: center;
-    justify-content: space-between;
-
-    display: flex;
-
-    padding: 28px 0;
+    @extend %footer-component;
 
     &-tags {
       display: flex;
