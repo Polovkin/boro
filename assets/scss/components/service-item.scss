@@ -21,6 +21,15 @@
     @include breakpoint ($tablet__all) {
       grid-template-columns: 2fr 3fr 1fr;
     }
+    @include breakpoint ($tablet__portrait) {
+      grid: {
+        row-gap: 32px;
+        template: {
+          columns: 4fr 2fr;
+          areas: 'img img' 'content buttons' ;
+        };
+      }
+    }
   }
 
   &__img {
@@ -32,6 +41,9 @@
     border-radius: 4px;
 
     background-color: gray;
+    @include breakpoint ($tablet__portrait) {
+      width: 100%;
+    }
   }
 
   &__content {
@@ -42,6 +54,9 @@
 
     a {
       margin-top: auto;
+      @include breakpoint ($tablet__portrait) {
+        margin-top: 24px;
+      }
     }
 
     &-buttons {
@@ -55,7 +70,7 @@
     max-width: 310px;
 
     margin-top: 16px;
-    //margin-bottom: auto;
+
   }
 
   &__btn-open {
@@ -90,5 +105,7 @@
 
       transform: translate(-50%, -50%);
     }
+
+
   }
 }
