@@ -67,8 +67,6 @@ export default {
     border: 1px solid $color__light_16;
     border-radius: 32px;
 
-
-
     label {
       @include caption-normal;
       position: relative;
@@ -86,7 +84,6 @@ export default {
     }
 
     &--selected {
-
 
       label {
         color: $color__font--primary;
@@ -116,10 +113,6 @@ export default {
     transform:  scale(0);
 
     transition: transform ease .4s 0s;
-
-    /* &--active {
-      transform: scale(50);
-    }*/
   }
 }
 

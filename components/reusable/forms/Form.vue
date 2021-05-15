@@ -6,6 +6,7 @@
       autocomplete="off"
       :class="{'form-estimate':!popupTypeTouch}"
       class="form__content "
+
     >
       <div class="form__body">
         <div class="form__heading animation-move-from-right animation-delay-4">
@@ -107,13 +108,17 @@
             <InputCustom
               v-model="formData.deadline"
               is-date
+              is-required
               :form-touch="touch"
               :form-id="'form'"
               :name="'deadlineField'"
               :placeholder="$t('form.placeholder.deadline')"
             />
           </div>
-          <div class="form__item">
+          <div
+            class="form__item"
+            :class="{'form__item--visible':!animationDoneState}"
+          >
             <InputCustom
               v-model="formData.budget"
               :form-touch="touch"
@@ -221,7 +226,6 @@
 <script>
 import { mapState } from 'vuex'
 import { POPUP_GET_IN_TOUCH } from '../../../store/types'
-import LinkPrimary from '../LinkPrimary'
 import ButtonPrimary from './../buttons/ButtonPrimary'
 import UserInfo from './../UserInfo'
 import InputCustom from './InputCustom'
@@ -229,7 +233,7 @@ import FormTag from './FormTag'
 
 export default {
   name: 'Form',
-  components: { FormTag, LinkPrimary, InputCustom, UserInfo, ButtonPrimary },
+  components: { FormTag, InputCustom, UserInfo, ButtonPrimary },
   data () {
     return {
       touch: false,
@@ -277,8 +281,12 @@ export default {
   computed: {
     ...mapState({
       storeType: s => s.popups.popupType,
-      storePopupState: s => s.popups.popupState
+      storePopupState: s => s.popups.popupState,
+      animationDone: s => s.popups.menuAnimationInProgress
     }),
+    animationDoneState () {
+      return this.animationDone
+    },
     popupTypeTouch () {
       return this.storeType === this.type
     },
@@ -301,6 +309,7 @@ export default {
     })
   },
   methods: {
+
     removeFile () {
       this.file = null
       this.fileError = false

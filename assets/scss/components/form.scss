@@ -22,8 +22,10 @@
     overflow: hidden;
 
     margin-bottom: 1px;
-
-
+    &--visible {
+      overflow: visible;
+      z-index: z(content);
+    }
   }
 
   &__body {

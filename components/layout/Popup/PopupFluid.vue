@@ -4,13 +4,17 @@
     v-in-viewport
     class="popup"
     :class="{'popup--light':isLight,'popup--active':popupAnimationClass}"
+    @click="closeDropdown"
   >
     <div class="container">
       <PopupHeader :is-light="isLight" />
       <div class="popup__body animation-delay-2">
         <Form />
       </div>
-      <PopupFooter class="animation-delay-4" :is-light="isLight" />
+      <PopupFooter
+        class="animation-delay-4"
+        :is-light="isLight"
+      />
     </div>
   </div>
 </template>
@@ -52,6 +56,11 @@ export default {
     },
     popupGetInTouch () {
       return this.popupType === POPUP_GET_IN_TOUCH
+    }
+  },
+  methods: {
+    closeDropdown (e) {
+
     }
   }
 

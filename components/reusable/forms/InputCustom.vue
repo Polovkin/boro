@@ -1,9 +1,9 @@
 <template lang="pug">
-  label.input-custom__label.select-custom__label(v-if="selectData")
+  label.input-custom__label.select-custom__label(v-if="selectData" v-click-outside="hideDropdownDirective")
     span.input-custom__label-line(:class="{'input-custom__label-line--active':selectDropdownState}")
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':selectedItem}")
       | {{ placeholder ? placeholder : 'select' }}
-    div.select-custom.input-custom__animate(@click='selectDropdownState=!selectDropdownState')
+    div.select-custom.input-custom__animate(@click='dropdownToggle')
       span.select-custom__selected {{selectedItem}}
     div.select-custom__dropdown(:class="{'select-custom__dropdown--active':selectDropdownState}")
       input(:value="selectedItem" type="hidden" :name="name")
@@ -67,17 +67,18 @@
         @keypress="isNumber($event)"
       )
       input.input-custom.input-custom__animate(
-          v-else-if="isDate"
-          v-model='deadline'
-          :id="inputId"
-          :name="name"
-          :form="formId"
-          type="search"
-          autocomplete="off"
-          @focus="focus"
-          @blur="focusOut"
-          @keypress="isNumber($event)"
-        )
+        v-else-if="isDate"
+        v-model='deadline'
+        :id="inputId"
+        :name="name"
+        :form="formId"
+        v-mask="'##/##/##'"
+        type="search"
+        autocomplete="off"
+        @focus="focus"
+        @blur="focusOut"
+        @keypress="isNumber($event)"
+      )
       input.input-custom.input-custom__animate(
         v-else
         v-model='$v.simpleText.$model'
@@ -106,6 +107,7 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, email } from 'vuelidate/lib/validators'
+import { mapState } from 'vuex'
 
 export default {
   name: 'InputCustom',
@@ -119,6 +121,11 @@ export default {
     email: {
       required,
       email
+    },
+    deadline: {
+      required,
+      minLength: minLength(8),
+      maxLength: maxLength(8)
     },
     phone: {
       required,
@@ -201,6 +208,12 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      dropdown: s => s.form.customDropdownState
+    }),
+    dropdownState () {
+      return this.dropdown
+    },
     formSuccess () {
       return this.$store.state.form.success
     },
@@ -212,11 +225,13 @@ export default {
         ? 'textarea'
         : this.isEmail
           ? 'email'
-          : this.isPhone
-            ? 'phone'
-            : this.isPassword
-              ? 'password'
-              : 'simpleText'
+          : this.deadline
+            ? 'deadline'
+            : this.isPhone
+              ? 'phone'
+              : this.isPassword
+                ? 'password'
+                : 'simpleText'
     },
     lengthValidatorTypes () {
       return 'minLength' in this.$v[this.validatorType] && 'maxLength' in this.$v[this.validatorType]
@@ -245,6 +260,9 @@ export default {
     }
   },
   methods: {
+    hideDropdownDirective () {
+      this.selectDropdownState = false
+    },
     isNumber (evt) {
       evt = (evt) || window.event
       const charCode = (evt.which) ? evt.which : evt.keyCode
@@ -274,8 +292,11 @@ export default {
       } else {
         this.$emit('input', null)
       }
+    },
+    dropdownToggle () {
+      this.selectDropdownState = !this.selectDropdownState
+      this.$store.commit('form/CLOSE_CUSTOM_DROPDOWN', this.selectDropdownState)
     }
-
   }
 }
 </script>
@@ -290,7 +311,7 @@ $border_weight: 1px;
 $placeholder_animation_duration: .4s;
 
 input[autocomplete='off']:read-only {
-  background-color: transparent!important;
+  background-color: transparent !important;
 }
 
 .input-custom {
@@ -325,7 +346,7 @@ input[autocomplete='off']:read-only {
 
     transform: translateY(0);
 
-    transition: all cubic-bezier(.4,0,.2,1) .15s;
+    transition: all cubic-bezier(.4, 0, .2, 1) .15s;
 
     &--animate {
       color: $color__font--tertiary;
@@ -353,9 +374,9 @@ input[autocomplete='off']:read-only {
       height: 1px;
       overflow: hidden;
 
-      transition: max-width ease .6s ;
+      transition: max-width ease .6s;
 
-      &:after,&:before {
+      &:after, &:before {
         @include pseudoElement(100%);
       }
 
@@ -367,15 +388,15 @@ input[autocomplete='off']:read-only {
 
       &:before {
         z-index: z(content);
-        will-change: transform,background-color;
+        will-change: transform, background-color;
 
-        background-color:$color__light;
+        background-color: $color__light;
 
         transform: scale(0);
         transform-origin: 100% 50%;
 
         transition: transform .35s;
-        transition-timing-function: cubic-bezier(.25,.46,.45,.94);
+        transition-timing-function: cubic-bezier(.25, .46, .45, .94);
       }
 
       &--active {
@@ -545,6 +566,5 @@ input[autocomplete='off']:read-only {
     }
   }
 }
-
 
 </style>
