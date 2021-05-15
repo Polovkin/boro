@@ -353,7 +353,7 @@ input[autocomplete='off']:read-only {
       height: 1px;
       overflow: hidden;
 
-      transition: max-width ease .6s .8s;
+      transition: max-width ease .6s ;
 
       &:after,&:before {
         @include pseudoElement(100%);
@@ -546,10 +546,5 @@ input[autocomplete='off']:read-only {
   }
 }
 
-.popup--active {
 
-  .input-custom__label-line {
-    max-width: 100%;
-  }
-}
 </style>

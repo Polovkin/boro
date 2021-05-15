@@ -8,7 +8,7 @@
       class="form__content "
     >
       <div class="form__body">
-        <div class="form__heading">
+        <div class="form__heading animation-move-from-right animation-delay-4">
           <template
             v-if="popupTypeTouch"
           >
@@ -27,101 +27,111 @@
           </h2>
         </div>
         <template v-if="popupTypeTouch">
-          <InputCustom
-            v-model="formData.name"
-            :form-touch="touch"
-            is-required
-            class="form__item"
-            form-id="form"
-            :name="'nameField'"
-            :placeholder="$t('form.placeholder.name')"
-          />
-          <InputCustom
-            v-model="formData.email"
-            :form-touch="touch"
-            is-required
-            is-email
-            class="form__item"
-            :form-id="'form'"
-            :name="'emailField'"
-            :placeholder="$t('form.placeholder.email')"
-          />
-          <InputCustom
-            v-model="formData.phone"
-            :form-touch="touch"
-            is-required
-            is-phone
-            class="form__item"
-            :form-id="'form'"
-            :name="'phoneField'"
-            :placeholder="$t('form.placeholder.phone')"
-          />
-          <InputCustom
-            v-model="formData.message"
-            :form-touch="touch"
-            is-textarea
-            class="form__item"
-            :form-id="'form'"
-            :name="'message'"
-            :placeholder="$t('form.placeholder.message')"
-          />
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.name"
+              :form-touch="touch"
+              is-required
+              form-id="form"
+              :name="'nameField'"
+              :placeholder="$t('form.placeholder.name')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.email"
+              :form-touch="touch"
+              is-required
+              is-email
+              :form-id="'form'"
+              :name="'emailField'"
+              :placeholder="$t('form.placeholder.email')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.phone"
+              :form-touch="touch"
+              is-required
+              is-phone
+              :form-id="'form'"
+              :name="'phoneField'"
+              :placeholder="$t('form.placeholder.phone')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.message"
+              :form-touch="touch"
+              is-textarea
+              :form-id="'form'"
+              :name="'message'"
+              :placeholder="$t('form.placeholder.message')"
+            />
+          </div>
         </template>
         <template v-else>
-          <InputCustom
-            v-model="formData.name"
-            :form-touch="touch"
-            is-required
-            class="form__item"
-            form-id="form"
-            :name="'nameField'"
-            :placeholder="$t('form.placeholder.name')"
-          />
-          <InputCustom
-            v-model="formData.email"
-            :form-touch="touch"
-            is-required
-            is-email
-            class="form__item"
-            :form-id="'form'"
-            :name="'emailField'"
-            :placeholder="$t('form.placeholder.email')"
-          />
-          <InputCustom
-            v-model="formData.phone"
-            :form-touch="touch"
-            is-required
-            is-phone
-            class="form__item"
-            :form-id="'form'"
-            :name="'phoneField'"
-            :placeholder="$t('form.placeholder.phone')"
-          />
-          <InputCustom
-            v-model="formData.deadline"
-            is-date
-            :form-touch="touch"
-            class="form__item"
-            :form-id="'form'"
-            :name="'deadlineField'"
-            :placeholder="$t('form.placeholder.deadline')"
-          />
-          <InputCustom
-            v-model="formData.budget"
-            :form-touch="touch"
-            :name="'budgetField'"
-            class="form__item"
-            :select-data="selectData"
-            :placeholder="$t('form.placeholder.budget')"
-          />
-          <InputCustom
-            v-model="formData.message"
-            :form-touch="touch"
-            is-textarea
-            class="form__item"
-            :form-id="'form'"
-            :name="'message'"
-            :placeholder="$t('form.placeholder.message')"
-          />
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.name"
+              :form-touch="touch"
+              is-required
+              form-id="form"
+              :name="'nameField'"
+              :placeholder="$t('form.placeholder.name')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.email"
+              :form-touch="touch"
+              is-required
+              is-email
+              :form-id="'form'"
+              :name="'emailField'"
+              :placeholder="$t('form.placeholder.email')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.phone"
+              :form-touch="touch"
+              is-required
+              is-phone
+              :form-id="'form'"
+              :name="'phoneField'"
+              :placeholder="$t('form.placeholder.phone')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.deadline"
+              is-date
+              :form-touch="touch"
+              :form-id="'form'"
+              :name="'deadlineField'"
+              :placeholder="$t('form.placeholder.deadline')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.budget"
+              :form-touch="touch"
+              :name="'budgetField'"
+              :select-data="selectData"
+              :placeholder="$t('form.placeholder.budget')"
+            />
+          </div>
+          <div class="form__item">
+            <InputCustom
+              v-model="formData.message"
+              :form-touch="touch"
+              is-textarea
+              :form-id="'form'"
+              :name="'message'"
+              :placeholder="$t('form.placeholder.message')"
+            />
+          </div>
 
           <div
             class="form__file"
@@ -178,7 +188,13 @@
             {{ $t('form.title-estimate2') }}
           </h4>
           <div class="form__tags-wrap">
-            <div
+            <FormTag
+              v-for="(item,index) of types"
+              :key="index"
+              :data="item"
+              :index="index"
+            />
+            <!--            <div
               v-for="(item,index) of types"
               :key="index"
               class="form__tags-item"
@@ -194,7 +210,7 @@
                 class="form__tags-label"
                 :for="`tag_${index}`"
               > {{ $t(`form.checkboxes.${item}`) }}</label>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -209,10 +225,11 @@ import LinkPrimary from '../LinkPrimary'
 import ButtonPrimary from './../buttons/ButtonPrimary'
 import UserInfo from './../UserInfo'
 import InputCustom from './InputCustom'
+import FormTag from './FormTag'
 
 export default {
   name: 'Form',
-  components: { LinkPrimary, InputCustom, UserInfo, ButtonPrimary },
+  components: { FormTag, LinkPrimary, InputCustom, UserInfo, ButtonPrimary },
   data () {
     return {
       touch: false,

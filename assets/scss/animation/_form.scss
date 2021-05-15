@@ -1,0 +1,35 @@
+.form {
+
+  &__body {
+    @for $i from 1 through 6 {
+      .form__item:nth-of-type(#{$i+1}) label {
+        transition-delay: #{$i * .15s};
+      }
+    }
+  }
+
+  &__item {
+
+    &>label,  {
+      transform: translateY(100%);
+      opacity: 0;
+
+      transition: all $header_fu $items_animation .2s;
+    }
+  }
+}
+
+
+
+.popup--active {
+  .form__item label {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .input-custom__label-line {
+    max-width: 100%;
+
+    transition-delay: .8s;
+  }
+}

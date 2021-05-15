@@ -19,16 +19,18 @@
   }
 
   &__item {
+    overflow: hidden;
+
     margin-bottom: 1px;
+
+
   }
 
   &__body {
-
     flex-direction: column;
     align-self: center;
 
     display: flex;
-    overflow: hidden;
 
   }
 
@@ -174,31 +176,7 @@
       text-align: center;
     }
 
-    &-item {
 
-      margin: 6px 8px;
-
-
-      color: $color__light;
-
-      label {
-        @include caption-normal;
-        display: block;
-
-        padding: 16px 24px;
-
-        border: 1px solid $color__light_16;
-        border-radius: 32px;
-
-        cursor: pointer;
-      }
-
-      input:checked + label {
-        background-color: $color__light;
-
-        color: $color__font--primary;
-      }
-    }
   }
 
   &-estimate {
@@ -214,7 +192,7 @@
     .form__body {
       @for $i from 1 through 6 {
 
-        label:nth-of-type(#{$i}) {
+        .form__item:nth-of-type(#{$i+1}) {
           grid-area: input#{$i};
         }
       }
@@ -223,7 +201,7 @@
         column-gap: 24px;
         template: {
           columns: repeat(2, 1fr);
-          rows: 58px repeat(6,auto);
+          rows: 64px repeat(6,auto);
           areas: 'heading heading' 'input1 input1' 'input2 input3' 'input4 input5' 'input6 input6' 'file file' 'submit submit';
         };
       };

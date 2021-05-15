@@ -16,7 +16,6 @@ export const state = () => ({
 export const mutations = {
   SET_POPUP_STATE (s, payload) {
     s.popupState = payload
-    console.log(s.popupState);
   },
   SET_MENU_STATE (s, payload) {
     s.menuState = payload
