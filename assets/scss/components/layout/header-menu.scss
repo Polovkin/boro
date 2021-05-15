@@ -30,9 +30,11 @@
 
     padding-bottom: 7%;
     @include breakpoint($desktop__laptop-min) {
-     padding-bottom: 20px;
+      padding-bottom: 20px;
     }
-
+    @include breakpoint ($tablet__all) {
+      padding-bottom: 92px;
+    }
   }
 
   &__links {
@@ -58,6 +60,12 @@
         }
 
       }
+    }
+    @include breakpoint ($tablet__landscape) {
+      padding-right: 213px;
+    }
+    @include breakpoint ($tablet__portrait) {
+      padding-right: 128px;
     }
   }
 

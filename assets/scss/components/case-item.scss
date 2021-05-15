@@ -32,7 +32,7 @@
         areas: 'time content img';
       };
     }
-    @include breakpoint ($tablet__landscape) {
+    @include breakpoint ($tablet__all) {
       grid-template-columns: 2fr 6fr 4fr;
     }
   }

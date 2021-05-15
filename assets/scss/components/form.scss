@@ -48,8 +48,8 @@
 
     display: flex;
     @include breakpoint($desktop__laptop-min) {
-      height: 100%;
       display: grid;
+      height: 100%;
       grid: {
         column-gap: 30px;
         template: {
@@ -85,9 +85,9 @@
 
     &-estimate {
       margin-top: 44px;
-       @include breakpoint ($desktop__laptop-min) {
-         margin-top: auto;
-        }
+      @include breakpoint ($desktop__laptop-min) {
+        margin-top: auto;
+      }
     }
 
     .arrow {
@@ -206,9 +206,9 @@
       text-align: center;
     }
 
- @include breakpoint ($desktop__laptop-min) {
-   margin-bottom: 0;
-  }
+    @include breakpoint ($desktop__laptop-min) {
+      margin-bottom: 0;
+    }
   }
 
   &-estimate {
@@ -245,6 +245,7 @@
             areas: 'heading heading' 'input1 input2' 'input3 input4' 'input5 input6' 'file file' 'submit submit';
           };
         };
+
         .form__item {
           margin-bottom: 0;
         }
