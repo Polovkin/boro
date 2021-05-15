@@ -29,8 +29,8 @@
     padding-top: $header_height;
 
     padding-bottom: 7%;
-    @include breakpoint($desktop__laptop) {
-      //padding-bottom: 0;
+    @include breakpoint($desktop__laptop-min) {
+     padding-bottom: 20px;
     }
 
   }

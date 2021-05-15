@@ -68,7 +68,7 @@
       )
       input.input-custom.input-custom__animate(
         v-else-if="isDate"
-        v-model.lazy='deadline'
+        v-model='deadline'
         :id="inputId"
         :name="name"
         :form="formId"

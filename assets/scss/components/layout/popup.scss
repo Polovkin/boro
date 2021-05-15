@@ -80,8 +80,6 @@
     background-color: $color__light_6;
   }
 
-
-
   &__header {
     align-items: center;
     justify-content: space-between;
@@ -151,6 +149,9 @@
     padding: 28px 0;
 
     color: $color__light;
+    @include breakpoint ($desktop__laptop-min) {
+      padding: 10px 0;
+    }
   }
 
   &__footer {
