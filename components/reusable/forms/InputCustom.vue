@@ -22,7 +22,7 @@
     span.input-custom__optional(v-if="!isRequired  && !isActive") {{ $t('form.optional') }}
     template(v-if="isTextarea")
       textarea.input-custom__textarea(
-        v-model='$v.textarea.$model'
+        v-model.lazy='$v.textarea.$model'
         :id="inputId"
         :name="name"
         :form="formId"
@@ -33,7 +33,7 @@
     template(v-else)
       input.input-custom.input-custom__animate(
         v-if="isPassword"
-        v-model='$v.password.$model'
+        v-model.lazy='$v.password.$model'
         :id="inputId"
         :name="name"
         :form="formId"
@@ -45,7 +45,7 @@
 
       input.input-custom.input-custom__animate(
         v-else-if="isEmail"
-        v-model='$v.email.$model'
+        v-model.lazy='$v.email.$model'
         :id="inputId"
         :name="name"
         :form="formId"
@@ -56,7 +56,7 @@
       )
       input.input-custom.input-custom__animate(
         v-else-if="isPhone"
-        v-model='$v.phone.$model'
+        v-model.lazy='$v.phone.$model'
         :id="inputId"
         :name="name"
         :form="formId"
@@ -68,7 +68,7 @@
       )
       input.input-custom.input-custom__animate(
         v-else-if="isDate"
-        v-model='deadline'
+        v-model.lazy='deadline'
         :id="inputId"
         :name="name"
         :form="formId"
@@ -81,7 +81,7 @@
       )
       input.input-custom.input-custom__animate(
         v-else
-        v-model='$v.simpleText.$model'
+        v-model.lazy='$v.simpleText.$model'
         :id="inputId"
         :name="name"
         :form="formId"
@@ -211,9 +211,6 @@ export default {
     ...mapState({
       dropdown: s => s.form.customDropdownState
     }),
-    dropdownState () {
-      return this.dropdown
-    },
     formSuccess () {
       return this.$store.state.form.success
     },
