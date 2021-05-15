@@ -1,6 +1,7 @@
 .footer {
   $nav_gap: 122px;
   $nav_fr: 4fr;
+  $tablet_gap: 88px;
   padding-top: 84px;
 
 
@@ -13,9 +14,17 @@
         areas: 'logo nav . buttons';
       };
     };
-    @include breakpoint($mobile__all) {
-      grid-template-columns: 2fr 1fr 1fr 2fr;
+
+    @include breakpoint($tablet__portrait) {
+      grid: {
+
+        template: {
+          columns: 2fr 4fr;
+          areas: 'logo buttons';
+        };
+      };
     }
+
   }
 
   &__main {
@@ -132,6 +141,18 @@
 
     }
 
+    @include breakpoint($tablet__portrait) {
+      grid: {
+
+        row-gap: 40px;
+        template: {
+          columns: repeat(3,2fr);
+          rows: repeat(2,auto);
+          areas: 'mail nav address' '. . button';
+        };
+      };
+    }
+
     @include breakpoint($mobile__all) {
       grid-template-columns: 2fr 1fr 1fr 2fr;
     }
@@ -175,6 +196,10 @@
         margin-left: 1rem;
       }
     }
+
+    @include breakpoint($tablet__portrait) {
+      display: none;
+    }
   }
 
   &__buttons {
@@ -187,6 +212,12 @@
       button:last-child {
         margin-left: 45px;
       }
+    }
+    @include breakpoint ($tablet__portrait) {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      grid-column-gap: $tablet_gap;
+
     }
     @include breakpoint ($mobile__all) {
       justify-content: space-between;
