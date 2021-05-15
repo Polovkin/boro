@@ -6,6 +6,9 @@
   &__title {
     @include h3;
     max-width: 730px;
+     @include breakpoint ($tablet__portrait) {
+         max-width: 608px;
+      }
   }
 
   &__content {

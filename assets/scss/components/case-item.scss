@@ -32,8 +32,18 @@
         areas: 'time content img';
       };
     }
-    @include breakpoint ($tablet__all) {
+    @include breakpoint ($tablet__landscape) {
       grid-template-columns: 2fr 6fr 4fr;
+    }
+    @include breakpoint ($tablet__portrait) {
+      grid: {
+        row-gap: 32px;
+        template: {
+          columns: 1fr 5fr;
+          rows: repeat(2,auto);
+          areas: 'time content' 'img img';
+        };
+      }
     }
   }
 
