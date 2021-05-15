@@ -299,7 +299,7 @@ input[autocomplete='off']:read-only {
 
   height: $input_height;
 
-  padding-bottom: 16px;
+  padding-bottom: 12px;
 
   border: transparent;
 

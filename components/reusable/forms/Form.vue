@@ -1,34 +1,31 @@
 <template>
   <div class="form">
-    <div class="form__heading">
-      <template
-        v-if="popupTypeTouch"
-      >
-        <h2 class="form__title animation-fade">
-          {{ $t('form.title-touch') }}
-        </h2>
-        <p class="form__description animation-fade">
-          {{ $t('form.description-touch') }}
-        </p>
-      </template>
-      <h2
-        v-else
-        class="form__title"
-      >
-        {{ $t('form.title-estimate') }}
-      </h2>
-    </div>
-
     <form
       id="form"
       ref="form"
       autocomplete="off"
-      class="form__content"
+      :class="{'form-estimate':!popupTypeTouch}"
+      class="form__content "
     >
-      <div
-
-        class="form__body"
-      >
+      <div class="form__body">
+        <div class="form__heading">
+          <template
+            v-if="popupTypeTouch"
+          >
+            <h2 class="form__title animation-fade">
+              {{ $t('form.title-touch') }}
+            </h2>
+            <p class="form__description animation-fade">
+              {{ $t('form.description-touch') }}
+            </p>
+          </template>
+          <h2
+            v-else
+            class="form__title"
+          >
+            {{ $t('form.title-estimate') }}
+          </h2>
+        </div>
         <template v-if="popupTypeTouch">
           <InputCustom
             v-model="formData.name"
@@ -70,54 +67,61 @@
           />
         </template>
         <template v-else>
-          <div class="form__body-estimate">
-            <InputCustom
-              v-model="formData.name"
-              :form-touch="touch"
-              is-required
-              class="form__item"
-              form-id="form"
-              :name="'nameField'"
-              :placeholder="$t('form.placeholder.name')"
-            />
-            <InputCustom
-              v-model="formData.email"
-              :form-touch="touch"
-              is-required
-              is-email
-              class="form__item"
-              :form-id="'form'"
-              :name="'emailField'"
-              :placeholder="$t('form.placeholder.email')"
-            />
-            <InputCustom
-              v-model="formData.phone"
-              :form-touch="touch"
-              is-required
-              is-phone
-              class="form__item"
-              :form-id="'form'"
-              :name="'phoneField'"
-              :placeholder="$t('form.placeholder.phone')"
-            />
-            <InputCustom
-              v-model="formData.deadline"
-              is-date
-              :form-touch="touch"
-              class="form__item"
-              :form-id="'form'"
-              :name="'deadlineField'"
-              :placeholder="$t('form.placeholder.deadline')"
-            />
-            <InputCustom
-              v-model="formData.budget"
-              :form-touch="touch"
-              :name="'budgetField'"
-              class="form__item"
-              :select-data="selectData"
-              :placeholder="$t('form.placeholder.budget')"
-            />
-          </div>
+          <InputCustom
+            v-model="formData.name"
+            :form-touch="touch"
+            is-required
+            class="form__item"
+            form-id="form"
+            :name="'nameField'"
+            :placeholder="$t('form.placeholder.name')"
+          />
+          <InputCustom
+            v-model="formData.email"
+            :form-touch="touch"
+            is-required
+            is-email
+            class="form__item"
+            :form-id="'form'"
+            :name="'emailField'"
+            :placeholder="$t('form.placeholder.email')"
+          />
+          <InputCustom
+            v-model="formData.phone"
+            :form-touch="touch"
+            is-required
+            is-phone
+            class="form__item"
+            :form-id="'form'"
+            :name="'phoneField'"
+            :placeholder="$t('form.placeholder.phone')"
+          />
+          <InputCustom
+            v-model="formData.deadline"
+            is-date
+            :form-touch="touch"
+            class="form__item"
+            :form-id="'form'"
+            :name="'deadlineField'"
+            :placeholder="$t('form.placeholder.deadline')"
+          />
+          <InputCustom
+            v-model="formData.budget"
+            :form-touch="touch"
+            :name="'budgetField'"
+            class="form__item"
+            :select-data="selectData"
+            :placeholder="$t('form.placeholder.budget')"
+          />
+          <InputCustom
+            v-model="formData.message"
+            :form-touch="touch"
+            is-textarea
+            class="form__item"
+            :form-id="'form'"
+            :name="'message'"
+            :placeholder="$t('form.placeholder.message')"
+          />
 
           <div
             class="form__file"
@@ -134,7 +138,10 @@
             >
           </div>
         </template>
-        <div class="form__submit">
+        <div
+          :class="{'form__submit-estimate':!popupTypeTouch}"
+          class="form__submit"
+        >
           <p
             v-if="!popupTypeTouch"
             class="form__terms"
@@ -167,22 +174,27 @@
           v-else
           class="form__tags"
         >
-          <div
-            v-for="(item,index) of types"
-            :key="index"
-            class="form__tags-item"
-          >
-            <input
-              :id="`tag_${index}`"
-              :value="item"
-              :name="item"
-              hidden
-              type="checkbox"
+          <h4 class="form__tags-title">
+            {{ $t('form.title-estimate2') }}
+          </h4>
+          <div class="form__tags-wrap">
+            <div
+              v-for="(item,index) of types"
+              :key="index"
+              class="form__tags-item"
             >
-            <label
-              class="form__tags-label"
-              :for="`tag_${index}`"
-            > {{ $t(`form.checkboxes.${item}`) }}</label>
+              <input
+                :id="`tag_${index}`"
+                :value="item"
+                :name="item"
+                hidden
+                type="checkbox"
+              >
+              <label
+                class="form__tags-label"
+                :for="`tag_${index}`"
+              > {{ $t(`form.checkboxes.${item}`) }}</label>
+            </div>
           </div>
         </div>
       </div>

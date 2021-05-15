@@ -4,13 +4,44 @@
 
   display: flex;
 
+  &-estimate {
+    .form__heading {
+      margin-bottom: 0;
+    }
+.form__submit-estimate {
+  //margin-top: 5%;
+}
+
+    .form__body {
+      @for $i from 1 through 6 {
+
+        label:nth-of-type(#{$i}) {
+          grid-area: input#{$i};
+        }
+      }
+      display: grid;
+      grid: {
+        column-gap: 24px;
+        template: {
+          columns: repeat(2, 1fr);
+          rows: 58px repeat(6,auto);
+          areas: 'heading heading' 'input1 input1' 'input2 input3' 'input4 input5' 'input6 input6' 'file file' 'submit submit';
+        };
+      };
+
+      .form__item {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
   &__heading {
     margin-bottom: 16px;
+    grid-area: heading;
   }
 
   &__title {
     @include h3;
-    margin-bottom: 12px;
   }
 
   &__description {
@@ -22,48 +53,44 @@
   }
 
   &__body {
+
     flex-direction: column;
     align-self: center;
-    margin-bottom: 32px;
+
     display: flex;
+    overflow: hidden;
 
-    &-estimate {
-      @for $i from 1 through 6 {
-
-        & > label:nth-of-type(#{$i}) {
-          grid-area: input#{$i};
-        }
-      }
-      display: grid;
-      grid: {
-        column-gap: 24px;
-        template: {
-          columns: repeat(2,1fr);
-          rows: auto;
-          areas: 'input1 input1' 'input2 input3' 'input4 input5' 'input6 input6';
-        };
-      };
-    }
   }
 
   &__content {
     display: grid;
     height: 100%;
 
-    padding-bottom: 29px;
+
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 24px;
   }
 
   &__submit {
-    margin-top: 10px;
+    grid-area: submit;
+
     align-items: center;
     justify-content: space-between;
 
     display: flex;
     width: 100%;
 
+    margin-top: 12px;
+
     transition: all ease .2s;
+
+    &-estimate {
+      margin-top: 44px;
+    }
+
+    .arrow {
+      transform: translate(-50%, -50%) scale(.2) rotate(0);
+    }
 
     button {
       margin-left: auto;
@@ -84,25 +111,23 @@
     .button__wave {
       background-color: transparent !important;
     }
-
-    .arrow {
-      transform: translate(-50%, -50%) scale(.2) rotate(0);
-    }
-
-
   }
 
   &__right {
-    align-items: flex-start;
+
+    flex-direction: column;
+    justify-content: center;
 
     display: flex;
   }
 
   &__users {
     justify-content: flex-end;
-    margin-top: auto;
+
     display: flex;
     width: 100%;
+
+    margin-top: auto;
 
     .user-info {
       align-items: flex-start;
@@ -135,6 +160,7 @@
   }
 
   &__file {
+    grid-area: file;
 
     label {
 
@@ -158,26 +184,35 @@
   }
 
   &__tags {
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-bottom: 132px;
 
-    display: flex;
-    max-width: 700px;
+    &-wrap {
+      flex-wrap: wrap;
+      justify-content: center;
 
-    &-label {
+      display: flex;
+      max-width: 600px;
 
+      margin: 0 auto;
+    }
+
+    &-title {
+      @include body-secondary;
+      //margin-bottom: 36px;
+      margin-bottom: 27px;
+
+      text-align: center;
     }
 
     &-item {
-      @include caption-normal;
-      margin: 10px;
 
-
+      margin: 6px 8px;
 
 
       color: $color__light;
 
       label {
+        @include caption-normal;
         display: block;
 
         padding: 16px 24px;

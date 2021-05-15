@@ -15,9 +15,16 @@
   transition: opacity ease $menu_animation $items_animation;
 
   .container {
+    flex-direction: column;
+
+    display: grid;
+
+    height: 100%;
+
     opacity: 0;
 
     transition: opacity ease 1s;
+    grid-template-rows: 80px auto 88px;
   }
 
   &--active {
@@ -31,8 +38,6 @@
       transition: opacity ease 1s $menu_animation;
     }
   }
-
-
 
   &--light {
     background-color: $color__background_primary;
@@ -75,12 +80,7 @@
     background-color: $color__light_6;
   }
 
-  .container {
-    flex-direction: column;
 
-    display: flex;
-    height: 100%;
-  }
 
   &__header {
     align-items: center;
@@ -148,7 +148,7 @@
 
     display: flex;
 
-    padding-top: 60px;
+    padding: 28px 0;
 
     color: $color__light;
   }
@@ -171,10 +171,12 @@
 
 
       margin-right: 65px;
+
       span:first-child {
+        @include title-link;
 
         margin-bottom: 4px;
-        @include title-link;
+
         color: $color__light;
       }
 
@@ -190,7 +192,7 @@
   }
 
   &__wrap {
-@extend %footer-component;
+    @extend %footer-component;
 
   }
 
