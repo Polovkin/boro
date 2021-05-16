@@ -187,9 +187,9 @@
     @include breakpoint($phone__all) {
       overflow: auto;
     }
-     @include breakpoint ($mobile__all) {
-         overflow: auto;
-      }
+    @include breakpoint ($mobile__all) {
+      overflow: auto;
+    }
   }
 
   &--light {
@@ -228,6 +228,7 @@
   }
 
   @include breakpoint($tablet__large-portrait) {
+
     .user-info__img {
       justify-content: flex-start;
     }

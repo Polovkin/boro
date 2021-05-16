@@ -310,10 +310,11 @@
           margin-bottom: 0;
         }
       }
-       @include breakpoint ($phone__all) {
+      @include breakpoint ($phone__all) {
+        flex-direction: column;
+
         display: flex;
-         flex-direction: column;
-        }
+      }
     }
 
     @include breakpoint ($tablet__large-portrait) {
