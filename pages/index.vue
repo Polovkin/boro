@@ -6,10 +6,10 @@
       :getted-options="locomotiveOptions"
     >
       <MainSection data-scroll-section />
-<!--      <Cases />
+     <Cases />
       <Services />
       <MainBLog />
-      <Lead />-->
+      <Lead />
       <Footer />
     </LocomotiveScroll>
   </div>
