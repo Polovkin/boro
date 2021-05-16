@@ -1,39 +1,81 @@
 .footer {
   $nav_gap: 122px;
-  $nav_fr: 4fr;
   $tablet_gap: 88px;
   padding-top: 84px;
 
+  &__logo {
+    grid-area: logo;
+
+    align-self: center;
+  }
 
   &__top {
     display: grid;
     grid: {
       template: {
-        columns: 2.75fr $nav_fr 1.5fr 3.5fr;
+        columns: 2.75fr repeat(2,2fr) 1.5fr repeat(2,1.75fr);
         rows: 80px;
-        areas: 'logo nav . buttons';
+        areas: 'logo nav . . button1 button2';
       };
     };
 
-    @include breakpoint($tablet__portrait) {
-      grid: {
+    &-btn1 {
+      grid-area: button1;
+      justify-self: end;
+      @include breakpoint ($tablet__landscape) {
+        justify-self: center;
+      }
+      @include breakpoint ($tablet__portrait) {
+        justify-self: center;
+      }
+    }
 
+    &-btn2 {
+      grid-area: button2;
+      justify-self: end;
+      @include breakpoint ($tablet__portrait) {
+        justify-self: center;
+
+        width: 152px;
+      }
+    }
+
+
+    @include breakpoint($tablet__large-portrait) {
+      grid: {
         template: {
-          columns: 2fr 4fr;
-          areas: 'logo buttons';
+          columns: repeat(2,2fr) repeat(2,1fr);
+          areas: 'logo . button1 button2';
         };
       };
     }
-
+    @include breakpoint($tablet__landscape) {
+      grid: {
+        template: {
+          columns: repeat(2,2fr) repeat(2,1fr);
+          areas: 'logo . button1 button2';
+        };
+      };
+    }
+    @include breakpoint ($tablet__portrait) {
+      grid: {
+        column-gap: 24px;
+        template: {
+          columns: repeat(3,2fr);
+          areas: 'logo button1 button2';
+        };
+      }
+    }
   }
 
   &__main {
     display: grid;
 
     padding: 52px 0 31px;
+
     grid: {
       template: {
-        columns: 2.75fr #{$nav_fr / 2} #{$nav_fr / 2} 1.5fr 3.5fr;
+        columns: 2.75fr repeat(2,2fr) 1.5fr 3.5fr;
         rows: 240px - 83px;
         areas: 'mail nav address . button';
       };
@@ -62,8 +104,6 @@
 
     &-mail {
       grid-area: mail;
-
-
     }
 
     &-nav {
@@ -82,6 +122,10 @@
           margin-top: 0;
         }
       }
+
+      @include breakpoint ($tablet__portrait) {
+        justify-self: center;
+      }
     }
 
     &-address {
@@ -96,7 +140,10 @@
       .link {
         color: $color__font--primary;
       }
-
+      @include breakpoint ($tablet__portrait) {
+        max-width: 152px;
+        justify-self: center;
+      }
       @include breakpoint($mobile__all) {
         padding-left: 0;
       }
@@ -141,28 +188,47 @@
 
     }
 
-    @include breakpoint($tablet__portrait) {
+    @include breakpoint($tablet__large-portrait) {
       grid: {
-
+        row-gap: 40px;
+        template: {
+          columns: 2fr repeat(4,1fr);
+          rows: auto;
+          areas: 'mail nav address . button';
+        };
+      };
+    }
+    @include breakpoint($tablet__landscape) {
+      grid: {
+        row-gap: 40px;
+        template: {
+          columns: 2fr repeat(4,1fr);
+          rows: auto;
+          areas: 'mail nav address . button';
+        };
+      };
+    }
+    @include breakpoint ($tablet__portrait) {
+      padding-bottom: 24px;
+      grid: {
+        column-gap: 24px;
         row-gap: 40px;
         template: {
           columns: repeat(3,2fr);
           rows: repeat(2,auto);
           areas: 'mail nav address' '. . button';
         };
-      };
-    }
-
-    @include breakpoint($mobile__all) {
-      grid-template-columns: 2fr 1fr 1fr 2fr;
+      }
     }
 
   }
 
-  &__logo {
-    grid-area: logo;
+  &__bottom {
+    @extend %footer-component;
 
-    align-self: center;
+    &-tags {
+      display: flex;
+    }
   }
 
   &__nav {
@@ -197,30 +263,8 @@
       }
     }
 
-    @include breakpoint($tablet__portrait) {
+    @include breakpoint($mobile__all) {
       display: none;
-    }
-  }
-
-  &__buttons {
-    justify-content: flex-end;
-
-    display: flex;
-    grid-area: buttons;
-    @include breakpoint($desktop__all) {
-
-      button:last-child {
-        margin-left: 45px;
-      }
-    }
-    @include breakpoint ($tablet__portrait) {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      grid-column-gap: $tablet_gap;
-
-    }
-    @include breakpoint ($mobile__all) {
-      justify-content: space-between;
     }
   }
 
@@ -229,11 +273,4 @@
     color: $color__font_dark--tertiary;
   }
 
-  &__bottom {
-    @extend %footer-component;
-
-    &-tags {
-      display: flex;
-    }
-  }
 }

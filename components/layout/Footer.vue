@@ -9,18 +9,16 @@
     <div class="footer__top">
       <Logo class="footer__logo" />
       <div class="footer__nav" />
-      <!--      <LayoutNav class="footer__nav" />-->
-      <div class="footer__buttons">
-        <ButtonPrimary
-          is-popup-toggle
-          :popup-called-type="type"
-        >
-          {{ $t('buttons.call-estimate') }}
-        </ButtonPrimary>
-        <ButtonPrimary is-popup-toggle>
-          {{ $t('buttons.call-form') }}
-        </ButtonPrimary>
-      </div>
+      <ButtonPrimary
+        class="footer__top-btn1"
+        is-popup-toggle
+        :popup-called-type="type"
+      >
+        {{ $t('buttons.call-estimate') }}
+      </ButtonPrimary>
+      <ButtonPrimary class="footer__top-btn2" is-popup-toggle>
+        {{ $t('buttons.call-form') }}
+      </ButtonPrimary>
     </div>
     <hr class="divider">
     <!--    Main-->
