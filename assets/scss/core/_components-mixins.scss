@@ -65,6 +65,7 @@
   font-weight: bold;
   letter-spacing: -.056em;
   line-height: 84px;
+
 }
 
 @mixin h2 {
@@ -74,6 +75,14 @@
     style: normal;
     weight: 500;
     size: 54px;
+  }
+  @include breakpoint ($phone__all) {
+    letter-spacing: -2.8px;
+
+    line-height: 48px;
+    font: {
+      size: 46px;
+    }
   }
 }
 
@@ -85,6 +94,7 @@
     weight: 500;
     size: 46px;
   }
+
 }
 
 @mixin h4 {

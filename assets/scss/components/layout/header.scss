@@ -8,7 +8,9 @@
 
   background-color: $color__background_primary;
 
-
+ @include breakpoint ($phone__all) {
+   height: 73px;
+  }
   &--base {
 
     .header__content:after {
@@ -21,13 +23,11 @@
 
     position: relative;
 
-    //display: flex;
     display: grid;
 
     height: inherit;
     grid: {
       template: {
-        //columns: 3.3fr 5.7fr minmax(3fr,5fr);
         areas: 'left . right';
       };
     };
@@ -65,7 +65,9 @@
 
   &__wrap {
     align-items: center;
+
     position: relative;
+
     display: flex;
     height: 100%;
 
@@ -79,6 +81,16 @@
       grid-area: right;
 
       justify-content: flex-end;
+      @include breakpoint ($phone__all) {
+
+        .lang-switcher {
+          display: none;
+        }
+
+        .button {
+          display: none;
+        }
+      }
     }
   }
 
