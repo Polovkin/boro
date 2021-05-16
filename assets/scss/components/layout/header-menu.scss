@@ -21,8 +21,45 @@
     transition: opacity ease 1s;
   }
 
+  &__popups {
+    @mixin popupsStyles {
+      justify-content: space-between;
+
+      display: flex;
+      width: 100%;
+
+      .lang-switcher {
+        width: unset;
+
+        margin-right: 0;
+
+        &__dropdown {
+          display: none;
+          border: none;
+
+          color: $color__font--primary;
+        }
+      }
+    }
+    display: none;
+    @include breakpoint($phone__all) {
+      @include popupsStyles;
+    }
+    @include breakpoint ($phone__landscape) {
+      @include popupsStyles;
+      padding-bottom: 20px;
+    }
+  }
+
   &__body {
     @extend .popup__body;
+    @mixin phone-body {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+
+      padding: 35% 0 0;
+    }
     align-items: flex-end;
     justify-content: space-between;
 
@@ -32,8 +69,16 @@
     @include breakpoint($desktop__laptop-min) {
       padding-bottom: 20px;
     }
-    @include breakpoint ($tablet__all) {
+    @include breakpoint($tablet__all) {
       padding-bottom: 92px;
+    }
+
+    @include breakpoint($phone__all) {
+      @include phone-body;
+    }
+    @include breakpoint($phone__landscape) {
+      @include phone-body;
+      padding-top: 120px;
     }
   }
 
@@ -56,24 +101,34 @@
       &:nth-of-type(2) {
 
         a {
-          transition-delay: .4s ;
+          transition-delay: .4s;
         }
 
       }
     }
-    @include breakpoint ($tablet__landscape) {
+
+    @include breakpoint($tablet__landscape) {
       padding-right: 213px;
     }
-    @include breakpoint ($tablet__portrait) {
+    @include breakpoint($tablet__portrait) {
       padding-right: 128px;
+    }
+    @include breakpoint($phone__all) {
+      padding-right: 0;
     }
   }
 
   &__elem {
 
-    width: 345px;
+    max-width: 345px;
     height: 62px;
     overflow: hidden;
+    @include breakpoint($phone__all) {
+      max-width: unset;
+      height: 40px;
+
+      margin-bottom: 8px;
+    }
   }
 
   &__item {
@@ -108,6 +163,15 @@
         color: $color__primary;
       }
     }
+
+    @include breakpoint($phone__all) {
+      @include h4;
+
+      span {
+        top: 0px;
+        left: 2px;
+      }
+    }
   }
 
   &__nav {
@@ -131,6 +195,21 @@
 
       display: flex;
       height: 380px;
+      @include breakpoint($phone__all) {
+        width: inherit;
+        height: auto;
+      }
+      @include breakpoint($phone__landscape) {
+        width: inherit;
+        height: auto;
+      }
+    }
+
+    @include breakpoint($phone__all) {
+      width: 100%;
+    }
+    @include breakpoint($phone__landscape) {
+      width: 100%;
     }
   }
 
@@ -170,6 +249,11 @@
 
       transition: transform $header_fu $items_animation $menu_animation, opacity $header_fu $items_animation $menu_animation, color ease .3s;
     }
+  }
+
+
+  @include breakpoint($phone__landscape) {
+    overflow: auto;
   }
 
 }

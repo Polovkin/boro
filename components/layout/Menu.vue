@@ -30,6 +30,7 @@
             </li>
           </ul>
         </nav>
+
         <ul
           class="header-menu__links"
         >
@@ -48,6 +49,12 @@
             </div>
           </li>
         </ul>
+        <div class="header-menu__popups">
+          <LangSwitcher />
+          <ButtonPrimary is-popup-toggle>
+            {{ $t('buttons.call-form') }}
+          </ButtonPrimary>
+        </div>
       </div>
       <PopupFooter is-light />
     </div>
@@ -60,10 +67,12 @@ import { MENU } from '../../store/types'
 
 import LinkPrimary from '../reusable/LinkPrimary'
 import PopupFooter from './Popup/PopupFooter'
+import ButtonPrimary from '../reusable/buttons/ButtonPrimary';
+import LangSwitcher from '../LangSwitcher';
 
 export default {
   name: 'Menu',
-  components: { LinkPrimary, PopupFooter },
+  components: {LangSwitcher, ButtonPrimary, LinkPrimary, PopupFooter },
   data () {
     return {
       type: MENU,

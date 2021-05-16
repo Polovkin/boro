@@ -27,7 +27,7 @@ $width__min                   : 0px;
 
 //min 1200
 $mobile__all                  : $width__min $width__laptop-min;
-$portrait__all                : $width__tablet-land;
+$portrait__all                : $width__min $width__tablet-land;
 
 //Desktop
 $desktop__all                 : $width__laptop-min;

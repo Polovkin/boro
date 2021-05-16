@@ -63,5 +63,12 @@ export default {
 <style lang="scss">
 .footer-tags {
   display: flex;
+  @include breakpoint ($phone__all) {
+    flex-wrap: wrap;
+
+    &>a {
+      margin-bottom: 8px;
+    }
+  }
 }
 </style>

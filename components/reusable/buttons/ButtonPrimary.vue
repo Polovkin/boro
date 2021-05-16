@@ -181,7 +181,7 @@ export default {
   $arrow_animation_duration: .3s;
   $arrow_animation_delay: .1s;
   $wave_animation_duration: 1s;
-
+  color: $color__font--primary;
   @include title-link;
   align-items: center;
 

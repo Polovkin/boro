@@ -14,9 +14,7 @@
           <LayoutNav class="header__navigation" />
         </div>
         <div class="header__wrap header__wrap-right">
-          <transition name="fade">
-            <LangSwitcher v-show="isHeaderOnTop" />
-          </transition>
+          <LangSwitcher v-show="isHeaderOnTop" />
           <ButtonPrimary is-popup-toggle>
             {{ $t('buttons.call-form') }}
           </ButtonPrimary>

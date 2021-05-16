@@ -66,6 +66,9 @@ export default {
 
     .lang-switcher__main {
       border-bottom: 1px solid $color__dark;
+      @include breakpoint ($phone__all) {
+        border:none;
+      }
     }
   }
 
@@ -124,10 +127,15 @@ export default {
         text-decoration: underline;
       }
     }
+
+    @include breakpoint ($phone__all) {
+      display: none;
+    }
   }
 
   button {
     @include body-secondary;
+    color: $color__font--primary;
   }
 }
 </style>

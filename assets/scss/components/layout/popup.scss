@@ -27,6 +27,12 @@
     grid-template-rows: 80px auto 88px;
   }
 
+  .divider {
+    position: absolute;
+
+    background-color: $color__light_6;
+  }
+
   &--active {
     opacity: 1;
 
@@ -72,12 +78,6 @@
         color: $color__font_dark--quaternary;
       }
     }
-  }
-
-  .divider {
-    position: absolute;
-
-    background-color: $color__light_6;
   }
 
   &__header {
@@ -163,6 +163,9 @@
 
     &-info {
       display: flex;
+      @include breakpoint ($phone__all) {
+        margin-bottom: 24px;
+      }
     }
 
     &-item {
@@ -185,7 +188,12 @@
         @include body-secondary;
         color: $color__font--quaternary;
       }
+      @include breakpoint ($phone__all) {
+        margin-right: 24px;
+      }
     }
+
+
   }
 
   &__title {
@@ -194,6 +202,10 @@
 
   &__wrap {
     @extend %footer-component;
+    @include breakpoint ($phone__all) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
   }
 
