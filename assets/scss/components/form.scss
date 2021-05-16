@@ -68,6 +68,11 @@
 
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 24px;
+    @include breakpoint ($phone__all) {
+      flex-direction: column;
+
+      display: flex;
+    }
   }
 
   &__submit {

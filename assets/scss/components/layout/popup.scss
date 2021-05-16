@@ -32,54 +32,7 @@
 
     background-color: $color__light_6;
   }
-
-  &--active {
-    opacity: 1;
-
-    transition: opacity ease $menu_animation;
-
-    .container {
-      opacity: 1;
-
-      transition: opacity ease 1s $menu_animation;
-    }
-  }
-
-  &--light {
-    background-color: $color__background_primary;
-
-    .container {
-      background-color: $color__background_primary;
-    }
-
-    .popup__header-close {
-      color: $color__dark;
-    }
-
-    .popup__header-cross {
-
-      @include cross(40px, 16px, 1px, $color__dark);
-      position: relative;
-
-      border: 1px solid $color__dark_6;
-    }
-
-    .divider {
-      background-color: $color__dark_6;
-    }
-
-    .popup__footer-item {
-
-      span:first-child {
-        color: $color__dark;
-      }
-
-      a {
-        color: $color__font_dark--quaternary;
-      }
-    }
-  }
-
+  
   &__header {
     align-items: center;
     justify-content: space-between;
@@ -101,7 +54,9 @@
 
       max-width: 100%;
     }
-
+ @include breakpoint ($phone__all) {
+     
+  }
     &-wrap {
       align-items: center;
 
@@ -209,5 +164,50 @@
 
   }
 
+  &--active {
+    opacity: 1;
 
+    transition: opacity ease $menu_animation;
+
+    .container {
+      opacity: 1;
+
+      transition: opacity ease 1s $menu_animation;
+    }
+  }
+
+  &--light {
+    background-color: $color__background_primary;
+
+    .container {
+      background-color: $color__background_primary;
+    }
+
+    .popup__header-close {
+      color: $color__dark;
+    }
+
+    .popup__header-cross {
+
+      @include cross(40px, 16px, 1px, $color__dark);
+      position: relative;
+
+      border: 1px solid $color__dark_6;
+    }
+
+    .divider {
+      background-color: $color__dark_6;
+    }
+
+    .popup__footer-item {
+
+      span:first-child {
+        color: $color__dark;
+      }
+
+      a {
+        color: $color__font_dark--quaternary;
+      }
+    }
+  }
 }
