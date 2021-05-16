@@ -45,6 +45,7 @@
     }
     @include breakpoint ($mobile__all) {
       display: none;
+      height: unset !important;
     }
   }
 
@@ -192,6 +193,9 @@
 
 
     }
+     @include breakpoint ($phone__all) {
+       height:475px;
+      }
   }
 
   .section__header-wrap {

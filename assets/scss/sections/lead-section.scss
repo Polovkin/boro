@@ -62,6 +62,7 @@
   @include breakpoint ($phone__all) {
     padding-top: 30px;
     padding-bottom: 0;
+    height: 450px;
     .user-info__contact-info{
       align-self: flex-start;
     }
