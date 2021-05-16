@@ -11,6 +11,10 @@
     @include breakpoint($tablet__portrait) {
       max-width: 608px;
     }
+    @include breakpoint ($phone__all) {
+      @include h4;
+      margin-bottom: 24px;
+    }
   }
 
   &__content {
@@ -65,13 +69,17 @@
   }
 
   &__grid {
+    flex-direction: column;
+
     display: grid;
+
+    padding-top: 84px;
     grid: {
       gap: 24px;
       template: {
-        areas: 'item1 . item3' '. item2 item3';
 
         columns: repeat(3, 1fr);
+        areas: 'item1 . item3' '. item2 item3';
         rows: repeat(2, 240px);
       };
     }
@@ -82,6 +90,7 @@
           grid-area: item#{$i};
         }
       }
+      flex-direction: column;
       align-items: center;
 
       display: flex;
@@ -92,6 +101,9 @@
         margin-right: 12px;
 
         color: $color__font--primary;
+        @include breakpoint ($phone__all) {
+          @include h2;
+        }
       }
 
       dl {
@@ -99,7 +111,27 @@
         max-width: 40px;
 
         color: $color__font-dark--quaternary;
+        @include breakpoint ($phone__all) {
+          max-width: unset;
+          margin-bottom: 0;
+          margin-top: 8px;
+        }
       }
+
+      @include breakpoint ($phone__all) {
+        align-items: flex-start;
+
+        margin-bottom: 96px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    @include breakpoint ($phone__all) {
+      display: flex;
+
+      padding-top: 0;
     }
   }
 
@@ -113,6 +145,9 @@
       height: 742px;
 
       margin-right: 24px;
+      @include breakpoint ($phone__all) {
+        height: 353px;
+      }
     }
 
     &-pagination {
@@ -158,4 +193,29 @@
 
     }
   }
+
+  .section__header-wrap {
+    flex-direction: column;
+  }
+
+  .section__elem {
+    align-self: flex-start;
+
+    transform: translateX(-24px);
+  }
+
+  .divider-mobile {
+    display: none;
+    @include breakpoint ($phone__all) {
+      display: block;
+
+      margin-top: 72px;
+      margin-bottom: 84px;
+    }
+  }
+  @include breakpoint ($phone__all) {
+    padding: 0;
+
+  }
+
 }

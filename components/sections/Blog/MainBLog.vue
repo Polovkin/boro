@@ -109,8 +109,17 @@ export default {
       }
     }
 
-    @include breakpoint ($mobile__all) {
+    @include breakpoint ($tablet__all) {
       margin-bottom: 40px;
+    }
+  }
+
+  @include breakpoint ($phone__all) {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .divider {
+      display: block;
     }
   }
 }

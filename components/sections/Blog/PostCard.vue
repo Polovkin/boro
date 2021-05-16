@@ -55,6 +55,9 @@ export default {
 
   &__img {
     margin-bottom: 12px;
+    @include breakpoint ($phone__all) {
+      margin-bottom: 24px;
+    }
   }
 
   &__body {
@@ -62,7 +65,7 @@ export default {
     justify-content: flex-start;
 
     display: flex;
-    @include breakpoint($mobile__all) {
+    @include breakpoint($tablet__all) {
       display: grid;
       grid: {
         template: {
@@ -71,11 +74,19 @@ export default {
         };
       }
     }
+    @include breakpoint ($phone__all) {
+      flex-direction: column;
+
+      display: flex;
+    }
   }
 
   &__title {
     margin: 8px 0 4px;
     grid-area: title;
+    @include breakpoint ($phone__all) {
+      margin-bottom: 5px;
+    }
   }
 
   &__text {
@@ -87,7 +98,9 @@ export default {
 
     text-overflow: ellipsis;
     grid-area: text;
-
+    @include breakpoint ($phone__all) {
+      margin-bottom: 24px;
+    }
   }
 
   &__date {
@@ -96,6 +109,9 @@ export default {
 
     color: $color__font_dark--secondary;
     grid-area: date;
+    @include breakpoint ($phone__all) {
+      margin-bottom: 23px;
+    }
   }
 
   &__tags {
@@ -110,6 +126,9 @@ export default {
 
   &__button {
     margin-top: auto;
+    @include breakpoint ($phone__all) {
+      margin-top: 0;
+    }
   }
 }
 

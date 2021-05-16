@@ -30,6 +30,12 @@
         };
       }
     }
+
+    @include breakpoint ($phone__all) {
+      flex-direction: column;
+
+      display: flex;
+    }
   }
 
   &__img {
@@ -43,6 +49,9 @@
     background-color: gray;
     @include breakpoint ($tablet__portrait) {
       width: 100%;
+    }
+    @include breakpoint ($phone__all) {
+      margin-bottom: 32px;
     }
   }
 
@@ -61,7 +70,9 @@
 
     &-buttons {
       justify-self: end;
-
+ @include breakpoint ($phone__all) {
+     display: none;
+  }
     }
   }
 
@@ -70,7 +81,10 @@
     max-width: 310px;
 
     margin-top: 16px;
-
+    @include breakpoint ($phone__all) {
+      margin-top: 12px;
+      margin-bottom: 32px;
+    }
   }
 
   &__btn-open {

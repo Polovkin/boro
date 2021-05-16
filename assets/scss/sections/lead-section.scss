@@ -18,6 +18,11 @@
 
       display: flex;
     }
+    @include breakpoint ($phone__all) {
+      flex-direction: column;
+
+      display: flex;
+    }
   }
 
   &__contact {
@@ -35,6 +40,9 @@
         justify-content: flex-start;
       }
     }
+    @include breakpoint ($phone__all) {
+      justify-content: flex-start;
+    }
   }
 
   &__header {
@@ -42,6 +50,23 @@
     @include breakpoint ($tablet__portrait) {
       margin-bottom: 26px;
     }
+    @include breakpoint ($phone__all) {
+      margin-bottom: 20px;
+
+      font-size: 32px;
+      letter-spacing: -1.8px;
+      line-height: 32px;
+    }
   }
 
+  @include breakpoint ($phone__all) {
+    padding-top: 30px;
+    padding-bottom: 0;
+    .user-info__contact-info{
+      align-self: flex-start;
+    }
+    .user-info__img {
+      justify-content: flex-start;
+    }
+  }
 }

@@ -112,6 +112,9 @@ export default {
 
   &__items {
     padding-top: 190px;
+     @include breakpoint ($phone__all) {
+       padding-top: 0;
+      }
   }
 }
 

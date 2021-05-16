@@ -41,8 +41,18 @@ export default {
 .section {
   padding: 60px 0;
 
+  h2 {
+    @include breakpoint ($phone__all) {
+      align-self: flex-end;
+    }
+  }
+
   &__elem {
     align-self: flex-end;
+    @include breakpoint ($phone__all) {
+      position: relative;
+      top: -2px;
+    }
   }
 
   &__content {
@@ -52,6 +62,12 @@ export default {
   &__header {
 
     position: relative;
+
+    .divider {
+      @include breakpoint ($phone__all) {
+        display: none;
+      }
+    }
 
     &-wrap {
       align-items: center;

@@ -94,6 +94,7 @@
         <hooper-pagination slot="hooper-addons" />
       </hooper>
       <hr class="divider">
+      <hr class="divider divider-mobile">
       <dl class="main-about__grid">
         <div
           v-for="(item,index) of numbersData"

@@ -9,10 +9,20 @@
       position: absolute;
       top: -24px;
       bottom: unset;
+
     }
+
+
   }
 
   &__content {
     padding-top: 183px;
+    @include breakpoint ($phone__all) {
+      padding-top: 0;
+    }
   }
+
+   @include breakpoint ($phone__all) {
+     padding-bottom: 0;
+    }
 }
