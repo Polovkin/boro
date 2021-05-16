@@ -48,16 +48,16 @@ export const actions = {
       setTimeout(() => {
         commit('SET_ANIMATION_PROGRESS', false)
       }, animationsDuration)
+    } else {
+      commit('SET_MENU_STATE', true)
+      commit('SET_ANIMATION_PROGRESS', true)
+      setTimeout(() => {
+        commit('SET_MENU_ANIMATION_CLASS', true)
+      }, openDelay)
+      setTimeout(() => {
+        commit('SET_ANIMATION_PROGRESS', false)
+      }, animationsDuration)
     }
-
-    commit('SET_MENU_STATE', true)
-    commit('SET_ANIMATION_PROGRESS', true)
-    setTimeout(() => {
-      commit('SET_MENU_ANIMATION_CLASS', true)
-    }, openDelay)
-    setTimeout(() => {
-      commit('SET_ANIMATION_PROGRESS', false)
-    }, animationsDuration)
   },
   CLOSE_MODAL ({ commit, state }) {
     if (state.popupType !== MENU) {
@@ -67,14 +67,15 @@ export const actions = {
         commit('SET_POPUP_STATE', false)
         commit('SET_ANIMATION_PROGRESS', false)
       }, closeDelay)
-    }
-    commit('SET_MENU_ANIMATION_CLASS', false)
-    commit('SET_ANIMATION_PROGRESS', true)
+    } else {
+      commit('SET_MENU_ANIMATION_CLASS', false)
+      commit('SET_ANIMATION_PROGRESS', true)
 
-    setTimeout(() => {
-      commit('SET_MENU_STATE', false)
-      commit('SET_ANIMATION_PROGRESS', false)
-    }, closeDelay)
+      setTimeout(() => {
+        commit('SET_MENU_STATE', false)
+        commit('SET_ANIMATION_PROGRESS', false)
+      }, closeDelay)
+    }
   }
 }
 

@@ -65,7 +65,7 @@ export default {
   display: flex;
   @include breakpoint ($phone__all) {
     flex-wrap: wrap;
-
+max-width: 300px;
     &>a {
       margin-bottom: 8px;
     }

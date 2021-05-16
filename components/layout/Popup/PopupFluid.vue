@@ -4,7 +4,7 @@
     v-in-viewport
     class="popup"
     :class="{'popup--light':isLight,'popup--active':popupAnimationClass}"
-    @click="closeDropdown"
+
   >
     <div class="container">
       <PopupHeader :is-light="isLight" />
@@ -58,11 +58,7 @@ export default {
       return this.popupType === POPUP_GET_IN_TOUCH
     }
   },
-  methods: {
-    closeDropdown (e) {
 
-    }
-  }
 
 }
 </script>

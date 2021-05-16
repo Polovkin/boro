@@ -1,12 +1,13 @@
 <template>
-  <div class="form">
+  <div
+    class="form"
+    :class="{'form-estimate':!popupTypeTouch}"
+  >
     <form
       id="form"
       ref="form"
       autocomplete="off"
-      :class="{'form-estimate':!popupTypeTouch}"
       class="form__content "
-
     >
       <div class="form__body">
         <div class="form__heading animation-move-from-right animation-delay-4">
@@ -158,7 +159,6 @@
           class="form__submit"
         >
           <p
-            v-if="!popupTypeTouch"
             class="form__terms"
           >
             {{ $t('form.terms') }}
@@ -199,25 +199,27 @@
               :data="item"
               :index="index"
             />
-            <!--            <div
-              v-for="(item,index) of types"
-              :key="index"
-              class="form__tags-item"
-            >
-              <input
-                :id="`tag_${index}`"
-                :value="item"
-                :name="item"
-                hidden
-                type="checkbox"
-              >
-              <label
-                class="form__tags-label"
-                :for="`tag_${index}`"
-              > {{ $t(`form.checkboxes.${item}`) }}</label>
-            </div>-->
           </div>
         </div>
+      </div>
+      <div
+        v-if="storeType ==='POPUP_ESTIMATE'"
+        :class="{'form__submit-estimate':!popupTypeTouch}"
+        class="form__submit form__submit-mobile"
+      >
+        <p
+          v-if="!popupTypeTouch"
+          class="form__terms"
+        >
+          {{ $t('form.terms') }}
+          <a :href="'/'">{{ $t('footer.privacy') }}</a>.
+        </p>
+        <ButtonPrimary
+          is-submit
+          @submitEvent="sendForm"
+        >
+          {{ $t('form.send') }}
+        </ButtonPrimary>
       </div>
     </form>
   </div>

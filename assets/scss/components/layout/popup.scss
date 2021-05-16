@@ -32,7 +32,7 @@
 
     background-color: $color__light_6;
   }
-  
+
   &__header {
     align-items: center;
     justify-content: space-between;
@@ -54,9 +54,7 @@
 
       max-width: 100%;
     }
- @include breakpoint ($phone__all) {
-     
-  }
+
     &-wrap {
       align-items: center;
 
@@ -94,6 +92,10 @@
       border: 1px solid $color__light_6;
       border-radius: 50%;
     }
+
+    @include breakpoint($phone__all) {
+
+    }
   }
 
   &__body {
@@ -104,7 +106,7 @@
     padding: 28px 0;
 
     color: $color__light;
-    @include breakpoint ($desktop__laptop-min) {
+    @include breakpoint($desktop__laptop-min) {
       padding: 10px 0;
     }
   }
@@ -118,7 +120,7 @@
 
     &-info {
       display: flex;
-      @include breakpoint ($phone__all) {
+      @include breakpoint($phone__all) {
         margin-bottom: 24px;
       }
     }
@@ -143,7 +145,14 @@
         @include body-secondary;
         color: $color__font--quaternary;
       }
-      @include breakpoint ($phone__all) {
+
+      @include breakpoint($tablet__large-portrait) {
+        margin-right: 54px;
+      }
+      @include breakpoint($tablet__portrait) {
+        margin-right: 30px;
+      }
+      @include breakpoint($phone__all) {
         margin-right: 24px;
       }
     }
@@ -157,7 +166,7 @@
 
   &__wrap {
     @extend %footer-component;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       flex-direction: column;
       align-items: flex-start;
     }
@@ -174,6 +183,13 @@
 
       transition: opacity ease 1s $menu_animation;
     }
+
+    @include breakpoint($phone__all) {
+      overflow: auto;
+    }
+     @include breakpoint ($mobile__all) {
+         overflow: auto;
+      }
   }
 
   &--light {
@@ -209,5 +225,12 @@
         color: $color__font_dark--quaternary;
       }
     }
+  }
+
+  @include breakpoint($tablet__large-portrait) {
+    .user-info__img {
+      justify-content: flex-start;
+    }
+
   }
 }

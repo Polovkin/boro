@@ -44,6 +44,7 @@
     display: none;
     @include breakpoint($phone__all) {
       @include popupsStyles;
+      padding-bottom: 10px;
     }
     @include breakpoint ($phone__landscape) {
       @include popupsStyles;
@@ -58,7 +59,7 @@
       align-items: flex-start;
       justify-content: space-around;
 
-      padding: 35% 0 0;
+      padding: 30% 0 0;
     }
     align-items: flex-end;
     justify-content: space-between;
