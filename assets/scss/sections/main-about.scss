@@ -91,7 +91,7 @@
           grid-area: item#{$i};
         }
       }
-      flex-direction: column;
+
       align-items: center;
 
       display: flex;
@@ -99,7 +99,7 @@
 
       dt {
         @include h1;
-        margin-right: 12px;
+        margin-right: 24px;
 
         color: $color__font--primary;
         @include breakpoint ($phone__all) {
@@ -120,6 +120,7 @@
       }
 
       @include breakpoint ($phone__all) {
+        flex-direction: column;
         align-items: flex-start;
 
         margin-bottom: 96px;
@@ -199,13 +200,19 @@
   }
 
   .section__header-wrap {
-    flex-direction: column;
+
+     @include breakpoint ($phone__all) {
+       flex-direction: column;
+      }
   }
 
   .section__elem {
-    align-self: flex-start;
+     @include breakpoint ($phone__all) {
+       align-self: flex-start;
 
-    transform: translateX(-24px);
+       transform: translateX(-24px);
+      }
+
   }
 
   .divider-mobile {

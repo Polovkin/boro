@@ -69,7 +69,7 @@ export default {
     max-width: 300px;
 
     &>a {
-      margin-bottom: 8px;
+      margin-top: 8px;
     }
   }
 }

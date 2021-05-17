@@ -24,7 +24,7 @@
   &__popups {
     @mixin popupsStyles {
       justify-content: space-between;
-
+      margin-top: 5%;
       display: flex;
       width: 100%;
 
@@ -45,11 +45,11 @@
     display: none;
     @include breakpoint($phone__all) {
       @include popupsStyles;
-      padding-bottom: 10px;
+
     }
     @include breakpoint ($phone__landscape) {
       @include popupsStyles;
-      padding-bottom: 20px;
+
     }
   }
 
@@ -58,9 +58,9 @@
     @mixin phone-body {
       flex-direction: column;
       align-items: flex-start;
-      justify-content: space-around;
+      justify-content: flex-end;
 
-      padding: 30% 0 0;
+      padding: 25% 0 5%;
     }
     align-items: flex-end;
     justify-content: space-between;
@@ -89,6 +89,7 @@
 
     &-wrap {
       overflow: hidden;
+
     }
 
     &-item {
@@ -117,6 +118,7 @@
     }
     @include breakpoint($phone__all) {
       padding-right: 0;
+      margin-top: 10%;
     }
   }
 
@@ -127,9 +129,9 @@
     overflow: hidden;
     @include breakpoint($phone__all) {
       max-width: unset;
-      height: 40px;
+      height: 34px;
 
-      margin-bottom: 8px;
+      margin-top: 8px;
     }
   }
 
@@ -252,7 +254,9 @@
       transition: transform $header_fu $items_animation $menu_animation, opacity $header_fu $items_animation $menu_animation, color ease .3s;
     }
   }
-
+ @include breakpoint ($phone__all) {
+   overflow: auto;
+  }
 
   @include breakpoint($phone__landscape) {
     overflow: auto;

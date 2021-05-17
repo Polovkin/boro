@@ -61,7 +61,9 @@ export default {
   ],
 
   build: {
-    // transpile: ['vuetify'] //IE11
+    loaders: {
+      scss: { sourceMap: false },
+    },
     postcss: [
       require('autoprefixer')({}),
       require('cssnano')({

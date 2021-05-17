@@ -256,17 +256,20 @@
   &__bottom {
     @extend %footer-component;
 
+
     &-tags {
       display: flex;
     }
     @include breakpoint ($phone__all) {
-      min-height: unset;
+      flex-direction: column;
       //padding-top: 32px;
       display: flex;
-      flex-direction: column;
+      min-height: unset;
+
       .footer-tags {
-        margin-top: 16px;
         max-width: unset;
+
+        margin-top: 16px;
       }
     }
   }
@@ -311,9 +314,9 @@
   &__copyright {
     @include body-tertiary;
     color: $color__font_dark--tertiary;
-     @include breakpoint ($phone__all) {
-       align-self: flex-start;
-      }
+    @include breakpoint ($phone__all) {
+      align-self: flex-start;
+    }
   }
 
 }
