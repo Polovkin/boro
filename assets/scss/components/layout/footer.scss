@@ -13,7 +13,7 @@
     display: grid;
     grid: {
       template: {
-        columns: 2.75fr repeat(2,2fr) 1.5fr repeat(2,1.75fr);
+        columns: 2.75fr repeat(2,2fr) 1.5fr auto 200px;
         rows: 80px;
         areas: 'logo nav . . button1 button2';
       };
@@ -42,7 +42,6 @@
         display: none !important;
       }
     }
-
 
     @include breakpoint($tablet__large-portrait) {
       grid: {

@@ -10,12 +10,12 @@
 
   &__item {
 
-    &>label,  {
+   /* &>label,  {
       transform: translateY(100%);
       opacity: 0;
 
       transition: all $header_fu $items_animation .2s;
-    }
+    }*/
   }
 }
 

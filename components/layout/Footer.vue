@@ -110,8 +110,6 @@ export default {
   components: { FooterTags, ButtonTag, LinkPrimary, Navigation, ButtonPrimary, LayoutNav, Logo },
   data () {
     return {
-      mail: 'hello@boro.com',
-      tel: '+3 (8093) 93 12 641',
       type: POPUP_ESTIMATE,
       terms: [
         {

@@ -187,9 +187,7 @@ export default {
   }
 
   @include breakpoint($phone__all) {
-    .burger {
-      margin-left: 0;
-    }
+
   }
 }
 

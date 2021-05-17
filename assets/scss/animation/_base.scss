@@ -27,11 +27,7 @@ $base_duration: 1.2s;
 
 @for $i from 1 through 10 {
   .animation-delay-#{$i} {
-    @each $direction in $animation-directions {
-      .animation-move-from-#{$direction} {
-        transition-delay: #{$i * .1s} !important;
-      }
-    }
+    transition-delay: #{$i * .1s} !important;
   }
 }
 
@@ -47,9 +43,10 @@ $base_duration: 1.2s;
   overflow: hidden;
 
   & > * {
-    transform: translateY(100%);
+    transform: translateY(120%);
     opacity: 0;
-    transition: transform $base_fu $base_duration;
+
+    transition: transform $base_fu $base_duration .2s, opacity $base_fu $base_duration .2s;
   }
 }
 
@@ -68,9 +65,8 @@ $base_duration: 1.2s;
   .animation-mask {
 
     & > * {
-      opacity: 1;
       transform: translateY(0);
+      opacity: 1;
     }
   }
-
 }

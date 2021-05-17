@@ -10,26 +10,32 @@
       class="form__content "
     >
       <div class="form__body">
-        <div class="form__heading animation-move-from-right animation-delay-4">
+        <div class="form__heading ">
           <template
             v-if="popupTypeTouch"
           >
-            <h2 class="form__title animation-fade">
-              {{ $t('form.title-touch') }}
-            </h2>
-            <p class="form__description animation-fade">
-              {{ $t('form.description-touch') }}
-            </p>
+            <div class="animation-mask">
+              <h2 class="form__title animation-fade">
+                {{ $t('form.title-touch') }}
+              </h2>
+            </div>
+            <div class="animation-mask">
+              <p class="form__description animation-fade">
+                {{ $t('form.description-touch') }}
+              </p>
+            </div>
           </template>
-          <h2
-            v-else
-            class="form__title"
-          >
-            {{ $t('form.title-estimate') }}
-          </h2>
+          <div    v-else class="animation-mask">
+            <h2
+
+              class="form__title"
+            >
+              {{ $t('form.title-estimate') }}
+            </h2>
+          </div>
         </div>
         <template v-if="popupTypeTouch">
-          <div class="form__item">
+          <div class="form__item animation-move-from-right ">
             <InputCustom
               v-model="formData.name"
               :form-touch="touch"
@@ -39,7 +45,7 @@
               :placeholder="$t('form.placeholder.name')"
             />
           </div>
-          <div class="form__item">
+          <div class="form__item animation-move-from-right animation-delay-2">
             <InputCustom
               v-model="formData.email"
               :form-touch="touch"
@@ -50,7 +56,7 @@
               :placeholder="$t('form.placeholder.email')"
             />
           </div>
-          <div class="form__item">
+          <div class="form__item  animation-move-from-right animation-delay-4">
             <InputCustom
               v-model="formData.phone"
               :form-touch="touch"
@@ -61,7 +67,7 @@
               :placeholder="$t('form.placeholder.phone')"
             />
           </div>
-          <div class="form__item">
+          <div class="form__item  animation-move-from-right animation-delay-6">
             <InputCustom
               v-model="formData.message"
               :form-touch="touch"
@@ -73,7 +79,7 @@
           </div>
         </template>
         <template v-else>
-          <div class="form__item">
+          <div class="form__item animation-move-from-right">
             <InputCustom
               v-model="formData.name"
               :form-touch="touch"
@@ -83,7 +89,7 @@
               :placeholder="$t('form.placeholder.name')"
             />
           </div>
-          <div class="form__item">
+          <div class="form__item animation-move-from-right animation-delay-2">
             <InputCustom
               v-model="formData.email"
               :form-touch="touch"
@@ -94,7 +100,7 @@
               :placeholder="$t('form.placeholder.email')"
             />
           </div>
-          <div class="form__item">
+          <div class="form__item animation-move-from-right animation-delay-4">
             <InputCustom
               v-model="formData.phone"
               :form-touch="touch"
@@ -105,7 +111,7 @@
               :placeholder="$t('form.placeholder.phone')"
             />
           </div>
-          <div class="form__item">
+          <div class="form__item animation-move-from-right animation-delay-6">
             <InputCustom
               v-model="formData.deadline"
               is-date
@@ -117,7 +123,7 @@
             />
           </div>
           <div
-            class="form__item"
+            class="form__item animation-move-from-right animation-delay-8"
             :class="{'form__item--visible':!animationDoneState}"
           >
             <InputCustom
@@ -128,7 +134,7 @@
               :placeholder="$t('form.placeholder.budget')"
             />
           </div>
-          <div class="form__item">
+          <div class="form__item animation-move-from-right animation-delay-10">
             <InputCustom
               v-model="formData.message"
               :form-touch="touch"

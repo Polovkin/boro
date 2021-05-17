@@ -85,7 +85,7 @@
   }
 
   &__links {
-    padding-right: 300px;
+    padding-right: 264px;
 
     &-wrap {
       overflow: hidden;
@@ -124,7 +124,7 @@
 
   &__elem {
 
-    max-width: 345px;
+    width: 365px;
     height: 62px;
     overflow: hidden;
     @include breakpoint($phone__all) {
