@@ -25,7 +25,7 @@
 
     h1 {
       @include h2;
-      line-height: 44px;
+      line-height: 60px;
 
     }
     @include breakpoint ($phone__all) {

@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <!--    <Preloader />-->
+    <Preloader />
     <PopupFluid />
     <Menu />
     <Header />
@@ -17,10 +17,11 @@
 import { mapState } from 'vuex'
 import PopupFluid from '../components/layout/Popup/PopupFluid'
 import Menu from '../components/layout/Menu'
+import Preloader from '../components/reusable/Preloader'
 import Header from '~/components/layout/Header'
 
 export default {
-  components: { Menu, PopupFluid, Header },
+  components: { Preloader, Menu, PopupFluid, Header },
   data () {
     return {}
   },

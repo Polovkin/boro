@@ -3,13 +3,13 @@
     class="main-section"
     :class="{'animation-trigger-start': isPreloaderDone}"
   >
-    <div class="main-section__wrap">
+    <div class="main-section__wrap animation-fade">
       <div
         class="main-section__title"
       >
         <h1>
           {{ $t('main.title') }}
-          <TextFlip :data="text" />
+<!--          <TextFlip :data="text" />-->
         </h1>
       </div>
       <Navigation
@@ -19,10 +19,10 @@
     <div class="main-section__footer">
       <hr class="divider">
       <div class="main-section__tags">
-        <p class="body-tertiary text-color-tertiary">
+        <p class="body-tertiary text-color-tertiary animation-move-from-right animation-delay-4">
           {{ $t('main.description') }}
         </p>
-        <div class="main-section__tags-wrap">
+        <div class="main-section__tags-wrap animation-move-from-left animation-delay-4">
           <ButtonTag
             v-for="(tags,index) of socials"
             :key="index"

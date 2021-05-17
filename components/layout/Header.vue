@@ -10,10 +10,10 @@
     <div class="container">
       <div class="header__content">
         <div class="header__wrap header__wrap-left">
-          <Logo class="header__logo" />
+          <Logo class="header__logo animation-move-from-right animation-delay-2" />
           <LayoutNav class="header__navigation" />
         </div>
-        <div class="header__wrap header__wrap-right">
+        <div class="header__wrap header__wrap-right animation-move-from-left animation-delay-2">
           <LangSwitcher v-show="isHeaderOnTop" />
           <ButtonPrimary is-popup-toggle>
             {{ $t('buttons.call-form') }}

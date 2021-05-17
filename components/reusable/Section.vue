@@ -1,15 +1,18 @@
 <template>
   <section
-    v-in-viewport
+    v-in-viewport.once
     data-scroll-section
     class="section"
   >
     <header class="section__header">
       <div class="section__header-wrap">
-        <slot name="title" />
+        <div class="animation-mask">
+          <slot name="title" />
+        </div>
+
         <div
           :class="{'numeric': numElem}"
-          class="section__elem"
+          class="section__elem animation-move-from-left"
         >
           <slot name="elem" />
         </div>

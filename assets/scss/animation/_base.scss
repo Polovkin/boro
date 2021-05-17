@@ -50,7 +50,7 @@ $base_duration: 1.2s;
   }
 }
 
-.in-viewport, .popup--active, .header-menu--active {
+.in-viewport, .popup--active, .header-menu--active, .header--base,.animation-trigger-start {
   @each $direction in $animation-directions {
     .animation-move-from-#{$direction} {
       transform: translateX(0) translateY(0);
