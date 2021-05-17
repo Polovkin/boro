@@ -1,8 +1,13 @@
 <template>
-  <div class="user-info" :class="{'user-info--dark':isDark}">
+  <div
+    class="user-info"
+    :class="{'user-info--dark':isDark}"
+  >
     <div class="user-info__contact-info">
       <figure class="user-info__img">
         <nuxt-img
+          width="62"
+          height="62"
           loading="lazy"
           :src="`/img/${data.img}`"
           alt="stos"
@@ -21,8 +26,8 @@
     >
       <ButtonTag
         v-for="(tag,index) of tags"
-        class="user-info__contact-tag"
         :key="index"
+        class="user-info__contact-tag"
         :is-dark="isDark"
         :link="tag.link"
         :icon="tag.icon"
@@ -65,7 +70,7 @@ export default {
   &--dark {
 
     .user-info__position {
-      color:$color__font--quaternary
+      color: $color__font--quaternary
     }
   }
 
@@ -75,7 +80,8 @@ export default {
     img {
       border-radius: 50%;
     }
-    @include breakpoint ($mobile__all) {
+
+    @include breakpoint($mobile__all) {
       justify-content: flex-end;
 
       display: flex;
@@ -85,7 +91,7 @@ export default {
   &__position {
     @include body-secondary;
     color: $color__font_dark--quaternary;
-    @include breakpoint ($mobile__all) {
+    @include breakpoint($mobile__all) {
       text-align: right;
     }
   }
@@ -103,7 +109,7 @@ export default {
       align-self: flex-end;
 
       margin-right: 40px;
-      @include breakpoint ($mobile__all) {
+      @include breakpoint($mobile__all) {
         margin-right: 0;
         margin-bottom: 12px;
       }
@@ -116,7 +122,7 @@ export default {
     }
   }
 
-  @include breakpoint ($mobile__all) {
+  @include breakpoint($mobile__all) {
 
     flex-direction: column;
   }

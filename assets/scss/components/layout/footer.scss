@@ -322,7 +322,7 @@
       align-self: flex-start;
     }
   }
- @include breakpoint ($phone__all) {
-   padding-bottom: 18px;
+  @include breakpoint ($phone__all) {
+    padding-bottom: 18px;
   }
 }

@@ -1,12 +1,10 @@
 .main-section {
-
-.container  {
   flex-direction: column;
   justify-content: flex-end;
 
   display: flex;
   height: 100vh;
-}
+
   &__wrap {
     justify-content: space-between;
 
