@@ -11,7 +11,7 @@
     @include breakpoint($tablet__portrait) {
       max-width: 608px;
     }
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       @include h4;
       margin-bottom: 24px;
     }
@@ -19,7 +19,7 @@
 
   &__content {
     padding-top: 37px;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       padding-top: 27px;
     }
   }
@@ -46,13 +46,26 @@
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 26px;
     }
-    @include breakpoint ($mobile__all) {
+    @include breakpoint($mobile__all) {
       display: none;
       height: unset !important;
     }
   }
 
   &__img {
+
+    @mixin img-fit {
+      width: 100%;
+      height: 100%;
+
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-position: top;
+        object-fit: contain;
+      }
+    }
     align-self: flex-start;
 
     display: flex;
@@ -62,13 +75,14 @@
       object-fit: contain;
     }
 
-
     @include breakpoint($tablet__portrait) {
-      object-fit: contain;
-
-      display: flex;
-      //height: 100%;
+      @include img-fit;
     }
+
+    @include breakpoint($phone__all) {
+      @include img-fit;
+    }
+
 
   }
 
@@ -105,7 +119,7 @@
         margin-right: 24px;
 
         color: $color__font--primary;
-        @include breakpoint ($phone__all) {
+        @include breakpoint($phone__all) {
           @include h2;
         }
       }
@@ -115,7 +129,10 @@
         max-width: 40px;
 
         color: $color__font-dark--quaternary;
-        @include breakpoint ($phone__all) {
+         @include breakpoint ($mobile__all) {
+           max-width: unset;
+          }
+        @include breakpoint($phone__all) {
           max-width: unset;
 
           margin-top: 16px;
@@ -123,7 +140,7 @@
         }
       }
 
-      @include breakpoint ($phone__all) {
+      @include breakpoint($phone__all) {
         flex-direction: column;
         align-items: flex-start;
 
@@ -135,7 +152,7 @@
       }
     }
 
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       display: flex;
 
       padding-top: 0;
@@ -147,21 +164,33 @@
 
     padding-bottom: 32px;
 
+    &-list {
+      overflow: visible;
+    }
+
     &-slide {
       width: 565px;
       height: 742px;
 
-      margin-right: 24px;
-      @include breakpoint ($phone__all) {
-        height: 353px;
+      margin-right: 36px;
+      @include breakpoint($phone__all) {
+        height: auto;
       }
+       @include breakpoint ($mobile__all) {
+         &:nth-of-type(2) {
+           img {
+             object-fit: cover;
+           }
+         }
+        }
+
     }
 
     &-pagination {
       width: 100%;
       height: 2px;
 
-      padding: 0 ;
+      padding: 0;
 
       transform: translateX(50%) translateY(2px);
     }
@@ -179,7 +208,7 @@
     &-indicator {
       width: inherit;
 
-      margin: 0 ;
+      margin: 0;
 
       background-color: transparent;
 
@@ -190,7 +219,7 @@
         left: 0;
 
         width: 100%;
-        height: 100%  ;
+        height: 100%;
 
         background-color: $color__dark;
 
@@ -199,20 +228,21 @@
 
 
     }
-    @include breakpoint ($phone__all) {
-      height:475px;
+
+    @include breakpoint($phone__all) {
+      height: 385px;
     }
   }
 
   .section__header-wrap {
 
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       flex-direction: column;
     }
   }
 
   .section__elem {
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       align-self: flex-start;
 
       transform: translateX(-24px);
@@ -222,16 +252,17 @@
 
   .divider-mobile {
     display: none;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       display: block;
 
       margin-top: 72px;
       margin-bottom: 84px;
     }
   }
-  @include breakpoint ($mobile__all) {
 
-    &> .container {
+  @include breakpoint($mobile__all) {
+
+    & > .container {
       padding-right: 0;
     }
 
@@ -239,7 +270,7 @@
       padding-right: 24px;
     }
   }
-  @include breakpoint ($phone__all) {
+  @include breakpoint($phone__all) {
     padding: 0;
 
   }

@@ -164,6 +164,10 @@
       }
       @include breakpoint ($phone__all) {
         margin-bottom: 12px;
+
+        ul  li:first-child {
+          max-width: 150px;
+        }
       }
     }
 
@@ -208,7 +212,7 @@
 
     &-list {
       @include breakpoint ($phone__all) {
-        margin-bottom: 32px;
+        margin-bottom: 38px;
       }
     }
     @include breakpoint($tablet__large-portrait) {
@@ -318,5 +322,7 @@
       align-self: flex-start;
     }
   }
-
+ @include breakpoint ($phone__all) {
+   padding-bottom: 18px;
+  }
 }

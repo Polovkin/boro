@@ -150,7 +150,7 @@ export default {
       ],
       width: 0,
       hooperSettings: {
-        itemsToShow: 1.25,
+        itemsToShow: 1.175,
         wheelControl: false,
         pagination: true
       }

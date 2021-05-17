@@ -52,6 +52,7 @@
     }
     @include breakpoint ($phone__all) {
       margin-bottom: 32px;
+      width: 100%;
     }
   }
 
