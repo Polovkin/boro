@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Preloader />
+<!--    <Preloader />-->
     <PopupFluid />
     <Menu />
     <Header />

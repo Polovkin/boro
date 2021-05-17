@@ -26,13 +26,13 @@ export default {
   data () {
     return {
       preload: true,
-      animationDuration: 3140,
-      animationDelay: 1000,
+      animationDuration: 2140,
+      animationDelay: 500,
       hide: false
     }
   },
   mounted () {
-
+    this.$store.commit('app/SET_PRELOADER_STATE', true)
     setTimeout(() => {
       this.preload = true
     }, this.animationDelay)
