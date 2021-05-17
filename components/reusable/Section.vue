@@ -1,10 +1,9 @@
 <template>
   <section
-    v-in-viewport.once
     data-scroll-section
     class="section"
   >
-    <header class="section__header">
+    <header v-in-viewport.once class="section__header">
       <div class="section__header-wrap">
         <div class="animation-mask">
           <slot name="title" />
@@ -34,7 +33,7 @@ export default {
       default: false
     }
   },
-  mounted() {
+  mounted () {
 
   }
 }

@@ -20,11 +20,12 @@
       class="main-about__content"
     >
       <div
+        v-in-viewport.once
         :style="`height: ${height}px`"
         class="main-about__images"
       >
-        <figure class="main-about__img">
-          <nuxt-img
+        <figure class="main-about__img animation-image-viewport">
+          <nuxt-picture
             alt="Elena"
             fit="cover"
             loading="lazy"
@@ -33,8 +34,8 @@
             src="/img/about1.jpg"
           />
         </figure>
-        <figure class="main-about__img">
-          <nuxt-img
+        <figure class="main-about__img  animation-image-viewport">
+          <nuxt-picture
             alt="Khabib"
             fit="cover"
             loading="lazy"
@@ -43,8 +44,8 @@
             src="/img/about2.jpg"
           />
         </figure>
-        <figure class="main-about__img">
-          <nuxt-img
+        <figure class="main-about__img  animation-image-viewport">
+          <nuxt-picture
             alt="Yeghor"
             fit="cover"
             loading="lazy"

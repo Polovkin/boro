@@ -1,7 +1,7 @@
 <template>
-  <section class="blog-card">
-    <figure class="blog-card__img">
-      <nuxt-img
+  <section class="blog-card" v-in-viewport.once>
+    <figure class="blog-card__img animation-image-viewport animation-delay-4">
+      <nuxt-picture
         width="430"
         height="248"
         lazyload="true"
@@ -26,7 +26,7 @@
       </p>
     </div>
     <ButtonPrimary
-      class="blog-card__button"
+      class="blog-card__button animation-fade animation-delay-5"
       :link="post.link"
     >
       {{ $t('buttons.read-more') }}

@@ -2,8 +2,6 @@ $animation-directions: (top,bottom,left,right);
 $base_fu: cubic-bezier(.250, .460, .450, .94);
 $base_duration: 1.2s;
 
-
-
 @each $direction in $animation-directions {
   $px_value: 150px;
   .animation-move-from-#{$direction} {
@@ -50,6 +48,24 @@ $base_duration: 1.2s;
   }
 }
 
+.animation-image-viewport {
+
+  picture {
+    display: block;
+
+    background-color: $color__dark;
+
+    transition: background-color ease .8s ;
+
+    img {
+      transform: scale(1.4);
+      opacity: 0;
+
+      transition: opacity ease .4s .2s, transform $base_fu 2s;
+    }
+  }
+}
+
 .in-viewport, .popup--active, .header-menu--active, .header--base,.animation-trigger-start {
   @each $direction in $animation-directions {
     .animation-move-from-#{$direction} {
@@ -66,6 +82,18 @@ $base_duration: 1.2s;
 
     & > * {
       transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animation-image-viewport {
+
+    picture {
+      background-color: transparent;
+    }
+
+    img {
+      transform: scale(1);
       opacity: 1;
     }
   }

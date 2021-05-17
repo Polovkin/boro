@@ -1,5 +1,5 @@
 <template>
-  <div class="case-item">
+  <div v-in-viewport.once class="case-item">
     <hr class="divider">
     <div class="case-item__wrap">
       <time
@@ -18,7 +18,7 @@
         <p class="case-item__description">
           {{ data.description }}
         </p>
-        <div class="case-item__content-buttons">
+        <div class="case-item__content-buttons animation-fade animation-delay-5">
           <ButtonPrimary
             v-for="(buttons,index) of data.buttons"
             :key="index"
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <figure class="case-item__img">
+      <figure class="case-item__img animation-image-viewport animation-delay-4">
         <nuxt-picture
           width="326"
           height="248"

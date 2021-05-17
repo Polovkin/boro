@@ -4,15 +4,15 @@
     class="service-item"
   >
     <hr class="divider">
-    <div class="service-item__wrap">
-      <figure class="service-item__img">
-<!--        <nuxt-picture
+    <div v-in-viewport.once class="service-item__wrap">
+      <figure class="service-item__img animation-image-viewport animation-delay-4">
+        <nuxt-picture
           width="326"
           height="248"
           fit="cover"
           loading="lazy"
           :src="`/img/${data.img}`"
-        />-->
+        />
       </figure>
       <div class="service-item__content">
         <h4>{{ data.title }}</h4>
@@ -26,7 +26,7 @@
         </ButtonPrimary>
       </div>
 
-      <div class="service-item__content-buttons">
+      <div class="service-item__content-buttons animation-fade animation-delay-5">
         <button
           class="service-item__btn-open"
           @click="polova"
