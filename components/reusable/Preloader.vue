@@ -4,7 +4,7 @@
     :class="{'preloader--hide':hide}"
   >
     <div
-      v-if="preload"
+      v-show="preload"
       class="preloader__logo"
     >
       <lottie-animation
@@ -26,13 +26,13 @@ export default {
   data () {
     return {
       preload: true,
-      animationDuration: 4140,
+      animationDuration: 3140,
       animationDelay: 1000,
       hide: false
     }
   },
   mounted () {
-   
+
     setTimeout(() => {
       this.preload = true
     }, this.animationDelay)
