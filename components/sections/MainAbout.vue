@@ -28,7 +28,6 @@
           <nuxt-picture
             alt="Elena"
             fit="cover"
-            loading="lazy"
             width="430"
             height="368"
             src="/img/about1.jpg"
@@ -38,7 +37,6 @@
           <nuxt-picture
             alt="Khabib"
             fit="cover"
-            loading="lazy"
             width="430"
             height="724"
             src="/img/about2.jpg"
@@ -48,7 +46,6 @@
           <nuxt-picture
             alt="Yeghor"
             fit="cover"
-            loading="lazy"
             width="430"
             height="458"
             src="/img/about3.jpg"

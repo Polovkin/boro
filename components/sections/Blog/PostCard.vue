@@ -1,5 +1,5 @@
 <template>
-  <section class="blog-card" v-in-viewport.once>
+  <section v-in-viewport.once class="blog-card">
     <figure class="blog-card__img animation-image-viewport animation-delay-4">
       <nuxt-picture
         width="430"
