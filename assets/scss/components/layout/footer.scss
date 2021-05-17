@@ -39,7 +39,7 @@
         width: 152px;
       }
       @include breakpoint ($phone__all) {
-        display: none;
+        display: none !important;
       }
     }
 
