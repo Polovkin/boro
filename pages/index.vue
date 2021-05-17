@@ -1,5 +1,5 @@
 <template>
-  <div v-if="true">
+  <div v-if="false">
     <LocomotiveScroll
       ref="scroller"
       data-scroll-container
@@ -7,7 +7,7 @@
     >
       <MainSection data-scroll-section />
       <Cases />
-    <MainAbout />
+      <MainAbout />
       <Services />
       <MainBLog />
       <Lead />
