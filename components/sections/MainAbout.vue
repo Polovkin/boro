@@ -93,11 +93,11 @@
       </hooper>
       <hr class="divider">
       <hr class="divider divider-mobile">
-      <dl class="main-about__grid">
+      <dl v-in-viewport.once class="main-about__grid">
         <div
           v-for="(item,index) of numbersData"
           :key="index"
-          class="main-about__grid-item"
+          class="main-about__grid-item animation-fade"
         >
           <dt>{{ item.number }}</dt>
           <dl>{{ $t(item.text) }}</dl>

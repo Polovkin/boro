@@ -1,18 +1,19 @@
 <template>
   <section
-    v-in-viewport
+
     class="lead-section section"
     data-scroll-section
   >
     <hr class="divider">
-    <div class="lead-section__content">
-      <h2 class="lead-section__header">
+    <div v-in-viewport.once class="lead-section__content">
+      <h2 class="lead-section__header animation-move-from-right">
         {{ $t('lead.title1') }} <br>
         {{ $t('lead.title2') }} <br>
         <span class="text-color-main">{{ content.email }}</span>
       </h2>
       <div class="lead-section__contact">
         <UserInfo
+          class="animation-move-from-left"
           :data="data"
           :tags="socials"
         />

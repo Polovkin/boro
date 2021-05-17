@@ -8,7 +8,7 @@ export default {
   },
 
   head: {
-    title: 'NuxtTemplate',
+    title: 'Boro digital | UX, Web & Product design agency',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -83,6 +83,11 @@ export default {
 
   image: {
     // Options
+  },
+  pwa: {
+    icon: {
+      /* icon options */
+    }
   },
   plugins: [
     { src: '~/plugins/client.js', mode: 'client' },
