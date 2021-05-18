@@ -84,7 +84,8 @@ $preloader_hide_duration: .4s;
 }
 
 .preloader {
-  @include size(100%);
+  width: 100vw;
+  height: 100vh;
   align-items: center;
   justify-content: center;
 

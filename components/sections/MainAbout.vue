@@ -26,6 +26,7 @@
       >
         <figure class="main-about__img animation-image-viewport">
           <nuxt-picture
+            loading="lazy"
             alt="Elena"
             fit="cover"
             width="430"
@@ -35,6 +36,7 @@
         </figure>
         <figure class="main-about__img  animation-image-viewport">
           <nuxt-picture
+            loading="lazy"
             alt="Khabib"
             fit="cover"
             width="430"
@@ -44,6 +46,7 @@
         </figure>
         <figure class="main-about__img  animation-image-viewport">
           <nuxt-picture
+            loading="lazy"
             alt="Yeghor"
             fit="cover"
             width="430"
@@ -54,8 +57,8 @@
       </div>
       <hooper class="main-about__slider" :settings="hooperSettings">
         <slide>
-          <figure class="main-about__img">
-            <nuxt-img
+          <figure class="main-about__img animation-image-viewport">
+            <nuxt-picture
               alt="Elena"
               fit="cover"
               loading="lazy"
@@ -66,8 +69,8 @@
           </figure>
         </slide>
         <slide>
-          <figure class="main-about__img">
-            <nuxt-img
+          <figure class="main-about__img animation-image-viewport">
+            <nuxt-picture
               alt="Khabib"
               fit="cover"
               loading="lazy"
@@ -78,8 +81,8 @@
           </figure>
         </slide>
         <slide>
-          <figure class="main-about__img">
-            <nuxt-img
+          <figure class="main-about__img animation-image-viewport">
+            <nuxt-picture
               alt="Yeghor"
               fit="cover"
               loading="lazy"
