@@ -7,23 +7,23 @@
     <hr class="divider">
     <!--    TOP-->
     <div class="footer__top">
-      <Logo class="footer__logo" />
+      <Logo class="footer__logo animation-move-from-right" />
       <div class="footer__nav" />
       <ButtonPrimary
-        class="footer__top-btn1"
+        class="footer__top-btn1 animation-fade"
         is-popup-toggle
         :popup-called-type="type"
       >
         {{ $t('buttons.call-estimate') }}
       </ButtonPrimary>
-      <ButtonPrimary class="footer__top-btn2" is-popup-toggle>
+      <ButtonPrimary class="footer__top-btn2 animation-move-from-left" is-popup-toggle>
         {{ $t('buttons.call-form') }}
       </ButtonPrimary>
     </div>
     <hr class="divider">
     <!--    Main-->
     <div class="footer__main">
-      <div class="footer__main-mail">
+      <div class="footer__main-mail animation-move-from-right animation-delay-4">
         <span class="footer__main-title">{{ $t('footer.mail') }}</span>
         <LinkPrimary
           is-static
@@ -48,10 +48,10 @@
           </li>
         </ul>
       </div>
-      <div class="footer__main-nav">
+      <div class="footer__main-nav animation-fade">
         <Navigation is-static />
       </div>
-      <div class="footer__main-address">
+      <div class="footer__main-address animation-fade">
         <ul>
           <li>
             <span class="footer__main-title">{{ $t('footer.office') }}</span>
@@ -78,7 +78,7 @@
         </ul>
       </div>
       <div
-        class="footer__main-button"
+        class="footer__main-button animation-move-from-left animation-delay-4"
         @click="toTop"
       >
         <button>{{ $t('buttons.to-top') }}<span /></button>
@@ -87,10 +87,10 @@
     <hr class="divider">
     <!--    BOTTOM-->
     <div class="footer__bottom">
-      <p class="footer__copyright">
+      <p class="footer__copyright animation-move-from-right animation-delay-6">
         © boro 2021
       </p>
-      <FooterTags />
+      <FooterTags class="animation-move-from-left animation-delay-6"/>
     </div>
   </footer>
 </template>

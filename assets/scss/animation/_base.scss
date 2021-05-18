@@ -53,9 +53,9 @@ $base_duration: 1.2s;
   picture {
     display: block;
 
-    background-color: $color__dark;
+    background-color:rgba($color__dark, .5) ;
 
-    transition: background-color ease .8s ;
+    transition: background-color ease .8s .2s;
 
     img {
       transform: scale(1.4);
@@ -66,7 +66,7 @@ $base_duration: 1.2s;
   }
 }
 
-.in-viewport, .popup--active, .header-menu--active, .header--base,.animation-trigger-start {
+.in-viewport, .popup--active, .header-menu--active, .header--base, .animation-trigger-start {
   @each $direction in $animation-directions {
     .animation-move-from-#{$direction} {
       transform: translateX(0) translateY(0);

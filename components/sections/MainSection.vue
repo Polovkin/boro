@@ -3,9 +3,9 @@
     class="main-section"
     :class="{'animation-trigger-start': isPreloaderDone}"
   >
-    <div class="main-section__wrap animation-fade">
+    <div class="main-section__wrap">
       <div
-        class="main-section__title"
+        class="main-section__title animation-mask"
       >
         <h1>
           {{ $t('main.title') }}
@@ -13,7 +13,7 @@
         </h1>
       </div>
       <Navigation
-        class="main-section__navigation"
+        class="main-section__navigation animation-mask"
       />
     </div>
     <div class="main-section__footer">

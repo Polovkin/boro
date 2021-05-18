@@ -41,7 +41,7 @@ export default {
       this.hide = true
       setTimeout(() => {
         this.$store.commit('app/SET_PRELOADER_STATE', true)
-      }, 1600)
+      }, 1400)
     }, this.animationDuration + this.animationDelay)
   }
 }

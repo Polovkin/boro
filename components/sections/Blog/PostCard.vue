@@ -2,7 +2,7 @@
   <section v-in-viewport.once class="blog-card">
     <figure class="blog-card__img animation-image-viewport animation-delay-4">
       <nuxt-picture
-          loading="lazy"
+        loading="lazy"
         width="430"
         height="248"
         lazyload="true"
@@ -10,7 +10,7 @@
       />
     </figure>
     <div class="blog-card__body">
-      <h5 class="blog-card__title">
+      <h5 class="blog-card__title ">
         {{ post.title }}
       </h5>
       <time class="blog-card__date">{{ post.date }}</time>
@@ -22,7 +22,7 @@
           {{ tag }}
         </ButtonTag>
       </div>
-      <p class="blog-card__text">
+      <p class="blog-card__text ">
         {{ post.text }}
       </p>
     </div>
@@ -55,6 +55,7 @@ export default {
   min-height: 522px;
 
   &__img {
+    overflow: hidden;
     margin-bottom: 12px;
     @include breakpoint ($phone__all) {
       margin-bottom: 24px;
