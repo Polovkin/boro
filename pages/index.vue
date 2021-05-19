@@ -1,70 +1,39 @@
 <template>
-  <div v-if="true">
-    <LocomotiveScroll
-      ref="scroller"
-      data-scroll-container
-      :getted-options="locomotiveOptions"
-    >
+  <div class="page">
+    <Preloader />
+    <div class="container">
       <MainSection data-scroll-section />
       <Cases />
       <MainAbout />
       <Services />
       <MainBLog />
-      <Lead />
-      <Footer />
-    </LocomotiveScroll>
-  </div>
-
-  <div v-else>
-    <MainSection data-scroll-section />
-    <Cases />
-    <MainAbout />
-    <Services />
-    <MainBLog />
-    <Lead />
-    <Footer />
+    </div>
   </div>
 </template>
 
 <script>
 
 import MainSection from '../components/sections/MainSection'
-import LocomotiveScroll from '../components/layout/LocomotiveScroll'
-import Footer from '../components/layout/Footer'
 import Cases from '../components/sections/Cases/Cases'
 import MainAbout from '../components/sections/MainAbout'
 import Services from '../components/sections/Services/Services'
-import Lead from '../components/sections/Lead'
 import MainBLog from '../components/sections/Blog/MainBLog'
+import Preloader from '../components/reusable/Preloader'
 
 export default {
   components: {
+    Preloader,
     MainBLog,
-    Lead,
     Services,
     MainAbout,
     Cases,
-    Footer,
-    LocomotiveScroll,
     MainSection
 
   },
   data () {
     return {
       name: '',
-      textarea: '',
-      locomotiveOptions: {
-        smooth: true,
-        direction: 'vertical',
-        smartphone: {
-          smooth: true,
-          direction: 'vertical'
-        },
-        tablet: {
-          smooth: true,
-          direction: 'vertical'
-        }
-      }
+      textarea: ''
     }
   },
   mounted () {

@@ -9,7 +9,6 @@
       >
         <h1>
           {{ $t('main.title') }}
-<!--          <TextFlip :data="text" />-->
         </h1>
       </div>
       <Navigation

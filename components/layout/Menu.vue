@@ -20,13 +20,13 @@
               :key="index"
               class="header-menu__elem"
             >
-              <nuxt-link
+              <a
                 class="header-menu__item"
-                :to="item.link"
+                @click.prevent="redirect(item.link)"
               >
                 {{ $t(item.name) }}
                 <span>{{ `0${index + 1}` }}</span>
-              </nuxt-link>
+              </a>
             </li>
           </ul>
         </nav>
@@ -66,13 +66,13 @@ import { mapState } from 'vuex'
 import { MENU } from '../../store/types'
 
 import LinkPrimary from '../reusable/LinkPrimary'
+import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
+import LangSwitcher from '../LangSwitcher'
 import PopupFooter from './Popup/PopupFooter'
-import ButtonPrimary from '../reusable/buttons/ButtonPrimary';
-import LangSwitcher from '../LangSwitcher';
 
 export default {
   name: 'Menu',
-  components: {LangSwitcher, ButtonPrimary, LinkPrimary, PopupFooter },
+  components: { LangSwitcher, ButtonPrimary, LinkPrimary, PopupFooter },
   data () {
     return {
       type: MENU,
@@ -82,7 +82,7 @@ export default {
         { name: 'navigation.link2', link: '/' },
         { name: 'navigation.link3', link: '/' },
         { name: 'navigation.link4', link: '/' },
-        { name: 'navigation.link5', link: '/' },
+        { name: 'navigation.link5', link: '/blog' },
         { name: 'navigation.link6', link: '/' }
       ]
     }
@@ -104,6 +104,13 @@ export default {
     }
   },
   methods: {
+    redirect (link) {
+      this.$store.commit('popups/SET_POPUP_TYPE', MENU)
+      this.$store.dispatch('popups/CLOSE_MODAL')
+      setTimeout(() => {
+        this.$router.push(link)
+      }, 1600)
+    },
     listHoverIn () {
       this.hoverList = true
     },

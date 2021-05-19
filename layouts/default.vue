@@ -1,15 +1,21 @@
 <template>
   <div class="app">
-
     <PopupFluid />
     <Menu />
     <Header />
-    <main class="main">
-      <Preloader/>
-      <div class="container">
+    <LocomotiveScroll
+      ref="scroller"
+      data-scroll-container
+      :getted-options="locomotiveOptions"
+    >
+      <main class="main">
         <nuxt />
-      </div>
-    </main>
+        <div class="container">
+          <Lead />
+          <Footer />
+        </div>
+      </main>
+    </LocomotiveScroll>
   </div>
 </template>
 
@@ -18,13 +24,29 @@
 import { mapState } from 'vuex'
 import PopupFluid from '../components/layout/Popup/PopupFluid'
 import Menu from '../components/layout/Menu'
+import Preloader from '../components/reusable/Preloader'
+import LocomotiveScroll from '../components/layout/LocomotiveScroll'
+import Lead from '../components/sections/Lead'
+import Footer from '../components/layout/Footer'
 import Header from '~/components/layout/Header'
-import Preloader from '../components/reusable/Preloader';
 
 export default {
-  components: {Preloader, Menu, PopupFluid, Header },
+  components: { Footer, Lead, LocomotiveScroll, Preloader, Menu, PopupFluid, Header },
   data () {
-    return {}
+    return {
+      locomotiveOptions: {
+        smooth: true,
+        direction: 'vertical',
+        smartphone: {
+          smooth: true,
+          direction: 'vertical'
+        },
+        tablet: {
+          smooth: true,
+          direction: 'vertical'
+        }
+      }
+    }
   },
   head () {
     return {
@@ -33,6 +55,7 @@ export default {
       }
     }
   },
+
   computed: {
     ...mapState({
       popupState: s => s.popups.popupState,

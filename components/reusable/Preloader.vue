@@ -32,7 +32,6 @@ export default {
     }
   },
   mounted () {
-
     setTimeout(() => {
       this.preload = true
     }, this.animationDelay)
