@@ -38,7 +38,9 @@ export const mutations = {
 }
 
 export const actions = {
+
   OPEN_MODAL ({ commit, state }) {
+    commit('SET_MENU_REDIRECT', false)
     if (state.popupType !== MENU) {
       commit('SET_POPUP_STATE', true)
       commit('SET_ANIMATION_PROGRESS', true)
@@ -76,6 +78,14 @@ export const actions = {
         commit('SET_ANIMATION_PROGRESS', false)
       }, closeDelay)
     }
+  },
+  MENU_REDIRECT ({ commit }) {
+    commit('SET_MENU_ANIMATION_CLASS', false)
+    commit('SET_ANIMATION_PROGRESS', true)
+    setTimeout(() => {
+      commit('SET_MENU_STATE', false)
+      commit('SET_ANIMATION_PROGRESS', false)
+    }, closeDelay + 100)
   }
 }
 

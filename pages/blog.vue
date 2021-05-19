@@ -1,11 +1,13 @@
 <template>
   <div class="page blog">
-    <div class="container">
-      <h2>
-        {{ $t('blog.title') }}
-      </h2>
-      <BlogFilter />
-    </div>
+    <section data-scroll-section>
+      <div class="container">
+        <h2>
+          {{ $t('blog.title') }}
+        </h2>
+        <BlogFilter />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -19,6 +21,11 @@ export default {
     this.$nextTick(function () {
       this.$nuxt.$emit('update-locomotive')
     })
+    const data = {
+      target: '.blog',
+      options: ''
+    }
+    this.$nuxt.$emit('scroll-locomotive', data)
   }
 }
 </script>

@@ -1,53 +1,51 @@
 <template>
   <button
-      class="menu-burger"
-      :class="{'menu-burger--active':burgerAnimate}"
-      @click="menuToggle"
+    class="menu-burger"
+    :class="{'menu-burger--active':menuAnimation}"
+    @click="menuToggle"
   >
     <span class="menu-burger__text">
       <span>{{ $t('header.menu') }}</span>
       <span>{{ $t('header.menu-close') }}</span>
     </span>
-    <span class="burger"/>
+    <span class="burger" />
   </button>
 </template>
 
 <script>
 
-import {mapState} from 'vuex';
-import {MENU} from '../../../store/types';
+import { mapState } from 'vuex'
+import { MENU } from '../../../store/types'
 
 export default {
   name: 'MenuBurger',
-  data() {
+  data () {
     return {
-      burgerAnimate: false
-    };
+    }
   },
   computed: {
     ...mapState({
       menu: s => s.popups.menuState,
-      menuAnimationInProgress: s => s.popups.menuAnimationInProgress
+      menuAnimation: s => s.popups.menuAnimationClass
     }),
-    menuState() {
-      return this.menu;
+
+    menuState () {
+      return this.menu
     }
   },
   methods: {
-    menuToggle() {
+    menuToggle () {
       if (this.menuState === null) {
-        // First run
-        this.burgerAnimate = true;
-        this.$store.commit('popups/SET_POPUP_TYPE', MENU);
-        this.$store.dispatch('popups/OPEN_MODAL');
+        this.$store.commit('popups/SET_POPUP_TYPE', MENU)
+        this.$store.dispatch('popups/OPEN_MODAL')
       } else {
-        this.burgerAnimate = !this.menuState;
-        this.$store.commit('popups/SET_POPUP_TYPE', MENU);
-        this.$store.dispatch(this.menuState ? 'popups/CLOSE_MODAL' : 'popups/OPEN_MODAL');
+        this.$store.commit('popups/SET_POPUP_TYPE', MENU)
+        this.$store.dispatch(this.menuState ? 'popups/CLOSE_MODAL' : 'popups/OPEN_MODAL')
       }
     }
   }
-};
+
+}
 </script>
 
 <style lang="scss">

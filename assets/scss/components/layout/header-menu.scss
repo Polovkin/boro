@@ -24,9 +24,11 @@
   &__popups {
     @mixin popupsStyles {
       justify-content: space-between;
-      margin-top: 5%;
+
       display: flex;
       width: 100%;
+
+      margin-top: 5%;
 
       .lang-switcher {
         width: unset;
@@ -117,8 +119,8 @@
       padding-right: 128px;
     }
     @include breakpoint($phone__all) {
-      padding-right: 0;
       margin-top: 10%;
+      padding-right: 0;
     }
   }
 
@@ -145,6 +147,7 @@
 
     transform: translateY(100%);
     opacity: 0;
+    cursor: pointer;
 
     transition: transform $header_fu $items_animation, opacity $header_fu $items_animation, color ease .3s;
 
@@ -254,8 +257,8 @@
       transition: transform $header_fu $items_animation $menu_animation, opacity $header_fu $items_animation $menu_animation, color ease .3s;
     }
   }
- @include breakpoint ($phone__all) {
-   overflow: auto;
+  @include breakpoint ($phone__all) {
+    overflow: auto;
   }
 
   @include breakpoint($phone__landscape) {

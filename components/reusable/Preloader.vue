@@ -1,10 +1,11 @@
 <template>
   <div
+    v-show="isPreloaderShow"
     class="preloader"
     :class="{'preloader--hide':hide}"
   >
     <div
-      v-show="preload"
+
       class="preloader__logo"
     >
       <lottie-animation
@@ -17,6 +18,7 @@
 
 <script>
 import LottieAnimation from 'lottie-vuejs/src/LottieAnimation.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Preloader',
@@ -27,21 +29,22 @@ export default {
     return {
       preload: true,
       animationDuration: 3140,
-      animationDelay: 1000,
       hide: false
+    }
+  },
+  computed: {
+    ...mapState({
+      preloaderDone: s => s.app.preloaderDone
+    }),
+    isPreloaderShow () {
+      return !this.preloaderDone
     }
   },
   mounted () {
     setTimeout(() => {
-      this.preload = true
-    }, this.animationDelay)
-
-    setTimeout(() => {
       this.hide = true
-      setTimeout(() => {
-        this.$store.commit('app/SET_PRELOADER_STATE', true)
-      }, 1400)
-    }, this.animationDuration + this.animationDelay)
+      this.$store.dispatch('app/SET_PRELOAD_STATE')
+    }, this.animationDuration)
   }
 }
 </script>

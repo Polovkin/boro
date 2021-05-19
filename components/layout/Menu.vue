@@ -68,6 +68,7 @@ import { MENU } from '../../store/types'
 import LinkPrimary from '../reusable/LinkPrimary'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import LangSwitcher from '../LangSwitcher'
+import blog from '../../pages/blog'
 import PopupFooter from './Popup/PopupFooter'
 
 export default {
@@ -105,11 +106,8 @@ export default {
   },
   methods: {
     redirect (link) {
-      this.$store.commit('popups/SET_POPUP_TYPE', MENU)
-      this.$store.dispatch('popups/CLOSE_MODAL')
-      setTimeout(() => {
-        this.$router.push(link)
-      }, 1600)
+      this.$router.push(link)
+      this.$store.dispatch('popups/MENU_REDIRECT')
     },
     listHoverIn () {
       this.hoverList = true
