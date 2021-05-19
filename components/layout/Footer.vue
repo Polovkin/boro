@@ -1,6 +1,6 @@
 <template>
   <footer
-    v-in-viewport
+    v-in-viewport.once
     data-scroll-section
     class="footer"
   >
@@ -90,7 +90,7 @@
       <p class="footer__copyright animation-move-from-right animation-delay-6">
         © boro 2021
       </p>
-      <FooterTags class="animation-move-from-left animation-delay-6"/>
+      <FooterTags class="animation-move-from-left animation-delay-6" />
     </div>
   </footer>
 </template>
@@ -128,10 +128,15 @@ export default {
       return this.$store.state.app.content
     }
   },
+  mounted () {
+    setTimeout(() => {
+      this.$nuxt.$emit('update-locomotive')
+    }, 1000)
+  },
   methods: {
     toTop () {
       const data = {
-        target: '.main-section',
+        target: '#top',
         options: ''
       }
       this.$nuxt.$emit('scroll-locomotive', data)

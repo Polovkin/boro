@@ -1,6 +1,101 @@
+@import 'main-blog';
+
 .blog {
-  padding-top: 80px;
+  $post_height: 522px;
+
+  &__section {
+    flex-direction: column;
+
+    display: flex;
+
+
+    padding-top: $header_height + 130px;
+
+
+  }
+
+  &__title {
+    @include h2;
+    margin-bottom: 71px;
+  }
+
   &__filter {
-    height: 100vh;
+    height: 88px;
+
+    margin-bottom: 138px;
+
+    &-list {
+      @include size(100%);
+      display: flex;
+      @include breakpoint ($phone__all) {
+        flex-wrap: wrap;
+      }
+    }
+
+    &-item {
+      flex: 1;
+      align-items: center;
+      justify-content: space-around;
+
+      display: flex;
+
+      border: 1px solid $color__dark_6;
+
+      cursor: pointer;
+
+      transition: all ease .4s;
+
+      span:first-child {
+        @include title-link;
+      }
+
+      span:last-child {
+
+        @include body-tertiary;
+        padding: 2px 4px;
+
+        border-radius: 4px;
+
+        background-color: $color__gray_light;
+      }
+
+      &--active {
+        background-color: $color__dark;
+
+        color: $color__font_light--primary;
+
+        span:last-child {
+          background-color: $color__light_6;
+        }
+      }
+
+      @include breakpoint ($phone__all) {
+        flex: unset;
+
+        max-width: 200px;
+      }
+    }
+
+  }
+
+  &__more {
+    @include title-link;
+    margin: 0 auto;
+  }
+
+  &__posts {
+    overflow: hidden;
+    max-height: $post_height *2 + 100px;
+    @extend .main-blog__posts;
+    grid-row-gap: 64px;
+    &--show-more {
+      max-height: 2000px
+    }
+  }
+
+  .divider {
+    margin-top: 32px;
+    margin-bottom: 40px;
   }
 }
+

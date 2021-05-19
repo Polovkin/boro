@@ -98,7 +98,8 @@
     "title": "Services"
   },
   "blog": {
-    "title": "Blog"
+    "title": "Blog",
+    "more": "Show more"
   },
   "lead": {
     "title1": "Ready to Discuss a Project?",

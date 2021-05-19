@@ -1,5 +1,6 @@
 <template>
   <div
+      id="top"
     class="main-section"
     :class="{'animation-trigger-start': isPreloaderDone}"
   >

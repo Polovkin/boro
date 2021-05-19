@@ -73,55 +73,6 @@ export default {
 </script>
 
 <style lang="scss">
-.main-blog {
-  $grid_gap: 29px;
-
-  &__content {
-
-    .divider {
-      margin-top: 32px;
-    }
-  }
-
-  &__posts {
-    display: grid;
-
-    padding-top: 32px;
-    grid-column-gap: $grid_gap;
-    grid-template-columns: repeat(3, 1fr);
-    @include breakpoint ($mobile__all) {
-      flex-direction: column;
-
-      display: flex;
-    }
-  }
-
-  .blog-card {
-    $width: calc(((1312 / 3) / 1400) * 100vw);
-    $height: calc((294 / 400) * #{$width});
-
-    &__img {
-
-      img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
-
-    @include breakpoint ($tablet__all) {
-      margin-bottom: 40px;
-    }
-  }
-
-  @include breakpoint ($phone__all) {
-    padding-top: 0;
-    padding-bottom: 0;
-
-    .divider {
-      display: block;
-    }
-  }
-}
+@import "assets/scss/sections/main-blog";
 
 </style>

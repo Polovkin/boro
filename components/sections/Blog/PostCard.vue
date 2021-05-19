@@ -57,6 +57,10 @@ export default {
   &__img {
     overflow: hidden;
     margin-bottom: 12px;
+    img {
+      @include size(100%);
+      object-fit: cover;
+    }
     @include breakpoint ($phone__all) {
       margin-bottom: 24px;
     }

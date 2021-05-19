@@ -21,6 +21,7 @@ import MainBLog from '../components/sections/Blog/MainBLog'
 import Preloader from '../components/reusable/Preloader'
 
 export default {
+  name: 'index',
   components: {
     Preloader,
     MainBLog,

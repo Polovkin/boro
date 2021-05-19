@@ -2,3 +2,12 @@ export const POPUP_GET_IN_TOUCH = 'POPUP_GET_IN_TOUCH'
 export const POPUP_ESTIMATE = 'POPUP_ESTIMATE'
 export const POPUP_SUCCESS = 'POPUP_SUCCESS'
 export const MENU = 'MENU'
+
+// FIlter
+
+export const FILTER_ALL = 'FILTER_ALL'
+export const FILTER_TEAM = 'FILTER_TEAM'
+export const FILTER_EVENTS = 'FILTER_EVENTS'
+export const FILTER_DESIGN = 'FILTER_DESIGN'
+export const FILTER_DEVELOPMENT = 'FILTER_DEVELOPMENT'
+export const FILTER_MANAGMENT = 'FILTER_MANAGMENT'
