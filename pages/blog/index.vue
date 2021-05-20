@@ -7,7 +7,7 @@
       <BlogFilter />
       <div
         class="blog__posts"
-        :class="{'blog__posts&#45;&#45;show-more':isShowMore}"
+        :class="{'blog__posts--show-more':isShowMore}"
       >
         <PostCard
           v-for="(post,index) of filteredItems"
