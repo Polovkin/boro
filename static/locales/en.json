@@ -99,7 +99,18 @@
   },
   "blog": {
     "title": "Blog",
-    "more": "Show more"
+    "more": "Show more",
+    "tags": {
+      "POST__TEAM": "Team",
+      "POST_EVENTS": "Events",
+      "POST_DESIGN": "UI/UX design",
+      "POST_DEVELOPMENT": "Web development",
+      "POST_MANAGMENT": "Managment"
+    },
+    "post": {
+      "next": "Next article",
+      "prev": "Previous article"
+    }
   },
   "lead": {
     "title1": "Ready to Discuss a Project?",

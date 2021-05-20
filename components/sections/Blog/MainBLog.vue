@@ -41,32 +41,12 @@ export default {
   components: { PostCard, LinkPrimary, Section },
   data () {
     return {
-      posts: [
-        {
-          img: '/img/blog1.jpg',
-          title: 'UX analytics of an online store',
-          date: '14 April 2021',
-          tags: ['UI/UX Design', 'Web design'],
-          text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-          link: '/'
-        },
-        {
-          img: '/img/blog2.jpg',
-          title: 'What should be the workplace',
-          date: '14 April 2021',
-          tags: ['UI/UX Design', 'Web design'],
-          text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-          link: '/'
-        },
-        {
-          img: '/img/blog3.jpg',
-          title: 'Developer\'s corporate website design',
-          date: '14 April 2021',
-          tags: ['UI/UX Design', 'Web design'],
-          text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-          link: '/'
-        }
-      ]
+
+    }
+  },
+  computed: {
+    posts () {
+      return this.$store.state.app.posts.slice(0, 3)
     }
   }
 }

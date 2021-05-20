@@ -3,21 +3,8 @@
 .blog {
   $post_height: 522px;
 
-  &__section {
-    flex-direction: column;
-
-    display: flex;
 
 
-    padding-top: $header_height + 130px;
-
-
-  }
-
-  &__title {
-    @include h2;
-    margin-bottom: 71px;
-  }
 
   &__filter {
     height: 88px;

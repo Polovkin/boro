@@ -1,4 +1,4 @@
-import { FILTER_ALL, FILTER_DESIGN, FILTER_DEVELOPMENT, FILTER_EVENTS, FILTER_MANAGMENT, FILTER_TEAM } from './types'
+import { POST_ALL, POST_DESIGN, POST_DEVELOPMENT, POST_EVENTS, POST_MANAGMENT, POST_TEAM } from './types'
 
 export const state = () => ({
   scrollDirection: null,
@@ -8,88 +8,160 @@ export const state = () => ({
     phone: '+3 (8093) 93 12 641',
     email: 'hello@boro.com'
   },
-  blogFilterType: FILTER_ALL,
+  blogFilterType: POST_ALL,
   posts: [
     {
-      img: '/img/blog1.jpg',
-      title: 'UX analytics of an online store',
+      link: '/blog/posts/1',
       date: '14 April 2021',
-      tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_DESIGN, FILTER_DEVELOPMENT, FILTER_TEAM]
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author'
+      },
+      data: {
+        img: '/img/blog1.jpg',
+        title: 'UX analytics of an online store',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
+        readTime: '9min'
+      },
+      type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
+      tags: ['UI/UX Design', 'Web design']
     },
     {
-      img: '/img/blog2.jpg',
-      title: 'What should be the workplace',
+      link: '/blog/posts/2',
       date: '14 April 2021',
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author',
+        readTime: '3min'
+      },
+      data: {
+        img: '/img/blog2.jpg',
+        title: 'What should be the workplace',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+      },
       tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_DESIGN, FILTER_MANAGMENT]
+      type: [POST_DESIGN, POST_MANAGMENT]
     },
     {
-      img: '/img/blog3.jpg',
-      title: 'Developer\'s corporate website design',
+      link: '/blog/posts/3',
       date: '14 April 2021',
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author',
+        readTime: '3min'
+      },
+      data: {
+        img: '/img/blog3.jpg',
+        title: 'Developer\'s corporate website design',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+      },
       tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_DESIGN, FILTER_EVENTS]
+      type: [POST_DESIGN, POST_EVENTS]
     },
     {
-      img: '/img/blog1.jpg',
-      title: 'UX analytics of an online store',
+      link: '/blog/posts/4',
       date: '14 April 2021',
-      tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_DESIGN]
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author'
+      },
+      data: {
+        img: '/img/blog1.jpg',
+        title: 'UX analytics of an online store',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
+        readTime: '9min'
+      },
+      type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
+      tags: ['UI/UX Design', 'Web design']
     },
     {
-      img: '/img/blog2.jpg',
-      title: 'What should be the workplace',
+      link: '/blog/posts/5',
       date: '14 April 2021',
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author',
+        readTime: '3min'
+      },
+      data: {
+        img: '/img/blog2.jpg',
+        title: 'What should be the workplace',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+      },
       tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_DESIGN, FILTER_EVENTS]
+      type: [POST_DESIGN, POST_MANAGMENT]
     },
     {
-      img: '/img/blog3.jpg',
-      title: 'Developer\'s corporate website design',
+      link: '/blog/posts/6',
       date: '14 April 2021',
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author',
+        readTime: '3min'
+      },
+      data: {
+        img: '/img/blog3.jpg',
+        title: 'Developer\'s corporate website design',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+      },
       tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_DESIGN, FILTER_MANAGMENT]
+      type: [POST_DESIGN, POST_EVENTS]
     },
     {
-      img: '/img/blog1.jpg',
-      title: 'UX analytics of an online store',
+      link: '/blog/posts/7',
       date: '14 April 2021',
-      tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_MANAGMENT]
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author'
+      },
+      data: {
+        img: '/img/blog1.jpg',
+        title: 'UX analytics of an online store',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
+        readTime: '9min'
+      },
+      type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
+      tags: ['UI/UX Design', 'Web design']
     },
     {
-      img: '/img/blog2.jpg',
-      title: 'What should be the workplace',
+      link: '/blog/posts/8',
       date: '14 April 2021',
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author',
+        readTime: '3min'
+      },
+      data: {
+        img: '/img/blog2.jpg',
+        title: 'What should be the workplace',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+      },
       tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_MANAGMENT, FILTER_EVENTS]
+      type: [POST_DESIGN, POST_MANAGMENT]
     },
     {
-      img: '/img/blog3.jpg',
-      title: 'Developer\'s corporate website design',
+      link: '/blog/posts/9',
       date: '14 April 2021',
+      author: {
+        img: '',
+        name: 'Yehor Haiduk',
+        role: 'Author',
+        readTime: '3min'
+      },
+      data: {
+        img: '/img/blog3.jpg',
+        title: 'Developer\'s corporate website design',
+        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+      },
       tags: ['UI/UX Design', 'Web design'],
-      text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-      link: '/',
-      type: [FILTER_MANAGMENT, FILTER_EVENTS]
+      type: [POST_DESIGN, POST_EVENTS]
     }
   ]
 })
@@ -101,7 +173,7 @@ export const mutations = {
   SET_PRELOADER_STATE (s, payload) {
     s.preloaderDone = payload
   },
-  SET_FILTER_TYPE (s, payload) {
+  SET_POST_TYPE (s, payload) {
     s.blogFilterType = payload
   }
 }

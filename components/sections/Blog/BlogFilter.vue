@@ -17,7 +17,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { FILTER_ALL, FILTER_DESIGN, FILTER_TEAM, FILTER_DEVELOPMENT, FILTER_EVENTS, FILTER_MANAGMENT } from '../../../store/types'
+import { POST_ALL, POST_DESIGN, POST_TEAM, POST_DEVELOPMENT, POST_EVENTS, POST_MANAGMENT } from '../../../store/types'
 
 export default {
   name: 'BlogFilter',
@@ -28,32 +28,32 @@ export default {
         {
           text: 'All',
           value: '12',
-          type: FILTER_ALL
+          type: POST_ALL
         },
         {
           text: 'Team',
           value: '3',
-          type: FILTER_TEAM
+          type: POST_TEAM
         },
         {
           text: 'Events',
           value: '2',
-          type: FILTER_EVENTS
+          type: POST_EVENTS
         },
         {
           text: 'Design',
           value: '3',
-          type: FILTER_DESIGN
+          type: POST_DESIGN
         },
         {
           text: 'Development',
           value: '2',
-          type: FILTER_DEVELOPMENT
+          type: POST_DEVELOPMENT
         },
         {
           text: 'Managment',
           value: '12',
-          type: FILTER_MANAGMENT
+          type: POST_MANAGMENT
         }
       ]
     }
@@ -61,7 +61,7 @@ export default {
 
   methods: {
     filteredTypes (index, type) {
-      this.$store.commit('app/SET_FILTER_TYPE', type)
+      this.$store.commit('app/SET_POST_TYPE', type)
       this.active = index
     }
   }

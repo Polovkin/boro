@@ -6,12 +6,12 @@
         width="430"
         height="248"
         lazyload="true"
-        :src="post.img"
+        :src="post.data.img"
       />
     </figure>
     <div class="blog-card__body">
       <h5 class="blog-card__title ">
-        {{ post.title }}
+        {{ post.data.title }}
       </h5>
       <time class="blog-card__date">{{ post.date }}</time>
       <div class="blog-card__tags">
@@ -23,7 +23,7 @@
         </ButtonTag>
       </div>
       <p class="blog-card__text ">
-        {{ post.text }}
+        {{ post.data.text }}
       </p>
     </div>
     <ButtonPrimary
@@ -42,7 +42,12 @@ import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 export default {
   name: 'PostCard',
   components: { ButtonPrimary, ButtonTag },
-  props: ['post']
+  props: ['post'],
+  computed: {
+    tagLink (data) {
+      return `blog.tags.${data}`
+    }
+  }
 
 }
 </script>
