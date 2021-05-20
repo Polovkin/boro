@@ -1,5 +1,6 @@
 <template>
   <Section
+    v-in-viewport.once
     num-elem
     class="main-about"
   >
@@ -20,8 +21,7 @@
       class="main-about__content"
     >
       <div
-        v-in-viewport.once
-        :style="`height: ${height}px`"
+
         class="main-about__images"
       >
         <figure class="main-about__img animation-image-viewport">
@@ -163,13 +163,7 @@ export default {
     } */
   },
   mounted () {
-    this.heightChange()
-    window.addEventListener('resize', () => {
-      this.heightChange()
-    })
-    this.$nextTick(function () {
-      this.$nuxt.$emit('update-locomotive')
-    })
+    this.$nuxt.$emit('update-locomotive')
   },
   methods: {
     heightChange () {

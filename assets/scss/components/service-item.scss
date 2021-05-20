@@ -46,7 +46,6 @@
 
     border-radius: 4px;
 
-    background-color: gray;
     @include breakpoint ($tablet__portrait) {
       width: 100%;
     }
