@@ -1,10 +1,11 @@
 <template>
   <div
+    v-in-viewport.once
     :class="{'test':test}"
     class="service-item"
   >
     <hr class="divider">
-    <div v-in-viewport.once class="service-item__wrap">
+    <div class="service-item__wrap">
       <figure class="service-item__img animation-image-viewport animation-delay-4">
         <nuxt-picture
           loading="lazy"
