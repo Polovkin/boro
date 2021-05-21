@@ -21,75 +21,68 @@
       class="main-about__content"
     >
       <div
-
         class="main-about__images"
       >
         <figure class="main-about__img animation-image-viewport">
-          <nuxt-picture
+          <img
             loading="lazy"
             alt="Elena"
-            fit="cover"
             width="430"
             height="368"
             src="/img/about1.jpg"
-          />
+          >
         </figure>
         <figure class="main-about__img  animation-image-viewport">
-          <nuxt-picture
+          <img
             loading="lazy"
             alt="Khabib"
-            fit="cover"
             width="430"
-            height="724"
+            height="566"
             src="/img/about2.jpg"
-          />
+          >
         </figure>
         <figure class="main-about__img  animation-image-viewport">
-          <nuxt-picture
+          <img
             loading="lazy"
             alt="Yeghor"
-            fit="cover"
             width="430"
             height="458"
             src="/img/about3.jpg"
-          />
+          >
         </figure>
       </div>
       <hooper class="main-about__slider" :settings="hooperSettings">
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <nuxt-picture
+            <img
               alt="Elena"
-              fit="cover"
               loading="lazy"
               width="430"
               height="368"
               src="/img/about1.jpg"
-            />
+            >
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <nuxt-picture
+            <img
               alt="Khabib"
-              fit="cover"
               loading="lazy"
               width="430"
-              height="724"
+              height="566"
               src="/img/about2.jpg"
-            />
+            >
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <nuxt-picture
+            <img
               alt="Yeghor"
-              fit="cover"
               loading="lazy"
               width="430"
               height="458"
               src="/img/about3.jpg"
-            />
+            >
           </figure>
         </slide>
         <hooper-pagination slot="hooper-addons" />
@@ -157,20 +150,6 @@ export default {
       }
     }
   },
-  computed: {
-    /* heightChange() {
-      return (724 / 430) * (this.width / 3)
-    } */
-  },
-  mounted () {
-    this.$nuxt.$emit('update-locomotive')
-  },
-  methods: {
-    heightChange () {
-      this.height = Math.ceil((724 / 430) * (window.innerWidth / 3))
-      this.$nuxt.$emit('update-locomotive')
-    }
-  }
 }
 </script>
 
