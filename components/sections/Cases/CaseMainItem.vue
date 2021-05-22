@@ -31,6 +31,7 @@
 
       <figure class="case-item__img animation-image-viewport animation-delay-4">
         <nuxt-picture
+            provider="static"
           loading="lazy"
           width="326"
           height="248"
