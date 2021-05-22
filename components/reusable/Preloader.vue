@@ -8,10 +8,10 @@
 
       class="preloader__logo"
     >
-      <lottie-animation
+<!--      <lottie-animation
         :loop="false"
         path="./animations/boro-logotype.json"
-      />
+      />-->
     </div>
   </div>
 </template>
