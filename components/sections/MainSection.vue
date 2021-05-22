@@ -1,12 +1,12 @@
 <template>
   <div
-      id="top"
+    id="top"
     class="main-section"
-    :class="{'animation-trigger-start': isPreloaderDone}"
+    :class="{'animation-trigger-start': mainPageState}"
   >
     <div class="main-section__wrap">
       <div
-        class="main-section__title"
+        class="main-section__title  animation-mask"
       >
         <h1>
           {{ $t('main.title') }}
@@ -41,12 +41,11 @@
 <script>
 import { mapState } from 'vuex'
 import Navigation from '../reusable/Navigation'
-import TextFlip from '../reusable/TextFlip'
 import ButtonTag from '../reusable/buttons/ButtonTag'
 
 export default {
   name: 'MainSection',
-  components: { ButtonTag, TextFlip, Navigation },
+  components: { ButtonTag, Navigation },
   data () {
     return {
       text: ['UI/UX', 'GL/HF', 'SS/WP'],
@@ -80,12 +79,16 @@ export default {
 
     }
   },
+  mounted () {
+
+  },
   computed: {
     ...mapState({
-      preloaderDone: s => s.app.preloaderDone
+      preloaderDone: s => s.app.preloaderDone,
+      mainPage: s => s.app.mainPageState
     }),
-    isPreloaderDone () {
-      return this.preloaderDone
+    mainPageState () {
+      return this.mainPage
     }
   }
 }

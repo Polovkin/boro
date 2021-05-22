@@ -3,6 +3,7 @@ import { POST_ALL, POST_DESIGN, POST_DEVELOPMENT, POST_EVENTS, POST_MANAGMENT, P
 export const state = () => ({
   scrollDirection: null,
   preloaderDone: false,
+  mainPageState: true,
   // preloaderDone: true,
   content: {
     phone: '+3 (8093) 93 12 641',
@@ -173,15 +174,20 @@ export const mutations = {
   SET_PRELOADER_STATE (s, payload) {
     s.preloaderDone = payload
   },
+  SET_MAIN_PAGE_STATE (s, payload) {
+    s.mainPageState = payload
+  },
   SET_POST_TYPE (s, payload) {
     s.blogFilterType = payload
   }
 }
 
 export const actions = {
-  SET_PRELOAD_STATE ({ commit, state }) {
+  DISPATCH_PRELOAD_STATE ({ commit }) {
+    commit('SET_MAIN_PAGE_STATE', false)
     setTimeout(() => {
       commit('SET_PRELOADER_STATE', true)
+      commit('SET_MAIN_PAGE_STATE', true)
     }, 1400)
   }
 }

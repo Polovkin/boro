@@ -41,9 +41,10 @@ export default {
     }
   },
   mounted () {
+
     setTimeout(() => {
       this.hide = true
-      this.$store.dispatch('app/SET_PRELOAD_STATE')
+      this.$store.dispatch('app/DISPATCH_PRELOAD_STATE')
     }, this.animationDuration)
   }
 }
@@ -86,6 +87,7 @@ $preloader_hide_duration: .4s;
 }
 
 .preloader {
+  opacity: 0;
   width: 100vw;
   height: 100vh;
   align-items: center;
