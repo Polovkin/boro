@@ -31,7 +31,9 @@
     @include breakpoint ($phone__all) {
 
       h1 {
+        transition: color ease 1s;
         @include h4;
+        color: #fafcfd;
       }
 
       .text-flip {

@@ -37,7 +37,7 @@ $base_duration: 1.2s;
 
 .animation-mask {
   position: relative;
-
+  will-change: transform;
   overflow: hidden;
 
   & > * {
@@ -67,6 +67,9 @@ $base_duration: 1.2s;
 }
 
 .in-viewport, .popup--active, .header-menu--active, .header--base, .animation-trigger-start {
+  h1 {
+    color: $color__dark;
+  }
   @each $direction in $animation-directions {
     .animation-move-from-#{$direction} {
       transform: translateX(0) translateY(0);

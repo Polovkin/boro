@@ -6,7 +6,7 @@
   >
     <div class="main-section__wrap">
       <div
-        class="main-section__title animation-mask"
+        class="main-section__title"
       >
         <h1>
           {{ $t('main.title') }}
