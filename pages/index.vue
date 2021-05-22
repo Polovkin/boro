@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Preloader />
+  <Preloader />
     <div class="container">
       <MainSection data-scroll-section />
       <Cases />

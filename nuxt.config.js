@@ -40,10 +40,6 @@ export default {
             name: 'Eng'
           },
           {
-            code: 'ua',
-            name: 'Укр'
-          },
-          {
             code: 'ru',
             name: 'Рус'
           }
