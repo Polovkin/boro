@@ -63,5 +63,5 @@ jobs:
           with:
              to: ${{ secrets.TELEGRAM_TO }}
              token: ${{ secrets.TELEGRAM_TOKEN }}
-             message: REPOSITORY:{{ github.REPOSITORY }} ACTOR:{{ github.ACTOR }} SHA:{{ github.SHA }} REF:{{ github.commit.ref }} WORKFLOW:{{ github.WORKFLOW }} ACTION:{{ github.ACTION }}
-                EVENT_NAME:{{ github.EVENT_NAME }} EVENT_PATH:{{ github.EVENT_PATH }} WORKSPACE:{{ github.WORKSPACE }}
+             message: REPOSITORY:{{ github.repository }} ACTOR:{{ github.actor }} SHA:{{ github.sha }} REF:{{ github.commit.ref }} WORKFLOW:{{ github.workflow }} ACTION:{{ github.action }}
+                EVENT_NAME:{{ github.event_name }} EVENT_PATH:{{ github.event_path }} WORKSPACE:{{ github.workspace }}
