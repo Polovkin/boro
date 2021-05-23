@@ -6,7 +6,7 @@
     <img
       width="142"
       height="32"
-      :src="require(`~/assets/icons/${isLight ? 'Logo-light' : 'Logo'}.svg?inline`)"
+      :src="`/icons/${isLight ? 'Logo-light' : 'Logo'}.svg`"
       alt="logotype"
     >
   </nuxt-link>

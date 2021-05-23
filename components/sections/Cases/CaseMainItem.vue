@@ -36,9 +36,17 @@
       </div>
 
       <figure class="case-item__img animation-image-viewport animation-delay-4">
-        <img
-          src="~/assets/img/Cover.jpg?webp"
-        >
+
+
+       <img
+           format="png"
+          provider="static"
+          loading="lazy"
+          width="326"
+          height="248"
+          fit="cover"
+          :src="data.img"
+        />
       </figure>
     </div>
   </div>

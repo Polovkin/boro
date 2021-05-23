@@ -53,7 +53,7 @@ export default {
               link: '/'
             }
           ],
-          img: '~/assets/img/Cover.jpg'
+          img: '/img/Cover.jpg'
         },
         {
           time: 2020,
@@ -66,7 +66,7 @@ export default {
               link: '/'
             }
           ],
-          img: '~/assets/img/Cover2.jpg'
+          img: '/img/Cover2.jpg'
         },
         {
           time: 2020,
@@ -79,7 +79,7 @@ export default {
               link: '/'
             }
           ],
-          img: '~/assets/img/Cover3.jpg'
+          img: '/img/Cover3.jpg'
         },
         {
           time: 2020,
@@ -96,7 +96,7 @@ export default {
               link: '/'
             }
           ],
-          img: '~/assets/img/Cover4.jpg'
+          img: '/img/Cover4.jpg'
         }
       ]
     }

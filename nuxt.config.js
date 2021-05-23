@@ -26,6 +26,8 @@ export default {
   components: true,
 
   buildModules: [
+    '@nuxt/image',
+    '@nuxtjs/svg',
     [
       'nuxt-i18n',
       {
@@ -45,7 +47,7 @@ export default {
         vueI18n: i18n
       }
     ],
-    '@aceforth/nuxt-optimized-images',
+    'nuxt-compress'
   ],
 
   modules: [
@@ -83,10 +85,6 @@ export default {
   },
   plugins: [
     { src: '~/plugins/client.js', mode: 'client' }
-  ],
-
-  optimizedImages: {
-    optimizeImages: true
-  }
+  ]
 
 }
