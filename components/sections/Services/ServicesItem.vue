@@ -7,7 +7,7 @@
     <hr class="divider">
     <div class="service-item__wrap">
       <figure class="service-item__img animation-image-viewport animation-delay-4">
-        <img
+        <nuxt-picture
           loading="lazy"
           width="326"
           height="248"

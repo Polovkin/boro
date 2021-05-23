@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-in-viewport.once
-    class="case-item"
-  >
+  <div v-in-viewport.once class="case-item">
     <hr class="divider">
     <div class="case-item__wrap">
       <time
@@ -14,10 +11,7 @@
         <h4>{{ data.title }}</h4>
 
         <div class="case-item__content-tags">
-          <ButtonTag
-            v-for="(tag,index) of data.tags"
-            :key="index"
-          >
+          <ButtonTag v-for="(tag,index) of data.tags" :key="index">
             {{ tag }}
           </ButtonTag>
         </div>
@@ -36,10 +30,7 @@
       </div>
 
       <figure class="case-item__img animation-image-viewport animation-delay-4">
-
-
-       <img
-           format="png"
+        <nuxt-picture
           provider="static"
           loading="lazy"
           width="326"
@@ -59,19 +50,7 @@ import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 export default {
   name: 'CaseMainItem',
   components: { ButtonPrimary, ButtonTag },
-  props: ['data'],
-  computed: {
-    _srcset () {
-      return this.$img.getSizes(this.src, {
-        sizes: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw',
-        modifiers: {
-          format: 'webp',
-          quality: 70,
-          height: 500
-        }
-      })
-    }
-  }
+  props: ['data']
 }
 </script>
 

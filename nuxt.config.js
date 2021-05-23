@@ -46,8 +46,7 @@ export default {
         ],
         vueI18n: i18n
       }
-    ],
-    'nuxt-compress'
+    ]
   ],
 
   modules: [
@@ -59,7 +58,7 @@ export default {
 
   build: {
     loaders: {
-      scss: { sourceMap: false }
+      scss: { sourceMap: false },
     },
     postcss: [
       require('autoprefixer')({}),
@@ -78,13 +77,16 @@ export default {
     ]
   },
 
+  image: {
+
+  },
   pwa: {
     icon: {
       /* icon options */
     }
   },
   plugins: [
-    { src: '~/plugins/client.js', mode: 'client' }
+    { src: '~/plugins/client.js', mode: 'client' },
   ]
 
 }
