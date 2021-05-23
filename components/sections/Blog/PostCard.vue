@@ -1,7 +1,7 @@
 <template>
   <section v-in-viewport.once class="blog-card">
     <figure class="blog-card__img animation-image-viewport animation-delay-4">
-      <nuxt-picture
+      <img
         loading="lazy"
         width="430"
         height="248"
