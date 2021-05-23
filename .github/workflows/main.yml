@@ -58,3 +58,9 @@ jobs:
                 git pull
                 npm i
                 pm2 restart boro
+        - name: send custom message
+          uses: appleboy/telegram-action@master
+          with:
+             to: ${{ secrets.TELEGRAM_TO }}
+             token: ${{ secrets.TELEGRAM_TOKEN }}
+             message: 234  
