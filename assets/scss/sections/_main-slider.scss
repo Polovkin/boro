@@ -1,0 +1,42 @@
+.main-section {
+
+
+  &__slider {
+    @include size(100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    height: 100%;
+
+    padding-top: $header_height;
+  }
+
+  &__slide {
+    @include size(inherit);
+    justify-content: flex-end;
+    padding-top: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: z(bg-content);
+
+    display: flex;
+
+    padding-right: round(67/1400* 100vw);
+
+    opacity: 0;
+
+    transition: opacity ease 2s 2s;
+
+    &--active {
+      z-index: z(content);
+
+      opacity: 1;
+    }
+
+    img {
+      object-fit: contain;
+    }
+  }
+}

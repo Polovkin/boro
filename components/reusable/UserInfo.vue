@@ -5,7 +5,7 @@
   >
     <div class="user-info__contact-info">
       <figure class="user-info__img">
-        <nuxt-img
+        <img
           width="62"
           height="62"
           loading="lazy"

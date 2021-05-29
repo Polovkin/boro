@@ -1,10 +1,18 @@
-import { POST_ALL, POST_DESIGN, POST_DEVELOPMENT, POST_EVENTS, POST_MANAGMENT, POST_TEAM } from './types'
+import {
+  POST_ALL,
+  POST_DESIGN,
+  POST_DEVELOPMENT,
+  POST_EVENTS,
+  POST_MANAGMENT,
+  POST_TEAM
+} from './types'
 
 export const state = () => ({
   scrollDirection: null,
-  preloaderDone: false,
+  mainSlide: 0,
   mainPageState: true,
-  // preloaderDone: true,
+  // preloaderDone: false,
+  preloaderDone: true,
   content: {
     phone: '+3 (8093) 93 12 641',
     email: 'hello@boro.com'
@@ -49,7 +57,8 @@ export const state = () => ({
       data: {
         img: '/img/blog1.jpg',
         title: 'UX analytics of an online store',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
         readTime: '9min'
       },
       type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
@@ -67,7 +76,8 @@ export const state = () => ({
       data: {
         img: '/img/blog2.jpg',
         title: 'What should be the workplace',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
       },
       tags: ['UI/UX Design', 'Web design'],
       type: [POST_DESIGN, POST_MANAGMENT]
@@ -83,8 +93,9 @@ export const state = () => ({
       },
       data: {
         img: '/img/blog3.jpg',
-        title: 'Developer\'s corporate website design',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+        title: "Developer's corporate website design",
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
       },
       tags: ['UI/UX Design', 'Web design'],
       type: [POST_DESIGN, POST_EVENTS]
@@ -100,7 +111,8 @@ export const state = () => ({
       data: {
         img: '/img/blog1.jpg',
         title: 'UX analytics of an online store',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
         readTime: '9min'
       },
       type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
@@ -118,7 +130,8 @@ export const state = () => ({
       data: {
         img: '/img/blog2.jpg',
         title: 'What should be the workplace',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
       },
       tags: ['UI/UX Design', 'Web design'],
       type: [POST_DESIGN, POST_MANAGMENT]
@@ -134,8 +147,9 @@ export const state = () => ({
       },
       data: {
         img: '/img/blog3.jpg',
-        title: 'Developer\'s corporate website design',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+        title: "Developer's corporate website design",
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
       },
       tags: ['UI/UX Design', 'Web design'],
       type: [POST_DESIGN, POST_EVENTS]
@@ -151,7 +165,8 @@ export const state = () => ({
       data: {
         img: '/img/blog1.jpg',
         title: 'UX analytics of an online store',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
         readTime: '9min'
       },
       type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
@@ -169,7 +184,8 @@ export const state = () => ({
       data: {
         img: '/img/blog2.jpg',
         title: 'What should be the workplace',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
       },
       tags: ['UI/UX Design', 'Web design'],
       type: [POST_DESIGN, POST_MANAGMENT]
@@ -185,8 +201,9 @@ export const state = () => ({
       },
       data: {
         img: '/img/blog3.jpg',
-        title: 'Developer\'s corporate website design',
-        text: 'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
+        title: "Developer's corporate website design",
+        text:
+          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
       },
       tags: ['UI/UX Design', 'Web design'],
       type: [POST_DESIGN, POST_EVENTS]
@@ -197,6 +214,9 @@ export const state = () => ({
 export const mutations = {
   SET_SCROLL_DIRECTION (s, payload) {
     s.scrollDirection = payload
+  },
+  SET_ACTIVE_SLIDE (s) {
+    s.mainSlide = s.mainSlide === 4 ? 0 : s.mainSlide + 1
   },
   SET_PRELOADER_STATE (s, payload) {
     s.preloaderDone = payload
@@ -210,6 +230,11 @@ export const mutations = {
 }
 
 export const actions = {
+  DISPATCH_MAIN_SLIDER ({ commit }) {
+    setInterval(() => {
+      commit('SET_ACTIVE_SLIDE')
+    }, 5000)
+  },
   DISPATCH_PRELOAD_STATE ({ commit }) {
     commit('SET_MAIN_PAGE_STATE', false)
     setTimeout(() => {

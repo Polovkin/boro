@@ -50,25 +50,18 @@ $base_duration: 1.2s;
 
 .animation-image-viewport {
 
-  picture {
-    display: block;
+  img {
+    transform: scale(1.2);
+    //opacity: 0;
 
-    //background-color:rgba($color__dark, .5) ;
-
-    transition: background-color ease .8s .2s;
-
-    img {
-      transform: scale(1.2);
-      //opacity: 0;
-
-      transition: opacity ease .4s .2s, transform $base_fu 2s;
-    }
+    transition: opacity ease .4s .2s, transform $base_fu 2s;
   }
+
 }
 
 .in-viewport, .popup--active, .header-menu--active, .header--base, .animation-trigger-start {
   h1 {
-    color: $color__dark;
+    color: $color__font_light--primary;
   }
   @each $direction in $animation-directions {
     .animation-move-from-#{$direction} {

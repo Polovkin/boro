@@ -1,11 +1,10 @@
 <template>
   <section v-in-viewport.once class="blog-card">
     <figure class="blog-card__img animation-image-viewport animation-delay-4">
-      <nuxt-picture
+      <img
         loading="lazy"
         width="430"
         height="248"
-        lazyload="true"
         :src="post.data.img"
       />
     </figure>
@@ -53,6 +52,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .blog-card {
   flex-direction: column;
 
@@ -61,9 +61,12 @@ export default {
 
   &__img {
     overflow: hidden;
+
     margin-bottom: 12px;
+
     img {
       @include size(100%);
+      transition: all $videinfa_function .8s;
       object-fit: cover;
     }
     @include breakpoint ($phone__all) {

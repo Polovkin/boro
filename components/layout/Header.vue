@@ -5,17 +5,22 @@
     :class="{
       'header--base': isPreloaderDone,
       'header--on-top': isHeaderOnTop,
+      'header--dark': isDark && !MenuOpen,
       'animation-base-state': (isPreloaderDone && !isHeaderMove) || isPopupsOpen}"
   >
     <div class="container">
       <div class="header__content">
         <div class="header__wrap header__wrap-left">
-          <Logo class="header__logo animation-move-from-right animation-delay-10" />
+          <Logo v-if="isDark && !MenuOpen" is-light class="header__logo animation-move-from-right animation-delay-10" />
+          <Logo v-else class="header__logo animation-move-from-right animation-delay-10" />
           <LayoutNav class="header__navigation" />
         </div>
         <div class="header__wrap header__wrap-right animation-move-from-left animation-delay-10">
           <LangSwitcher v-show="isHeaderOnTop" />
-          <ButtonPrimary is-popup-toggle>
+          <ButtonPrimary v-if="isDark && !MenuOpen" is-light is-popup-toggle>
+            {{ $t('buttons.call-form') }}
+          </ButtonPrimary>
+          <ButtonPrimary v-else is-popup-toggle>
             {{ $t('buttons.call-form') }}
           </ButtonPrimary>
           <MenuBurger :class="{'menu-burger--show': !isHeaderOnTop}" />
@@ -52,6 +57,9 @@ export default {
       PopupOpen: s => s.popups.popupState,
       MenuOpen: s => s.popups.menuState
     }),
+    isDark () {
+      return this.$store.state.header.headerIsDark
+    },
     isPopupsOpen () {
       return this.PopupOpen || this.MenuOpen
     },

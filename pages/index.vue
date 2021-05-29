@@ -1,8 +1,8 @@
 <template>
   <div class="page">
-  <Preloader />
+    <!--  <Preloader />-->
+    <MainSection data-scroll-section />
     <div class="container">
-      <MainSection data-scroll-section />
       <Cases />
       <MainAbout />
       <Services />
@@ -21,7 +21,7 @@ import MainBLog from '../components/sections/Blog/MainBLog'
 import Preloader from '../components/reusable/Preloader'
 
 export default {
-  name: 'index',
+  name: 'Index',
   components: {
     Preloader,
     MainBLog,

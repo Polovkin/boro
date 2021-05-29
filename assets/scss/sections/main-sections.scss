@@ -1,9 +1,30 @@
-.main-section {
-  flex-direction: column;
-  justify-content: flex-end;
+@import 'main-slider';
 
-  display: flex;
-  height: 100vh;
+.main-section {
+
+  background-color: $color__dark;
+
+  .container {
+    flex-direction: column;
+    justify-content: flex-end;
+
+    display: flex;
+    height: 100vh;
+    @include breakpoint($phone__landscape) {
+      height: auto;
+      min-height: 100vh;
+
+      padding-top: 80px;
+
+      .main-section__title {
+        padding-top: 500px;
+      }
+
+      .main-section__circle {
+        display: none;
+      }
+    }
+  }
 
   &__wrap {
     justify-content: space-between;
@@ -13,33 +34,85 @@
     width: 100%;
 
     margin-bottom: 48px;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 24px;
     }
   }
 
   &__title {
-    max-width: 700px;
+    position: relative;
+    z-index: z(content);
+
+    max-width: 910px;
 
     padding-top: 32px;
 
-    h1 {
-      @include h2;
-      line-height: 60px;
-
-    }
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
 
       h1 {
-        transition: color ease 1s;
         @include h4;
         color: #fafcfd;
+
+        transition: color ease 1s;
       }
 
       .text-flip {
         display: none !important;
       }
     }
+  }
+
+  &__smile {
+    @include pseudoElement(60px, 'smile.svg');
+    position: relative;
+    top: 5px;
+    left: 10px;
+    z-index: z(content);
+
+    display: inline-block;
+    @include breakpoint($tablet__portrait) {
+      @include size(48px);
+    }
+    @include breakpoint($phone__all) {
+      @include size(28px);
+      display: inline-block;
+    }
+  }
+
+  &__circle {
+    @include size(180px);
+    position: relative;
+    top: 25px;
+
+    display: inline-block;
+
+    padding: 10px;
+
+    border: 1px solid $color__light_16;
+
+    border-radius: 50%;
+
+    &:after {
+      @include size(160px);
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      border-radius: 50%;
+
+      transform: translate(-50%, -50%);
+      background: {
+        image: url('/img/main/circle.jpg');
+        size: cover;
+      };
+    }
+
+    @include breakpoint($phone__all) {
+      display: none;
+    }
+
   }
 
   &__tags {
@@ -53,10 +126,21 @@
       display: flex;
     }
 
+    .button-tag {
+      background-color: $color__light_16;
+
+      color: $color__font_light--primary;
+    }
+
+    p {
+      color: $color__font--tertiary;
+    }
+
     a:last-child {
       margin-right: 0;
     }
-    @include breakpoint ($phone__all) {
+
+    @include breakpoint($phone__all) {
       flex-direction: column;
       align-items: flex-start;
 
@@ -76,12 +160,21 @@
 
   &__footer {
     @extend %footer-component;
-
+    position: relative;
+    z-index: z(content);
   }
 
   &__navigation {
-    //padding-bottom: 20px;
-    @include breakpoint ($mobile__all) {
+    position: relative;
+    z-index: z(content);
+
+    .navigation__link {
+      margin-top: auto;
+
+      color: $color__font_light--primary;
+    }
+
+    @include breakpoint($mobile__all) {
       display: none !important;
     }
   }

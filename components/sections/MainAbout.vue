@@ -27,8 +27,8 @@
           <img
             loading="lazy"
             alt="Elena"
-            width="430"
-            height="368"
+            width="1290"
+            height="1104"
             src="/img/about1.jpg"
           >
         </figure>
@@ -36,8 +36,8 @@
           <img
             loading="lazy"
             alt="Khabib"
-            width="430"
-            height="566"
+            width="1548"
+            height="2325"
             src="/img/about2.jpg"
           >
         </figure>
@@ -45,8 +45,8 @@
           <img
             loading="lazy"
             alt="Yeghor"
-            width="430"
-            height="458"
+            width="1290"
+            height="1374"
             src="/img/about3.jpg"
           >
         </figure>

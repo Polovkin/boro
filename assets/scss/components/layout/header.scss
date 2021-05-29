@@ -7,10 +7,24 @@
   height: $header_height;
 
   background-color: $color__background_primary;
+  transition: all ease .2s;
 
- @include breakpoint ($phone__all) {
-   height: 73px;
+  &--dark {
+    background-color: transparent;
+
+    .menu-burger {
+      filter: invert(1);
+    }
+
+    .header__content {
+      &:after {
+        background-color: $color__light_16;
+      }
+    }
+
   }
+
+
   &--base {
 
     .header__content:after {
@@ -37,7 +51,6 @@
       @include divider;
       position: absolute;
       top: unset !important;
-
       bottom: -1px;
     }
   }
@@ -50,7 +63,9 @@
     align-items: center;
     justify-content: space-between;
 
-    display: flex;
+    display: none;
+
+    //display: flex;
     width: 42%;
 
     li:last-child {
@@ -61,9 +76,10 @@
       @include body-secondary;
       color: $color__font--tertiary;
     }
-     @include breakpoint ($phone__all) {
-         display: none;
-      }
+
+    @include breakpoint($phone__all) {
+      display: none;
+    }
   }
 
   &__wrap {
@@ -84,7 +100,7 @@
       grid-area: right;
 
       justify-content: flex-end;
-      @include breakpoint ($phone__all) {
+      @include breakpoint($phone__all) {
 
         .lang-switcher {
           display: none;
@@ -104,6 +120,10 @@
 
   .container {
     height: 100%;
+  }
+
+  @include breakpoint($phone__all) {
+    height: 73px;
   }
 
 }

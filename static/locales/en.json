@@ -82,7 +82,8 @@
     "link6": "Contacts"
   },
   "main" : {
-    "title": "We are design agency with solid expertise in UI/UX",
+    "title1": "We are design agency ",
+    "title2": "with solid expertise in UI/UX",
     "description": "We put aesthetics in the right direction"
   },
   "cases": {

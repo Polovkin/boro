@@ -1,64 +1,59 @@
 <template>
   <nuxt-link
-    v-if="link"
-    class="button__link text-color-primary"
-    :to="link"
+      v-if="link"
+      class="button__link text-color-primary"
+      :to="link"
   >
     <button
-      ref="button"
-      class="button"
-      @mouseleave="mouseLeave"
-      @mouseenter="mouseEnter"
+        ref="button"
+        class="button"
+        @mouseleave="mouseLeave"
+        @mouseenter="mouseEnter"
     >
-      <slot />
+      <slot/>
       <span
-        ref="circle"
-        class="button__circle"
+          ref="circle"
+          class="button__circle"
       >
         <span class="icon">
-          <span class="arrow" />
+          <span class="arrow"/>
         </span>
         <span
-          ref="wave"
-          class="button__wave"
+            ref="wave"
+            class="button__wave"
         />
       </span>
     </button>
   </nuxt-link>
-
   <button
-    v-else
-    ref="button"
-    class="button"
-    :type="isSubmit ? 'submit':'button'"
-    @click.prevent="buttonClickEvents"
-    @mouseleave="mouseLeave"
-    @mouseenter="mouseEnter"
+      v-else
+      ref="button"
+      class="button"
+      :class="isLight ? 'button--light':''"
+      :type="isSubmit ? 'submit':'button'"
+      @click.prevent="buttonClickEvents"
+      @mouseleave="mouseLeave"
+      @mouseenter="mouseEnter"
   >
-    <slot />
+    <slot/>
     <span
-      ref="circle"
-      class="button__circle"
+        ref="circle"
+        class="button__circle"
     >
       <span class="icon">
-        <span class="arrow" />
+        <span class="arrow"/>
       </span>
       <span
-        ref="wave"
-        class="button__wave"
+          ref="wave"
+          class="button__wave"
       />
     </span>
-    <!--    <span
-          v-if="isPopupToggle"
-          class="button__popup-toggle"
-          :class="{'button__popup-toggle&#45;&#45;active':isPopOpen,'button__popup-toggle&#45;&#45;active-menu':isInMenuOpen}"
-        />-->
   </button>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { POPUP_GET_IN_TOUCH } from '../../../store/types'
+import {mapState} from 'vuex';
+import {POPUP_GET_IN_TOUCH} from '../../../store/types';
 
 export default {
   name: 'ButtonPrimary',
@@ -68,6 +63,10 @@ export default {
       default: ''
     },
     isSubmit: {
+      type: Boolean,
+      default: false
+    },
+    isLight: {
       type: Boolean,
       default: false
     },
@@ -81,12 +80,12 @@ export default {
     }
 
   },
-  data () {
+  data() {
     return {
       wave: null,
       classHover: 'button--hover',
       classLeave: 'button--leave'
-    }
+    };
   },
   computed: {
     ...mapState({
@@ -96,39 +95,39 @@ export default {
   },
 
   methods: {
-    mouseEnter (event) {
-      this.$refs.button.classList.remove(this.classLeave)
+    mouseEnter(event) {
+      this.$refs.button.classList.remove(this.classLeave);
 
-      this.$refs.wave.style.left = event.clientX - this.$refs.circle.getBoundingClientRect().left + 'px'
-      this.$refs.wave.style.top = event.clientY - this.$refs.circle.getBoundingClientRect().top + 'px'
+      this.$refs.wave.style.left = event.clientX - this.$refs.circle.getBoundingClientRect().left + 'px';
+      this.$refs.wave.style.top = event.clientY - this.$refs.circle.getBoundingClientRect().top + 'px';
 
       // eslint-disable-next-line no-void
-      void this.$refs.button.offsetWidth
-      this.$refs.button.classList.add(this.classHover)
+      void this.$refs.button.offsetWidth;
+      this.$refs.button.classList.add(this.classHover);
     },
-    mouseLeave () {
-      this.$refs.button.classList.remove(this.classHover)
-      this.$refs.button.classList.add(this.classLeave)
+    mouseLeave() {
+      this.$refs.button.classList.remove(this.classHover);
+      this.$refs.button.classList.add(this.classLeave);
     },
-    buttonClickEvents () {
+    buttonClickEvents() {
       if (this.isSubmit) {
-        this.buttonSubmit()
+        this.buttonSubmit();
       }
 
       if (this.isPopupToggle) {
-        this.$store.commit('popups/SET_POPUP_TYPE', this.popupCalledType)
-        this.$store.dispatch('popups/OPEN_MODAL')
+        this.$store.commit('popups/SET_POPUP_TYPE', this.popupCalledType);
+        this.$store.dispatch('popups/OPEN_MODAL');
       }
     },
-    buttonSubmit () {
-      this.$emit('submitEvent')
-      return null
+    buttonSubmit() {
+      this.$emit('submitEvent');
+      return null;
     },
-    openTouchInMenu () {
+    openTouchInMenu() {
 
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -181,7 +180,6 @@ export default {
   $arrow_animation_duration: .3s;
   $arrow_animation_delay: .1s;
   $wave_animation_duration: 1s;
-  color: $color__font--primary;
   @include title-link;
   align-items: center;
 
@@ -189,9 +187,30 @@ export default {
 
   display: flex;
 
+  color: $color__font--primary;
+
   //padding: 10px 0;
 
   transition: all .1s ease-in;
+
+  &--light {
+    color: $color__font_light--primary;
+
+    .button__wave {
+      display: none;
+    }
+
+    &:hover {
+
+      .arrow {
+        background-color: $color__dark !important;
+
+        &:after, &:before {
+          background-color: $color__dark !important;
+        }
+      }
+    }
+  }
 
   &--leave {
 

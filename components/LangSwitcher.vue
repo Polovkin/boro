@@ -80,7 +80,7 @@ export default {
 
     display: flex;
 
-    background-color: $color__background_primary;
+    background-color: $color__dark;
 
     transition: all $animation_fu $animation_time;
   }
@@ -100,10 +100,11 @@ export default {
     width: $width_dropdown;
     height: 100px;
 
-    border: 1px solid $color__dark_6;
+    border: 1px solid $color__light_16;
+    border-top: none;
     border-radius: 0px 0px 4px 4px;
 
-    background-color: $color__background_primary;
+    background-color: $color__dark;
 
     transform: translateY(0);
 
@@ -135,7 +136,7 @@ export default {
 
   button {
     @include body-secondary;
-    color: $color__font--primary;
+    color: $color__font_light--primary;
   }
 }
 </style>
