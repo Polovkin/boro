@@ -1,5 +1,6 @@
 <template>
   <Section
+
     v-in-viewport.once
     num-elem
     class="main-about"
@@ -60,8 +61,8 @@
             <img
               alt="Elena"
               loading="lazy"
-              width="430"
-              height="368"
+              width="1290"
+              height="1104"
               src="/img/about1.jpg"
             >
           </figure>
@@ -71,8 +72,8 @@
             <img
               alt="Khabib"
               loading="lazy"
-              width="430"
-              height="566"
+              width="1548"
+              height="2325"
               src="/img/about2.jpg"
             >
           </figure>
@@ -82,8 +83,8 @@
             <img
               alt="Yeghor"
               loading="lazy"
-              width="430"
-              height="458"
+              width="1290"
+              height="1374"
               src="/img/about3.jpg"
             >
           </figure>
@@ -94,6 +95,7 @@
       <hr class="divider divider-mobile">
       <dl
         v-in-viewport.once
+        v-observe-visibility="visibilityChanged"
         class="main-about__grid"
       >
         <div
@@ -102,7 +104,9 @@
           class="main-about__grid-item animation-fade"
         >
           <!--          <dt>{{ item.number }}</dt>-->
-          <dt>{{ num }}</dt>
+          <dt>
+            <AnimatedNumber :number="test[index].number" />
+          </dt>
           <dl>{{ $t(item.text) }}</dl>
         </div>
       </dl>
@@ -118,10 +122,12 @@ import {
 } from 'hooper'
 import Section from '../reusable/Section'
 import LinkPrimary from '../reusable/LinkPrimary'
+import AnimatedNumber from '../reusable/AnimatedNumber'
 
 export default {
   name: 'MainAbout',
   components: {
+    AnimatedNumber,
     LinkPrimary,
     Section,
     Hooper,
@@ -145,7 +151,7 @@ export default {
           text: 'about.specialists'
         }
       ],
-      num: 0,
+      test: [{ number: 0 }, { number: 0 }, { number: 0 }],
       hooperSettings: {
         itemsToShow: 1.175,
         wheelControl: false,
@@ -154,9 +160,14 @@ export default {
     }
   },
   methods: {
-    grow (n) {
-
+    visibilityChanged (isVisible, entry) {
+      if (isVisible) {
+        setTimeout(() => {
+          this.test = this.numbersData
+        }, 1000)
+      }
     }
+
   }
 }
 </script>

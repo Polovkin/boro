@@ -10,7 +10,6 @@ export const mutations = {
   },
   SET_HEADER_DARK (s, payload) {
     s.headerIsDark = payload
-    console.log(s.headerIsDark);
   },
   SET_HEADER_TOP_STATE (s, payload) {
     s.headerTopState = payload

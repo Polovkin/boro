@@ -2,9 +2,11 @@ import Vue from 'vue'
 import inViewportDirective from 'vue-in-viewport-directive'
 import VueMask from 'v-mask'
 import LocomotiveScroll from './locomotive'
+import VueObserveVisibility from 'vue-observe-visibility'
 
 Vue.directive('in-viewport', inViewportDirective)
 
+Vue.use(VueObserveVisibility)
 Vue.use(LocomotiveScroll)
 Vue.use(VueMask)
 Vue.directive('click-outside', {

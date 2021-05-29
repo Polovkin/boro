@@ -6,7 +6,6 @@ export const state = () => ({
 export const mutations = {
   CLOSE_CUSTOM_DROPDOWN (s,payload) {
     s.customDropdownState = payload
-    console.log(s.customDropdownState);
   }
 }
 
