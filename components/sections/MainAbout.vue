@@ -51,7 +51,10 @@
           >
         </figure>
       </div>
-      <hooper class="main-about__slider" :settings="hooperSettings">
+      <hooper
+        class="main-about__slider"
+        :settings="hooperSettings"
+      >
         <slide>
           <figure class="main-about__img animation-image-viewport">
             <img
@@ -89,13 +92,17 @@
       </hooper>
       <hr class="divider">
       <hr class="divider divider-mobile">
-      <dl v-in-viewport.once class="main-about__grid">
+      <dl
+        v-in-viewport.once
+        class="main-about__grid"
+      >
         <div
           v-for="(item,index) of numbersData"
           :key="index"
           class="main-about__grid-item animation-fade"
         >
-          <dt>{{ item.number }}</dt>
+          <!--          <dt>{{ item.number }}</dt>-->
+          <dt>{{ num }}</dt>
           <dl>{{ $t(item.text) }}</dl>
         </div>
       </dl>
@@ -107,12 +114,11 @@
 import {
   Hooper,
   Slide,
-  Progress as HooperProgress,
-  Pagination as HooperPagination,
-  Navigation as HooperNavigation
+  Pagination as HooperPagination
 } from 'hooper'
 import Section from '../reusable/Section'
 import LinkPrimary from '../reusable/LinkPrimary'
+
 export default {
   name: 'MainAbout',
   components: {
@@ -120,29 +126,26 @@ export default {
     Section,
     Hooper,
     Slide,
-    HooperProgress,
-    HooperPagination,
-    HooperNavigation
+    HooperPagination
   },
 
   data () {
     return {
-      height: 1000,
       numbersData: [
         {
-          number: '7+',
+          number: 7,
           text: 'about.years'
         },
         {
-          number: '50',
+          number: 50,
           text: 'about.cases'
         },
         {
-          number: '14',
+          number: 14,
           text: 'about.specialists'
         }
       ],
-      width: 0,
+      num: 0,
       hooperSettings: {
         itemsToShow: 1.175,
         wheelControl: false,
@@ -150,6 +153,11 @@ export default {
       }
     }
   },
+  methods: {
+    grow (n) {
+
+    }
+  }
 }
 </script>
 

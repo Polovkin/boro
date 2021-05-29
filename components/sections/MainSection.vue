@@ -24,7 +24,7 @@
         </p>
         <div class="main-section__tags-wrap animation-move-from-left animation-delay-4">
           <ButtonTag
-            v-for="(tags,index) of socials"
+            v-for="(tags,index) of socialsArr"
             :key="index"
             is-icon-animate
             :link="tags.link"
@@ -48,45 +48,21 @@ export default {
   components: { ButtonTag, Navigation },
   data () {
     return {
-      text: ['UI/UX', 'GL/HF', 'SS/WP'],
-      socials: [
-        {
-          name: 'Instagram',
-          icon: 'instagram.png',
-          link: '/'
-        },
-        {
-          name: 'youtube',
-          icon: 'youtube.png',
-          link: '/'
-        },
-        {
-          name: 'facebook',
-          icon: 'facebook.png',
-          link: '/'
-        },
-        {
-          name: 'behance',
-          icon: 'behance.png',
-          link: '/'
-        },
-        {
-          name: 'Dribble',
-          icon: 'dribble.png',
-          link: '/'
-        }
-      ]
-
+      text: ['UI/UX', 'GL/HF', 'SS/WP']
     }
   },
-  mounted () {
 
-  },
   computed: {
     ...mapState({
       preloaderDone: s => s.app.preloaderDone,
+      socials: s => s.app.socials,
       mainPage: s => s.app.mainPageState
     }),
+
+    socialsArr () {
+      return this.socials
+    },
+
     mainPageState () {
       return this.mainPage
     }

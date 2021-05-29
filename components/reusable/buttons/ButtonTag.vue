@@ -1,7 +1,8 @@
 <template>
-  <nuxt-link
+  <a
     v-if="link"
-    to="link"
+    :href="link"
+    target="_blank"
     class="button-tag"
     :class="{'button-tag--dark':isDark,'button-tag--icon':isIconAnimate}"
   >
@@ -15,7 +16,7 @@
         <slot />
       </span>
     </span>
-  </nuxt-link>
+  </a>
   <button
     v-else
     :class="{'button-tag--dark':isDark}"

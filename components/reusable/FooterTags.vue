@@ -1,7 +1,7 @@
 <template>
   <div class="footer-tags">
     <ButtonTag
-      v-for="(tags,index) of socials"
+      v-for="(tags,index) of socialsArr"
       :key="index"
       :is-dark="isDark"
       class="footer-tags__tag"
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ButtonTag from './buttons/ButtonTag'
 export default {
   name: 'FooterTags',
@@ -25,35 +26,14 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      socials: [
-        {
-          name: 'Instagram',
-          icon: 'instagram.png',
-          link: '/'
-        },
-        {
-          name: 'YouTube',
-          icon: 'youtube.png',
-          link: '/'
-        },
-        {
-          name: 'Facebook',
-          icon: 'facebook.png',
-          link: '/'
-        },
-        {
-          name: 'Behance',
-          icon: 'behance.png',
-          link: '/'
-        },
-        {
-          name: 'Dribbble',
-          icon: 'dribble.png',
-          link: '/'
-        }
-      ]
+
+  computed: {
+    ...mapState({
+      socials: s => s.app.socials
+    }),
+
+    socialsArr () {
+      return this.socials
     }
   }
 
