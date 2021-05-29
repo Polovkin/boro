@@ -3,20 +3,33 @@
 .blog {
   $post_height: 522px;
 
-
-
-
   &__filter {
+    position: relative;
+
     height: 88px;
 
     margin-bottom: 138px;
 
     &-list {
       @include size(100%);
+
+
       display: flex;
-      @include breakpoint ($phone__all) {
-        flex-wrap: wrap;
+
+
+      @include breakpoint($mobile__all) {
+        flex-direction: column;
+
+        position: absolute;
+        top: 54px;
+        z-index: z(content);
+
+        max-height: 0;
+        overflow: hidden;
+
+        border-radius: 4px;
       }
+
     }
 
     &-item {
@@ -36,7 +49,7 @@
         @include title-link;
       }
 
-      span:last-child {
+      &-value {
 
         @include body-tertiary;
         padding: 2px 4px;
@@ -51,18 +64,85 @@
 
         color: $color__font_light--primary;
 
-        span:last-child {
+        .blog__filter-item-value {
           background-color: $color__light_6;
         }
       }
 
-      @include breakpoint ($phone__all) {
-        flex: unset;
+      @include breakpoint($mobile__all) {
 
-        max-width: 200px;
+        &:nth-of-type(1) {
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+
+    }
+
+    &-toggle {
+      justify-content: space-between;
+
+      display: none;
+      width: 100%;
+
+      padding: 32px;
+
+      border-radius: 4px;
+
+      &-wrap {
+        align-items: center;
+
+        display: flex;
+      }
+
+      .arrow {
+        display: none;
+
+        margin-left: 20px;
+
+        background-color:transparent;
+
+        &:after {
+          @include pseudoElement(12px,'ArrowWhite.svg');
+          position: relative;
+        }
+      }
+      @include breakpoint($mobile__all) {
+        display: flex;
       }
     }
 
+    &--active {
+      @include breakpoint($mobile__all) {
+
+        .blog__filter-list {
+          max-height: unset !important;
+          overflow: unset !important;
+        }
+
+        .blog__filter-item {
+          justify-content: space-between;
+
+          padding: 10px 33px;
+
+          border: none;
+        }
+
+        .arrow {
+          display: block;
+        }
+      }
+
+    }
+
+     @include breakpoint ($phone__all) {
+       margin-bottom: 30px;
+      }
   }
 
   &__more {
@@ -71,12 +151,13 @@
   }
 
   &__posts {
-    overflow: hidden;
-    max-height: $post_height *2 + 100px;
     @extend .main-blog__posts;
+    max-height: $post_height *2 + 100px;
+    overflow: hidden;
     grid-row-gap: 64px;
+
     &--show-more {
-      max-height: 2000px
+      max-height: 2000px;
     }
   }
 

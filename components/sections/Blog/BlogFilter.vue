@@ -1,15 +1,28 @@
 <template>
-  <div class="blog__filter">
-    <ul class="blog__filter-list">
+  <div class="blog__filter" :class="{'blog__filter--active':filterState }">
+    <button
+      :class="{'blog__filter-item--active':filterState}"
+      class="blog__filter-toggle blog__filter-item"
+      @click="openFilter"
+    >
+      <span>{{ filterItems[0].text }}</span>
+      <span class="blog__filter-toggle-wrap">
+        <span class="blog__filter-item-value">{{ filterItems[0].value }}</span>
+        <span class="arrow" />
+      </span>
+    </button>
+    <ul
+      class="blog__filter-list"
+    >
       <li
         v-for="(item,index) of filterItems"
         :key="index"
-        :class="{'blog__filter-item--active':index===active}"
+        :class="{'blog__filter-item--active':index===active || filterState}"
         class="blog__filter-item"
         @click="filteredTypes(index,item.type)"
       >
         <span> {{ item.text }}</span>
-        <span>{{ item.value }}</span>
+        <span class="blog__filter-item-value">{{ item.value }}</span>
       </li>
     </ul>
   </div>
@@ -24,6 +37,7 @@ export default {
   data () {
     return {
       active: 0,
+      filterState: false,
       filterItems: [
         {
           text: 'All',
@@ -60,6 +74,9 @@ export default {
   },
 
   methods: {
+    openFilter () {
+      this.filterState = !this.filterState
+    },
     filteredTypes (index, type) {
       this.$store.commit('app/SET_POST_TYPE', type)
       this.active = index
