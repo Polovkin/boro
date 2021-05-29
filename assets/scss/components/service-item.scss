@@ -92,7 +92,8 @@
     @include body-secondary;
     max-width: 310px;
 
-    margin-top: 16px;
+    margin-top: 24px;
+    margin-bottom: 62px;
     @include breakpoint ($phone__all) {
       margin-top: 12px;
       margin-bottom: 32px;
