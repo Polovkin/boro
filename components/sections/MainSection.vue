@@ -1,6 +1,6 @@
 <template>
   <div
-    id="top"
+
     class="main-section"
     :class="{'animation-trigger-start': mainPageState}"
   >
@@ -72,6 +72,7 @@ export default {
   data () {
     return {
       text: ['UI/UX', 'GL/HF', 'SS/WP'],
+      activeSlide: 0,
       slides: [
         {
           url: '/img/main/1.jpg',
@@ -103,9 +104,6 @@ export default {
       socials: s => s.app.socials,
       mainPage: s => s.app.mainPageState
     }),
-    activeSlide () {
-      return this.$store.state.app.mainSlide
-    },
     socialsArr () {
       return this.socials
     },
@@ -114,8 +112,11 @@ export default {
       return this.mainPage
     }
   },
+
   mounted () {
-    this.$store.dispatch('app/DISPATCH_MAIN_SLIDER')
+    setInterval(() => {
+      this.activeSlide = this.activeSlide === 4 ? 0 : this.activeSlide + 1
+    }, 5000)
   }
 
 }

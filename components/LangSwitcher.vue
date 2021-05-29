@@ -80,7 +80,7 @@ export default {
 
     display: flex;
 
-    background-color: $color__dark;
+    background-color: $color__background_primary;
 
     transition: all $animation_fu $animation_time;
   }
@@ -136,7 +136,6 @@ export default {
 
   button {
     @include body-secondary;
-    color: $color__font_light--primary;
   }
 }
 </style>

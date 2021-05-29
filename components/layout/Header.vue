@@ -58,7 +58,7 @@ export default {
       MenuOpen: s => s.popups.menuState
     }),
     isDark () {
-      return this.$store.state.header.headerIsDark
+      return this.$store.state.header.headerIsDark && this.$route.path === '/'
     },
     isPopupsOpen () {
       return this.PopupOpen || this.MenuOpen

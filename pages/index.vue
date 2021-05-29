@@ -1,7 +1,7 @@
 <template>
   <div class="page">
-   <Preloader />
-    <MainSection data-scroll-section />
+    <!--  <Preloader />-->
+    <MainSection id="top" data-scroll-section />
     <div class="container">
       <Cases />
       <MainAbout />
@@ -31,6 +31,7 @@ export default {
     MainSection
 
   },
+
   data () {
     return {
       name: '',
@@ -38,14 +39,15 @@ export default {
     }
   },
   mounted () {
-
+    const scrollOpt = {
+      target: '#top',
+      options: ''
+    }
+    this.$nuxt.$emit('update-locomotive')
+    this.$nuxt.$emit('scroll-locomotive', scrollOpt)
   }
 }
 </script>
 <style lang="scss">
-//@import './demo.scss';
-.test {
-  height: 100vh;
-  //background-color: red;
-}
+
 </style>

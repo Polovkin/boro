@@ -10,7 +10,7 @@
   transition: all ease .2s;
 
   &--dark {
-    background-color: transparent;
+    background-color: $color__dark;
 
     .menu-burger {
       filter: invert(1);
@@ -22,6 +22,13 @@
       }
     }
 
+    .lang-switcher__main {
+      background-color: $color__dark;
+      button {
+        @include body-secondary;
+        color: $color__font_light--primary;
+      }
+    }
   }
 
 
