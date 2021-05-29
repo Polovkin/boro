@@ -33,7 +33,7 @@ import { pageMixin } from '../../mixins/page-mixins'
 import PostCard from '../../components/sections/Blog/PostCard'
 import { POST_ALL } from '../../store/types'
 import MainSection from '../../components/sections/MainSection'
-import PageSection from '../../components/reusable/PageSection'
+import PageSection from '../../components/reusable/blog/PageSection'
 
 export default {
   name: 'Blog',

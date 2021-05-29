@@ -14,18 +14,39 @@
       </div>
     </slot>
     <slot slot="content">
-      <BlogPagination :current="$route.path" />
+      <div class="te4st">
+        <PostSection>
+          <slot slot="title">
+            Ttile
+          </slot>
+          <slot slot="content">
+            content
+          </slot>
+        </PostSection>
+        <PostSection>
+          <slot slot="title">
+            Ttile
+          </slot>
+          <slot slot="content">
+            content
+          </slot>
+        </PostSection>
+      </div>
+
+
+
     </slot>
   </PageSection>
 </template>
 
 <script>
-import PageSection from '../../../components/reusable/PageSection'
+import PageSection from '../../../components/reusable/blog/PageSection'
 import { pageMixin } from '../../../mixins/page-mixins'
 import ButtonTag from '../../../components/reusable/buttons/ButtonTag'
 import BlogPagination from '../../../components/sections/Blog/BlogPagination'
+import PostSection from '../../../components/reusable/blog/PostSection'
 export default {
-  components: { BlogPagination, ButtonTag, PageSection },
+  components: { PostSection, BlogPagination, ButtonTag, PageSection },
   mixins: [pageMixin],
 
   computed: {

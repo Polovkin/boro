@@ -14,11 +14,13 @@
           <div>
             <slot name="elem" />
           </div>
+          <hr class="divider">
         </div>
 
         <div class="page__content">
           <slot name="content" />
         </div>
+
       </section>
     </div>
   </div>
@@ -48,16 +50,36 @@ export default {
     flex-direction: column;
 
     display: flex;
+
+    padding: 32px 0;
+    .post-section:last-child {
+      .divider {
+        display: none;
+      }
+
+    }
   }
 
   &__title {
+
     @include h2;
     align-items: center;
     justify-content: space-between;
 
+    position: relative;
+
     display: flex;
 
-    margin-bottom: 71px;
+    margin-bottom: 32px;
+
+
+    padding-bottom: 32px;
+
+    .divider {
+
+      position: absolute;
+      bottom: 0;
+    }
   }
 }
 
