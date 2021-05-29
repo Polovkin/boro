@@ -12,8 +12,11 @@
           width="326"
           height="248"
           :src="`/img/${data.img}`"
-        />
+        >
       </figure>
+      <div class="service-item__num">
+        {{ index }}
+      </div>
       <div class="service-item__content">
         <h4>{{ data.title }}</h4>
         <p class="service-item__description">
@@ -42,7 +45,7 @@ import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 export default {
   name: 'ServiceItem',
   components: { ButtonPrimary },
-  props: ['data'],
+  props: ['data', 'index'],
   data () {
     return {
       test: false

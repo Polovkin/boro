@@ -6,6 +6,18 @@
     }
   }
 
+  &__num {
+    @include body-secondary;
+    grid-area: num;
+    contain: $color__font_dark--secondary;
+    @include breakpoint ($tablet__portrait) {
+      display: none;
+    }
+    @include breakpoint ($phone__all) {
+      display: none;
+    }
+  }
+
   &__wrap {
     display: grid;
 
@@ -14,19 +26,17 @@
     grid: {
       column-gap: 58px;
       template: {
-        columns: 3fr 9fr 1fr;
-        areas: 'img content buttons';
+        columns: 1fr 10fr 1fr;
+        areas: 'num content buttons';
       };
     }
-    @include breakpoint ($tablet__all) {
-      grid-template-columns: 2fr 3fr 1fr;
-    }
+
     @include breakpoint ($tablet__portrait) {
       grid: {
         row-gap: 32px;
         template: {
           columns: 4fr 2fr;
-          areas: 'img img' 'content buttons' ;
+          areas: 'content buttons' ;
         };
       }
     }
@@ -40,6 +50,7 @@
 
   &__img {
     @include image-wrap-animation;
+    display: none;
     width: 326px;
     height: 245px;
     overflow: hidden;
@@ -50,8 +61,9 @@
       width: 100%;
     }
     @include breakpoint ($phone__all) {
-      margin-bottom: 32px;
       width: 100%;
+
+      margin-bottom: 32px;
     }
   }
 
@@ -70,9 +82,9 @@
 
     &-buttons {
       justify-self: end;
- @include breakpoint ($phone__all) {
-     display: none;
-  }
+      @include breakpoint ($phone__all) {
+        display: none;
+      }
     }
   }
 
