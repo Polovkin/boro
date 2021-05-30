@@ -24,31 +24,31 @@
         class="main-about__images"
       >
         <figure class="main-about__img animation-image-viewport">
-          <nuxt-picture
-
+          <img
+            loading="lazy"
             alt="Elena"
             width="1290"
             height="1104"
             src="/img/about1.jpg"
-          />
+          >
         </figure>
         <figure class="main-about__img  animation-image-viewport">
-          <nuxt-picture
-
+          <img
+            loading="lazy"
             alt="Khabib"
             width="1548"
             height="2325"
             src="/img/about2.jpg"
-          />
+          >
         </figure>
         <figure class="main-about__img  animation-image-viewport">
-          <nuxt-picture
-
+          <img
+            loading="lazy"
             alt="Yeghor"
             width="1290"
             height="1374"
             src="/img/about3.jpg"
-          />
+          >
         </figure>
       </div>
       <hooper
@@ -57,35 +57,35 @@
       >
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <nuxt-picture
+            <img
               alt="Elena"
-
+              loading="lazy"
               width="1290"
               height="1104"
               src="/img/about1.jpg"
-            />
+            >
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <nuxt-picture
+            <img
               alt="Khabib"
-
+              loading="lazy"
               width="1548"
               height="2325"
               src="/img/about2.jpg"
-            />
+            >
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <nuxt-picture
+            <img
               alt="Yeghor"
-
+              loading="lazy"
               width="1290"
               height="1374"
               src="/img/about3.jpg"
-            />
+            >
           </figure>
         </slide>
         <hooper-pagination slot="hooper-addons" />

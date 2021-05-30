@@ -1,13 +1,12 @@
 import i18n from './config/i18'
 
 export default {
-  serverMiddleware: {
-    '/_ipx': '~/server/middleware/ipx.js'
-  },
+
   server: {
     port: 3000,
     host: '0.0.0.0'
   },
+
   head: {
     title: 'Boro digital | UX, Web & Product design agency',
     meta: [
@@ -15,7 +14,9 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
   },
 
   styleResources: {
@@ -25,7 +26,7 @@ export default {
   components: true,
 
   buildModules: [
-
+    '@nuxt/image',
     '@nuxtjs/svg',
     [
       'nuxt-i18n',
@@ -49,7 +50,6 @@ export default {
   ],
 
   modules: [
-    '@nuxt/image',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
@@ -64,8 +64,7 @@ export default {
       require('autoprefixer')({}),
       require('cssnano')({
         preset: [
-          'default',
-          {
+          'default', {
             discardComments: {
               removeAll: true
             }
@@ -78,18 +77,19 @@ export default {
     ]
   },
 
-  image: {},
+  image: {
+
+  },
   pwa: {
     icon: {
       /* icon options */
     }
   },
-  plugins: [{ src: '~/plugins/client.js', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/client.js', mode: 'client' }
+  ],
   publicRuntimeConfig: {
-    BASE_URL:
-      process.env.NODE_ENV === 'production'
-        ? 'https://boro.digital/'
-        : 'http://localhost:3000/',
+    BASE_URL: process.env.NODE_ENV === 'production' ? 'https://boro.digital/' : 'http://localhost:3000/',
     IS_DEV: process.env.IS_DEVELOP === 'true'
   }
 }
