@@ -22,11 +22,14 @@
       }
     }
 
-    .lang-switcher__main {
-      background-color: $color__dark;
+    .lang-switcher {
       button {
         @include body-secondary;
         color: $color__font_light--primary;
+      }
+
+      &__main {
+        background-color: $color__dark;
       }
     }
   }

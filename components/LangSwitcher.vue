@@ -100,11 +100,11 @@ export default {
     width: $width_dropdown;
     height: 100px;
 
-    border: 1px solid $color__light_16;
+    border: 1px solid $color__dark_16;
     border-top: none;
     border-radius: 0px 0px 4px 4px;
 
-    background-color: $color__dark;
+    background-color: $color__background_primary;
 
     transform: translateY(0);
 
