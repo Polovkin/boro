@@ -70,7 +70,6 @@ export default {
 
     display: flex;
 
-    margin-bottom: 32px;
 
 
     padding-bottom: 32px;

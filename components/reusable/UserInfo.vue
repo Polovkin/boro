@@ -9,12 +9,12 @@
           width="62"
           height="62"
           loading="lazy"
-          :src="`/img/${data.img}`"
+          :src="data.img"
           alt="stos"
         />
       </figure>
       <p class="user-info__position">
-        {{ $t(data.position) }}
+        {{ $t(data.role) }}
       </p>
       <p class="user-info__name">
         {{ data.name }}

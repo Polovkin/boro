@@ -184,11 +184,9 @@
           class="form__users"
         >
           <UserInfo
-            v-for="(user,index) of users"
-            :key="index"
             is-dark
-            :tags="user.tags"
-            :data="user.info"
+            :tags="user.socials"
+            :data="user.data"
           />
         </div>
         <div
@@ -254,32 +252,6 @@ export default {
         budget: null,
         deadline: null
       },
-      users: [
-        {
-          info: {
-            img: 'anna.jpg',
-            position: 'user.account-manager',
-            name: 'Anna Haiduk'
-          },
-          tags: [
-            {
-              name: 'Viber',
-              icon: 'facebook.png',
-              link: '/'
-            },
-            {
-              name: 'WhatsApp',
-              icon: 'facebook.png',
-              link: '/'
-            },
-            {
-              name: 'Telegram',
-              icon: 'facebook.png',
-              link: '/'
-            }
-          ]
-        }
-      ],
       selectData: ['< 5000', '5-10K', '10-30K', '30-50K', '>50k'],
       types: ['mobile', 'web', 'website', 'illustration', '3d', 'motion', 'ux', 'design', 'graphic', 'front', 'back', 'other'],
       fileText: 'form.file'
@@ -292,6 +264,9 @@ export default {
       storePopupState: s => s.popups.popupState,
       animationDone: s => s.popups.menuAnimationInProgress
     }),
+    user () {
+      return this.$store.state.app.user
+    },
     animationDoneState () {
       return this.animationDone
     },

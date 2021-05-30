@@ -14,8 +14,8 @@
       <div class="lead-section__contact">
         <UserInfo
           class="animation-move-from-left"
-          :data="data"
-          :tags="socials"
+          :data="user.data"
+          :tags="user.socials"
         />
       </div>
     </div>
@@ -32,31 +32,13 @@ export default {
   components: { UserInfo, ButtonTag },
   data () {
     return {
-      data: {
-        img: 'anna.jpg',
-        position: 'user.account-manager',
-        name: 'Anna Haiduk'
-      },
-      socials: [
-        {
-          name: 'Viber',
-          icon: 'facebook.png',
-          link: '/'
-        },
-        {
-          name: 'WhatsApp',
-          icon: 'facebook.png',
-          link: '/'
-        },
-        {
-          name: 'Telegram',
-          icon: 'facebook.png',
-          link: '/'
-        }
-      ]
+
     }
   },
   computed: {
+    user () {
+      return this.$store.state.app.user
+    },
     content () {
       return this.$store.state.app.content
     }

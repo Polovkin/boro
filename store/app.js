@@ -1,3 +1,4 @@
+import data from '../data'
 import {
   POST_ALL,
   POST_DESIGN,
@@ -6,7 +7,6 @@ import {
   POST_MANAGMENT,
   POST_TEAM
 } from './types'
-
 export const state = () => ({
   scrollDirection: null,
   mainSlide: 0,
@@ -16,6 +16,30 @@ export const state = () => ({
   content: {
     phone: '+3 (8093) 93 12 641',
     email: 'hello@boro.com'
+  },
+  user: {
+    data: {
+      img: '/img/anna.jpg',
+      role: 'user.account-manager',
+      name: 'Anna Haiduk'
+    },
+    socials: [
+      {
+        name: 'Viber',
+        icon: 'facebook.png',
+        link: '/'
+      },
+      {
+        name: 'WhatsApp',
+        icon: 'facebook.png',
+        link: '/'
+      },
+      {
+        name: 'Telegram',
+        icon: 'facebook.png',
+        link: '/'
+      }
+    ]
   },
   socials: [
     {
@@ -45,170 +69,7 @@ export const state = () => ({
     }
   ],
   blogFilterType: POST_ALL,
-  posts: [
-    {
-      link: '/blog/posts/1',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author'
-      },
-      data: {
-        img: '/img/blog1.jpg',
-        title: 'UX analytics of an online store',
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-        readTime: '9min'
-      },
-      type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
-      tags: ['UI/UX Design', 'Web design']
-    },
-    {
-      link: '/blog/posts/2',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author',
-        readTime: '3min'
-      },
-      data: {
-        img: '/img/blog2.jpg',
-        title: 'What should be the workplace',
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
-      },
-      tags: ['UI/UX Design', 'Web design'],
-      type: [POST_DESIGN, POST_MANAGMENT]
-    },
-    {
-      link: '/blog/posts/3',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author',
-        readTime: '3min'
-      },
-      data: {
-        img: '/img/blog3.jpg',
-        title: "Developer's corporate website design",
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
-      },
-      tags: ['UI/UX Design', 'Web design'],
-      type: [POST_DESIGN, POST_EVENTS]
-    },
-    {
-      link: '/blog/posts/4',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author'
-      },
-      data: {
-        img: '/img/blog1.jpg',
-        title: 'UX analytics of an online store',
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-        readTime: '9min'
-      },
-      type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
-      tags: ['UI/UX Design', 'Web design']
-    },
-    {
-      link: '/blog/posts/5',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author',
-        readTime: '3min'
-      },
-      data: {
-        img: '/img/blog2.jpg',
-        title: 'What should be the workplace',
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
-      },
-      tags: ['UI/UX Design', 'Web design'],
-      type: [POST_DESIGN, POST_MANAGMENT]
-    },
-    {
-      link: '/blog/posts/6',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author',
-        readTime: '3min'
-      },
-      data: {
-        img: '/img/blog3.jpg',
-        title: "Developer's corporate website design",
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
-      },
-      tags: ['UI/UX Design', 'Web design'],
-      type: [POST_DESIGN, POST_EVENTS]
-    },
-    {
-      link: '/blog/posts/7',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author'
-      },
-      data: {
-        img: '/img/blog1.jpg',
-        title: 'UX analytics of an online store',
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.',
-        readTime: '9min'
-      },
-      type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
-      tags: ['UI/UX Design', 'Web design']
-    },
-    {
-      link: '/blog/posts/8',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author',
-        readTime: '3min'
-      },
-      data: {
-        img: '/img/blog2.jpg',
-        title: 'What should be the workplace',
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
-      },
-      tags: ['UI/UX Design', 'Web design'],
-      type: [POST_DESIGN, POST_MANAGMENT]
-    },
-    {
-      link: '/blog/posts/9',
-      date: '14 April 2021',
-      author: {
-        img: '',
-        name: 'Yehor Haiduk',
-        role: 'Author',
-        readTime: '3min'
-      },
-      data: {
-        img: '/img/blog3.jpg',
-        title: "Developer's corporate website design",
-        text:
-          'Want to know how such works are created? Make tea and sit down more comfortably, the next 8 minutes will not let you get bored.'
-      },
-      tags: ['UI/UX Design', 'Web design'],
-      type: [POST_DESIGN, POST_EVENTS]
-    }
-  ]
+  posts: data
 })
 
 export const mutations = {

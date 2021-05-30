@@ -25,16 +25,51 @@
         </div>
 
         <div class="page__content">
-          <PostSection>
-            <slot slot="title">
-              Ttile
-            </slot>
-            <slot slot="content">
-              content
-            </slot>
-          </PostSection>
+          <div
+            v-in-viewport
+            class="post-section "
+          >
+            <div class="post__header">
+              <UserInfo :data="post.author" />
+              <p class="post__header-time">
+                {{ post.data.readTime }} {{ $t('blog.time') }}
+              </p>
+            </div>
+            <div class="post__header-img">
+              <img
+                :src="post.data.img"
+                :alt="post.data.title"
+              >
+            </div>
+            <hr class="divider">
+          </div>
+          <PostSection
+            v-for="(content,index) of post.data.content"
+            :key="index"
+            :class="{'post-section__last':index===post.data.content.length - 1}"
+            :data="content"
+          />
+          <div />
+          <div class="post-section post-section__footer">
+            <div>
+              <p>{{ $t('blog.share') }}</p>
+              <div class="post-section__footer-tags">
+                <ButtonTag
+                  v-for="(link,index) of share"
+                  :key="index"
+                  :link="link.link"
+                >
+                  {{ link.name }}
+                </ButtonTag>
+              </div>
+            </div>
+            <div>
+              <ButtonToTop />
+            </div>
+            <hr class="divider">
+          </div>
+          <BlogPagination :current="$route.path" />
         </div>
-        <BlogPagination :current="$route.path" />
       </section>
     </div>
   </div>
@@ -45,10 +80,30 @@ import { pageMixin } from '../../../mixins/page-mixins'
 import ButtonTag from '../../../components/reusable/buttons/ButtonTag'
 import PostSection from '../../../components/sections/Blog/PostSection'
 import BlogPagination from '../../../components/sections/Blog/BlogPagination'
-export default {
-  components: { BlogPagination, PostSection, ButtonTag },
-  mixins: [pageMixin],
+import UserInfo from '../../../components/reusable/UserInfo'
+import ButtonToTop from '../../../components/reusable/buttons/ButtonToTop'
 
+export default {
+  components: { ButtonToTop, UserInfo, BlogPagination, PostSection, ButtonTag },
+  mixins: [pageMixin],
+  data () {
+    return {
+      share: [
+        {
+          name: 'Facebook',
+          link: '/'
+        },
+        {
+          name: 'Twitter',
+          link: '/'
+        },
+        {
+          name: 'LinkedIn',
+          link: '/'
+        }
+      ]
+    }
+  },
   computed: {
     post () {
       return this.$store.state.app.posts.filter(e => e.link === this.$route.path)[0]

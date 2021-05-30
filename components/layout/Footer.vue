@@ -79,9 +79,8 @@
       </div>
       <div
         class="footer__main-button animation-move-from-left animation-delay-4"
-        @click="toTop"
       >
-        <button>{{ $t('buttons.to-top') }}<span /></button>
+        <ButtonToTop />
       </div>
     </div>
     <hr class="divider">
@@ -104,10 +103,11 @@ import LinkPrimary from '../reusable/LinkPrimary'
 import ButtonTag from '../reusable/buttons/ButtonTag'
 import FooterTags from '../reusable/FooterTags'
 import { POPUP_ESTIMATE } from '../../store/types'
+import ButtonToTop from '../reusable/buttons/ButtonToTop'
 
 export default {
   name: 'Footer',
-  components: { FooterTags, ButtonTag, LinkPrimary, Navigation, ButtonPrimary, LayoutNav, Logo },
+  components: { ButtonToTop, FooterTags, ButtonTag, LinkPrimary, Navigation, ButtonPrimary, LayoutNav, Logo },
   data () {
     return {
       type: POPUP_ESTIMATE,
@@ -132,16 +132,8 @@ export default {
     setTimeout(() => {
       this.$nuxt.$emit('update-locomotive')
     }, 1000)
-  },
-  methods: {
-    toTop () {
-      const data = {
-        target: '#top',
-        options: ''
-      }
-      this.$nuxt.$emit('scroll-locomotive', data)
-    }
   }
+
 }
 </script>
 

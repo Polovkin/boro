@@ -101,6 +101,8 @@
   "blog": {
     "title": "Blog",
     "more": "Show more",
+    "time": "to read",
+    "share": "Share",
     "tags": {
       "POST__TEAM": "Team",
       "POST_EVENTS": "Events",
