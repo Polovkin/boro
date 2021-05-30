@@ -29,8 +29,8 @@ jobs:
         # Env  
         - name: Make envfile
           uses: SpicyPizza/create-envfile@v1
-          #with:
-              #envkey_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+          with:
+              envkey_IS_DEVELOP: false
               #envkey_RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
               #file_name: .env     
         #Copy
