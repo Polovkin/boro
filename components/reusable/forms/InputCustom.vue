@@ -512,7 +512,7 @@ input[autocomplete='off']:read-only {
   &--light {
     color: $color__font--primary;
 
-    .input-custom__placeholder, .input-custom__textarea, .input-custom {
+    .input-custom__placeholder, .input-custom__textarea, .input-custom, .input-custom__error-msg {
       color: $color__font--primary;
     }
 

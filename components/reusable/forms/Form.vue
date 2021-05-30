@@ -126,7 +126,6 @@
             />
           </div>
         </template>
-
         <template v-else>
           <div class="form__item animation-move-from-right">
             <InputCustom
@@ -362,7 +361,7 @@ export default {
         this.file = null
       }
     },
-    async sendForm () {
+    sendForm () {
       this.touch = true
       // console.log(this.formData)
       const form = new FormData(this.$refs.form)
