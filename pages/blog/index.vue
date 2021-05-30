@@ -32,12 +32,11 @@ import BlogFilter from '../../components/sections/Blog/BlogFilter'
 import { pageMixin } from '../../mixins/page-mixins'
 import PostCard from '../../components/sections/Blog/PostCard'
 import { POST_ALL } from '../../store/types'
-import MainSection from '../../components/sections/MainSection'
-import PageSection from '../../components/reusable/blog/PageSection'
+import PageSection from '../../components/sections/Blog/PageSection'
 
 export default {
   name: 'Blog',
-  components: { PageSection, MainSection, PostCard, BlogFilter },
+  components: { PageSection, PostCard, BlogFilter },
   mixins: [pageMixin],
   data () {
     return {

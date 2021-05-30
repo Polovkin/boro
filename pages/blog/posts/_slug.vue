@@ -1,52 +1,52 @@
 <template>
-  <PageSection class="post">
-    <slot slot="title">
-      {{ post.data.title }}
-    </slot>
-    <slot slot="elem">
-      <div class="post__tags">
-        <ButtonTag
-          v-for="(tag,index) of post.tags"
-          :key="index"
-        >
-          {{ tag }}
-        </ButtonTag>
-      </div>
-    </slot>
-    <slot slot="content">
-      <div class="te4st">
-        <PostSection>
-          <slot slot="title">
-            Ttile
-          </slot>
-          <slot slot="content">
-            content
-          </slot>
-        </PostSection>
-        <PostSection>
-          <slot slot="title">
-            Ttile
-          </slot>
-          <slot slot="content">
-            content
-          </slot>
-        </PostSection>
-      </div>
+  <div class="page post">
+    <div class="container">
+      <section
+        id="top"
+        v-in-viewport
+        class="page__section"
+        data-scroll-section
+      >
+        <div class="page__title">
+          <h2>
+            {{ post.data.title }}
+          </h2>
 
+          <div class="post__tags">
+            <ButtonTag
+              v-for="(tag,index) of post.tags"
+              :key="index"
+            >
+              {{ tag }}
+            </ButtonTag>
+          </div>
 
+          <hr class="divider">
+        </div>
 
-    </slot>
-  </PageSection>
+        <div class="page__content">
+          <PostSection>
+            <slot slot="title">
+              Ttile
+            </slot>
+            <slot slot="content">
+              content
+            </slot>
+          </PostSection>
+        </div>
+        <BlogPagination :current="$route.path" />
+      </section>
+    </div>
+  </div>
 </template>
 
 <script>
-import PageSection from '../../../components/reusable/blog/PageSection'
 import { pageMixin } from '../../../mixins/page-mixins'
 import ButtonTag from '../../../components/reusable/buttons/ButtonTag'
+import PostSection from '../../../components/sections/Blog/PostSection'
 import BlogPagination from '../../../components/sections/Blog/BlogPagination'
-import PostSection from '../../../components/reusable/blog/PostSection'
 export default {
-  components: { PostSection, BlogPagination, ButtonTag, PageSection },
+  components: { BlogPagination, PostSection, ButtonTag },
   mixins: [pageMixin],
 
   computed: {
