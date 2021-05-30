@@ -1,7 +1,7 @@
 <template>
   <div
     class="form"
-    :class="{'form-estimate':!popupTypeTouch}"
+    :class="{'form-estimate':!popupTypeTouch && !isContacts}"
   >
     <form
       id="form"
@@ -12,7 +12,7 @@
       <div class="form__body">
         <div class="form__heading ">
           <template
-            v-if="popupTypeTouch"
+            v-if="popupTypeTouch || isContacts"
           >
             <div class="animation-mask">
               <h2 class="form__title animation-fade">
@@ -36,11 +36,11 @@
             </h2>
           </div>
         </div>
-        <template v-if="popupTypeTouch">
+        <template v-if="isContacts">
           <div class="form__item animation-move-from-right ">
             <InputCustom
               v-model="formData.name"
-              :is-light="isLight"
+              :is-light="isContacts"
               :form-touch="touch"
               is-required
               form-id="form"
@@ -51,7 +51,7 @@
           <div class="form__item animation-move-from-right animation-delay-2">
             <InputCustom
               v-model="formData.email"
-              :is-light="isLight"
+              :is-light="isContacts"
               :form-touch="touch"
               is-required
               is-email
@@ -63,7 +63,7 @@
           <div class="form__item  animation-move-from-right animation-delay-4">
             <InputCustom
               v-model="formData.phone"
-              :is-light="isLight"
+              :is-light="isContacts"
               :form-touch="touch"
               is-phone
               :form-id="'form'"
@@ -74,7 +74,7 @@
           <div class="form__item  animation-move-from-right animation-delay-6">
             <InputCustom
               v-model="formData.message"
-              :is-light="isLight"
+              :is-light="isContacts"
               :form-touch="touch"
               is-textarea
               :form-id="'form'"
@@ -83,6 +83,50 @@
             />
           </div>
         </template>
+        <template v-else-if="popupTypeTouch">
+          <div class="form__item animation-move-from-right ">
+            <InputCustom
+              v-model="formData.name"
+              :form-touch="touch"
+              is-required
+              form-id="form"
+              :name="'nameField'"
+              :placeholder="$t('form.placeholder.name')"
+            />
+          </div>
+          <div class="form__item animation-move-from-right animation-delay-2">
+            <InputCustom
+              v-model="formData.email"
+              :form-touch="touch"
+              is-required
+              is-email
+              :form-id="'form'"
+              :name="'emailField'"
+              :placeholder="$t('form.placeholder.email')"
+            />
+          </div>
+          <div class="form__item  animation-move-from-right animation-delay-4">
+            <InputCustom
+              v-model="formData.phone"
+              :form-touch="touch"
+              is-phone
+              :form-id="'form'"
+              :name="'phoneField'"
+              :placeholder="$t('form.placeholder.phone')"
+            />
+          </div>
+          <div class="form__item  animation-move-from-right animation-delay-6">
+            <InputCustom
+              v-model="formData.message"
+              :form-touch="touch"
+              is-textarea
+              :form-id="'form'"
+              :name="'message'"
+              :placeholder="$t('form.placeholder.message')"
+            />
+          </div>
+        </template>
+
         <template v-else>
           <div class="form__item animation-move-from-right">
             <InputCustom
@@ -246,7 +290,7 @@ export default {
   name: 'Form',
   components: { FormTag, InputCustom, UserInfo, ButtonPrimary },
   props: {
-    isLight: {
+    isContacts: {
       type: Boolean,
       default: false
     }

@@ -20,9 +20,9 @@
           <span class="footer__main-title">{{ $t('footer.call') }}</span>
           <br>
           <LinkPrimary
-              is-static
-              is-to
-              :link="`tel:${content.phone}`"
+            is-static
+            is-to
+            :link="`tel:${content.phone}`"
           >
             {{ content.phone }}
           </LinkPrimary>
@@ -31,9 +31,9 @@
           <span class="footer__main-title">{{ $t('footer.office') }}</span>
           <br>
           <LinkPrimary
-              is-static
-              is-to
-              :link="'#'"
+            is-static
+            is-to
+            :link="'#'"
           >
             {{ $t('footer.address') }}
           </LinkPrimary>
@@ -43,7 +43,7 @@
       </div>
       <div class="contacts__content">
         <p>{{ $t('contacts.badge') }}</p>
-        <Form :class="{'popup--active':ready}" is-light class="contacts__form " />
+        <Form :class="{'popup--active':ready}" is-contacts class="contacts__form " />
       </div>
     </slot>
   </PageSection>
@@ -54,6 +54,7 @@ import PageSection from '../components/sections/Blog/PageSection'
 import { pageMixin } from '../mixins/page-mixins'
 import Form from '../components/reusable/forms/Form'
 import LinkPrimary from '../components/reusable/LinkPrimary'
+import { POPUP_GET_IN_TOUCH } from '../store/types'
 export default {
   name: 'Contacts',
   components: { LinkPrimary, Form, PageSection },
@@ -70,6 +71,7 @@ export default {
   },
   mounted () {
     this.ready = true
+    this.$store.commit('app/SET_POPUP_TYPE', POPUP_GET_IN_TOUCH)
   }
 }
 </script>
