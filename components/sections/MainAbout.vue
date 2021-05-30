@@ -1,6 +1,5 @@
 <template>
   <Section
-
     v-in-viewport.once
     num-elem
     class="main-about"

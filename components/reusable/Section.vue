@@ -51,6 +51,9 @@ export default {
 
   &__elem {
     align-self: flex-end;
+    a {
+      color: $color--font--primary;
+    }
     @include breakpoint ($phone__all) {
       position: relative;
       top: -2px;
