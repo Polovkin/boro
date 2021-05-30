@@ -1,7 +1,10 @@
 <template>
   <div class="page">
-    <Preloader />
-    <MainSection id="top" data-scroll-section />
+    <Preloader v-if="!$config.IS_DEV" />
+    <MainSection
+      id="top"
+      data-scroll-section
+    />
     <div class="container">
       <Cases />
       <MainAbout />

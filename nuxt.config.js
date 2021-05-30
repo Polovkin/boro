@@ -58,7 +58,7 @@ export default {
 
   build: {
     loaders: {
-      scss: { sourceMap: false },
+      scss: { sourceMap: false }
     },
     postcss: [
       require('autoprefixer')({}),
@@ -86,7 +86,10 @@ export default {
     }
   },
   plugins: [
-    { src: '~/plugins/client.js', mode: 'client' },
-  ]
-
+    { src: '~/plugins/client.js', mode: 'client' }
+  ],
+  publicRuntimeConfig: {
+    BASE_URL: process.env.NODE_ENV === 'production' ? 'https://boro.digital/' : 'http://localhost:3000/',
+    IS_DEV: process.env.IS_DEVELOP === 'true',
+  }
 }

@@ -11,8 +11,8 @@ export const state = () => ({
   scrollDirection: null,
   mainSlide: 0,
   mainPageState: true,
-   preloaderDone: false,
-  //preloaderDone: true,
+  preloaderDone: process.env.IS_DEVELOP === 'true',
+  // preloaderDone: true,
   content: {
     phone: '+3 (8093) 93 12 641',
     email: 'hello@boro.com'

@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="isPreloaderShow"
     class="preloader"
     :class="{'preloader--hide':hide}"
   >
@@ -41,11 +40,12 @@ export default {
     }
   },
   mounted () {
-
     setTimeout(() => {
       this.hide = true
-      this.$store.dispatch('app/DISPATCH_PRELOAD_STATE')
     }, this.animationDuration)
+    setTimeout(() => {
+      this.$store.dispatch('app/DISPATCH_PRELOAD_STATE')
+    }, this.animationDuration - 500)
   }
 }
 </script>
@@ -81,14 +81,16 @@ $preloader_hide_duration: .4s;
     transform: translateX(0);
   }
 
+  99% {
+    transform: translateX(105%);
+  }
+
   100% {
-    transform: translateX(100%);
+    visibility: hidden;
   }
 }
 
 .preloader {
-  width: 100vw;
-  height: 100vh;
   align-items: center;
   justify-content: center;
 
@@ -96,8 +98,11 @@ $preloader_hide_duration: .4s;
   z-index: z(preloader);
 
   display: flex;
+  width: 100vw;
+  height: 100vh;
 
   background-color: $color__dark;
+  box-shadow: -13px 8px 20px 0px hsl(0deg 0% 100% / 10%), 0 5px 8px hsl(0deg 0% 100% / 10%);
 
   &__logo {
     width: round($base_width * $multiple);
