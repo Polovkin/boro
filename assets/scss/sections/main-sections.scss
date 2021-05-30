@@ -65,7 +65,7 @@
   &__smile {
     @include pseudoElement(60px, 'smile.svg');
     position: relative;
-    top: 5px;
+    top: -10px;
     left: 10px;
     z-index: z(content);
 
@@ -82,7 +82,6 @@
   &__circle {
     @include size(180px);
     position: relative;
-    top: 25px;
 
     display: inline-block;
 
@@ -162,16 +161,38 @@
     @extend %footer-component;
     position: relative;
     z-index: z(content);
+
+    hr.divider {
+
+      position: absolute;
+      top: 0;
+      bottom: unset;
+
+      max-width: 0;
+
+      &.divider-anim {
+        max-width: 100%;
+      }
+    }
   }
 
   &__navigation {
     position: relative;
     z-index: z(content);
 
+
     .navigation__link {
       margin-top: auto;
 
       color: $color__font_light--primary;
+    }
+    @include breakpoint($desktop__all) {
+      padding-bottom: 32px;
+
+      .navigation__list {
+        margin-top: auto;
+      }
+
     }
 
     @include breakpoint($mobile__all) {
@@ -179,9 +200,4 @@
     }
   }
 
-  .divider {
-    position: absolute;
-    top: 0;
-    bottom: unset;
-  }
 }

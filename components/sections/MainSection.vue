@@ -5,7 +5,7 @@
     :class="{'animation-trigger-start': mainPageState}"
   >
     <div class="container">
-      <div class="main-section__slider">
+      <div class="main-section__slider animation-fade">
         <div
           v-for="(slide,index) of slides"
           :key="index"
@@ -25,13 +25,18 @@
         >
           <h1>
             <span class="animation-mask">
-              {{ $t('main.title1') }}
+              <span>
+                {{ $t('main.title1') }}
+              </span>
             </span>
-            <span class="main-section__circle" /><br>
+            <span class="main-section__circle animation-fade" /><br>
             <span class="animation-mask">
-              {{ $t('main.title2') }}
+              <span>
+                {{ $t('main.title2') }}
+              </span>
+
             </span>
-            <span class="main-section__smile" />
+            <span class="main-section__smile animation-fade" />
           </h1>
         </div>
         <Navigation
@@ -39,9 +44,12 @@
         />
       </div>
       <div class="main-section__footer">
-        <hr class="divider light">
+        <hr
+          class="divider light"
+          :class="{'divider-anim' :mainPageState && preloaderDone}"
+        >
         <div class="main-section__tags">
-          <p class="body-tertiary animation-move-from-right animation-delay-4">
+          <p class="body-tertiary animation-move-from-right ">
             {{ $t('main.description') }}
           </p>
           <div class="main-section__tags-wrap animation-move-from-left animation-delay-4">

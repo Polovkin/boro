@@ -1,6 +1,6 @@
-$animation-directions: (top,bottom,left,right);
+$animation-directions: (top, bottom, left, right);
 $base_fu: cubic-bezier(.250, .460, .450, .94);
-$base_duration: 1.2s;
+$base_duration: 1s;
 
 @each $direction in $animation-directions {
   $px_value: 150px;
@@ -19,7 +19,7 @@ $base_duration: 1.2s;
     }
     opacity: 0;
 
-    transition: transform $base_duration $base_fu,opacity $base_duration $base_fu;
+    transition: transform $base_duration $base_fu, opacity $base_duration $base_fu;
   }
 }
 
@@ -35,10 +35,19 @@ $base_duration: 1.2s;
   transition: opacity cubic-bezier(.390, .575, .565, 1.000) $base_duration,;
 }
 
+h1 span.animation-mask {
+  display: inline-block;
+}
+
 .animation-mask {
   position: relative;
   will-change: transform;
+
   overflow: hidden;
+
+  & > span {
+    display: block;
+  }
 
   & > * {
     transform: translateY(120%);
@@ -60,14 +69,15 @@ $base_duration: 1.2s;
 }
 
 .in-viewport, .popup--active, .header-menu--active, .header--base, .animation-trigger-start {
-  h1 {
-    color: $color__font_light--primary;
-  }
   @each $direction in $animation-directions {
     .animation-move-from-#{$direction} {
       transform: translateX(0) translateY(0);
       opacity: 1;
     }
+  }
+
+  h1 {
+    color: $color__font_light--primary;
   }
 
   .animation-fade {
