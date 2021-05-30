@@ -121,5 +121,10 @@
   },
   "user": {
     "account-manager": "Account manager"
+  },
+  "contacts": {
+    "title" : "Contacts",
+    "badge" : "Let’s make something cool with us.",
+    "road" : "How to get to"
   }
 }

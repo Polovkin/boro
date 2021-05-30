@@ -25,9 +25,11 @@
               </p>
             </div>
           </template>
-          <div    v-else class="animation-mask">
+          <div
+            v-else
+            class="animation-mask"
+          >
             <h2
-
               class="form__title"
             >
               {{ $t('form.title-estimate') }}
@@ -38,6 +40,7 @@
           <div class="form__item animation-move-from-right ">
             <InputCustom
               v-model="formData.name"
+              :is-light="isLight"
               :form-touch="touch"
               is-required
               form-id="form"
@@ -48,6 +51,7 @@
           <div class="form__item animation-move-from-right animation-delay-2">
             <InputCustom
               v-model="formData.email"
+              :is-light="isLight"
               :form-touch="touch"
               is-required
               is-email
@@ -59,8 +63,8 @@
           <div class="form__item  animation-move-from-right animation-delay-4">
             <InputCustom
               v-model="formData.phone"
+              :is-light="isLight"
               :form-touch="touch"
-              is-required
               is-phone
               :form-id="'form'"
               :name="'phoneField'"
@@ -70,6 +74,7 @@
           <div class="form__item  animation-move-from-right animation-delay-6">
             <InputCustom
               v-model="formData.message"
+              :is-light="isLight"
               :form-touch="touch"
               is-textarea
               :form-id="'form'"
@@ -240,6 +245,12 @@ import FormTag from './FormTag'
 export default {
   name: 'Form',
   components: { FormTag, InputCustom, UserInfo, ButtonPrimary },
+  props: {
+    isLight: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       touch: false,

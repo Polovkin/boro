@@ -15,7 +15,7 @@
     span.input-custom__error-msg.animation-shake(v-if="!selectedItem && formTouch")
       | {{ $t('form.error.required') }}
 
-  label.input-custom__label(v-else :for="inputId" :class="{'input-custom--error': invalid ,'input-custom--valid':valid}")
+  label.input-custom__label(v-else :for="inputId" :class="{'input-custom--error': invalid ,'input-custom--light': isLight ,'input-custom--valid':valid}")
     span.input-custom__label-line(:class="{'input-custom__label-line--active':isLineActive}")
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':isActive}")
       | {{ placeholder }}
@@ -179,6 +179,10 @@ export default {
       default: false
     },
     isRequired: {
+      type: Boolean,
+      default: false
+    },
+    isLight: {
       type: Boolean,
       default: false
     },
@@ -501,9 +505,30 @@ input[autocomplete='off']:read-only {
     }
 
     input {
-      //border-bottom: $border_weight solid $invalid_color;
-
       color: $invalid_color;
+    }
+  }
+
+  &--light {
+    color: $color__font--primary;
+
+    .input-custom__placeholder, .input-custom__textarea, .input-custom {
+      color: $color__font--primary;
+    }
+
+    .input-custom__optional {
+      color: $color__font_dark--tertiary;
+    }
+
+    .input-custom__label-line {
+
+      &:after {
+        background-color: $color__dark_16;
+      }
+
+      &:before {
+        background-color: $color__dark;
+      }
     }
   }
 }

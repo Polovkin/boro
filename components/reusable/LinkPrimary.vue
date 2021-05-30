@@ -119,7 +119,7 @@ export default {
 
     transform: translateX($arrow_size + $arrow_margin);
 
-    transition: transform $animation__duration ease-in;
+    transition: transform $animation__duration ease-in, color $animation__duration ease-in;
 
     &:after {
       @include pseudoElement($arrow_size, 'Arrow-yellow.svg');

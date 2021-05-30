@@ -1,0 +1,141 @@
+
+.contacts {
+  %grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
+
+  &__content {
+    @extend %grid;
+
+    padding-top: 52px;
+
+
+    & > p {
+      @include body-secondary;
+      margin-top: auto;
+      @include breakpoint ($mobile__all) {
+        display: none;
+      }
+    }
+     @include breakpoint ($mobile__all) {
+         display: block !important;
+      }
+  }
+
+  &__form {
+
+    form {
+      display: block;
+    }
+
+    .form__right, .form__left, .form__terms {
+      display: none;
+    }
+
+    button[type='submit'] {
+      color: $color__font--primary;
+    }
+  }
+
+  &__heading {
+
+    position: relative;
+
+    display: grid;
+
+    padding: 32px 0;
+    grid: {
+      gap: 24px;
+      template: {
+        areas: 'mail phone address';
+
+        columns: 2fr 1fr 1fr;
+      };
+    };
+
+    .divider {
+      position: absolute;
+      bottom: 0;
+    }
+
+    @include breakpoint ($tablet__portrait) {
+      grid: {
+        gap: 24px;
+        row-gap: 32px;
+        template: {
+          areas: 'mail phone' 'address address';
+
+          columns: repeat(2,1fr);
+        };
+      };
+    }
+     @include breakpoint ($phone__all) {
+         display: flex;
+       flex-direction: column;
+      }
+  }
+
+  &__phone {
+    flex-direction: column;
+
+    display: flex;
+
+    padding-left: 12px;
+    grid-area: phone;
+
+    .link__wrap {
+      max-width: 250px;
+
+      color: $color__font--primary;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+    }
+     @include breakpoint ($phone__all) {
+       padding-left: 0;
+      }
+  }
+
+  &__address {
+    flex-direction: column;
+
+    display: flex;
+    grid-area: address;
+
+    &:first-child {
+      margin-right: 100px;
+    }
+
+    .link__wrap {
+      max-width: 250px;
+
+      color: $color__font--primary;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+    }
+  }
+
+  &__mail {
+    grid-area: mail;
+
+    .link__wrap {
+      @include h3;
+
+      color: $color__font--primary;
+      line-height: 52px;
+      text-decoration: unset;
+    }
+
+  }
+
+  &__data {
+
+    &-road {
+      @include title-link;
+      margin-top: 24px;
+    }
+  }
+}

@@ -84,7 +84,7 @@ export default {
         { name: 'navigation.link3', link: '/' },
         { name: 'navigation.link4', link: '/' },
         { name: 'navigation.link5', link: '/blog' },
-        { name: 'navigation.link6', link: '/' }
+        { name: 'navigation.link6', link: '/contacts' }
       ]
     }
   },
