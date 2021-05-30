@@ -90,6 +90,6 @@ export default {
   ],
   publicRuntimeConfig: {
     BASE_URL: process.env.NODE_ENV === 'production' ? 'https://boro.digital/' : 'http://localhost:3000/',
-    IS_DEV: process.env.IS_DEVELOP === 'true',
+    IS_DEV: process.env.IS_DEVELOP === 'true'
   }
 }
