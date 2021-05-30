@@ -34,17 +34,10 @@
         <ul
           class="header-menu__links"
         >
-          <li class="header-menu__links-item">
+          <li v-for="(term,index) of terms" :key="index" class="header-menu__links-item">
             <div class="header-menu__links-wrap">
-              <LinkPrimary is-static link="/">
-                {{ $t('footer.privacy') }}
-              </LinkPrimary>
-            </div>
-          </li>
-          <li class="header-menu__links-item">
-            <div class="header-menu__links-wrap">
-              <LinkPrimary is-static link="/">
-                {{ $t('footer.terms') }}
+              <LinkPrimary is-static :link="term.link">
+                {{ term.name }}
               </LinkPrimary>
             </div>
           </li>
@@ -77,15 +70,7 @@ export default {
   data () {
     return {
       type: MENU,
-      hoverList: false,
-      navs: [
-        { name: 'navigation.link1', link: '/' },
-        { name: 'navigation.link2', link: '/' },
-        { name: 'navigation.link3', link: '/' },
-        { name: 'navigation.link4', link: '/' },
-        { name: 'navigation.link5', link: '/blog' },
-        { name: 'navigation.link6', link: '/contacts' }
-      ]
+      hoverList: false
     }
   },
   computed: {
@@ -102,6 +87,12 @@ export default {
     },
     menuState () {
       return this.menu
+    },
+    navs () {
+      return this.$store.state.app.navigation
+    },
+    terms () {
+      return this.$store.state.app.terms
     }
   },
   methods: {

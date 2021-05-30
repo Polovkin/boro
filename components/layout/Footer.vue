@@ -111,23 +111,17 @@ export default {
   data () {
     return {
       type: POPUP_ESTIMATE,
-      terms: [
-        {
-          name: 'Privacy policy',
-          link: '/'
-        },
-        {
-          name: 'Terms&Conditions',
-          link: '/'
-        }
-      ]
     }
   },
   computed: {
     content () {
       return this.$store.state.app.content
-    }
+    },
+    terms () {
+      return this.$store.state.app.terms
+    },
   },
+
   mounted () {
     setTimeout(() => {
       this.$nuxt.$emit('update-locomotive')

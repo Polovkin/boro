@@ -1,30 +1,30 @@
 <template>
   <nuxt-link
-    v-if="!isTo"
-    :class="{'link--static': isStatic}"
-    class="link"
-    :to="link"
+      v-if="!isTo"
+      :class="{'link--static': isStatic}"
+      class="link"
+      :to="link"
   >
     <span class="link__hide">
       <span class="link__wrap">
-        <slot />
+        <slot/>
       </span>
     </span>
 
     <span
-      v-if="payload"
-      class="link__payload"
+        v-if="payload"
+        class="link__payload"
     >{{ payload }}</span>
   </nuxt-link>
   <a
-    v-else
-    class="link"
-    :class="{'link--static': isStatic}"
-    :href="link"
+      v-else
+      class="link"
+      :class="{'link--static': isStatic}"
+      :href="link"
   >
     <span class="link__hide">
       <span class="link__wrap">
-        <slot />
+        <slot/>
       </span>
     </span>
   </a>
@@ -51,7 +51,7 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
 <style
@@ -112,7 +112,7 @@ export default {
   &__wrap {
     @include title-link;
     align-items: center;
-
+    color: $color__font--primary;
     position: relative;
 
     display: flex;

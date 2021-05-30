@@ -30,15 +30,9 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      navs: [
-        { name: 'navigation.link1', link: '/' },
-        { name: 'navigation.link2', link: '/' },
-        { name: 'navigation.link3', link: '/' },
-        { name: 'navigation.link4', link: '/' },
-        { name: 'navigation.link6', link: '/contacts' }
-      ]
+  computed: {
+    navs () {
+      return this.$store.state.app.navigation
     }
   }
 }

@@ -126,7 +126,8 @@
 
   &__elem {
 
-    width: 365px;
+    width: 450px;
+
     height: 62px;
     overflow: hidden;
     @include breakpoint($phone__all) {

@@ -4,9 +4,9 @@ import {
   POST_EVENTS,
   POST_MANAGMENT,
   POST_TEAM
-} from './store/types'
+} from '../store/types'
 
-const data = [
+const posts = [
   {
     link: '/blog/posts/1',
     date: '14 April 2021',
@@ -338,4 +338,4 @@ const data = [
     type: [POST_DESIGN, POST_EVENTS]
   }
 ]
-export default data
+export default posts

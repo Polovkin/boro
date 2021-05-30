@@ -1,75 +1,34 @@
-import data from '../data'
+import posts from '../api/data'
+import user from '../api/user'
+import socials from '../api/socials'
 import {
-  POST_ALL,
-  POST_DESIGN,
-  POST_DEVELOPMENT,
-  POST_EVENTS,
-  POST_MANAGMENT,
-  POST_TEAM
+  POST_ALL
 } from './types'
 export const state = () => ({
   scrollDirection: null,
   mainSlide: 0,
   mainPageState: true,
   preloaderDone: process.env.IS_DEVELOP === 'true',
-  // preloaderDone: true,
+  navigation: [
+    { name: 'navigation.link1', link: '/' }, // cases
+    { name: 'navigation.link2', link: '/' }, // services
+    { name: 'navigation.link3', link: '/' }, // about
+    { name: 'navigation.link4', link: '/' }, // how we work
+    { name: 'navigation.link5', link: '/blog' }, // blog
+    { name: 'navigation.link6', link: '/contacts' } // contacts
+  ],
+  terms: [
+    { name: 'footer.privacy', link: '/privacy' }, // privacy
+    { name: 'footer.terms', link: '/terms' } // terms
+  ],
   content: {
     phone: '+3 (8093) 93 12 641',
     email: 'hello@boro.com'
   },
-  user: {
-    data: {
-      img: '/img/anna.jpg',
-      role: 'user.account-manager',
-      name: 'Anna Haiduk'
-    },
-    socials: [
-      {
-        name: 'Viber',
-        icon: 'facebook.png',
-        link: '/'
-      },
-      {
-        name: 'WhatsApp',
-        icon: 'facebook.png',
-        link: '/'
-      },
-      {
-        name: 'Telegram',
-        icon: 'facebook.png',
-        link: '/'
-      }
-    ]
-  },
-  socials: [
-    {
-      name: 'Instagram',
-      icon: 'instagram.png',
-      link: 'https://www.instagram.com/boro_uiux/'
-    },
-    {
-      name: 'youtube',
-      icon: 'youtube.png',
-      link: 'https://www.youtube.com/c/BoroUIUX'
-    },
-    {
-      name: 'facebook',
-      icon: 'facebook.png',
-      link: 'https://www.facebook.com/Egor.Gajduk/ '
-    },
-    {
-      name: 'behance',
-      icon: 'behance.png',
-      link: 'https://www.behance.net/boro_uiux'
-    },
-    {
-      name: 'Dribble',
-      icon: 'dribble.png',
-      link: 'https://dribbble.com/boro_uiux'
-    }
-  ],
   blogFilterType: POST_ALL,
-  posts: data
+  user,
+  socials,
+  posts
 })
 
 export const mutations = {
