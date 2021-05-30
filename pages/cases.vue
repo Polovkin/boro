@@ -1,7 +1,7 @@
 <template>
   <PageSection class="cases">
     <slot slot="title">
-      {{ $t('blog.title') }}
+      {{ $t('cases.title') }}
     </slot>
     <slot slot="content">
       <BlogFilter />

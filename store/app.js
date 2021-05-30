@@ -10,7 +10,7 @@ export const state = () => ({
   mainPageState: true,
   preloaderDone: process.env.IS_DEVELOP === 'true',
   navigation: [
-    { name: 'navigation.link1', link: '/' }, // cases
+    { name: 'navigation.link1', link: '/cases' }, // cases
     { name: 'navigation.link2', link: '/' }, // services
     { name: 'navigation.link3', link: '/' }, // about
     { name: 'navigation.link4', link: '/' }, // how we work

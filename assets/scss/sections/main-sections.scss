@@ -184,8 +184,12 @@
     .navigation__link {
       margin-top: auto;
 
-      color: $color__font_light--primary !important;
+
     }
+    .link__wrap {
+      color: $color__font_light--primary ;
+    }
+
     @include breakpoint($desktop__all) {
       padding-bottom: 32px;
 
