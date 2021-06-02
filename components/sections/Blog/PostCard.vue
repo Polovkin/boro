@@ -15,7 +15,7 @@
       <time class="blog-card__date">{{ post.date }}</time>
       <div class="blog-card__tags">
         <ButtonTag
-          v-for="(tag,index) of post.tags"
+          v-for="(tag,index) of post.type"
           :key="index"
         >
           {{ tag }}

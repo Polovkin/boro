@@ -4,7 +4,7 @@
       {{ $t('blog.title') }}
     </slot>
     <slot slot="content">
-      <BlogFilter />
+         <ItemsFilter is-blog :data="filterData" />
       <div
         class="blog__posts"
         :class="{'blog__posts--show-more':isShowMore}"
@@ -28,7 +28,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import BlogFilter from '../../components/sections/Blog/BlogFilter'
+import ItemsFilter from '../../components/sections/Blog/ItemsFilter'
 import { pageMixin } from '../../mixins/page-mixins'
 import PostCard from '../../components/sections/Blog/PostCard'
 import { POST_ALL } from '../../store/types'
@@ -36,7 +36,7 @@ import PageSection from '../../components/sections/Blog/PageSection'
 
 export default {
   name: 'Blog',
-  components: { PageSection, PostCard, BlogFilter },
+  components: { ItemsFilter, PageSection, PostCard },
   mixins: [pageMixin],
   data () {
     return {
@@ -50,7 +50,15 @@ export default {
     }),
     filteredItems () {
       return this.filterType === POST_ALL ? this.posts : this.posts.filter(e => (e.type.includes(this.filterType)))
+    },
+    filterData () {
+      const arr = []
+      this.filteredItems.forEach(e => e.type.forEach((t) => { if (!arr.includes(t)) { arr.push(t) } }))
+      return arr
     }
+  },
+  mounted () {
+
   },
   methods: {
     showMore () {

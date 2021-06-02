@@ -240,6 +240,7 @@
     }
 
     &-title {
+      @include h4;
       @include body-secondary;
       //margin-bottom: 36px;
       margin-bottom: 27px;

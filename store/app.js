@@ -1,9 +1,9 @@
 import posts from '../api/data'
 import user from '../api/user'
+import cases from '../api/cases'
 import socials from '../api/socials'
-import {
-  POST_ALL
-} from './types'
+import { CASE_ALL, POST_ALL } from './types'
+
 export const state = () => ({
   scrollDirection: null,
   mainSlide: 0,
@@ -26,8 +26,10 @@ export const state = () => ({
     email: 'hello@boro.com'
   },
   blogFilterType: POST_ALL,
+  caseFilterType: CASE_ALL,
   user,
   socials,
+  cases,
   posts
 })
 
@@ -45,6 +47,9 @@ export const mutations = {
     s.mainPageState = payload
   },
   SET_POST_TYPE (s, payload) {
+    s.blogFilterType = payload
+  },
+  SET_CASE_TYPE (s, payload) {
     s.blogFilterType = payload
   }
 }

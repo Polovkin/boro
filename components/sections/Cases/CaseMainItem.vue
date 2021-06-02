@@ -4,8 +4,8 @@
     <div class="case-item__wrap">
       <time
         class="case-item__time"
-        :datetime="data.time"
-      >{{ data.time }}
+        :datetime="data.date"
+      >{{ data.date }}
       </time>
       <div class="case-item__content">
         <h4>{{ data.title }}</h4>

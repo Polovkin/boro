@@ -241,9 +241,9 @@
           v-else
           class="form__tags"
         >
-          <h4 class="form__tags-title">
+          <h3 class="form__tags-title">
             {{ $t('form.title-estimate2') }}
-          </h4>
+          </h3>
           <div class="form__tags-wrap">
             <FormTag
               v-for="(item,index) of types"

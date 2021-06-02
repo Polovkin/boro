@@ -4,33 +4,63 @@
       {{ $t('cases.title') }}
     </slot>
     <slot slot="content">
-      <BlogFilter />
+<!--      <ItemsFilter is-case :data="caseItems" />-->
 
       <hr class="divider">
-      <button
-        class="blog__more"
-        @click="showMore"
-      >
-        {{ $t('blog.more') }}
-      </button>
+      <div>
+
+      </div>
     </slot>
   </PageSection>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import BlogFilter from '../components/sections/Blog/BlogFilter'
 import { pageMixin } from '../mixins/page-mixins'
-import { POST_ALL } from '../store/types'
+import { CASE_ALL, CASE_WEB_MON, CASE_WEBSITES, CASE_MOTION, CASE_GRAPHICS, CASE_DESIGN_CONCEPTS } from '../store/types'
 import PageSection from '../components/sections/Blog/PageSection'
+import ItemsFilter from '../components/sections/Blog/ItemsFilter'
+import CaseMainItem from '../components/sections/Cases/CaseMainItem'
 
 export default {
   name: 'Blog',
-  components: { PageSection, BlogFilter },
+  components: { CaseMainItem, ItemsFilter, PageSection },
   mixins: [pageMixin],
   data () {
     return {
-      isShowMore: false
+      isShowMore: false,
+      caseItems: [
+        {
+          text: 'All',
+          value: '12',
+          type: CASE_ALL
+        },
+        {
+          text: 'Team',
+          value: '3',
+          type: CASE_WEB_MON
+        },
+        {
+          text: 'Events',
+          value: '2',
+          type: CASE_WEBSITES
+        },
+        {
+          text: 'Design',
+          value: '3',
+          type: CASE_MOTION
+        },
+        {
+          text: 'Development',
+          value: '2',
+          type: CASE_GRAPHICS
+        },
+        {
+          text: 'Managment',
+          value: '12',
+          type: CASE_DESIGN_CONCEPTS
+        }
+      ]
     }
   },
   computed: {
@@ -39,23 +69,11 @@ export default {
       posts: s => s.app.posts
     }),
     filteredItems () {
-      return this.filterType === POST_ALL ? this.posts : this.posts.filter(e => (e.type.includes(this.filterType)))
+      return this.filterType === CASE_ALL ? this.posts : this.posts.filter(e => (e.type.includes(this.filterType)))
     }
   },
   methods: {
-    showMore () {
-      this.isShowMore = !this.isShowMore
-      setTimeout(() => {
-        this.$nuxt.$emit('update-locomotive')
-        const data = {
-          target: '.blog__title',
-          options: ''
-        }
-        if (!this.isShowMore) {
-          this.$nuxt.$emit('scroll-locomotive', data)
-        }
-      }, 500)
-    }
+
   }
 }
 </script>
