@@ -49,7 +49,7 @@ jobs:
             #source: ".nuxt"
             #target: "../var/www/boro.digital/frontend/" 
             source: "dist"
-            target: "../var/www/boro.digital/frontend/dist" 
+            target: "../var/www/boro.digital/frontend/" 
         # Deploy  
         - name: executing remote ssh commands using password
           uses: appleboy/ssh-action@master
