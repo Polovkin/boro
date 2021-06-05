@@ -5,7 +5,7 @@
   >
     <button
       :class="{'blog__filter-item--active':filterState}"
-      class="blog__filter-toggle blog__filter-item"
+      class="blog__filter-toggle"
       @click="openFilter"
     >
       <span>{{ $t(`blog.tags.${tagAll}`) }}</span>
@@ -82,6 +82,7 @@ export default {
     filteredTypes (index, type) {
       this.$store.commit('filter/SET_FILTER_TYPE', type)
       this.active = index
+      this.filterState = false
     }
   }
 }

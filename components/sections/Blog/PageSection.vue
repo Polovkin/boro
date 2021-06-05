@@ -45,13 +45,22 @@ export default {
 
   }
 
+  &__tags {
+    display: flex;
+    @include breakpoint ($phone__all) {
+      flex-wrap: wrap;
+    }
+  }
+
   &__content  {
     flex-direction: column;
 
     display: flex;
 
     padding: 32px 0;
+
     .post-section:last-child {
+
       .divider {
         display: none;
       }

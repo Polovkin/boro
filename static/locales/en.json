@@ -87,7 +87,11 @@
     "description": "We put aesthetics in the right direction"
   },
   "cases": {
-    "title": "Cases"
+    "title": "Cases",
+    "case": {
+      "next": "Next case",
+      "prev": "Previous case"
+    }
   },
   "about": {
     "title": "We work in close collaboration with the customer's business to create the most successful product",

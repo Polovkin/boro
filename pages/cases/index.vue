@@ -18,11 +18,11 @@
 
 <script>
 import { mapState } from 'vuex'
-import { pageMixin } from '../mixins/page-mixins'
-import { TAG_ALL } from '../store/types'
-import PageSection from '../components/sections/Blog/PageSection'
-import ItemsFilter from '../components/sections/Blog/ItemsFilter'
-import CaseMainItem from '../components/sections/Cases/CaseMainItem'
+import { pageMixin } from '../../mixins/page-mixins'
+import { TAG_ALL } from '../../store/types'
+import PageSection from '../../components/sections/Blog/PageSection'
+import ItemsFilter from '../../components/sections/Blog/ItemsFilter'
+import CaseMainItem from '../../components/sections/Cases/CaseMainItem'
 
 export default {
   name: 'Blog',

@@ -12,12 +12,12 @@
             {{ post.data.title }}
           </h2>
 
-          <div class="post__tags">
+          <div class="page__tags">
             <ButtonTag
               v-for="(tag,index) of post.tags"
               :key="index"
             >
-              {{ tag }}
+              {{ $t(`blog.tags.${tag}`) }}
             </ButtonTag>
           </div>
 
@@ -68,7 +68,7 @@
             </div>
             <hr class="divider">
           </div>
-          <BlogPagination :current="$route.path" />
+          <SlugPagination is-blog  />
         </div>
       </section>
     </div>
@@ -79,12 +79,12 @@
 import { pageMixin } from '../../../mixins/page-mixins'
 import ButtonTag from '../../../components/reusable/buttons/ButtonTag'
 import PostSection from '../../../components/sections/Blog/PostSection'
-import BlogPagination from '../../../components/sections/Blog/BlogPagination'
 import UserInfo from '../../../components/reusable/UserInfo'
 import ButtonToTop from '../../../components/reusable/buttons/ButtonToTop'
+import SlugPagination from '../../../components/sections/SlugPagination'
 
 export default {
-  components: { ButtonToTop, UserInfo, BlogPagination, PostSection, ButtonTag },
+  components: { SlugPagination, ButtonToTop, UserInfo, PostSection, ButtonTag },
   mixins: [pageMixin],
   data () {
     return {

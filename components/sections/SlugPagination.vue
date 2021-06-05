@@ -1,28 +1,42 @@
 <template>
-  <div class="blog-pagination">
+  <div class="slug-pagination">
     <nuxt-link
       :to="linkPrev"
-      class="blog-pagination__button blog-pagination__prev"
-      :class="{'blog-pagination__button--unactive':!paginationData.prev}"
+      class="slug-pagination__button slug-pagination__prev"
+      :class="{'slug-pagination__button--unactive':!paginationData.prev}"
     >
-      {{ $t('blog.post.prev') }}
+      {{ $t(`${isBlog ? 'blog.post' : 'cases.case'}.prev`) }}
     </nuxt-link>
     <nuxt-link
-      :class="{'blog-pagination__button--unactive':paginationData.next ===posts.length}"
+      :class="{'slug-pagination__button--unactive':paginationData.next ===navData.length + 1}"
       :to="linkNext"
-      class="blog-pagination__button blog-pagination__next"
+      class="slug-pagination__button slug-pagination__next"
     >
-      {{ $t('blog.post.next') }}
+      {{ $t(`${isBlog ? 'blog.post' : 'cases.case'}.next`) }}
     </nuxt-link>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  name: 'BlogPagination',
-  props: ['current'],
+  name: 'SlugPagination',
+  props: {
+
+    isBlog: {
+      type: Boolean,
+      default: false
+    },
+    isCase: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
+      navData: [],
+      url: '',
       paginationData: {
         prev: null,
         next: null
@@ -30,22 +44,25 @@ export default {
     }
   },
   computed: {
-    posts () {
-      return this.$store.state.app.posts
-    },
+    ...mapState({
+      posts: s => s.app.posts,
+      cases: s => s.app.cases
+    }),
     linkPrev () {
-      return `/blog/posts/${this.paginationData.prev}`
+      return this.url + this.paginationData.prev
     },
     linkNext () {
-      return `/blog/posts/${this.paginationData.next}`
+      return this.url + this.paginationData.next
     }
   },
   mounted () {
-    this.posts.forEach((e, i) => {
+    this.navData = this.isBlog ? this.posts : this.cases
+    this.url = this.isBlog ? '/blog/posts/' : '/cases/case/'
+    this.navData.forEach((e, i) => {
       const index = i + 1
-      if (e.link === this.current) {
-        this.paginationData.prev = index === 0 ? 0 : index - 1
-        this.paginationData.next = index === this.posts.length ? this.posts.length : index + 1
+      if (e.link === this.$route.path) {
+        this.paginationData.prev = index - 1
+        this.paginationData.next = index + 1
       }
     })
   },
@@ -54,7 +71,7 @@ export default {
 </script>
 
 <style lang="scss">
-.blog-pagination {
+.slug-pagination {
   justify-content: space-between;
 
   position: relative;

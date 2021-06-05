@@ -2,7 +2,6 @@ import posts from '../api/data'
 import user from '../api/user'
 import cases from '../api/cases'
 import socials from '../api/socials'
-import { CASE_ALL, POST_ALL } from './types'
 
 export const state = () => ({
   scrollDirection: null,
@@ -44,7 +43,7 @@ export const mutations = {
   },
   SET_MAIN_PAGE_STATE (s, payload) {
     s.mainPageState = payload
-  },
+  }
 }
 
 export const actions = {

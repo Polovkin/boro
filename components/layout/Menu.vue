@@ -37,7 +37,7 @@
           <li v-for="(term,index) of terms" :key="index" class="header-menu__links-item">
             <div class="header-menu__links-wrap">
               <LinkPrimary is-static :link="term.link">
-                {{ term.name }}
+                {{ $t(term.name) }}
               </LinkPrimary>
             </div>
           </li>
