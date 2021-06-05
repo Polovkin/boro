@@ -4,7 +4,7 @@
       {{ $t('blog.title') }}
     </slot>
     <slot slot="content">
-         <ItemsFilter is-blog :data="filterData" />
+      <ItemsFilter :data="posts" />
       <div
         class="blog__posts"
         :class="{'blog__posts--show-more':isShowMore}"
@@ -31,7 +31,7 @@ import { mapState } from 'vuex'
 import ItemsFilter from '../../components/sections/Blog/ItemsFilter'
 import { pageMixin } from '../../mixins/page-mixins'
 import PostCard from '../../components/sections/Blog/PostCard'
-import { POST_ALL } from '../../store/types'
+import { TAG_ALL } from '../../store/types'
 import PageSection from '../../components/sections/Blog/PageSection'
 
 export default {
@@ -45,20 +45,15 @@ export default {
   },
   computed: {
     ...mapState({
-      filterType: s => s.app.blogFilterType,
+      filterType: s => s.filter.filterType,
       posts: s => s.app.posts
     }),
     filteredItems () {
-      return this.filterType === POST_ALL ? this.posts : this.posts.filter(e => (e.type.includes(this.filterType)))
-    },
-    filterData () {
-      const arr = []
-      this.filteredItems.forEach(e => e.type.forEach((t) => { if (!arr.includes(t)) { arr.push(t) } }))
-      return arr
+      return this.filterType === TAG_ALL ? this.posts : this.posts.filter(e => (e.tags.includes(this.filterType)))
     }
   },
   mounted () {
-
+    this.$store.commit('filter/SET_FILTER_TYPE', TAG_ALL)
   },
   methods: {
     showMore () {

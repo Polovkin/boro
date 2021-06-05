@@ -1,10 +1,3 @@
-import {
-  POST_DESIGN,
-  POST_DEVELOPMENT,
-  POST_EVENTS,
-  POST_MANAGMENT,
-  POST_TEAM
-} from '../store/types'
 
 const posts = [
   {
@@ -40,8 +33,7 @@ const posts = [
         }
       ]
     },
-    type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
-    tags: ['UI/UX Design', 'Web design']
+    tags: ['TAG_DEVELOPMENT']
   },
   {
     link: '/blog/posts/2',
@@ -77,8 +69,7 @@ const posts = [
         }
       ]
     },
-    tags: ['UI/UX Design', 'Web design'],
-    type: [POST_DESIGN, POST_MANAGMENT]
+    tags: ['TAG_DESIGN', 'TAG_MANAGMENT']
   },
   {
     link: '/blog/posts/3',
@@ -114,8 +105,7 @@ const posts = [
         }
       ]
     },
-    tags: ['UI/UX Design', 'Web design'],
-    type: [POST_DESIGN, POST_EVENTS]
+    tags: ['TAG_DESIGN', 'TAG_EVENTS']
   },
   {
     link: '/blog/posts/4',
@@ -150,8 +140,7 @@ const posts = [
         }
       ]
     },
-    type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
-    tags: ['UI/UX Design', 'Web design']
+    tags: ['TAG_DESIGN', 'TAG_DEVELOPMENT', 'TAG_TEAM']
   },
   {
     link: '/blog/posts/5',
@@ -187,8 +176,7 @@ const posts = [
         }
       ]
     },
-    tags: ['UI/UX Design', 'Web design'],
-    type: [POST_DESIGN, POST_MANAGMENT]
+    tags: ['TAG_DESIGN', 'TAG_MANAGMENT']
   },
   {
     link: '/blog/posts/6',
@@ -224,8 +212,7 @@ const posts = [
         }
       ]
     },
-    tags: ['UI/UX Design', 'Web design'],
-    type: [POST_DESIGN, POST_EVENTS]
+    tags: ['TAG_DESIGN', 'TAG_EVENTS']
   },
   {
     link: '/blog/posts/7',
@@ -260,8 +247,7 @@ const posts = [
         }
       ]
     },
-    type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM],
-    tags: ['UI/UX Design', 'Web design']
+    tags: ['TAG_DESIGN', 'TAG_DEVELOPMENT', 'TAG_TEAM']
   },
   {
     link: '/blog/posts/8',
@@ -297,8 +283,7 @@ const posts = [
         }
       ]
     },
-    tags: ['UI/UX Design', 'Web design'],
-    type: [POST_DESIGN, POST_MANAGMENT]
+    tags: ['TAG_DESIGN', 'TAG_MANAGMENT']
   },
   {
     link: '/blog/posts/9',
@@ -334,8 +319,7 @@ const posts = [
         }
       ]
     },
-    tags: ['UI/UX Design', 'Web design'],
-    type: [POST_DESIGN, POST_EVENTS]
+    tags: ['TAG_DESIGN', 'TAG_EVENTS']
   }
 ]
 export default posts

@@ -104,11 +104,12 @@
     "time": "чтения",
     "share": "Поделиться",
     "tags": {
-      "POST__TEAM": "Команда",
-      "POST_EVENTS": "События",
-      "POST_DESIGN": "UI/UX дизай",
-      "POST_DEVELOPMENT": "Web раработка",
-      "POST_MANAGMENT": "Менеджмент"
+      "TAG_ALL": "Все",
+      "TAG_TEAM": "Команда",
+      "TAG_EVENTS": "События",
+      "TAG_DESIGN": "UI/UX дизайн",
+      "TAG_DEVELOPMENT": "Web разработка",
+      "TAG_MANAGMENT": "Менеджмент"
     },
     "post": {
       "next": "Следующая статья",

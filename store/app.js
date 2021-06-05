@@ -17,14 +17,7 @@ export const state = () => ({
     blog: { name: 'navigation.link5', link: '/blog' }, // blog
     contacts: { name: 'navigation.link6', link: '/contacts' } // contacts
   },
-  /* navigation: [
-    { name: 'navigation.link1', link: '/cases' }, // cases
-    { name: 'navigation.link2', link: '/' }, // services
-    { name: 'navigation.link3', link: '/' }, // about
-    { name: 'navigation.link4', link: '/' }, // how we work
-    { name: 'navigation.link5', link: '/blog' }, // blog
-    { name: 'navigation.link6', link: '/contacts' } // contacts
-  ], */
+
   terms: [
     { name: 'footer.privacy', link: '/privacy' }, // privacy
     { name: 'footer.terms', link: '/terms' } // terms
@@ -33,8 +26,6 @@ export const state = () => ({
     phone: '+3 (8093) 93 12 641',
     email: 'hello@boro.com'
   },
-  blogFilterType: POST_ALL,
-  caseFilterType: CASE_ALL,
   user,
   socials,
   cases,
@@ -54,12 +45,6 @@ export const mutations = {
   SET_MAIN_PAGE_STATE (s, payload) {
     s.mainPageState = payload
   },
-  SET_POST_TYPE (s, payload) {
-    s.blogFilterType = payload
-  },
-  SET_CASE_TYPE (s, payload) {
-    s.blogFilterType = payload
-  }
 }
 
 export const actions = {

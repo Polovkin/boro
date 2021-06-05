@@ -1,13 +1,16 @@
 <template>
-  <div class="blog__filter" :class="{'blog__filter--active':filterState }">
+  <div
+    class="blog__filter"
+    :class="{'blog__filter--active':filterState }"
+  >
     <button
       :class="{'blog__filter-item--active':filterState}"
       class="blog__filter-toggle blog__filter-item"
       @click="openFilter"
     >
-      <span>{{ data[0].text }}</span>
+      <span>{{ $t(`blog.tags.${tagAll}`) }}</span>
       <span class="blog__filter-toggle-wrap">
-        <span class="blog__filter-item-value">{{ data[0].value }}</span>
+        <span class="blog__filter-item-value">{{ data.length }}</span>
         <span class="arrow" />
       </span>
     </button>
@@ -15,20 +18,29 @@
       class="blog__filter-list"
     >
       <li
-        v-for="(item,index) of data"
-        :key="index"
-        :class="{'blog__filter-item--active':index===active || filterState}"
+        :class="{'blog__filter-item--active':active===0}"
         class="blog__filter-item"
-        @click="filteredTypes(index,item.type)"
+        @click="filteredTypes(0,tagAll)"
       >
-        <span> {{ item.text }}</span>
-        <span class="blog__filter-item-value">{{ item.value }}</span>
+        <span> {{ $t(`blog.tags.${tagAll}`) }}</span>
+        <span class="blog__filter-item-value">{{ data.length }}</span>
+      </li>
+      <li
+        v-for="(item,index) of postsTypes"
+        :key="index"
+        :class="{'blog__filter-item--active':index+1===active || filterState}"
+        class="blog__filter-item"
+        @click="filteredTypes(index+1,item)"
+      >
+        <span> {{ $t(`blog.tags.${item}`) }}</span>
+        <span class="blog__filter-item-value">{{ typeQuantity(item) }}</span>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { TAG_ALL } from '../../../store/types'
 
 export default {
   name: 'ItemsFilter',
@@ -36,36 +48,39 @@ export default {
     data: {
       type: Array,
       default: null
-    },
-    isBlog: {
-      type: Boolean,
-      default: false
-    },
-    isCase: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
     return {
+      tagAll: TAG_ALL,
       active: 0,
       filterState: false
     }
   },
+  computed: {
+    postsTypes () {
+      const arr = []
+      this.data.forEach(e => e.tags.forEach((t) => {
+        if (!arr.includes(t)) {
+          arr.push(t)
+        }
+      }))
+      return arr
+    }
+  },
   mounted () {
-    console.log(this.data)
+    // console.log(this.data)
   },
   methods: {
     openFilter () {
       this.filterState = !this.filterState
     },
+    typeQuantity (type) {
+      const arr = this.data.filter(e => e.tags.includes(type))
+      return arr.length
+    },
     filteredTypes (index, type) {
-      if (this.isBlog) {
-        this.$store.commit('app/SET_POST_TYPE', type)
-      }
-      if (this.isCase) {
-        this.$store.commit('app/SET_CASE_TYPE', type)
-      }
+      this.$store.commit('filter/SET_FILTER_TYPE', type)
       this.active = index
     }
   }

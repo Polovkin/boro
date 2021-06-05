@@ -104,11 +104,12 @@
     "time": "to read",
     "share": "Share",
     "tags": {
-      "POST__TEAM": "Team",
-      "POST_EVENTS": "Events",
-      "POST_DESIGN": "UI/UX design",
-      "POST_DEVELOPMENT": "Web development",
-      "POST_MANAGMENT": "Managment"
+      "TAG_ALL": "All",
+      "TAG_TEAM": "Team",
+      "TAG_EVENTS": "Events",
+      "TAG_DESIGN": "UI/UX design",
+      "TAG_DEVELOPMENT": "Web development",
+      "TAG_MANAGMENT": "Managment"
     },
     "post": {
       "next": "Next article",

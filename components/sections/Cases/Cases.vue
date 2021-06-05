@@ -30,76 +30,22 @@
 <script>
 import Section from '../../reusable/Section'
 import LinkPrimary from '../../reusable/LinkPrimary'
+import { TAG_ALL } from '../../../store/types'
 import CaseMainItem from './CaseMainItem'
 
 export default {
   name: 'Cases',
   components: { CaseMainItem, LinkPrimary, Section },
   data () {
-    return {
-      cases: [
-        {
-          time: 2019,
-          title: 'Bookotel',
-          tags: ['UI/UX Design', 'UX review', 'Motion design'],
-          description: 'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
-          buttons: [
-            {
-              text: 'buttons.show-reel',
-              link: '/about'
-            },
-            {
-              text: 'buttons.open-case',
-              link: '/'
-            }
-          ],
-          img: '/img/cases/Cover1.jpg'
-        },
-        {
-          time: 2020,
-          title: 'Smame',
-          tags: ['UI/UX Design', 'UX review', 'Motion design', '3D'],
-          description: 'Since most of devices are controlled via smartphone and tablet apps, we wanted to take a perfect UX for this',
-          buttons: [
-            {
-              text: 'buttons.open-case',
-              link: '/'
-            }
-          ],
-          img: '/img/cases/Cover2.jpg'
-        },
-        {
-          time: 2020,
-          title: 'Oddo',
-          tags: ['UI/UX Design', 'UX review', 'Motion design', '3D'],
-          description: 'The Most Organized Online Catalog. It’s a website and application designed to facilitate the purchase of goods and services.',
-          buttons: [
-            {
-              text: 'buttons.open-case',
-              link: '/'
-            }
-          ],
-          img: '/img/cases/Cover3.jpg'
-        },
-        {
-          time: 2020,
-          title: 'Foxxiz',
-          tags: ['UI/UX Design', 'UX review', 'Motion design'],
-          description: 'Foxxiz - is a mobile technology company specializing in language learning, skills development and employee engagement solutions.',
-          buttons: [
-            {
-              text: 'buttons.show-reel',
-              link: '/about'
-            },
-            {
-              text: 'buttons.open-case',
-              link: '/'
-            }
-          ],
-          img: '/img/cases/Cover4.jpg'
-        }
-      ]
+    return {}
+  },
+  computed: {
+    cases () {
+      return this.$store.state.app.cases
     }
+  },
+  mounted () {
+    this.$store.commit('filter/SET_FILTER_TYPE', TAG_ALL)
   }
 }
 </script>
@@ -111,9 +57,9 @@ export default {
 
   &__items {
     padding-top: 190px;
-     @include breakpoint ($phone__all) {
-       padding-top: 0;
-      }
+    @include breakpoint($phone__all) {
+      padding-top: 0;
+    }
   }
 }
 

@@ -16,7 +16,7 @@
             @mouseleave="listHoverOut"
           >
             <li
-              v-for="(item,index) of navs"
+              v-for="(item,index,key) of navs"
               :key="index"
               class="header-menu__elem"
             >
@@ -25,7 +25,7 @@
                 @click.prevent="redirect(item.link)"
               >
                 {{ $t(item.name) }}
-                <span>{{ `0${index + 1}` }}</span>
+                <span>{{ `0${key + 1}` }}</span>
               </a>
             </li>
           </ul>

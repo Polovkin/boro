@@ -6,7 +6,7 @@
         width="430"
         height="248"
         :src="post.data.img"
-      />
+      >
     </figure>
     <div class="blog-card__body">
       <h5 class="blog-card__title ">
@@ -15,10 +15,10 @@
       <time class="blog-card__date">{{ post.date }}</time>
       <div class="blog-card__tags">
         <ButtonTag
-          v-for="(tag,index) of post.type"
+          v-for="(tag,index) of post.tags"
           :key="index"
         >
-          {{ tag }}
+          {{ $t(`blog.tags.${tag}`) }}
         </ButtonTag>
       </div>
       <p class="blog-card__text ">
@@ -46,8 +46,10 @@ export default {
     tagLink (data) {
       return `blog.tags.${data}`
     }
+  },
+  mounted () {
+    // console.log(this.post)
   }
-
 }
 </script>
 

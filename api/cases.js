@@ -1,11 +1,8 @@
-import { POST_DESIGN, POST_DEVELOPMENT, POST_TEAM } from '../store/types'
 
 const cases = [
   {
-    link: '/blog/posts/1',
+    link: '/cases/case/1',
     date: '14 April 2021',
-    tags: ['UI/UX Design', 'UX review', 'Motion design'],
-
     data: {
       img: '/img/Cover.jpg',
       description: 'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
@@ -50,26 +47,207 @@ const cases = [
       },
       content: [
         {
-          heading: 'Прежде всего, стоит ли отвечать на критику?',
-          text: '<p>Одним словом: да.</p><p>В наше время невозможно уклониться от критики; существует слишком много сайтов с отзывами, чтобы можно было что-то умолчать. Рекомендации из уст в уста значат гораздо больше, чем до появления Интернета, потому что один резкий комментарий может мгновенно распространиться по всему миру.</p><p>Если кто-то критикует ваше заведение, важно ответить и ответить конструктивно. Это не только хорошее обслуживание клиентов, но и заверит любого, кто наткнется на эти комментарии, что вам не все равно и что вы активно пытаетесь разрешить негативные ситуации.</p><p>Кроме того, оставление критики без ответа лишь подкрепляет их высказывания.</p><p>Переведено с помощью www.DeepL.com/Translator (бесплатная версия)</p>'
+          heading: 'About project',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: '<img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
         },
         {
-          heading: 'Прежде всего, стоит ли отвечать на критику?',
-          text: '  <p>Опять же, это полностью зависит от ситуации. Существует несколько различных вариантов.</p><p>Вы можете:</p><ul><li>Ответить публично</li><li>Ответить конфиденциально</li><li>Быть серьезным</li><li>Использовать юмор</li></ul>'
+          heading: 'Wireframes',
+          description: '<p>IA forms a skeleton of our product. Visual elements, functionality, interaction, and navigation are built according to the information architecture principles.</p><p>A wireframe  used to lay out content and functionality on a page which takes into account user needs and user journeys.</p>',
+          content: '<img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
         },
         {
-          heading: 'Публично против частного',
-          text:
-              '<img src="/img/blog-test.jpg" alt="name"><p>Ответить "приватно" не означает полностью приватно,это просто означает вести большую часть разговора через прямые сообщения, а не через' +
-              ' публичные посты.Это отличный инструмент для людей, которые оскорбляют друг друга, или для деликатных вопросов.</p><p> Чтобы воспользоваться этим способом, ответьте публично, что вы сожалеете о пережитом и что вы отправили им личное сообщение, чтобы вы могли разрешить ситуацию.</p><p> В случае более мелких проблем и, надеюсь, менее раздраженных людей, публичный ответ - отличный способ показать, какой вы отзывчивый сотрудник. Если ситуация кажется легко разрешимой и не похоже, что она будет обостряться, публичный ответ также может стать хорошим способом продвижения ваших навыков обслуживания клиентов.</p><p> Другой важный случай, когда вам следует ответить публично, -это если человек выдвинул необоснованные обвинения против вашего университета. Не стоит оставлять подобные комментарии без опровержения.</p><p>В таких ситуациях вы можете либо вести разговор полностью публично, либо предложить опровержение их обвинений и спросить, не хотят ли они поговорить с ними наедине, чтобы решить этот вопрос. Используйте свое суждение, чтобы решить, какой метод сработает лучше.</p><p> Переведено с помощью www.DeepL.com/Translator (бесплатная версия)</p>'
+          heading: 'UI style guide',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
         },
         {
-          heading: 'Серьезное против юмористического',
-          text: '  <p>Ответить "приватно" не означает полностью приватно, это просто означает вести большую часть разговора через прямые сообщения, а не через публичные посты. Это отличный инструмент для людей, которые оскорбляют друг друга, или для деликатных вопросов.</p><p>Чтобы воспользоваться этим способом, ответьте публично, что вы сожалеете о пережитом и что вы отправили им личное сообщение, чтобы вы могли разрешить ситуацию.</p><p>В случае более мелких проблем и, надеюсь, менее раздраженных людей, публичный ответ - отличный способ показать, какой вы отзывчивый сотрудник. Если ситуация кажется легко разрешимой и не похоже, что она будет обостряться, публичный ответ также может стать хорошим способом продвижения ваших навыков обслуживания клиентов.</p><p>Другой важный случай, когда вам следует ответить публично, - это если человек выдвинул необоснованные обвинения против вашего университета. Не стоит оставлять подобные комментарии без опровержения.</p><p>В таких ситуациях вы можете либо вести разговор полностью публично, либо предложить опровержение их обвинений и спросить, не хотят ли они поговорить с ними наедине, чтобы решить этот вопрос. Используйте свое суждение, чтобы решить, какой метод сработает лучше.</p><p>Переведено с помощью www.DeepL.com/Translator (бесплатная версия)</p>'
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Filter',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Order',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Review ',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
         }
       ]
     },
-    type: [POST_DESIGN, POST_DEVELOPMENT, POST_TEAM]
+    tags: ['TAG_DESIGN', 'TAG_TEAM']
+  },
+  {
+    link: '/cases/case/2',
+    date: '14 April 2021',
+    data: {
+      img: '/img/Cover2.jpg',
+      description: 'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
+      title: 'Oddo',
+      team: [
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        }
+
+      ],
+      review: {
+        img: '/img/stos.jpg',
+        name: 'Yehor Haiduk',
+        role: 'Author'
+      },
+      content: [
+        {
+          heading: 'About project',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: '<img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Wireframes',
+          description: '<p>IA forms a skeleton of our product. Visual elements, functionality, interaction, and navigation are built according to the information architecture principles.</p><p>A wireframe  used to lay out content and functionality on a page which takes into account user needs and user journeys.</p>',
+          content: '<img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'UI style guide',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
+        },
+        {
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Filter',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Order',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Review ',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        }
+      ]
+    },
+    tags: ['TAG_DESIGN']
+  },
+  {
+    link: '/cases/case/3',
+    date: '14 April 2021',
+    data: {
+      img: '/img/Cover3.jpg',
+      description: 'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
+      title: 'Smame',
+      team: [
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        },
+        {
+          img: '/img/stos.jpg',
+          name: 'Yehor Haiduk',
+          role: 'Author'
+        }
+
+      ],
+      review: {
+        img: '/img/stos.jpg',
+        name: 'Yehor Haiduk',
+        role: 'Author'
+      },
+      content: [
+        {
+          heading: 'About project',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: '<img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Wireframes',
+          description: '<p>IA forms a skeleton of our product. Visual elements, functionality, interaction, and navigation are built according to the information architecture principles.</p><p>A wireframe  used to lay out content and functionality on a page which takes into account user needs and user journeys.</p>',
+          content: '<img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'UI style guide',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg"><img alt="123" src="img1.jpg">'
+        },
+        {
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Filter',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Order',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        },
+        {
+          heading: 'Review ',
+          description: '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
+          content: ' <img alt="123" src="img1.jpg">'
+        }
+      ]
+    },
+    tags: ['TAG_DEVELOPMENT']
   }
 ]
 

@@ -8,23 +8,21 @@
       >{{ data.date }}
       </time>
       <div class="case-item__content">
-        <h4>{{ data.title }}</h4>
+        <h4>{{ data.data.title }}</h4>
 
         <div class="case-item__content-tags">
           <ButtonTag v-for="(tag,index) of data.tags" :key="index">
-            {{ tag }}
+            {{ $t(`blog.tags.${tag}`) }}
           </ButtonTag>
         </div>
         <p class="case-item__description">
-          {{ data.description }}
+          {{ data.data.description }}
         </p>
         <div class="case-item__content-buttons animation-fade animation-delay-5">
           <ButtonPrimary
-            v-for="(buttons,index) of data.buttons"
-            :key="index"
-            :link="buttons.link"
+            :link="data.link"
           >
-            {{ $t(buttons.text) }}
+            {{ $t('buttons.open-case') }}
           </ButtonPrimary>
         </div>
       </div>
@@ -33,8 +31,7 @@
         <nuxt-picture
           width="326"
           height="249"
-          :src="data.img"
-          :alt="data.title"
+          :src="data.data.img"
         />
       </figure>
     </div>
