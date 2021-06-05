@@ -8,7 +8,7 @@
 
   background-color: $color__background_primary;
 
-  transition: all ease .2s;
+  transition: transform ease .2s, background-color ease .4s;
 
   &--dark {
     background-color: $color__dark;
@@ -22,7 +22,9 @@
     .menu-burger {
       filter: invert(1);
     }
-
+    .menu-burger--active  {
+      filter: invert(0);
+    }
     .header__content {
 
       &:after {

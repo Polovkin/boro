@@ -20,8 +20,7 @@ import { MENU } from '../../../store/types'
 export default {
   name: 'MenuBurger',
   data () {
-    return {
-    }
+    return {}
   },
   computed: {
     ...mapState({
@@ -49,7 +48,13 @@ export default {
 </script>
 
 <style lang="scss">
+
 .menu-burger {
+  $show_duration: .8s;
+  $show_delay: 1s;
+  $active_duration: 1s;
+  $active_delay: 1s;
+  $active_fu: cubic-bezier(.405, 0, .025, 1);
   @include body-secondary;
 
   align-items: center;
@@ -58,8 +63,8 @@ export default {
 
   display: flex;
 
-  transition: all ease .2s .3s;
-
+  //transition: all .2s;
+  transition: max-width ease $show_duration,margin-left ease $show_duration,opacity ease $show_duration;
   &-toggle {
     @include size(40px);
     position: absolute;
@@ -74,9 +79,10 @@ export default {
 
     transform: translateY(-50%) scale(0);
 
-    transition: all linear .3s;
+    transition: transform ease .2s;
 
     &--active {
+
       transform: translateY(-50%) scale(100);
     }
   }
@@ -90,7 +96,7 @@ export default {
     overflow: hidden;
 
     span {
-      transition: all cubic-bezier(.405, 0, .025, 1) 1s;
+      transition: transform $active_fu $active_duration;
     }
   }
 
@@ -111,7 +117,7 @@ export default {
       height: 2px !important;
 
       background-color: $color__dark;
-      transition: all cubic-bezier(.405, 0, .025, 1) 1s;
+      transition: transform $active_fu $active_duration;
     }
 
     &:before {
@@ -132,14 +138,13 @@ export default {
   }
 
   &--show {
+
     @include breakpoint($desktop__all) {
       max-width: 100px !important;
 
       margin-left: 40px;
 
       opacity: 1 !important;
-
-      transition: all ease .2s 1s;
     }
 
   }

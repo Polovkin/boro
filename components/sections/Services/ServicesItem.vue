@@ -15,7 +15,7 @@
         >
       </figure>
       <div class="service-item__num">
-        {{ index }}
+        {{ index + 1 }}
       </div>
       <div class="service-item__content">
         <h4>{{ data.title }}</h4>
