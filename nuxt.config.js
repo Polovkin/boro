@@ -29,6 +29,7 @@ export default {
     '@nuxt/image',
     '@nuxtjs/svg',
     '@nuxtjs/eslint-module',
+    'nuxt-compress',
     [
       'nuxt-i18n',
       {
