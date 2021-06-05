@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { TAG_ALL } from '../../../store/types'
+import { TAG_ALL } from '../../store/types'
 
 export default {
   name: 'ItemsFilter',

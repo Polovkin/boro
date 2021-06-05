@@ -1,0 +1,69 @@
+.case {
+  $case_height: 312px;
+
+  &__heading {
+
+    display: grid;
+
+    h2 {
+      grid-area: title;
+    }
+
+    grid: {
+      gap: 24px;
+      template: {
+        areas: 'title title' 'button tags';
+
+        columns: 4fr 8fr;
+      };
+    };
+  }
+
+  &__button {
+    grid-area: button;
+  }
+
+  &__tags {
+    grid-area: tags;
+
+    display: flex;
+    justify-self: end;
+    @include breakpoint($phone__all) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 6fr);
+    grid-gap: 24px;
+
+    &-team {
+      display: grid;
+      grid-template-columns: repeat(3, 200px);
+      grid-auto-rows: 150px;
+      grid-gap: 24px;
+
+    }
+
+    &-img {
+
+      img {
+        //width: 100%;
+        //height: auto;
+      }
+    }
+  }
+
+  &__items {
+    flex-direction: column;
+
+    display: flex;
+    max-height: $case_height *4 + 100px;
+    overflow: hidden;
+
+    &--show-more {
+      max-height: 20000px;
+    }
+  }
+}

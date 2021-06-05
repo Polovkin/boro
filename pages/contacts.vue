@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import PageSection from '../components/sections/Blog/PageSection'
+import PageSection from '../components/sections/PageSection'
 import { pageMixin } from '../mixins/page-mixins'
 import Form from '../components/reusable/forms/Form'
 import LinkPrimary from '../components/reusable/LinkPrimary'

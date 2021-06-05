@@ -27,7 +27,7 @@
         <div class="page__content">
           <div
             v-in-viewport
-            class="post-section "
+            class="post-section"
           >
             <div class="post__header">
               <UserInfo :data="post.author" />
