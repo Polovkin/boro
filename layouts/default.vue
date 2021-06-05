@@ -31,6 +31,7 @@ import Footer from '../components/layout/Footer'
 import Header from '~/components/layout/Header'
 
 export default {
+  // eslint-disable-next-line vue/no-unused-components
   components: { Footer, Lead, LocomotiveScroll, Preloader, Menu, PopupFluid, Header },
   data () {
     return {

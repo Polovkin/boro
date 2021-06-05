@@ -53,7 +53,7 @@ export default {
               link: '/'
             }
           ],
-          img: '/img/Cover.jpg'
+          img: '/img/cases/Cover1.jpg'
         },
         {
           time: 2020,
@@ -66,7 +66,7 @@ export default {
               link: '/'
             }
           ],
-          img: '/img/Cover2.jpg'
+          img: '/img/cases/Cover2.jpg'
         },
         {
           time: 2020,
@@ -79,7 +79,7 @@ export default {
               link: '/'
             }
           ],
-          img: '/img/Cover3.jpg'
+          img: '/img/cases/Cover3.jpg'
         },
         {
           time: 2020,
@@ -96,7 +96,7 @@ export default {
               link: '/'
             }
           ],
-          img: '/img/Cover4.jpg'
+          img: '/img/cases/Cover4.jpg'
         }
       ]
     }

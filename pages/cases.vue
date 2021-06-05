@@ -4,12 +4,10 @@
       {{ $t('cases.title') }}
     </slot>
     <slot slot="content">
-<!--      <ItemsFilter is-case :data="caseItems" />-->
+      <!--      <ItemsFilter is-case :data="caseItems" />-->
 
       <hr class="divider">
-      <div>
-
-      </div>
+      <div />
     </slot>
   </PageSection>
 </template>
@@ -19,12 +17,10 @@ import { mapState } from 'vuex'
 import { pageMixin } from '../mixins/page-mixins'
 import { CASE_ALL, CASE_WEB_MON, CASE_WEBSITES, CASE_MOTION, CASE_GRAPHICS, CASE_DESIGN_CONCEPTS } from '../store/types'
 import PageSection from '../components/sections/Blog/PageSection'
-import ItemsFilter from '../components/sections/Blog/ItemsFilter'
-import CaseMainItem from '../components/sections/Cases/CaseMainItem'
 
 export default {
   name: 'Blog',
-  components: { CaseMainItem, ItemsFilter, PageSection },
+  components: { PageSection },
   mixins: [pageMixin],
   data () {
     return {

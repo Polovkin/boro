@@ -7,14 +7,16 @@
   height: $header_height;
 
   background-color: $color__background_primary;
+
   transition: all ease .2s;
 
   &--dark {
     background-color: $color__dark;
 
     .lang-switcher__dropdown {
-      background-color: $color__dark;
       border: 1px solid $color__light_16;
+
+      background-color: $color__dark;
     }
 
     .menu-burger {
@@ -22,6 +24,7 @@
     }
 
     .header__content {
+
       &:after {
         background-color: $color__light_16;
       }
@@ -32,6 +35,7 @@
     }
 
     .lang-switcher {
+
       button {
         @include body-secondary;
         color: $color__font_light--primary;
