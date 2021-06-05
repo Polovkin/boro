@@ -30,18 +30,18 @@
                 {{ $t('main.title1') }}
               </span>
             </span>
-            <span class="main-section__circle animation-fade" /><br>
+            <span class="main-section__circle animation-fade animation-delay-6" /><br>
             <span class="animation-mask">
               <span>
                 {{ $t('main.title2') }}
               </span>
 
             </span>
-            <span class="main-section__smile animation-fade" />
+            <span class="main-section__smile animation-fade animation-delay-6" />
           </h1>
         </div>
         <Navigation
-          class="main-section__navigation animation-mask"
+          class="main-section__navigation animation-move-from-left"
         />
       </div>
       <div class="main-section__footer">

@@ -55,30 +55,30 @@
         <slide>
           <figure class="main-about__img animation-image-viewport">
             <nuxt-picture
-                alt="office"
-                width="490"
-                height="368"
-                src="/img/about1.jpg"
+              alt="office"
+              width="490"
+              height="368"
+              src="/img/about1.jpg"
             />
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
             <nuxt-picture
-                alt="Yeghor"
-                width="430"
-                height="566"
-                src="/img/about2.jpg"
+              alt="Yeghor"
+              width="430"
+              height="566"
+              src="/img/about2.jpg"
             />
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
             <nuxt-picture
-                alt="Elena"
-                width="430"
-                height="458"
-                src="/img/about3.jpg"
+              alt="Elena"
+              width="430"
+              height="458"
+              src="/img/about3.jpg"
             />
           </figure>
         </slide>
@@ -103,6 +103,7 @@
           <dl>{{ $t(item.text) }}</dl>
         </div>
       </dl>
+      <hr class="divider">
     </div>
   </Section>
 </template>

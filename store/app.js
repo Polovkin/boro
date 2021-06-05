@@ -9,14 +9,22 @@ export const state = () => ({
   mainSlide: 0,
   mainPageState: true,
   preloaderDone: process.env.IS_DEVELOP === 'true',
-  navigation: [
+  navigation: {
+    cases: { name: 'navigation.link1', link: '/cases' }, // cases
+    services: { name: 'navigation.link2', link: '/' }, // services
+    about: { name: 'navigation.link3', link: '/' }, // about
+    work: { name: 'navigation.link4', link: '/' }, // how we work
+    blog: { name: 'navigation.link5', link: '/blog' }, // blog
+    contacts: { name: 'navigation.link6', link: '/contacts' } // contacts
+  },
+  /* navigation: [
     { name: 'navigation.link1', link: '/cases' }, // cases
     { name: 'navigation.link2', link: '/' }, // services
     { name: 'navigation.link3', link: '/' }, // about
     { name: 'navigation.link4', link: '/' }, // how we work
     { name: 'navigation.link5', link: '/blog' }, // blog
     { name: 'navigation.link6', link: '/contacts' } // contacts
-  ],
+  ], */
   terms: [
     { name: 'footer.privacy', link: '/privacy' }, // privacy
     { name: 'footer.terms', link: '/terms' } // terms

@@ -9,7 +9,7 @@
     <LinkPrimary
       slot="elem"
       :payload="'24'"
-      link="/"
+      :link="localePath($store.state.app.navigation.cases.link)"
     >
       {{ $t('buttons.call-projects') }}
     </LinkPrimary>
