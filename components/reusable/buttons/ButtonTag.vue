@@ -123,8 +123,6 @@ export default {
       text-decoration: underline;
     }
 
-
-
   }
 
   &__wrap {

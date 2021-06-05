@@ -7,13 +7,15 @@
     </div>
 
     <div class="lang-switcher__dropdown">
-      <button
-        v-for="(lang,i) of $i18n.locales"
-        v-if="$i18n.locales[i].code!==$i18n.locale"
-        @click="changeLang(lang.code)"
-      >
-        {{ lang.name }}
-      </button>
+      <template v-for="(lang,i) of $i18n.locales">
+        <button
+          v-if="$i18n.locales[i].code!==$i18n.locale"
+          :key="i"
+          @click="changeLang(lang.code)"
+        >
+          {{ lang.name }}
+        </button>
+      </template>
     </div>
   </div>
 </template>

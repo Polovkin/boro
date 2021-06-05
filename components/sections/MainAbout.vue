@@ -24,31 +24,28 @@
         class="main-about__images"
       >
         <figure class="main-about__img animation-image-viewport">
-          <img
-            loading="lazy"
-            alt="Elena"
-            width="1290"
-            height="1104"
+          <nuxt-picture
+            alt="office"
+            width="490"
+            height="368"
             src="/img/about1.jpg"
-          >
+          />
         </figure>
         <figure class="main-about__img  animation-image-viewport">
-          <img
-            loading="lazy"
-            alt="Khabib"
-            width="1548"
-            height="2325"
-            src="/img/about2.jpg"
-          >
-        </figure>
-        <figure class="main-about__img  animation-image-viewport">
-          <img
-            loading="lazy"
+          <nuxt-picture
             alt="Yeghor"
-            width="1290"
-            height="1374"
+            width="430"
+            height="566"
+            src="/img/about2.jpg"
+          />
+        </figure>
+        <figure class="main-about__img  animation-image-viewport">
+          <nuxt-picture
+            alt="Elena"
+            width="430"
+            height="458"
             src="/img/about3.jpg"
-          >
+          />
         </figure>
       </div>
       <hooper
@@ -57,35 +54,32 @@
       >
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <img
-              alt="Elena"
-              loading="lazy"
-              width="1290"
-              height="1104"
-              src="/img/about1.jpg"
-            >
+            <nuxt-picture
+                alt="office"
+                width="490"
+                height="368"
+                src="/img/about1.jpg"
+            />
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <img
-              alt="Khabib"
-              loading="lazy"
-              width="1548"
-              height="2325"
-              src="/img/about2.jpg"
-            >
+            <nuxt-picture
+                alt="Yeghor"
+                width="430"
+                height="566"
+                src="/img/about2.jpg"
+            />
           </figure>
         </slide>
         <slide>
           <figure class="main-about__img animation-image-viewport">
-            <img
-              alt="Yeghor"
-              loading="lazy"
-              width="1290"
-              height="1374"
-              src="/img/about3.jpg"
-            >
+            <nuxt-picture
+                alt="Elena"
+                width="430"
+                height="458"
+                src="/img/about3.jpg"
+            />
           </figure>
         </slide>
         <hooper-pagination slot="hooper-addons" />

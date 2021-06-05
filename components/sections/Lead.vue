@@ -24,12 +24,11 @@
 </template>
 
 <script>
-import ButtonTag from '../reusable/buttons/ButtonTag'
 import UserInfo from '../reusable/UserInfo'
 
 export default {
   name: 'Lead',
-  components: { UserInfo, ButtonTag },
+  components: { UserInfo },
   data () {
     return {
 

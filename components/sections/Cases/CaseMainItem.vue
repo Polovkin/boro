@@ -31,8 +31,8 @@
 
       <figure class="case-item__img animation-image-viewport animation-delay-4">
         <nuxt-picture
-          width="1304"
-          height="992"
+          width="326"
+          height="249"
           :src="data.img"
           :alt="data.title"
         />

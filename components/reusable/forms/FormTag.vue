@@ -47,7 +47,7 @@ export default {
       wave.style.left = event.clientX - this.$refs.tag.getBoundingClientRect().left + 'px'
       wave.style.top = event.clientY - this.$refs.tag.getBoundingClientRect().top + 'px'
 
-     // wave.classList.toggle('form__tags-wave--active')
+      // wave.classList.toggle('form__tags-wave--active')
     }
   }
 }

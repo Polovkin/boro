@@ -8,22 +8,19 @@
       {{ $t('services.title') }}
     </h2>
     <div slot="content" class="main-services__content">
-
       <ServiceItem v-for="(item,index) of items" :key="index" :data="item" :index="index" />
       <hr class="divider">
     </div>
-
   </section>
 </template>
 
 <script>
-import LinkPrimary from '../../reusable/LinkPrimary'
 import Section from '../../reusable/Section'
 import ServiceItem from './ServicesItem'
 
 export default {
   name: 'Services',
-  components: { ServiceItem, Section, LinkPrimary },
+  components: { ServiceItem, Section },
   data () {
     return {
       items: [

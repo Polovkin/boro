@@ -12,11 +12,12 @@
           class="main-section__slide"
           :class="{'main-section__slide--active':index===activeSlide}"
         >
-          <img
-            loading="lazy"
+          <nuxt-picture
+            width="526"
+            height="790"
             :src="slide.url"
             :alt="slide.name"
-          >
+          />
         </div>
       </div>
       <div class="main-section__wrap">

@@ -80,7 +80,7 @@ export default {
   },
 
   image: {
-
+    staticFilename: '[name]-[hash][ext]'
   },
   pwa: {
     icon: {

@@ -30,7 +30,6 @@ export default {
     @include size(70px);
     position: relative;
 
-
     margin-left: 18px;
 
     border: 1px solid $color__dark_6;

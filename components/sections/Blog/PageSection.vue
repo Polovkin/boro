@@ -20,7 +20,6 @@
         <div class="page__content">
           <slot name="content" />
         </div>
-
       </section>
     </div>
   </div>
@@ -69,8 +68,6 @@ export default {
     position: relative;
 
     display: flex;
-
-
 
     padding-bottom: 32px;
 
