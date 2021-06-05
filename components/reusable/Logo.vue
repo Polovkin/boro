@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     class="logotype"
-    to="/"
+    :to="localePath('/')"
   >
     <img
       width="142"

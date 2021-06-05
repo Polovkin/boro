@@ -1,7 +1,7 @@
 import i18n from './config/i18'
 
 export default {
-
+  target: 'static',
   server: {
     port: 3000,
     host: '0.0.0.0'
@@ -28,6 +28,7 @@ export default {
   buildModules: [
     '@nuxt/image',
     '@nuxtjs/svg',
+    '@nuxtjs/eslint-module',
     [
       'nuxt-i18n',
       {

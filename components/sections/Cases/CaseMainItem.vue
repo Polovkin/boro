@@ -30,13 +30,12 @@
       </div>
 
       <figure class="case-item__img animation-image-viewport animation-delay-4">
-        <img
-          loading="lazy"
+        <nuxt-picture
           width="1304"
           height="992"
           :src="data.img"
           :alt="data.title"
-        >
+        />
       </figure>
     </div>
   </div>

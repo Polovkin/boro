@@ -8,7 +8,7 @@
       >
         <LinkPrimary
           :is-static="isStatic"
-          :link="item.link"
+          :link="localePath(item.link)"
           class="navigation__link"
         >
           {{ $t(item.name) }}

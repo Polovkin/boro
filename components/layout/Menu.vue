@@ -61,7 +61,6 @@ import { MENU } from '../../store/types'
 import LinkPrimary from '../reusable/LinkPrimary'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import LangSwitcher from '../LangSwitcher'
-import blog from '../../pages/blog'
 import PopupFooter from './Popup/PopupFooter'
 
 export default {
@@ -97,7 +96,7 @@ export default {
   },
   methods: {
     redirect (link) {
-      this.$router.push(link)
+      this.$router.push(this.localePath(link))
       this.$store.dispatch('popups/MENU_REDIRECT')
     },
     listHoverIn () {
