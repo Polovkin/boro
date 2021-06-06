@@ -124,6 +124,9 @@ export default {
       color: gray;
 
       pointer-events: none;
+      &:after,&:before {
+        filter: invert(.5);
+      }
     }
 
     @include breakpoint($phone__all) {

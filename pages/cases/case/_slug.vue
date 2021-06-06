@@ -1,5 +1,42 @@
 <template>
-  <div class="page case">
+  <SlugItem is-case>
+    <slot slot="title">
+      <header class="page__title case__heading">
+        <h2>
+          {{ caseItem.data.title }}
+        </h2>
+        <div class="case__button">
+          <ButtonPrimary>Behance</ButtonPrimary>
+        </div>
+
+        <div class="case__tags">
+          <ButtonTag
+            v-for="(tag,index) of caseItem.tags"
+            :key="index"
+          >
+            {{ $t(`blog.tags.${tag}`) }}
+          </ButtonTag>
+        </div>
+
+        <hr class="divider">
+      </header>
+    </slot>
+    <slot slot="content">
+      <div class="case__main">
+        <div class="case__main-team">
+          <UserInfo v-for="(user,i) of caseItem.data.team" :key="i" :data="user" />
+        </div>
+        <div class="case__main-img">
+          <nuxt-picture
+            width="326"
+            height="249"
+            :src="caseItem.data.img"
+          />
+        </div>
+      </div>
+    </slot>
+  </SlugItem>
+<!--  <div class="page case">
     <div class="container">
       <section
         id="top"
@@ -44,18 +81,18 @@
         </div>
       </section>
     </div>
-  </div>
+  </div>-->
 </template>
 
 <script>
 
 import ButtonTag from '../../../components/reusable/buttons/ButtonTag'
 import { pageMixin } from '../../../mixins/page-mixins'
-import SlugPagination from '../../../components/sections/SlugPagination'
 import ButtonPrimary from '../../../components/reusable/buttons/ButtonPrimary'
 import UserInfo from '../../../components/reusable/UserInfo'
+import SlugItem from '../../../components/reusable/SlugItem'
 export default {
-  components: { UserInfo, ButtonPrimary, SlugPagination, ButtonTag },
+  components: { SlugItem, UserInfo, ButtonPrimary, ButtonTag },
   mixins: [pageMixin],
   computed: {
     caseItem () {

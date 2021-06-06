@@ -53,7 +53,9 @@
       }
 
       &:last-of-type {
-        background-color: red;
+        hr {
+          display: none;
+        }
       }
 
 
@@ -101,7 +103,8 @@
       position: absolute;
       bottom: 0;
     }
-    @include breakpoint ($tablet__portrait) {
+
+    @include breakpoint($tablet__portrait) {
       flex-direction: column;
 
       display: flex;
@@ -114,7 +117,7 @@
         text-align: left;
       }
     }
-    @include breakpoint ($mobile__all) {
+    @include breakpoint($mobile__all) {
       flex-direction: column;
 
       display: flex;
@@ -154,13 +157,14 @@
       position: absolute;
       bottom: 0;
     }
-    @include breakpoint ($tablet__portrait) {
+
+    @include breakpoint($tablet__portrait) {
 
       align-items: flex-end;
 
       padding-bottom: 32px;
     }
-    @include breakpoint ($mobile__all) {
+    @include breakpoint($mobile__all) {
 
       align-items: flex-end;
 
@@ -169,14 +173,13 @@
   }
 
 
-  @include breakpoint ($mobile__all) {
+  @include breakpoint($mobile__all) {
 
     .page__title h2 {
       max-width: 500px;
     }
   }
-  @include breakpoint ($phone__all) {
-
+  @include breakpoint($phone__all) {
 
 
     .page__title {
