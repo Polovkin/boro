@@ -115,8 +115,8 @@ import {
   Pagination as HooperPagination
 } from 'hooper'
 import Section from '../reusable/Section'
-import LinkPrimary from '../reusable/LinkPrimary'
-import AnimatedNumber from '../reusable/AnimatedNumber'
+import LinkPrimary from '../reusable/buttons/LinkPrimary'
+import AnimatedNumber from '../common/AnimatedNumber'
 
 export default {
   name: 'MainAbout',

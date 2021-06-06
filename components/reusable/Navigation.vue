@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import LinkPrimary from './LinkPrimary'
+import LinkPrimary from './buttons/LinkPrimary'
 
 export default {
   name: 'Navigation',

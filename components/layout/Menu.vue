@@ -58,9 +58,9 @@
 import { mapState } from 'vuex'
 import { MENU } from '../../store/types'
 
-import LinkPrimary from '../reusable/LinkPrimary'
+import LinkPrimary from '../reusable/buttons/LinkPrimary'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
-import LangSwitcher from '../LangSwitcher'
+import LangSwitcher from '../common/LangSwitcher'
 import PopupFooter from './Popup/PopupFooter'
 
 export default {

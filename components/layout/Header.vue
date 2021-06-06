@@ -32,9 +32,9 @@
 
 <script>
 import { mapState } from 'vuex'
+import LayoutNav from '@/components/layout/LayoutNav'
 import Logo from '../reusable/Logo'
-import LangSwitcher from '../LangSwitcher'
-import LayoutNav from '../reusable/LayoutNav'
+import LangSwitcher from '../common/LangSwitcher'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import MenuBurger from '../reusable/buttons/MenuBurger'
 import { POPUP_ESTIMATE } from '../../store/types'

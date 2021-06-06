@@ -33,7 +33,7 @@
 
 <script>
 import Section from '../../reusable/Section'
-import LinkPrimary from '../../reusable/LinkPrimary'
+import LinkPrimary from '../../reusable/buttons/LinkPrimary'
 import PostCard from './PostCard'
 
 export default {

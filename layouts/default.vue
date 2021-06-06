@@ -24,7 +24,7 @@
 import { mapState } from 'vuex'
 import PopupFluid from '../components/layout/Popup/PopupFluid'
 import Menu from '../components/layout/Menu'
-import Preloader from '../components/reusable/Preloader'
+import Preloader from '../components/common/Preloader'
 import LocomotiveScroll from '../components/layout/LocomotiveScroll'
 import Lead from '../components/sections/Lead'
 import Footer from '../components/layout/Footer'

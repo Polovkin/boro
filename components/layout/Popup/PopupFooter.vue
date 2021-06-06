@@ -19,7 +19,7 @@
 
 <script>
 
-import FooterTags from '../../reusable/FooterTags'
+import FooterTags from '../../common/FooterTags'
 export default {
   name: 'PopupFooter',
   components: { FooterTags },

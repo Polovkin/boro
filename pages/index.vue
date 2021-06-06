@@ -21,7 +21,7 @@ import Cases from '../components/sections/Cases/Cases'
 import MainAbout from '../components/sections/MainAbout'
 import Services from '../components/sections/Services/Services'
 import MainBLog from '../components/sections/Blog/MainBLog'
-import Preloader from '../components/reusable/Preloader'
+import Preloader from '../components/common/Preloader'
 
 export default {
   name: 'Index',

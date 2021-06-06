@@ -29,7 +29,7 @@
 
 <script>
 import Section from '../../reusable/Section'
-import LinkPrimary from '../../reusable/LinkPrimary'
+import LinkPrimary from '../../reusable/buttons/LinkPrimary'
 import { TAG_ALL } from '../../../store/types'
 import CaseMainItem from './CaseMainItem'
 

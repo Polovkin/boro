@@ -16,7 +16,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import ButtonTag from './buttons/ButtonTag'
+import ButtonTag from '../reusable/buttons/ButtonTag'
 export default {
   name: 'FooterTags',
   components: { ButtonTag },

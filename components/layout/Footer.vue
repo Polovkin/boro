@@ -96,21 +96,19 @@
 
 <script>
 import Logo from '../reusable/Logo'
-import LayoutNav from '../reusable/LayoutNav'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import Navigation from '../reusable/Navigation'
-import LinkPrimary from '../reusable/LinkPrimary'
-import ButtonTag from '../reusable/buttons/ButtonTag'
-import FooterTags from '../reusable/FooterTags'
+import LinkPrimary from '../reusable/buttons/LinkPrimary'
+import FooterTags from '../common/FooterTags'
 import { POPUP_ESTIMATE } from '../../store/types'
 import ButtonToTop from '../reusable/buttons/ButtonToTop'
 
 export default {
   name: 'Footer',
-  components: { ButtonToTop, FooterTags, ButtonTag, LinkPrimary, Navigation, ButtonPrimary, LayoutNav, Logo },
+  components: { ButtonToTop, FooterTags, LinkPrimary, Navigation, ButtonPrimary, Logo },
   data () {
     return {
-      type: POPUP_ESTIMATE,
+      type: POPUP_ESTIMATE
     }
   },
   computed: {
@@ -119,7 +117,7 @@ export default {
     },
     terms () {
       return this.$store.state.app.terms
-    },
+    }
   },
 
   mounted () {

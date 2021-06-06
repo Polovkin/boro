@@ -53,7 +53,7 @@
 import PageSection from '../components/sections/PageSection'
 import { pageMixin } from '../mixins/page-mixins'
 import Form from '../components/reusable/forms/Form'
-import LinkPrimary from '../components/reusable/LinkPrimary'
+import LinkPrimary from '../components/reusable/buttons/LinkPrimary'
 import { POPUP_GET_IN_TOUCH } from '../store/types'
 export default {
   name: 'Contacts',
