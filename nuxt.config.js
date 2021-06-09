@@ -62,21 +62,26 @@ export default {
     loaders: {
       scss: { sourceMap: false }
     },
-    postcss: [
-      require('autoprefixer')({}),
-      require('cssnano')({
-        preset: [
-          'default', {
-            discardComments: {
-              removeAll: true
+    postcss: {
+      preset: {
+        autoprefixer: {}
+      },
+      plugins: {
+        cssnano: {
+          preset: [
+            'default',
+            {
+              discardComments: {
+                removeAll: true
+              }
             }
-          }
-        ]
-      }),
-      require('postcss-sort-media-queries')({
-        sort: require('sort-css-media-queries')
-      })
-    ]
+          ]
+        },
+        'postcss-sort-media-queries': {
+          sort: require('sort-css-media-queries')
+        }
+      }
+    }
   },
 
   image: {

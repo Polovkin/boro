@@ -75,21 +75,11 @@
         margin-left: auto;
       }
 
-      &-tags {
-        display: flex;
-      }
 
-      p {
-        @include body-secondary;
-        margin-bottom: 20px;
 
-        color: $color__font_dark--quaternary;
-      }
 
-      .divider {
-        position: absolute;
-        bottom: 0;
-      }
+
+
     }
 
     &__last {

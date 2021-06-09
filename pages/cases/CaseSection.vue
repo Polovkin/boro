@@ -1,0 +1,31 @@
+<template>
+  <section v-in-viewport class="case-section">
+    <h3 class="case-section__title" v-html="data.heading" />
+    <p class="case-section__description" v-html="data.description" />
+    <div class="case-section__content" v-html="data.content" />
+    <hr class="divider">
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'CaseSection',
+  props: {
+    data: {
+      type: Object,
+      default: null
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.case-section {
+  $grids:(title,description,content);
+  @each $item in $grids {
+    &__#{$item} {
+      grid-area: #{$item};
+    }
+  }
+}
+</style>

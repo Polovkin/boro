@@ -34,54 +34,11 @@
           />
         </div>
       </div>
+      <div class="case__sections">
+        <CaseSection v-for="(section,i) of caseItem.data.content" :key="i" :data="section" />
+      </div>
     </slot>
   </SlugItem>
-<!--  <div class="page case">
-    <div class="container">
-      <section
-        id="top"
-        v-in-viewport
-        class="page__section"
-        data-scroll-section
-      >
-        <div class=" case__heading">
-          <h2>
-            {{ caseItem.data.title }}
-          </h2>
-          <div class="case__button">
-            <ButtonPrimary>Behance</ButtonPrimary>
-          </div>
-
-          <div class="case__tags">
-            <ButtonTag
-              v-for="(tag,index) of caseItem.tags"
-              :key="index"
-            >
-              {{ $t(`blog.tags.${tag}`) }}
-            </ButtonTag>
-          </div>
-
-          <hr class="divider">
-        </div>
-
-        <div class="page__content">
-          <div class="case__main">
-            <div class="case__main-team">
-              <UserInfo v-for="(user,i) of caseItem.data.team" :key="i" :data="user" />
-            </div>
-            <div class="case__main-img">
-              <nuxt-picture
-                width="326"
-                height="249"
-                :src="caseItem.data.img"
-              />
-            </div>
-          </div>
-          <SlugPagination is-case />
-        </div>
-      </section>
-    </div>
-  </div>-->
 </template>
 
 <script>
@@ -91,8 +48,9 @@ import { pageMixin } from '../../../mixins/page-mixins'
 import ButtonPrimary from '../../../components/reusable/buttons/ButtonPrimary'
 import UserInfo from '../../../components/reusable/UserInfo'
 import SlugItem from '../../../components/reusable/SlugItem'
+import CaseSection from '../CaseSection'
 export default {
-  components: { SlugItem, UserInfo, ButtonPrimary, ButtonTag },
+  components: { CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },
   mixins: [pageMixin],
   computed: {
     caseItem () {

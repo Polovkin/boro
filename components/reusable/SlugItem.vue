@@ -13,10 +13,10 @@
           <slot name="content" />
         </div>
         <footer>
-          <div class="post-section post-section__footer">
+          <div class="page__footer">
             <div>
               <p>{{ $t('blog.share') }}</p>
-              <div class="post-section__footer-tags">
+              <div class="page__tags">
                 <ButtonTag
                   v-for="(link,index) of share"
                   :key="index"
@@ -29,8 +29,8 @@
             <div>
               <ButtonToTop />
             </div>
-            <hr class="divider">
           </div>
+          <hr class="divider">
           <SlugPagination :is-blog="isBlog" :is-case="isCase" />
         </footer>
       </section>

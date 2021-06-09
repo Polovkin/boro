@@ -1,5 +1,5 @@
-@import "~hooper/dist/hooper.css";
-@import '~normalize.css';
+@import 'node_modules/hooper/dist/hooper.css';
+@import 'node_modules/normalize.css/normalize.css';
 @import 'animation/animation';
 @import 'components.scss';
 @import 'pages.scss';
