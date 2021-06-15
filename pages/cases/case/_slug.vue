@@ -35,7 +35,10 @@
         </div>
       </div>
       <div class="case__sections">
-        <CaseSection v-for="(section,i) of caseItem.data.content" :key="i" :data="section" />
+        <template v-for="(section,i) of caseItem.data.content">
+          <CasePresentation v-if="i===1" :key="i" :data="caseItem.data.presentation" />
+          <CaseSection :key="i" :data="section" />
+        </template>
       </div>
     </slot>
   </SlugItem>
@@ -49,8 +52,9 @@ import ButtonPrimary from '../../../components/reusable/buttons/ButtonPrimary'
 import UserInfo from '../../../components/reusable/UserInfo'
 import SlugItem from '../../../components/reusable/SlugItem'
 import CaseSection from '../CaseSection'
+import CasePresentation from '../CasePresentation'
 export default {
-  components: { CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },
+  components: { CasePresentation, CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },
   mixins: [pageMixin],
   computed: {
     caseItem () {

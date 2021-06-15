@@ -3,13 +3,17 @@ export const pageMixin = {
     return {
       scrollOpt: {
         target: '#top',
-        options: ''
+        options: {
+        }
       }
     }
   },
   mounted () {
     this.$store.commit('app/SET_PRELOADER_STATE', true)
     this.$nuxt.$emit('update-locomotive')
-    this.$nuxt.$emit('scroll-locomotive', this.scrollOpt)
+    setTimeout(() => {
+      this.$nuxt.$emit('scroll-locomotive', this.scrollOpt)
+    }, 0)
+    //
   }
 }

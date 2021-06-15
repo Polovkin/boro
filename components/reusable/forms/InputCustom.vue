@@ -255,9 +255,6 @@ export default {
       if (newValue) {
         this.$v.$touch()
       }
-    },
-    deadline (newValue) {
-
     }
   },
   methods: {
