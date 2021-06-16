@@ -37,13 +37,15 @@ export default {
   name: 'Cases',
   components: { CaseMainItem, LinkPrimary, Section },
   data () {
-    return {}
-  },
-  computed: {
-    cases () {
-      return this.$store.state.app.cases
+    return {
+      cases: null
     }
   },
+  async fetch () {
+    const response = await this.$axios.get('/api/cases')
+    this.cases = response.data
+  },
+
   mounted () {
     this.$store.commit('filter/SET_FILTER_TYPE', TAG_ALL)
   }

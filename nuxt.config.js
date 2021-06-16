@@ -1,7 +1,7 @@
 import i18n from './config/i18'
 
 export default {
-  target: 'static',
+  target: 'server',
   server: {
     port: 3000,
     host: '0.0.0.0'
@@ -14,9 +14,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   styleResources: {
@@ -28,7 +26,7 @@ export default {
   buildModules: [
     '@nuxt/image',
     '@nuxtjs/svg',
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     'nuxt-compress',
     [
       'nuxt-i18n',
@@ -92,11 +90,14 @@ export default {
       /* icon options */
     }
   },
-  plugins: [
-    { src: '~/plugins/client.js', mode: 'client' }
-  ],
+
+  plugins: [{ src: '~/plugins/client.js', mode: 'client' }],
   publicRuntimeConfig: {
-    BASE_URL: process.env.NODE_ENV === 'production' ? 'https://boro.digital/' : 'http://localhost:3000/',
-    IS_DEV: process.env.IS_DEVELOP === 'true'
+    axios: {
+      browserBaseURL: process.env.API_URL
+    },
+    BASE_URL: process.env.BASE_URL,
+    IS_DEV: process.env.IS_DEVELOP === 'true',
+    API_URL: process.env.API_URL
   }
 }
