@@ -86,7 +86,8 @@ export default {
   },
 
   image: {
-    staticFilename: '[name]-[hash][ext]'
+    staticFilename: '[name]-[hash][ext]',
+    domains: [process.env.API_URL]
   },
   pwa: {
     icon: {
