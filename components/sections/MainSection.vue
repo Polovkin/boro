@@ -84,23 +84,23 @@ export default {
       activeSlide: 0,
       slides: [
         {
-          url: '/img/main/1.jpg',
+          url: '/static/img/main/1.jpg',
           name: 'Sashko '
         },
         {
-          url: '/img/main/2.jpg',
+          url: '/static/img/main/2.jpg',
           name: 'Zradnuk'
         },
         {
-          url: '/img/main/3.jpg',
+          url: '/static/img/main/3.jpg',
           name: 'Yehor'
         },
         {
-          url: '/img/main/4.jpg',
+          url: '/static/img/main/4.jpg',
           name: 'Lyub'
         },
         {
-          url: '/img/main/5.jpg',
+          url: '/static/img/main/5.jpg',
           name: 'Khom'
         }
 

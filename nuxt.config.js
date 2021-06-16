@@ -6,7 +6,9 @@ export default {
     port: 3000,
     host: '0.0.0.0'
   },
-
+  serverMiddleware: {
+    '/_ipx': '~/server/middleware/ipx.js'
+  },
   head: {
     title: 'Boro digital | UX, Web & Product design agency',
     meta: [
@@ -50,6 +52,7 @@ export default {
   ],
 
   modules: [
+    '@nuxt/image',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
