@@ -1,6 +1,5 @@
 import posts from '../api/data'
 import user from '../api/user'
-import cases from '../api/cases'
 import socials from '../api/socials'
 
 export const state = () => ({
@@ -27,7 +26,6 @@ export const state = () => ({
   },
   user,
   socials,
-  cases,
   posts
 })
 

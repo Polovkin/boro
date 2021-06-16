@@ -36,7 +36,7 @@
       </div>
       <div class="case__sections">
         <template v-for="(section,i) of caseItem.data.content">
-          <CasePresentation v-if="i===1" :key="i" :data="caseItem.data.presentation" />
+          <CasePresentation v-if="i===1" :key="i * 100" :data="caseItem.data.presentation" />
           <CaseSection :key="i" :data="section" />
         </template>
       </div>
@@ -56,10 +56,10 @@ import CasePresentation from '../CasePresentation'
 export default {
   components: { CasePresentation, CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },
   mixins: [pageMixin],
-  computed: {
-    caseItem () {
-      return this.$store.state.app.cases.filter(e => e.link === this.$route.path)[0]
-    }
+  async asyncData (context) {
+    const response = await context.app.$axios.get('/api/cases')
+    const caseItem = response.data.find(e => e.link === context.route.path)
+    return { caseItem }
   }
 }
 </script>

@@ -23,7 +23,6 @@ import { mapState } from 'vuex'
 export default {
   name: 'SlugPagination',
   props: {
-
     isBlog: {
       type: Boolean,
       default: false
@@ -35,6 +34,7 @@ export default {
   },
   data () {
     return {
+      cases: [],
       navData: [],
       url: '',
       paginationData: {
@@ -43,30 +43,36 @@ export default {
       }
     }
   },
+  async fetch () {
+    const response = await this.$axios.get('/api/cases')
+    this.cases = response.data
+  },
   computed: {
     ...mapState({
-      posts: s => s.app.posts,
-      cases: s => s.app.cases
+      posts: s => s.app.posts
     }),
     linkPrev () {
+      this.setLinks()
       return this.url + this.paginationData.prev
     },
     linkNext () {
+      this.setLinks()
       return this.url + this.paginationData.next
     }
+
   },
-  mounted () {
-    this.navData = this.isBlog ? this.posts : this.cases
-    this.url = this.isBlog ? '/blog/posts/' : '/cases/case/'
-    this.navData.forEach((e, i) => {
-      const index = i + 1
-      if (e.link === this.$route.path) {
-        this.paginationData.prev = index - 1
-        this.paginationData.next = index + 1
-      }
-    })
-  },
-  methods: {}
+  methods: {
+    setLinks () {
+      this.navData = this.isBlog ? this.posts : this.cases
+      this.navData.forEach((e, i) => {
+        const index = i + 1
+        if (e.link === this.$route.path) {
+          this.paginationData.prev = index - 1
+          this.paginationData.next = index + 1
+        }
+      })
+    }
+  }
 }
 </script>
 
