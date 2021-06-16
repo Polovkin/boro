@@ -18,26 +18,18 @@ jobs:
             node-version: ${{ matrix.node-version }}
         - name: Install dependencies
           run: npm i   
-        #- name: Generate
-        #  run: npm run generate
-        # Build
-        #- name: Run npm
-        # run: npm i
-        #- name: Run CI
-        #  run: npm ci
-        - name: Run build
-          run: npm run build
-          env:
-            NEXT_PUBLIC_BASE_URL: ${{ secrets.SERVER_URL }}
-            NEXT_PUBLIC_ORIGIN_URL: https://boro.digital/
-         #Env  
+        
+        #Env  
         - name: Make envfile
           uses: SpicyPizza/create-envfile@v1
           with:
               envkey_IS_DEVELOP: false
               envkey_BASE_URL: ${{ secrets.BASE_URL }}
               envkey_API_URL: ${{ secrets.SERVER_URL }}
-              file_name: .env     
+              file_name: .env    
+        #Build      
+        - name: Build
+          run: nuxt build           
         #Copy
         - name: copy file via ssh key
           uses: appleboy/scp-action@master
