@@ -13,6 +13,7 @@
       </h2>
       <div class="lead-section__contact">
         <UserInfo
+            is-to-left
           class="animation-move-from-left"
           :data="user.data"
           :tags="user.socials"

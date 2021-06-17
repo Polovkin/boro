@@ -1,16 +1,16 @@
 <template>
   <div
     class="user-info"
-    :class="{'user-info--dark':isDark}"
+    :class="{'user-info--dark':isDark,'user-info--to-left':isToLeft}"
   >
     <div class="user-info__contact-info">
       <figure class="user-info__img">
-        <img
+        <nuxt-picture
           width="62"
           height="62"
           loading="lazy"
           :src="data.img"
-          alt="stos"
+          :alt="data.name"
         />
       </figure>
       <p class="user-info__position">
@@ -49,6 +49,10 @@ export default {
       type: Boolean,
       default: false
     },
+    isToLeft: {
+      type: Boolean,
+      default: false
+    },
     data: {
       type: Object,
       default: null
@@ -64,8 +68,27 @@ export default {
 
 <style scoped
        lang="scss">
+
 .user-info {
-  display: flex;
+
+  &--to-left {
+    display: flex;
+
+    .user-info__img {
+
+      @include breakpoint($mobile__all) {
+        justify-content: flex-end;
+
+        display: flex;
+      }
+    }
+
+    .user-info__position {
+      @include breakpoint($mobile__all) {
+        text-align: right;
+      }
+    }
+  }
 
   &--dark {
 
@@ -74,32 +97,20 @@ export default {
     }
   }
 
-  &__img {
-    margin-bottom: 12px;
-
-    img {
-      border-radius: 50%;
-    }
-
-    @include breakpoint($mobile__all) {
-      justify-content: flex-end;
-
-      display: flex;
-    }
-  }
-
   &__position {
     @include body-secondary;
     color: $color__font_dark--quaternary;
-    @include breakpoint($mobile__all) {
-      text-align: right;
-    }
+
   }
 
   &__name {
     @include h6;
   }
-
+&__img {
+  img {
+    border-radius: 50%  ;
+  }
+}
   &__contact {
     justify-content: flex-end;
 

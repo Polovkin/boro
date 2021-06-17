@@ -22,7 +22,6 @@
       >
         {{ $t('blog.more') }}
       </button>
-
       <div />
     </slot>
   </PageSection>

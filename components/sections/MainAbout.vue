@@ -28,7 +28,7 @@
             alt="office"
             width="490"
             height="368"
-            src="/img/about1.jpg"
+            src="/static/img/about1.jpg"
           />
         </figure>
         <figure class="main-about__img  animation-image-viewport">
@@ -36,7 +36,7 @@
             alt="Yeghor"
             width="430"
             height="566"
-            src="/img/about2.jpg"
+            src="/static/img/about2.jpg"
           />
         </figure>
         <figure class="main-about__img  animation-image-viewport">
@@ -44,7 +44,7 @@
             alt="Elena"
             width="430"
             height="458"
-            src="/img/about3.jpg"
+            src="/static/img/about3.jpg"
           />
         </figure>
       </div>
@@ -58,7 +58,7 @@
               alt="office"
               width="490"
               height="368"
-              src="/img/about1.jpg"
+              src="/static/img/about1.jpg"
             />
           </figure>
         </slide>
@@ -68,7 +68,7 @@
               alt="Yeghor"
               width="430"
               height="566"
-              src="/img/about2.jpg"
+              src="/static/img/about2.jpg"
             />
           </figure>
         </slide>
@@ -78,7 +78,7 @@
               alt="Elena"
               width="430"
               height="458"
-              src="/img/about3.jpg"
+              src="/static/img/about3.jpg"
             />
           </figure>
         </slide>

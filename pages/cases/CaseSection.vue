@@ -1,8 +1,23 @@
 <template>
-  <section v-in-viewport class="case-section">
-    <h3 class="case-section__title" v-html="data.heading" />
-    <p class="case-section__description" v-html="data.description" />
-    <div class="case-section__content" v-html="data.content" />
+  <section
+      v-in-viewport
+      class="case-section"
+  >
+    <h3
+        class="case-section__title"
+        v-html="data.heading"
+    />
+    <p
+        class="case-section__description"
+        v-html="data.description"
+    />
+    <div
+        class="case-section__content"
+    >
+      <nuxt-picture v-for="(img,i) of data.content"
+                    :key="i"
+                    :src="`/static${img}`"/>
+    </div>
     <hr class="divider">
   </section>
 </template>
@@ -16,13 +31,13 @@ export default {
       default: null
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
 .case-section {
 
-  $grids:(title,description,content);
+  $grids: (title, description, content);
   @each $item in $grids {
     &__#{$item} {
       grid-area: #{$item};
@@ -35,10 +50,14 @@ export default {
   padding: 40px 0;
   grid: {
     template: {
-      columns: repeat(2,1fr);
+      columns: repeat(2, 1fr);
       areas: 'title description' 'content content';
     };
   };
+  @include breakpoint($portrait__all) {
+    display: flex;
+    flex-direction: column;
+  }
 
   .divider {
     position: absolute;
@@ -62,9 +81,19 @@ export default {
       column-gap: 24px;
       auto-flow: dense;
       template: {
-        columns: repeat(2,1fr);
+        columns: repeat(2, 1fr);
       };
     };
+
+
+
+    @include breakpoint($portrait__all) {
+      img {
+        margin-bottom: 30px;
+      }
+      display: flex;
+      flex-direction: column;
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 const user = {
   data: {
-    img: '/img/anna.jpg',
+    img: '/static/img/anna.jpg',
     role: 'user.account-manager',
     name: 'Anna Haiduk'
   },

@@ -12,6 +12,9 @@
 
 }
 
-header.animation-base-state .header__content:after, .in-viewport .section__header:after ,.in-viewport .post__header:after {
+header.animation-base-state .header__content:after,
+.in-viewport .section__header:after ,
+.in-viewport .post__header:after,
+.in-viewport .case__main-team:after {
   max-width: 100% !important;
 }

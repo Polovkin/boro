@@ -15,7 +15,6 @@ export const state = () => ({
     blog: { name: 'navigation.link5', link: '/blog' }, // blog
     contacts: { name: 'navigation.link6', link: '/contacts' } // contacts
   },
-
   terms: [
     { name: 'footer.privacy', link: '/privacy' }, // privacy
     { name: 'footer.terms', link: '/terms' } // terms

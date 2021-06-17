@@ -232,6 +232,7 @@
           class="form__users"
         >
           <UserInfo
+            is-to-left
             is-dark
             :tags="user.socials"
             :data="user.data"

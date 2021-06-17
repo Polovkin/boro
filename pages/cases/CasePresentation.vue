@@ -1,5 +1,5 @@
 <template>
-  <section v-in-viewport class="case-section case-presentation">
+  <section v-in-viewport class="case-section">
     <h3 class="case-section__title" v-html="data.heading" />
     <p class="case-section__description" v-html="data.description" />
     <div class="case-section__content">

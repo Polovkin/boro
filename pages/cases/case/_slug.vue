@@ -39,6 +39,26 @@
           <CasePresentation v-if="i===1" :key="i * 100" :data="caseItem.data.presentation" />
           <CaseSection :key="i" :data="section" />
         </template>
+        <section v-in-viewport class=" case-section case__review">
+          <h3 class="case-section__title">
+            {{ caseItem.data.review.title }}
+          </h3>
+          <div class="case__review-content">
+            <div class="case__review-user">
+              <nuxt-img class="case__review-img" :src="caseItem.data.review.img" />
+              <h5 class="case__review-name">
+                {{ caseItem.data.review.name }}
+              </h5>
+              <p class="case__review-role">
+                {{ caseItem.data.review.role }}
+              </p>
+            </div>
+            <p class="case__review-text">
+              {{ caseItem.data.review.text }}
+            </p>
+          </div>
+          <hr class="divider">
+        </section>
       </div>
     </slot>
   </SlugItem>
