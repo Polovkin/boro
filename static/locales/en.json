@@ -90,7 +90,11 @@
     "title": "Cases",
     "case": {
       "next": "Next case",
-      "prev": "Previous case"
+      "prev": "Previous case",
+      "mainTypeface": "Main typeface",
+      "pairTypeface": "Pair typeface",
+      "designer": "Designer",
+      "poppins": "Poppins"
     }
   },
   "about": {
@@ -112,6 +116,8 @@
       "TAG_TEAM": "Team",
       "TAG_EVENTS": "Events",
       "TAG_DESIGN": "UI/UX design",
+      "TAG_DESIGNERS": "UI Designers",
+      "TAG_LEAD": "Ui lead",
       "TAG_DEVELOPMENT": "Web development",
       "TAG_MANAGMENT": "Managment"
     },

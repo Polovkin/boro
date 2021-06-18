@@ -14,7 +14,7 @@
         />
       </figure>
       <p class="user-info__position">
-        {{ $t(data.role) }}
+        {{ data.role }}
       </p>
       <p class="user-info__name">
         {{ data.name }}

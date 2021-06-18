@@ -40,25 +40,27 @@
 
     &-team {
       position: relative;
+
       display: grid;
       height: fit-content;
       grid-template-columns: repeat(3, 200px);
       grid-auto-rows: 150px;
       grid-gap: 24px;
+
+      &:after {
+        @include divider;
+        content: '';
+
+        position: absolute;
+        @include breakpoint($mobile__all) {
+          display: none;
+        }
+      }
       @include breakpoint($tablet__landscape) {
         grid-template-columns: repeat(2, 1fr);
       }
       @include breakpoint($phone__all) {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      &:after {
-        content: '';
-        @include divider;
-        position: absolute;
-        @include breakpoint($mobile__all) {
-          display: none;
-        }
       }
     }
 
@@ -71,12 +73,14 @@
     }
 
     @include breakpoint($tablet__portrait) {
-      display: flex;
       flex-direction: column;
+
+      display: flex;
     }
     @include breakpoint($phone__all) {
-      display: flex;
       flex-direction: column;
+
+      display: flex;
     }
   }
 
@@ -93,16 +97,13 @@
   }
 
   &__review {
-    .divider {
-      display: none;
-    }
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 24px;
-    @include breakpoint($portrait__all) {
-      display: flex;
-      flex-direction: column;
+
+    .divider {
+      display: none;
     }
 
     &-img {
@@ -115,8 +116,9 @@
 
     &-role {
       @include body-tertiary;
-      color: $color__primary;
       margin-bottom: 60px;
+
+      color: $color__primary;
     }
 
     &-text {
@@ -125,6 +127,11 @@
 
     &-content {
 
+    }
+    @include breakpoint($portrait__all) {
+      flex-direction: column;
+
+      display: flex;
     }
   }
 }

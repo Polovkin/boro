@@ -1,22 +1,24 @@
 <template>
   <section
-      v-in-viewport
-      class="case-section"
+    v-in-viewport
+    class="case-section"
   >
     <h3
-        class="case-section__title"
-        v-html="data.heading"
+      class="case-section__title"
+      v-html="data.heading"
     />
     <p
-        class="case-section__description"
-        v-html="data.description"
+      class="case-section__description"
+      v-html="data.description"
     />
     <div
-        class="case-section__content"
+      class="case-section__content"
     >
-      <nuxt-picture v-for="(img,i) of data.content"
-                    :key="i"
-                    :src="`/static${img}`"/>
+      <nuxt-picture
+        v-for="(img,i) of data.content"
+        :key="i"
+        :src="`/static${img}`"
+      />
     </div>
     <hr class="divider">
   </section>
@@ -31,7 +33,7 @@ export default {
       default: null
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -46,7 +48,7 @@ export default {
   position: relative;
 
   display: grid;
-
+  grid-gap: 24px;
   padding: 40px 0;
   grid: {
     template: {
@@ -84,8 +86,6 @@ export default {
         columns: repeat(2, 1fr);
       };
     };
-
-
 
     @include breakpoint($portrait__all) {
       img {

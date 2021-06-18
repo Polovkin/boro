@@ -47,6 +47,10 @@
 
     padding-top: 32px;
 
+    h1 {
+      color: $color__font_light--primary;
+    }
+
     @include breakpoint($phone__all) {
 
       h1 {
@@ -186,8 +190,9 @@
 
 
     }
+
     .link__wrap {
-      color: $color__font_light--primary ;
+      color: $color__font_light--primary;
     }
 
     @include breakpoint($desktop__all) {

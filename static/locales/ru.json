@@ -90,7 +90,11 @@
     "title": "Услуги",
     "case": {
       "next": "Следующий кейс",
-      "prev": "Предыдущий кейс"
+      "prev": "Предыдущий кейс",
+      "mainTypeface": "Main typeface",
+      "pairTypeface": "Pair typeface",
+      "designer": "Дизайнер",
+      "poppins": "Poppins"
     }
   },
   "about": {
@@ -112,6 +116,8 @@
       "TAG_TEAM": "Команда",
       "TAG_EVENTS": "События",
       "TAG_DESIGN": "UI/UX дизайн",
+      "TAG_DESIGNERS": "UI дизайнеры",
+      "TAG_LEAD": "Ui lead",
       "TAG_DEVELOPMENT": "Web разработка",
       "TAG_MANAGMENT": "Менеджмент"
     },
