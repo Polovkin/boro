@@ -48,6 +48,12 @@ export default {
   name: 'SlugItem',
   components: { ButtonToTop, SlugPagination, ButtonTag },
   mixins: [pageMixin],
+  methods: {
+    refreshLocomotive() {
+      console.log('visible');
+      this.$store.commit('app/SET_LOCOMOTIVE')
+    }
+  },
   props: {
     isBlog: {
       type: Boolean,

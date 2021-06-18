@@ -4,6 +4,9 @@ export const pageMixin = {
       scrollOpt: {
         target: '#top',
         options: {
+          callback: () => {
+            this.$nuxt.$emit('update-locomotive')
+          }
         }
       }
     }

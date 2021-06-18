@@ -25,7 +25,8 @@ export const state = () => ({
   },
   user,
   socials,
-  posts
+  posts,
+  refreshLocomotive: 0
 })
 
 export const mutations = {
@@ -40,6 +41,9 @@ export const mutations = {
   },
   SET_MAIN_PAGE_STATE (s, payload) {
     s.mainPageState = payload
+  },
+  SET_LOCOMOTIVE (s) {
+    s.refreshLocomotive = s.refreshLocomotive + 1
   }
 }
 

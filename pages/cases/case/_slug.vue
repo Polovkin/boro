@@ -2,9 +2,9 @@
   <SlugItem is-case>
     <slot slot="title">
       <header class="page__title case__heading">
-        <h2>
+        <h1>
           {{ caseItem.data.title }}
-        </h2>
+        </h1>
         <div class="case__button">
           <ButtonPrimary>Behance</ButtonPrimary>
         </div>

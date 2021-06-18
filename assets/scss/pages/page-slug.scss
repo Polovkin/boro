@@ -1,5 +1,8 @@
 .page {
 
+  h1 {
+    color: $color__font--primary;
+  }
   &__section {
     padding-top: $header_height + 130px;
 
