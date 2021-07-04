@@ -13,9 +13,7 @@
     &-list {
       @include size(100%);
 
-
       display: flex;
-
 
       @include breakpoint($mobile__all) {
         flex-direction: column;
@@ -29,7 +27,6 @@
 
         border-radius: 4px;
       }
-
     }
 
     &-item {
@@ -140,7 +137,6 @@
 
         .arrow {
           display: block;
-
         }
       }
 
@@ -166,6 +162,5 @@
       max-height: 2000px;
     }
   }
-
 }
 

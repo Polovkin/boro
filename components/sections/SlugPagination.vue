@@ -34,7 +34,7 @@ export default {
   },
   data () {
     return {
-      cases: [],
+      // cases: [],
       navData: [],
       url: '',
       paginationData: {
@@ -43,14 +43,17 @@ export default {
       }
     }
   },
-  async fetch () {
+  /*  async fetch () {
     const response = await this.$axios.get('/api/cases')
     this.cases = response.data
-  },
+  }, */
   computed: {
     ...mapState({
       posts: s => s.app.posts
     }),
+    cases () {
+      return this.$store.state.app.cases
+    },
     linkPrev () {
       this.setLinks()
       return this.url + this.paginationData.prev

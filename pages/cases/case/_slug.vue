@@ -76,10 +76,15 @@ import CasePresentation from '../CasePresentation'
 export default {
   components: { CasePresentation, CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },
   mixins: [pageMixin],
-  async asyncData (context) {
+  /* async asyncData (context) {
     const response = await context.app.$axios.get('/api/cases')
     const caseItem = response.data.find(e => e.link === context.route.path)
     return { caseItem }
+  }, */
+  computed: {
+    caseItem () {
+      return this.$store.state.app.cases.find(e => e.link === this.$route.path)
+    }
   }
 }
 </script>

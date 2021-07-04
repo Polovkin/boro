@@ -1,6 +1,7 @@
 import posts from '../api/data'
 import user from '../api/user'
 import socials from '../api/socials'
+import cases from '../api/cases'
 
 export const state = () => ({
   scrollDirection: null,
@@ -26,6 +27,7 @@ export const state = () => ({
   user,
   socials,
   posts,
+  cases,
   refreshLocomotive: 0
 })
 

@@ -22,11 +22,10 @@ import MainAbout from '../components/sections/MainAbout'
 import Services from '../components/sections/Services/Services'
 import MainBLog from '../components/sections/Blog/MainBLog'
 import Preloader from '../components/common/Preloader'
-import {pageMixin} from '../mixins/page-mixins';
+import { pageMixin } from '../mixins/page-mixins'
 
 export default {
   name: 'Index',
-  mixins: [pageMixin],
   components: {
     Preloader,
     MainBLog,
@@ -36,6 +35,7 @@ export default {
     MainSection
 
   },
+  mixins: [pageMixin],
 
   data () {
     return {

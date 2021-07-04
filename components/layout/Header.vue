@@ -38,6 +38,7 @@ import LangSwitcher from '../common/LangSwitcher'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import MenuBurger from '../reusable/buttons/MenuBurger'
 import { POPUP_ESTIMATE } from '../../store/types'
+
 export default {
   name: 'Header',
   components: { MenuBurger, ButtonPrimary, LayoutNav, LangSwitcher, Logo },
@@ -76,8 +77,8 @@ export default {
   mounted () {
     this.firstLoad = true
   }
-
 }
+
 </script>
 
 <style lang="scss">

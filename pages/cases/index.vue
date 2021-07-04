@@ -40,16 +40,19 @@ export default {
   name: 'Blog',
   components: { CaseMainItem, ItemsFilter, PageSection },
   mixins: [pageMixin, slugMixin],
-  async asyncData (context) {
+ /* async asyncData (context) {
     const response = await context.app.$axios.get('/api/cases')
     const cases = response.data
     return { cases }
-  },
+  },*/
 
   computed: {
     ...mapState({
       filterType: s => s.filter.filterType
     }),
+    cases () {
+      return this.$store.state.app.cases
+    },
     filteredItems () {
       return this.filterType === TAG_ALL ? this.cases : this.cases.filter(e => (e.tags.includes(this.filterType)))
     }

@@ -38,14 +38,18 @@ export default {
   components: { CaseMainItem, LinkPrimary, Section },
   data () {
     return {
-      cases: null
+      // cases: null
     }
   },
-  async fetch () {
+  /* async fetch () {
     const response = await this.$axios.get('/api/cases')
     this.cases = response.data
+  }, */
+  computed: {
+    cases () {
+      return this.$store.state.app.cases
+    }
   },
-
   mounted () {
     this.$store.commit('filter/SET_FILTER_TYPE', TAG_ALL)
   }
