@@ -102,6 +102,10 @@ export default {
         {
           url: '/static/img/main/5.jpg',
           name: 'Khom'
+        },
+        {
+          url: '/static/img/main/6.jpg',
+          name: 'Anna'
         }
 
       ]
