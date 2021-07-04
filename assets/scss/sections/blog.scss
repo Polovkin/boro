@@ -1,7 +1,7 @@
 @import 'main-blog';
 
 .blog {
-  $post_height: 522px;
+  $post_height: 540px;
 
   &__filter {
     position: relative;
@@ -158,7 +158,7 @@
 
   &__posts {
     @extend .main-blog__posts;
-    max-height: $post_height *2 + 100px;
+    max-height: $post_height * 2 + 100px;
     overflow: hidden;
     grid-row-gap: 64px;
 

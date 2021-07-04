@@ -59,7 +59,7 @@ export default {
   flex-direction: column;
 
   display: flex;
-  min-height: 522px;
+  height: 540px;
 
   &__img {
     overflow: hidden;
