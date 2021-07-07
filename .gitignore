@@ -273,3 +273,4 @@ test/
 yarn-error.log
 
 # End of https://www.toptal.com/developers/gitignore/api/node,nuxt,nuxtjs,vue,vuejs,sass,jetbrains
+/static/sw.js
