@@ -6,9 +6,9 @@ export default {
     port: 3000,
     host: '0.0.0.0'
   },
-  serverMiddleware: {
+  /* serverMiddleware: {
     '/_ipx': '~/server/middleware/ipx.js'
-  },
+  }, */
   head: {
     title: 'Boro digital | UX, Web & Product design agency',
     meta: [
