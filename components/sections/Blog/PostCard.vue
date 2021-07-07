@@ -1,11 +1,12 @@
 <template>
-  <section v-in-viewport.once class="blog-card">
+  <section v-in-viewport.once
+           class="blog-card">
     <figure class="blog-card__img animation-image-viewport animation-delay-4">
       <img
-        loading="lazy"
-        width="430"
-        height="248"
-        :src="post.data.img"
+          loading="lazy"
+          width="430"
+          height="248"
+          :src="post.data.img"
       >
     </figure>
     <div class="blog-card__body">
@@ -15,8 +16,8 @@
       <time class="blog-card__date">{{ post.date }}</time>
       <div class="blog-card__tags">
         <ButtonTag
-          v-for="(tag,index) of post.tags"
-          :key="index"
+            v-for="(tag,index) of post.tags"
+            :key="index"
         >
           {{ $t(`blog.tags.${tag}`) }}
         </ButtonTag>
@@ -26,8 +27,8 @@
       </p>
     </div>
     <ButtonPrimary
-      class="blog-card__button animation-fade animation-delay-5"
-      :link="post.link"
+        class="blog-card__button animation-fade animation-delay-5"
+        :link="post.link"
     >
       {{ $t('buttons.read-more') }}
     </ButtonPrimary>
@@ -35,22 +36,22 @@
 </template>
 
 <script>
-import ButtonTag from '../../reusable/buttons/ButtonTag'
-import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
+import ButtonTag from '../../reusable/buttons/ButtonTag';
+import ButtonPrimary from '../../reusable/buttons/ButtonPrimary';
 
 export default {
   name: 'PostCard',
-  components: { ButtonPrimary, ButtonTag },
+  components: {ButtonPrimary, ButtonTag},
   props: ['post'],
   computed: {
-    tagLink (data) {
-      return `blog.tags.${data}`
+    tagLink(data) {
+      return `blog.tags.${data}`;
     }
   },
-  mounted () {
+  mounted() {
     // console.log(this.post)
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -59,7 +60,6 @@ export default {
   flex-direction: column;
 
   display: flex;
-  height: 540px;
 
   &__img {
     overflow: hidden;
@@ -71,7 +71,8 @@ export default {
       transition: all $videinfa_function .8s;
       object-fit: cover;
     }
-    @include breakpoint ($phone__all) {
+
+    @include breakpoint($phone__all) {
       margin-bottom: 24px;
     }
   }
@@ -85,12 +86,12 @@ export default {
       display: grid;
       grid: {
         template: {
-          columns: repeat(2,1fr);
+          columns: repeat(2, 1fr);
           areas: 'title tags' 'date tags' 'text tags';
         };
       }
     }
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       flex-direction: column;
 
       display: flex;
@@ -100,7 +101,7 @@ export default {
   &__title {
     margin: 8px 0 4px;
     grid-area: title;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 5px;
     }
   }
@@ -114,7 +115,7 @@ export default {
 
     text-overflow: ellipsis;
     grid-area: text;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 24px;
     }
   }
@@ -125,7 +126,7 @@ export default {
 
     color: $color__font_dark--secondary;
     grid-area: date;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 23px;
     }
   }
@@ -135,16 +136,20 @@ export default {
     grid-area: tags;
 
     margin-bottom: 20px;
-    @include breakpoint ($mobile__all) {
+    @include breakpoint($mobile__all) {
       justify-self: end;
     }
   }
 
   &__button {
     margin-top: auto;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-top: 0;
     }
+  }
+
+  @include breakpoint($desktop__all) {
+    min-height: 540px;
   }
 }
 

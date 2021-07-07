@@ -84,7 +84,7 @@
 
     &-cross {
 
-      @include cross(40px, 16px, 1px, $color__light);
+      @include cross(35px, 18px, 2px, $color__light);
       position: relative;
 
       margin-left: 12px;
