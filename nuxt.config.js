@@ -1,106 +1,106 @@
-import i18n from './config/i18'
+import i18n from "./config/i18";
 
 export default {
-  target: 'static',
+  target: "static",
   server: {
     port: 3000,
-    host: '0.0.0.0'
+    host: "0.0.0.0",
   },
-  /* serverMiddleware: {
-    '/_ipx': '~/server/middleware/ipx.js'
-  }, */
+  serverMiddleware: {
+    "/_ipx": "~/server/middleware/ipx.js",
+  },
   head: {
-    title: 'Boro digital | UX, Web & Product design agency',
+    title: "Boro digital | UX, Web & Product design agency",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
     ],
   },
 
   styleResources: {
-    scss: '@/assets/scss/core/_global.scss'
+    scss: "@/assets/scss/core/_global.scss",
   },
 
   components: true,
 
   buildModules: [
-    '@nuxt/image',
-    '@nuxtjs/svg',
+    "@nuxt/image",
+    "@nuxtjs/svg",
     // '@nuxtjs/eslint-module',
-    'nuxt-compress',
+    "nuxt-compress",
     [
-      'nuxt-i18n',
+      "nuxt-i18n",
       {
-        strategy: 'prefix_except_default',
+        strategy: "prefix_except_default",
         vueI18nLoader: true,
-        defaultLocale: 'en',
+        defaultLocale: "en",
         locales: [
           {
-            code: 'en',
-            name: 'Eng'
+            code: "en",
+            name: "Eng",
           },
           {
-            code: 'ru',
-            name: 'Рус'
-          }
+            code: "ru",
+            name: "Рус",
+          },
         ],
-        vueI18n: i18n
-      }
-    ]
+        vueI18n: i18n,
+      },
+    ],
   ],
 
   modules: [
-    '@nuxt/image',
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
-    'nuxt-i18n'
+    "@nuxt/image",
+    "@nuxtjs/axios",
+    "@nuxtjs/pwa",
+    "@nuxtjs/style-resources",
+    "nuxt-i18n",
   ],
 
   build: {
     loaders: {
-      scss: { sourceMap: false }
+      scss: { sourceMap: false },
     },
     postcss: {
       preset: {
-        autoprefixer: {}
+        autoprefixer: {},
       },
       plugins: {
         cssnano: {
           preset: [
-            'default',
+            "default",
             {
               discardComments: {
-                removeAll: true
-              }
-            }
-          ]
+                removeAll: true,
+              },
+            },
+          ],
         },
-        'postcss-sort-media-queries': {
-          sort: require('sort-css-media-queries')
-        }
-      }
-    }
+        "postcss-sort-media-queries": {
+          sort: require("sort-css-media-queries"),
+        },
+      },
+    },
   },
 
   image: {
-    staticFilename: '[name]-[hash][ext]',
-    domains: [process.env.API_URL]
+    staticFilename: "[name]-[hash][ext]",
+    domains: [process.env.API_URL],
   },
   pwa: {
     icon: {
       /* icon options */
-    }
+    },
   },
 
-  plugins: [{ src: '~/plugins/client.js', mode: 'client' }],
+  plugins: [{ src: "~/plugins/client.js", mode: "client" }],
   publicRuntimeConfig: {
     axios: {
-      browserBaseURL: process.env.API_URL
+      browserBaseURL: process.env.API_URL,
     },
     BASE_URL: process.env.BASE_URL,
-    IS_DEV: process.env.IS_DEVELOP === 'true',
-    API_URL: process.env.API_URL
-  }
-}
+    IS_DEV: process.env.IS_DEVELOP === "true",
+    API_URL: process.env.API_URL,
+  },
+};
