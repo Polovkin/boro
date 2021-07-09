@@ -28,10 +28,10 @@
           </p>
         </div>
         <div class="post__header-img">
-          <img
+          <nuxt-picture
             :src="post.data.img"
             :alt="post.data.title"
-          >
+          />
         </div>
         <hr class="divider">
       </div>

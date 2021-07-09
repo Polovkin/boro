@@ -1,13 +1,15 @@
 <template>
-  <section v-in-viewport.once
-           class="blog-card">
+  <section
+    v-in-viewport.once
+    class="blog-card"
+  >
     <figure class="blog-card__img animation-image-viewport animation-delay-4">
-      <img
-          loading="lazy"
-          width="430"
-          height="248"
-          :src="post.data.img"
-      >
+      <nuxt-picture
+        loading="lazy"
+        width="430"
+        height="248"
+        :src="post.data.img"
+      />
     </figure>
     <div class="blog-card__body">
       <h5 class="blog-card__title ">
@@ -16,8 +18,8 @@
       <time class="blog-card__date">{{ post.date }}</time>
       <div class="blog-card__tags">
         <ButtonTag
-            v-for="(tag,index) of post.tags"
-            :key="index"
+          v-for="(tag,index) of post.tags"
+          :key="index"
         >
           {{ $t(`blog.tags.${tag}`) }}
         </ButtonTag>
@@ -27,8 +29,8 @@
       </p>
     </div>
     <ButtonPrimary
-        class="blog-card__button animation-fade animation-delay-5"
-        :link="post.link"
+      class="blog-card__button animation-fade animation-delay-5"
+      :link="post.link"
     >
       {{ $t('buttons.read-more') }}
     </ButtonPrimary>
@@ -36,22 +38,22 @@
 </template>
 
 <script>
-import ButtonTag from '../../reusable/buttons/ButtonTag';
-import ButtonPrimary from '../../reusable/buttons/ButtonPrimary';
+import ButtonTag from '../../reusable/buttons/ButtonTag'
+import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 
 export default {
   name: 'PostCard',
-  components: {ButtonPrimary, ButtonTag},
+  components: { ButtonPrimary, ButtonTag },
   props: ['post'],
   computed: {
-    tagLink(data) {
-      return `blog.tags.${data}`;
+    tagLink (data) {
+      return `blog.tags.${data}`
     }
   },
-  mounted() {
+  mounted () {
     // console.log(this.post)
   }
-};
+}
 </script>
 
 <style lang="scss">
