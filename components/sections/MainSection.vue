@@ -84,27 +84,27 @@ export default {
       activeSlide: 0,
       slides: [
         {
-          url: '/static/img/main/1.jpg',
+          url: '/img/main/1.jpg',
           name: 'Sashko '
         },
         {
-          url: '/static/img/main/2.jpg',
+          url: '/img/main/2.jpg',
           name: 'Zradnuk'
         },
         {
-          url: '/static/img/main/3.jpg',
+          url: '/img/main/3.jpg',
           name: 'Yehor'
         },
         {
-          url: '/static/img/main/4.jpg',
+          url: '/img/main/4.jpg',
           name: 'Lyub'
         },
         {
-          url: '/static/img/main/5.jpg',
+          url: '/img/main/5.jpg',
           name: 'Khom'
         },
         {
-          url: '/static/img/main/6.jpg',
+          url: '/img/main/6.jpg',
           name: 'Anna'
         }
 

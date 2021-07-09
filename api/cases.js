@@ -4,38 +4,38 @@ const cases = [
     link: '/cases/case/1',
     date: '14 April 2021',
     data: {
-      img: '/static/img/cases/Cover1.jpg',
+      img: '/img/cases/Cover1.jpg',
       description:
         'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
       title: 'Server case',
       team: [
         {
-          img: '/static/img/cases/yehor.jpg',
+          img: '/img/cases/yehor.jpg',
           name: 'Yehor Haiduk',
           role: 'Ui lead'
         },
         {
-          img: '/static/img/cases/yevgen.jpg',
+          img: '/img/cases/yevgen.jpg',
           name: 'Yevhen Ledenov',
           role: 'UX Lead'
         },
         {
-          img: '/static/img/cases/denis.jpg',
+          img: '/img/cases/denis.jpg',
           name: 'Denis Bliznyuk',
           role: 'UX Designer'
         },
         {
-          img: '/static/img/cases/ann.jpg',
+          img: '/img/cases/ann.jpg',
           name: 'Ann Haiduk',
           role: 'Copywriting, Content'
         },
         {
-          img: '/static/img/cases/khabib.jpg',
+          img: '/img/cases/khabib.jpg',
           name: 'Misha Grischuk',
           role: 'UI Designers'
         },
         {
-          img: '/static/img/cases/mikle.jpg',
+          img: '/img/cases/mikle.jpg',
           name: 'Yehor Haiduk',
           role: 'Author'
         }
@@ -44,7 +44,7 @@ const cases = [
         title: 'Review',
         text:
           '“Who needs a high-quality and professionally made design, I recommend BORO. We worked together quickly, all wishes were taken into account and fresh ideas from the company employees ere introduced ”',
-        img: '/static/img/cases/katerina.jpg',
+        img: '/img/cases/katerina.jpg',
         name: 'Misha Grischuk',
         role: 'Front End'
       },
@@ -92,9 +92,9 @@ const cases = [
         description:
           '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
         content: {
-          text: '<img src="/static/img/cases/test">',
+          text: '<img src="/img/cases/test">',
           colors: ['#FEC92D', '#242424', '#c9c9c9'],
-          content: '<img src="/static/img/cases/full2">',
+          content: '<img src="/img/cases/full2">',
           font: 'serif'
         }
       }
@@ -106,38 +106,38 @@ const cases = [
     link: '/cases/case/2',
     date: '14 April 2021',
     data: {
-      img: '/static/img/cases/Cover1.jpg',
+      img: '/img/cases/Cover1.jpg',
       description:
         'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
       title: 'Server case 2',
       team: [
         {
-          img: '/static/img/cases/yehor.jpg',
+          img: '/img/cases/yehor.jpg',
           name: 'Yehor Haiduk',
           role: 'Ui lead'
         },
         {
-          img: '/static/img/cases/yevgen.jpg',
+          img: '/img/cases/yevgen.jpg',
           name: 'Yevhen Ledenov',
           role: 'UX Lead'
         },
         {
-          img: '/static/img/cases/denis.jpg',
+          img: '/img/cases/denis.jpg',
           name: 'Denis Bliznyuk',
           role: 'UX Designer'
         },
         {
-          img: '/static/img/cases/ann.jpg',
+          img: '/img/cases/ann.jpg',
           name: 'Ann Haiduk',
           role: 'Copywriting, Content'
         },
         {
-          img: '/static/img/cases/khabib.jpg',
+          img: '/img/cases/khabib.jpg',
           name: 'Misha Grischuk',
           role: 'UI Designers'
         },
         {
-          img: '/static/img/cases/mikle.jpg',
+          img: '/img/cases/mikle.jpg',
           name: 'Yehor Haiduk',
           role: 'Author'
         }
@@ -146,7 +146,7 @@ const cases = [
         title: 'Review',
         text:
           '“Who needs a high-quality and professionally made design, I recommend BORO. We worked together quickly, all wishes were taken into account and fresh ideas from the company employees ere introduced ”',
-        img: '/static/img/cases/katerina.jpg',
+        img: '/img/cases/katerina.jpg',
         name: 'Misha Grischuk',
         role: 'Front End'
       },
@@ -194,9 +194,9 @@ const cases = [
         description:
           '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
         content: {
-          text: '<img src="/static/img/cases/test">',
+          text: '<img src="/img/cases/test">',
           colors: ['#FEC92D', '#242424', '#c9c9c9'],
-          content: '<img src="/static/img/cases/full2">',
+          content: '<img src="/img/cases/full2">',
           font: 'serif'
         }
       }
@@ -208,38 +208,38 @@ const cases = [
     link: '/cases/case/3',
     date: '14 April 2021',
     data: {
-      img: '/static/img/cases/Cover1.jpg',
+      img: '/img/cases/Cover1.jpg',
       description:
         'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
       title: 'Server case 3',
       team: [
         {
-          img: '/static/img/cases/yehor.jpg',
+          img: '/img/cases/yehor.jpg',
           name: 'Yehor Haiduk',
           role: 'Ui lead'
         },
         {
-          img: '/static/img/cases/yevgen.jpg',
+          img: '/img/cases/yevgen.jpg',
           name: 'Yevhen Ledenov',
           role: 'UX Lead'
         },
         {
-          img: '/static/img/cases/denis.jpg',
+          img: '/img/cases/denis.jpg',
           name: 'Denis Bliznyuk',
           role: 'UX Designer'
         },
         {
-          img: '/static/img/cases/ann.jpg',
+          img: '/img/cases/ann.jpg',
           name: 'Ann Haiduk',
           role: 'Copywriting, Content'
         },
         {
-          img: '/static/img/cases/khabib.jpg',
+          img: '/img/cases/khabib.jpg',
           name: 'Misha Grischuk',
           role: 'UI Designers'
         },
         {
-          img: '/static/img/cases/mikle.jpg',
+          img: '/img/cases/mikle.jpg',
           name: 'Yehor Haiduk',
           role: 'Author'
         }
@@ -248,7 +248,7 @@ const cases = [
         title: 'Review',
         text:
           '“Who needs a high-quality and professionally made design, I recommend BORO. We worked together quickly, all wishes were taken into account and fresh ideas from the company employees ere introduced ”',
-        img: '/static/img/cases/katerina.jpg',
+        img: '/img/cases/katerina.jpg',
         name: 'Misha Grischuk',
         role: 'Front End'
       },
@@ -296,9 +296,9 @@ const cases = [
         description:
           '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
         content: {
-          text: '<img src="/static/img/cases/test">',
+          text: '<img src="/img/cases/test">',
           colors: ['#FEC92D', '#242424', '#c9c9c9'],
-          content: '<img src="/static/img/cases/full2">',
+          content: '<img src="/img/cases/full2">',
           font: 'serif'
         }
       }
@@ -310,38 +310,38 @@ const cases = [
     link: '/cases/case/4',
     date: '14 April 2021',
     data: {
-      img: '/static/img/cases/Cover1.jpg',
+      img: '/img/cases/Cover1.jpg',
       description:
         'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
       title: 'Server case',
       team: [
         {
-          img: '/static/img/cases/yehor.jpg',
+          img: '/img/cases/yehor.jpg',
           name: 'Yehor Haiduk',
           role: 'Ui lead'
         },
         {
-          img: '/static/img/cases/yevgen.jpg',
+          img: '/img/cases/yevgen.jpg',
           name: 'Yevhen Ledenov',
           role: 'UX Lead'
         },
         {
-          img: '/static/img/cases/denis.jpg',
+          img: '/img/cases/denis.jpg',
           name: 'Denis Bliznyuk',
           role: 'UX Designer'
         },
         {
-          img: '/static/img/cases/ann.jpg',
+          img: '/img/cases/ann.jpg',
           name: 'Ann Haiduk',
           role: 'Copywriting, Content'
         },
         {
-          img: '/static/img/cases/khabib.jpg',
+          img: '/img/cases/khabib.jpg',
           name: 'Misha Grischuk',
           role: 'UI Designers'
         },
         {
-          img: '/static/img/cases/mikle.jpg',
+          img: '/img/cases/mikle.jpg',
           name: 'Yehor Haiduk',
           role: 'Author'
         }
@@ -350,7 +350,7 @@ const cases = [
         title: 'Review',
         text:
           '“Who needs a high-quality and professionally made design, I recommend BORO. We worked together quickly, all wishes were taken into account and fresh ideas from the company employees ere introduced ”',
-        img: '/static/img/cases/katerina.jpg',
+        img: '/img/cases/katerina.jpg',
         name: 'Misha Grischuk',
         role: 'Front End'
       },
@@ -398,9 +398,9 @@ const cases = [
         description:
           '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
         content: {
-          text: '<img src="/static/img/cases/test">',
+          text: '<img src="/img/cases/test">',
           colors: ['#FEC92D', '#242424', '#c9c9c9'],
-          content: '<img src="/static/img/cases/full2">',
+          content: '<img src="/img/cases/full2">',
           font: 'serif'
         }
       }
@@ -412,38 +412,38 @@ const cases = [
     link: '/cases/case/5',
     date: '14 April 2021',
     data: {
-      img: '/static/img/cases/Cover1.jpg',
+      img: '/img/cases/Cover1.jpg',
       description:
         'Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. ',
       title: 'Server case 5',
       team: [
         {
-          img: '/static/img/cases/yehor.jpg',
+          img: '/img/cases/yehor.jpg',
           name: 'Yehor Haiduk',
           role: 'Ui lead'
         },
         {
-          img: '/static/img/cases/yevgen.jpg',
+          img: '/img/cases/yevgen.jpg',
           name: 'Yevhen Ledenov',
           role: 'UX Lead'
         },
         {
-          img: '/static/img/cases/denis.jpg',
+          img: '/img/cases/denis.jpg',
           name: 'Denis Bliznyuk',
           role: 'UX Designer'
         },
         {
-          img: '/static/img/cases/ann.jpg',
+          img: '/img/cases/ann.jpg',
           name: 'Ann Haiduk',
           role: 'Copywriting, Content'
         },
         {
-          img: '/static/img/cases/khabib.jpg',
+          img: '/img/cases/khabib.jpg',
           name: 'Misha Grischuk',
           role: 'UI Designers'
         },
         {
-          img: '/static/img/cases/mikle.jpg',
+          img: '/img/cases/mikle.jpg',
           name: 'Yehor Haiduk',
           role: 'Author'
         }
@@ -452,7 +452,7 @@ const cases = [
         title: 'Review',
         text:
           '“Who needs a high-quality and professionally made design, I recommend BORO. We worked together quickly, all wishes were taken into account and fresh ideas from the company employees ere introduced ”',
-        img: '/static/img/cases/katerina.jpg',
+        img: '/img/cases/katerina.jpg',
         name: 'Misha Grischuk',
         role: 'Front End'
       },
@@ -500,9 +500,9 @@ const cases = [
         description:
           '<p>Online reservation system for restaurants. Just go to restaurant, sit down and easy make order, with this app. People attracted by the ambiance and menu presented on our restaurant page can make hassle-free bookings and know they’ll be immediately notified of any adjustments in seating.</p>',
         content: {
-          text: '<img src="/static/img/cases/test">',
+          text: '<img src="/img/cases/test">',
           colors: ['#FEC92D', '#242424', '#c9c9c9'],
-          content: '<img src="/static/img/cases/full2">',
+          content: '<img src="/img/cases/full2">',
           font: 'serif'
         }
       }
