@@ -29,6 +29,7 @@ export default {
     "@nuxtjs/svg",
     // '@nuxtjs/eslint-module',
     "nuxt-compress",
+    "@nuxtjs/device",
     [
       "nuxt-i18n",
       {
@@ -94,7 +95,10 @@ export default {
     },
   },
 
-  plugins: [{ src: "~/plugins/client.js", mode: "client" }],
+  plugins: [
+    { src: "~/plugins/client.js", mode: "client" },
+    "~/plugins/custom-flag.js",
+  ],
   publicRuntimeConfig: {
     axios: {
       browserBaseURL: process.env.API_URL,

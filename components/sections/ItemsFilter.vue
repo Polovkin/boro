@@ -68,9 +68,6 @@ export default {
       return arr
     }
   },
-  mounted () {
-    // console.log(this.data)
-  },
   methods: {
     openFilter () {
       this.filterState = !this.filterState

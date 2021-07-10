@@ -6,21 +6,24 @@
     <slot slot="content">
       <ItemsFilter :data="posts" />
       <div
+        :style="`max-height: ${itemHeightCalc}px;`"
         class="blog__posts"
-        :class="{'blog__posts--show-more':isShowMore}"
+        :class="{'blog__posts--show-more':false}"
       >
         <PostCard
           v-for="(post,index) of filteredItems"
+          ref="post"
           :key="index"
           :post="post"
         />
       </div>
       <hr class="divider">
       <button
+        v-if="buttonState"
         class="blog__more"
-        @click="showMore"
+        @click="toggleButton"
       >
-        {{ $t('blog.more') }}
+        {{ activeItems ? 'show less' : $t('blog.more') }}
       </button>
     </slot>
   </PageSection>
@@ -39,16 +42,38 @@ export default {
   name: 'Blog',
   components: { ItemsFilter, PageSection, PostCard },
   mixins: [pageMixin, slugMixin],
+  data () {
+    return {
+      itemsRows: this.$device.isDesktop ? 2 : 4
+    }
+  },
   computed: {
     ...mapState({
-      filterType: s => s.filter.filterType,
       posts: s => s.app.posts
     }),
+    buttonState () {
+      return this.$device.isDesktop ? Math.round(this.itemsQuantity / this.itemsRows) > 2 : this.itemsQuantity > 4
+    },
     filteredItems () {
       return this.filterType === TAG_ALL ? this.posts : this.posts.filter(e => (e.tags.includes(this.filterType)))
     }
+  },
+  mounted () {
+    this.item = this.$refs.post
+    this.itemHeight = this.item[0].$el.clientHeight + 64
+    this.itemsQuantity = this.item.length
+  },
+  methods: {
+    toggleButton () {
+      if (this.activeItems) {
+        this.activeItems = false
+        this.itemsRows = this.$device.isDesktop ? 2 : 4
+      } else {
+        this.activeItems = true
+        this.itemsRows = this.$device.isDesktop ? Math.round(this.item.length / 3) : this.item.length
+      }
+    }
   }
-
 }
 </script>
 

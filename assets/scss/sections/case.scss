@@ -1,5 +1,4 @@
 .case {
-  $case_height: 355px;
 
   &__heading {
 
@@ -93,7 +92,6 @@
     flex-direction: column;
 
     display: flex;
-    max-height: $case_height *4;
     overflow: hidden;
 
     &--show-more {
