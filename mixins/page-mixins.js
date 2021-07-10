@@ -6,7 +6,7 @@ export const pageMixin = {
         options: {
           callback: () => {
             this.$nuxt.$emit('update-locomotive')
-          }
+          },
         }
       }
     }

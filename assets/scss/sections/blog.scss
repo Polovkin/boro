@@ -11,9 +11,9 @@
     margin-bottom: 138px;
 
     &-list {
-      @include size(100%);
 
       display: flex;
+      width: 100%;
 
       @include breakpoint($mobile__all) {
         flex-direction: column;
@@ -36,11 +36,28 @@
 
       display: flex;
 
-      border: 1px solid $color__dark_6;
+      padding-top: 32px;
+      padding-bottom: 32px;
 
       cursor: pointer;
 
       transition: background-color ease .4s;
+
+      border: {
+        color: $color__dark_6;
+        top: {
+          width: 1px;
+          style: solid;
+        }
+        bottom: {
+          width: 1px;
+          style: solid;
+        };
+        right: {
+          width: 1px;
+          style: solid;
+        };
+      };
 
       span:first-child {
         @include title-link;
@@ -57,6 +74,7 @@
       }
 
       &--active {
+
         background-color: $color__dark;
 
         color: $color__font_light--primary;
@@ -88,6 +106,7 @@
       width: 100%;
 
       padding: 32px;
+
       border: 1px solid $color__dark_6;
       border-radius: 4px;
 
@@ -108,7 +127,9 @@
           @include pseudoElement(12px, 'ArrowWhite.svg');
           position: relative;
           filter: invert(1);
+
           transform: rotate(180deg);
+
           transition: all ease .2s;
         }
 
@@ -126,14 +147,19 @@
       @include breakpoint($mobile__all) {
 
         .blog__filter-list {
-          max-height: unset !important;
-          overflow: unset !important;
+          max-height: unset;
+          overflow: unset;
+
+          padding-top: 24px;
+          padding-bottom: 24px;
+
+          background-color: $color__dark;
         }
 
         .blog__filter-item {
           justify-content: space-between;
 
-          padding: 10px 33px;
+          padding: 10px 32px;
 
           border: none;
 
@@ -145,8 +171,10 @@
         .arrow {
 
           display: block;
+
           &:after {
             filter: invert(0);
+
             transform: rotate(0);
           }
         }

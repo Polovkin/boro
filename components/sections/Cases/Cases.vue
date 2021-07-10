@@ -22,7 +22,7 @@
         :key="index"
         :data="item"
       />
-      <hr v-in-viewport class="divider">
+      <hr v-in-viewport.once class="divider">
     </div>
   </Section>
 </template>

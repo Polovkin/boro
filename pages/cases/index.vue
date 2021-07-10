@@ -40,11 +40,11 @@ export default {
   name: 'Blog',
   components: { CaseMainItem, ItemsFilter, PageSection },
   mixins: [pageMixin, slugMixin],
- /* async asyncData (context) {
+  /* async asyncData (context) {
     const response = await context.app.$axios.get('/api/cases')
     const cases = response.data
     return { cases }
-  },*/
+  }, */
 
   computed: {
     ...mapState({

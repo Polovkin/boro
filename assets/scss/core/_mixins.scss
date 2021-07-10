@@ -376,3 +376,8 @@ $z-indexes: (
   }
 
 }
+
+@function vwSizeFunction($elem_size,$window_width) {
+  $round_size: $elem_size / $window_width;
+  @return calc(#{$round_size} * 100vw)
+}

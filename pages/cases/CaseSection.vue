@@ -1,16 +1,20 @@
 <template>
   <section
-    v-in-viewport
+    v-in-viewport.once
     class="case-section"
   >
-    <h3
-      class="case-section__title"
-      v-html="data.heading"
-    />
-    <p
-      class="case-section__description"
-      v-html="data.description"
-    />
+    <div class="animation-move-from-right">
+      <h3
+        class="case-section__title"
+        v-html="data.heading"
+      />
+    </div>
+    <div class="animation-move-from-left">
+      <p
+        class="case-section__description"
+        v-html="data.description"
+      />
+    </div>
     <div
       class="case-section__content"
     >

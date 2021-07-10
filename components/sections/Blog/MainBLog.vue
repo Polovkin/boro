@@ -1,6 +1,6 @@
 <template>
   <Section
-    v-in-viewport
+    v-in-viewport.once
     num-elem
     class="main-blog"
   >

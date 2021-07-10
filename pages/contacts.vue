@@ -1,5 +1,5 @@
 <template>
-  <PageSection v-in-viewport class="page contacts">
+  <PageSection v-in-viewport.once class="page contacts">
     <slot slot="title">
       {{ $t('contacts.title') }}
     </slot>

@@ -1,6 +1,6 @@
 <template>
   <section
-    v-in-viewport
+    v-in-viewport.once
     class="case-section case-presentation"
   >
     <h3
@@ -61,7 +61,8 @@
         <h3>{{ $t('cases.case.poppins') }}</h3>
         <div class="case-presentation__wrap">
           <div
-            v-for="color of data.content.colors"
+            v-for="(color,i) of data.content.colors"
+            :key="i"
             class="case-presentation__item"
           >
             <p>#{{ color }}</p>

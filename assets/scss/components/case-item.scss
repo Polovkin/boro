@@ -20,10 +20,12 @@
 
   &__img {
     @include image-wrap-animation;
-    min-height: 248px;
 
     border-radius: 4px;
-
+    @include breakpoint($desktop__all) {
+      height: 248px;
+      width: 326px;
+    }
 
   }
 
@@ -33,15 +35,15 @@
     padding: 32px 0;
     grid: {
       template: {
-        columns: 1fr 9fr 3fr;
+        columns: 1fr 9fr 326px;
         areas: 'time content img';
       };
     }
     @include breakpoint($desktop__all) {
-      height: 355px;
+      height: 312px;
     }
     @include breakpoint($tablet__landscape) {
-      grid-template-columns: 2fr 6fr 4fr;
+      grid-template-columns: 2fr 6fr 326px;
     }
     @include breakpoint($tablet__portrait) {
       grid: {

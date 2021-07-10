@@ -3,14 +3,16 @@
     <div class="container">
       <section
         id="top"
-        v-in-viewport
+        v-in-viewport.once
         class="page__section"
         data-scroll-section
       >
         <div class="page__title">
-          <h2>
-            <slot name="title" />
-          </h2>
+          <div class="animation-mask">
+            <h2>
+              <slot name="title" />
+            </h2>
+          </div>
           <div>
             <slot name="elem" />
           </div>

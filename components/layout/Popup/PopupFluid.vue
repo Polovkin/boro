@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="isShow"
-    v-in-viewport
+    v-in-viewport.once
     class="popup"
     :class="{'popup--light':isLight,'popup--active':popupAnimationClass}"
 

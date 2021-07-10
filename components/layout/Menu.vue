@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="menuState"
-    v-in-viewport
+    v-in-viewport.once
     class="header-menu popup--light"
     :class="{
       'header-menu--active':menuAnimationClass,

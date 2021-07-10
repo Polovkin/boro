@@ -1,24 +1,28 @@
 <template>
   <SlugItem is-blog>
     <slot slot="title">
-      <header class="page__title">
-        <h2>
-          {{ post.data.title }}
-        </h2>
+      <header v-in-viewport.once class="page__title">
+        <div class="animation-mask">
+          <h1>
+            {{ post.data.title }}
+          </h1>
+        </div>
         <div class="page__tags">
-          <ButtonTag
-            v-for="(tag,index) of post.tags"
-            :key="index"
-          >
-            {{ $t(`blog.tags.${tag}`) }}
-          </ButtonTag>
+          <div class="animation-move-from-left">
+            <ButtonTag
+              v-for="(tag,index) of post.tags"
+              :key="index"
+            >
+              {{ $t(`blog.tags.${tag}`) }}
+            </ButtonTag>
+          </div>
         </div>
         <hr class="divider">
       </header>
     </slot>
     <slot slot="content">
       <div
-        v-in-viewport
+        v-in-viewport.once
         class="post-section"
       >
         <div class="post__header">
@@ -55,9 +59,7 @@ export default {
   components: { ButtonTag, UserInfo, PostSection, SlugItem },
 
   data () {
-    return {
-
-    }
+    return {}
   },
   computed: {
     post () {

@@ -3,7 +3,6 @@
     <div class="container">
       <section
         id="top"
-        v-in-viewport
         class="page__section"
         data-scroll-section
       >
