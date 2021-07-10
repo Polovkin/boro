@@ -1,5 +1,5 @@
 export const pageMixin = {
-  data () {
+/*  data () {
     return {
       scrollOpt: {
         target: '#top',
@@ -18,5 +18,5 @@ export const pageMixin = {
       this.$nuxt.$emit('scroll-locomotive', this.scrollOpt)
     }, 0)
     //
-  }
+  }*/
 }
