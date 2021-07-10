@@ -44,12 +44,12 @@ export default {
     }
   },
   mounted () {
-    const scrollOpt = {
+  /*  const scrollOpt = {
       target: '#top',
       options: ''
     }
     this.$nuxt.$emit('update-locomotive')
-    this.$nuxt.$emit('scroll-locomotive', scrollOpt)
+    this.$nuxt.$emit('scroll-locomotive', scrollOpt)*/
   }
 }
 </script>

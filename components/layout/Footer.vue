@@ -118,13 +118,13 @@ export default {
     terms () {
       return this.$store.state.app.terms
     }
-  },
+  }
 
-  mounted () {
+  /* mounted () {
     setTimeout(() => {
       this.$nuxt.$emit('update-locomotive')
     }, 1000)
-  }
+  } */
 
 }
 </script>

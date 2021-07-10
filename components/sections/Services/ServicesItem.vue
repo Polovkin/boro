@@ -32,7 +32,6 @@
       <div class="service-item__content-buttons animation-fade animation-delay-5">
         <button
           class="service-item__btn-open"
-          @click="polova"
         />
       </div>
     </div>

@@ -38,6 +38,9 @@
     @include breakpoint ($tablet__all) {
       margin-bottom: 40px;
     }
+     @include breakpoint ($phone__all) {
+       margin-bottom: 20px;
+      }
   }
 
   @include breakpoint ($phone__all) {
