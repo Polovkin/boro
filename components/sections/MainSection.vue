@@ -46,7 +46,7 @@
       </div>
       <div class="main-section__footer">
         <hr
-          class="divider light"
+          class="main-section__footer-divider"
           :class="{'divider-anim' :mainPageState && preloaderDone}"
         >
         <div class="main-section__tags">
