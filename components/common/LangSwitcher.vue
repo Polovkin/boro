@@ -84,7 +84,7 @@ export default {
 
     background-color: $color__background_primary;
 
-    transition: all $animation_fu $animation_time;
+    transition: transform $animation_fu $animation_time, background-color .2s 0s;
   }
 
   &__dropdown {
@@ -110,7 +110,7 @@ export default {
 
     transform: translateY(0);
 
-    transition: all $animation_fu $animation_time;
+    transition: transform $animation_fu $animation_time;
 
     &__active {
       flex: 1;

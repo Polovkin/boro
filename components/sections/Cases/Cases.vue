@@ -8,7 +8,7 @@
     </h2>
     <LinkPrimary
       slot="elem"
-      :payload="'24'"
+      :payload="allCases.length"
       :link="localePath($store.state.app.navigation.cases.link)"
     >
       {{ $t('buttons.call-projects') }}
@@ -46,8 +46,11 @@ export default {
     this.cases = response.data
   }, */
   computed: {
-    cases () {
+    allCases () {
       return this.$store.state.app.cases
+    },
+    cases () {
+      return this.allCases.slice(0, 4)
     }
   },
   mounted () {

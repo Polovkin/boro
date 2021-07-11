@@ -8,7 +8,7 @@
 
   background-color: $color__background_primary;
 
-  transition: transform ease .2s, background-color ease .4s;
+  transition: transform ease .2s, background-color .2s 0s;
 
   &--dark {
     background-color: $color__dark;
