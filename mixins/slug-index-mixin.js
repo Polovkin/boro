@@ -14,10 +14,7 @@ export const slugMixin = {
   computed: {
     ...mapState({
       filterType: s => s.filter.filterType
-    }),
-    itemHeightCalc () {
-      return this.itemHeight * this.itemsRows
-    }
+    })
   },
   mounted () {
     this.$store.commit('filter/SET_FILTER_TYPE', TAG_ALL)
@@ -28,6 +25,16 @@ export const slugMixin = {
       this.$nextTick(() => {
         this.itemsQuantity = this.item.length
       })
+    }
+  },
+  methods: {
+    scrollToFilter () {
+      const el = document.querySelector('#page_filter')
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }, 410)
+      }
     }
   }
 }

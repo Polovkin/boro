@@ -1,16 +1,16 @@
 <template>
   <div
-      class="user-info"
-      :class="{'user-info--dark':isDark,'user-info--to-left':isToLeft}"
+    class="user-info"
+    :class="{'user-info--dark':isDark,'user-info--to-left':isToLeft}"
   >
     <div class="user-info__contact-info">
       <figure class="user-info__img">
         <nuxt-picture
-            width="62"
-            height="62"
-            loading="lazy"
-            :src="data.img"
-            :alt="data.name"
+          width="62"
+          height="62"
+          loading="lazy"
+          :src="data.img"
+          :alt="data.name"
         />
       </figure>
       <p class="user-info__position">
@@ -21,16 +21,16 @@
       </p>
     </div>
     <div
-        v-if="tags"
-        class="user-info__contact-tags"
+      v-if="tags"
+      class="user-info__contact-tags"
     >
       <ButtonTag
-          v-for="(tag,index) of tags"
-          :key="index"
-          class="user-info__contact-tag"
-          :is-dark="isDark"
-          :link="tag.link"
-          :icon="tag.icon"
+        v-for="(tag,index) of tags"
+        :key="index"
+        class="user-info__contact-tag"
+        :is-dark="isDark"
+        :link="tag.link"
+        :icon="tag.icon"
       >
         {{ tag.name }}
       </ButtonTag>
@@ -39,11 +39,11 @@
 </template>
 
 <script>
-import ButtonTag from './buttons/ButtonTag';
+import ButtonTag from './buttons/ButtonTag'
 
 export default {
   name: 'UserInfo',
-  components: {ButtonTag},
+  components: { ButtonTag },
   props: {
     isDark: {
       type: Boolean,
@@ -63,7 +63,7 @@ export default {
     }
   }
 
-};
+}
 </script>
 
 <style scoped
@@ -93,7 +93,7 @@ export default {
   &--dark {
 
     .user-info__position {
-      color: $color__font--quaternary
+      color: $color__font--quaternary;
     }
   }
 
@@ -108,12 +108,14 @@ export default {
   }
 
   &__img {
+    margin-bottom: 10px;
 
     picture {
-      display: block;
       @include size(62px);
-      border-radius: 50%;
+      display: block;
       overflow: hidden;
+
+      border-radius: 50%;
     }
 
   }

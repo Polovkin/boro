@@ -23,7 +23,7 @@
         class="blog__more"
         @click="toggleButton"
       >
-        {{ activeItems ? 'show less' : $t('blog.more') }}
+        {{ activeItems ? $t('blog.hide') : $t('blog.more') }}
       </button>
     </slot>
   </PageSection>
@@ -56,11 +56,25 @@ export default {
     },
     filteredItems () {
       return this.filterType === TAG_ALL ? this.posts : this.posts.filter(e => (e.tags.includes(this.filterType)))
+    },
+    itemHeightCalc () {
+      let height = 0
+      if (this.item) {
+        this.item.forEach((elem, index, arr) => {
+          if (this.$device.isDesktop) {
+            if (index % 3 === 0 && index < arr.length / this.itemsRows) {
+              height += elem.$el.clientHeight + 64
+            }
+          } else if (index < this.itemsRows) {
+            height += elem.$el.clientHeight + 64
+          }
+        })
+      }
+      return height
     }
   },
   mounted () {
     this.item = this.$refs.post
-    this.itemHeight = this.item[0].$el.clientHeight + 64
     this.itemsQuantity = this.item.length
   },
   methods: {
@@ -68,9 +82,10 @@ export default {
       if (this.activeItems) {
         this.activeItems = false
         this.itemsRows = this.$device.isDesktop ? 2 : 4
+        this.scrollToFilter()
       } else {
         this.activeItems = true
-        this.itemsRows = this.$device.isDesktop ? Math.round(this.item.length / 3) : this.item.length
+        this.itemsRows = this.$device.isDesktop ? 1 : this.item.length
       }
     }
   }

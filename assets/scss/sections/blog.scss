@@ -194,10 +194,11 @@
 
   &__posts {
     @extend .main-blog__posts;
+    transition: max-height ease .4s;
     max-height: $post_height * 2 + 100px;
     overflow: hidden;
     grid-row-gap: 64px;
-
+    padding-bottom: 32px;
     &--show-more {
       max-height: 2000px;
     }

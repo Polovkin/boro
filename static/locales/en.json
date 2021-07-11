@@ -109,6 +109,7 @@
   "blog": {
     "title": "Blog",
     "more": "Show more",
+    "hide": "Hide",
     "time": "to read",
     "share": "Share",
     "tags": {

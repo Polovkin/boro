@@ -1,14 +1,17 @@
 <template>
   <SlugItem is-blog>
     <slot slot="title">
-      <header v-in-viewport.once class="page__title">
+      <header
+        v-in-viewport.once
+        class="page__title"
+      >
         <div class="animation-mask">
           <h1>
             {{ post.data.title }}
           </h1>
         </div>
-        <div class="page__tags">
-          <div class="animation-move-from-left">
+        <div class="animation-move-from-left">
+          <div class="page__tags">
             <ButtonTag
               v-for="(tag,index) of post.tags"
               :key="index"

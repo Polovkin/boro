@@ -1,5 +1,6 @@
 <template>
   <div
+    id="page_filter"
     class="blog__filter"
     :class="{'blog__filter--active':filterState }"
   >

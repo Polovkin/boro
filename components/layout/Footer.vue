@@ -36,14 +36,14 @@
 
         <ul class="footer__main-list">
           <li
-            v-for="(items,index) of terms"
+            v-for="(term,index) of terms"
             :key="index"
           >
             <LinkPrimary
               is-static
-              :link="items.link"
+              :link="term.link"
             >
-              {{ items.name }}
+              {{ $t(term.name) }}
             </LinkPrimary>
           </li>
         </ul>

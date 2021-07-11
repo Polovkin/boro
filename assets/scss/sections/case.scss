@@ -90,7 +90,7 @@
 
   &__items {
     flex-direction: column;
-
+    transition: max-height ease .4s;
     display: flex;
     overflow: hidden;
 

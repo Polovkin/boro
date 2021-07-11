@@ -23,7 +23,7 @@
         class="blog__more"
         @click="toggleButton"
       >
-        {{ activeItems ? 'show less' : $t('blog.more') }}
+        {{ activeItems ? $t('blog.hide') : $t('blog.more') }}
       </button>
       <div />
     </slot>
@@ -53,6 +53,9 @@ export default {
     },
     filteredItems () {
       return this.filterType === TAG_ALL ? this.cases : this.cases.filter(e => (e.tags.includes(this.filterType)))
+    },
+    itemHeightCalc () {
+      return this.itemHeight * this.itemsRows
     }
   },
   mounted () {
@@ -65,6 +68,7 @@ export default {
       if (this.activeItems) {
         this.activeItems = false
         this.itemsRows = 4
+        this.scrollToFilter()
       } else {
         this.activeItems = true
         this.itemsRows = this.item.length
