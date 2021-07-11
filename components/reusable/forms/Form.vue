@@ -245,7 +245,10 @@
           <h3 class="form__tags-title">
             {{ $t('form.title-estimate2') }}
           </h3>
-          <div class="form__tags-wrap">
+          <div
+            ref="tags"
+            class="form__tags-wrap"
+          >
             <FormTag
               v-for="(item,index) of types"
               :key="index"
@@ -280,7 +283,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { POPUP_GET_IN_TOUCH, POPUP_ESTIMATE,POPUP_SUCCESS } from '../../../store/types'
+import { POPUP_GET_IN_TOUCH, POPUP_ESTIMATE, POPUP_SUCCESS } from '../../../store/types'
 import ButtonPrimary from './../buttons/ButtonPrimary'
 import UserInfo from './../UserInfo'
 import InputCustom from './InputCustom'
@@ -306,7 +309,8 @@ export default {
         phone: null,
         message: null,
         budget: null,
-        deadline: null
+        deadline: null,
+        tags: []
       },
       selectData: ['< 5000', '5-10K', '10-30K', '30-50K', '>50k'],
       types: ['mobile', 'web', 'website', 'illustration', '3d', 'motion', 'ux', 'design', 'graphic', 'front', 'back', 'other'],
@@ -348,7 +352,12 @@ export default {
     }) */
   },
   methods: {
-
+    collectTags () {
+      const tags = this.$refs.tags.querySelectorAll('.form__tags-item--selected label')
+      for (let i = 0; i < tags.length; i++) {
+        this.formData.tags.push(tags[i].innerText)
+      }
+    },
     removeFile () {
       this.file = null
       this.fileError = false
@@ -373,8 +382,8 @@ export default {
       return false
     },
     async sendForm () {
+      this.collectTags()
       this.touch = true
-      // console.log(this.formData)
       if (this.checkFormValid()) {
         const response = await this.$store.dispatch('form/SEND_FORM', this.formData)
         if (response) {
