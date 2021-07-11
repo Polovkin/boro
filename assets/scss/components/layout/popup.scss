@@ -93,9 +93,7 @@
       border-radius: 50%;
     }
 
-    @include breakpoint($phone__all) {
 
-    }
   }
 
   &__body {
@@ -106,6 +104,31 @@
     padding: 28px 0;
 
     color: $color__light;
+
+    &-success {
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      display: flex;
+
+      &-title {
+        @include h2;
+        margin-bottom: 10px;
+
+        color: $color--font--primary !important;
+        font-size: 100px;
+        font-weight: 700;
+        line-height: 84px;
+      }
+
+      &-description {
+        text-align: center;
+        @include h6;
+        color: $color--font--primary;
+      }
+    }
     @include breakpoint($desktop__laptop-min) {
       padding: 10px 0;
     }
@@ -187,8 +210,15 @@
     @include breakpoint($phone__all) {
       overflow: auto;
     }
-    @include breakpoint ($mobile__all) {
+    @include breakpoint($mobile__all) {
       overflow: auto;
+    }
+  }
+
+  &--success {
+
+    & > div.container {
+      background-color: $color__primary;
     }
   }
 

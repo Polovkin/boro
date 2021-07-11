@@ -39,8 +39,8 @@ export default {
       required: true
     },
     payload: {
-      type: String,
-      default: ''
+      type: Number,
+      default: null
     },
     isTo: {
       type: Boolean,

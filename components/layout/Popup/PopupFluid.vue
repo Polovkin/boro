@@ -3,18 +3,36 @@
     v-show="isShow"
     v-in-viewport.once
     class="popup"
-    :class="{'popup--light':isLight,'popup--active':popupAnimationClass}"
-
+    :class="{
+      'popup--light':isLight,
+      'popup--active':popupAnimationClass,
+      'popup--success':popupType===POPUP_SUCCESS
+    }"
   >
     <div class="container">
-      <PopupHeader :is-light="isLight" />
-      <div class="popup__body animation-delay-2">
-        <Form />
-      </div>
-      <PopupFooter
-        class="animation-delay-4"
-        :is-light="isLight"
-      />
+      <template v-if="popupType!==POPUP_SUCCESS">
+        <PopupHeader :is-light="isLight" />
+        <div class="popup__body animation-delay-2">
+          <Form />
+        </div>
+        <PopupFooter
+          class="animation-delay-4"
+          :is-light="isLight"
+        />
+      </template>
+      <template v-else>
+        <PopupHeader is-success />
+        <div class="popup__body animation-delay-2">
+          <div class="popup__body-success">
+            <h1 class="popup__body-success-title">
+              {{ $t('form.success.title') }}
+            </h1>
+            <p class="popup__body-success-description">
+              {{ $t('form.success.description') }}
+            </p>
+          </div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -31,7 +49,9 @@ export default {
   components: { PopupHeader, PopupFooter, Form },
 
   data () {
-    return {}
+    return {
+      POPUP_SUCCESS
+    }
   },
   computed: {
     ...mapState({
@@ -57,8 +77,7 @@ export default {
     popupGetInTouch () {
       return this.popupType === POPUP_GET_IN_TOUCH
     }
-  },
-
+  }
 
 }
 </script>
