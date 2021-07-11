@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Preloader v-if="!$config.IS_DEV" />
+    <Preloader v-if="$config.IS_DEV" />
     <MainSection
       id="top"
       data-scroll-section
