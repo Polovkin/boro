@@ -36,6 +36,8 @@
         </div>
         <div class="post__header-img">
           <nuxt-picture
+            width="670"
+            height="450"
             :src="post.data.img"
             :alt="post.data.title"
           />

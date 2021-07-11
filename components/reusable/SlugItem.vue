@@ -12,8 +12,8 @@
           <slot name="content" />
         </div>
         <footer>
-          <div class="page__footer">
-            <div>
+          <div v-in-viewport class="page__footer">
+            <div class="animation-move-from-right">
               <p>{{ $t('blog.share') }}</p>
               <div class="page__tags">
                 <ButtonTag
@@ -25,7 +25,7 @@
                 </ButtonTag>
               </div>
             </div>
-            <div>
+            <div class="animation-move-from-left">
               <ButtonToTop />
             </div>
           </div>

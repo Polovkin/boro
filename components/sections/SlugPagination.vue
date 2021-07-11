@@ -1,8 +1,8 @@
 <template>
-  <div class="slug-pagination">
+  <div v-in-viewport class="slug-pagination">
     <nuxt-link
       :to="linkPrev"
-      class="slug-pagination__button slug-pagination__prev"
+      class="slug-pagination__button slug-pagination__prev animation-move-from-right"
       :class="{'slug-pagination__button--unactive':!paginationData.prev}"
     >
       {{ $t(`${isBlog ? 'blog.post' : 'cases.case'}.prev`) }}
@@ -10,7 +10,7 @@
     <nuxt-link
       :class="{'slug-pagination__button--unactive':paginationData.next ===navData.length + 1}"
       :to="linkNext"
-      class="slug-pagination__button slug-pagination__next"
+      class="slug-pagination__button slug-pagination__next animation-move-from-left"
     >
       {{ $t(`${isBlog ? 'blog.post' : 'cases.case'}.next`) }}
     </nuxt-link>

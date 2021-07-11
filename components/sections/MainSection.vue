@@ -21,9 +21,7 @@
         </div>
       </div>
       <div class="main-section__wrap">
-        <div
-          class="main-section__title "
-        >
+        <div class="main-section__title ">
           <h1>
             <span class="animation-mask">
               <span>
@@ -33,11 +31,16 @@
             <span class="main-section__circle animation-fade animation-delay-6" /><br>
             <span class="animation-mask">
               <span>
-                {{ $t('main.title2') }}
+                {{ $t('main.title2') }}    <span
+                  v-if="$device.isMobile"
+                  class="main-section__smile animation-fade animation-delay-6"
+                />
               </span>
-
             </span>
-            <span class="main-section__smile animation-fade animation-delay-6" />
+            <span
+              v-if="!$device.isMobile"
+              class="main-section__smile animation-fade animation-delay-6"
+            />
           </h1>
         </div>
         <Navigation
