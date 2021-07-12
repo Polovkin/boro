@@ -3,10 +3,7 @@
     class="preloader"
     :class="{'preloader--hide':hide}"
   >
-    <div
-
-      class="preloader__logo"
-    >
+    <div class="preloader__logo">
       <lottie-animation
         :loop="false"
         path="./animations/boro-logotype.json"
@@ -31,12 +28,22 @@ export default {
       hide: false
     }
   },
+  head () {
+    return {
+      bodyAttrs: {
+        class: this.hideScroll
+      }
+    }
+  },
   computed: {
     ...mapState({
       preloaderDone: s => s.app.preloaderDone
     }),
     isPreloaderShow () {
       return !this.preloaderDone
+    },
+    hideScroll () {
+      return this.preloaderDone ? '' : 'hide-scroll'
     }
   },
   mounted () {

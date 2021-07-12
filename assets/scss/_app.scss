@@ -19,6 +19,7 @@
 
 body {
   background-color: $color__background_primary;
+
   &::-webkit-scrollbar {
     width: 11px;
     background-color: transparent;
@@ -36,9 +37,10 @@ body {
   }
 }
 
-.scrollbar {
-
+.hide-scroll {
+  overflow: hidden;
 }
+
 .scrollbar {
   width: 11px;
 }
