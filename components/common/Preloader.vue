@@ -37,13 +37,13 @@ export default {
   },
   computed: {
     ...mapState({
-      preloaderDone: s => s.app.preloaderDone
+      preloaderDone: s => s.app.preloaderDone,
     }),
     isPreloaderShow () {
       return !this.preloaderDone
     },
     hideScroll () {
-      return this.preloaderDone ? '' : 'hide-scroll'
+      return this.hide ? '' : 'hide-scroll'
     }
   },
   mounted () {
