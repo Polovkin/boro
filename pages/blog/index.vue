@@ -58,19 +58,18 @@ export default {
       return this.filterType === TAG_ALL ? this.posts : this.posts.filter(e => (e.tags.includes(this.filterType)))
     },
     itemHeightCalc () {
-      let height = 0
       if (this.item) {
         this.item.forEach((elem, index, arr) => {
           if (this.$device.isDesktop) {
             if (index % 3 === 0 && index < arr.length / this.itemsRows) {
-              height += elem.$el.clientHeight + 64
+              this.itemHeight += elem.$el.clientHeight + 64
             }
           } else if (index < this.itemsRows) {
-            height += elem.$el.clientHeight + 64
+            this.itemHeight += elem.$el.clientHeight + 64
           }
         })
       }
-      return height
+      return this.itemHeight
     }
   },
   mounted () {
