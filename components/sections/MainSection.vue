@@ -32,12 +32,9 @@
             <span class="animation-mask">
               <span>
                 {{ $t('main.title2') }}
-
               </span>
             </span>
-            <span
-              class="main-section__smile animation-fade animation-delay-6"
-            />
+            <span class="main-section__smile animation-fade animation-delay-6" />
           </h1>
         </div>
         <Navigation
