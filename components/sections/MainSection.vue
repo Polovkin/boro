@@ -31,14 +31,11 @@
             <span class="main-section__circle animation-fade animation-delay-6" /><br>
             <span class="animation-mask">
               <span>
-                {{ $t('main.title2') }}    <span
-                  v-if="$device.isMobile"
-                  class="main-section__smile animation-fade animation-delay-6"
-                />
+                {{ $t('main.title2') }}
+
               </span>
             </span>
             <span
-              v-if="!$device.isMobile"
               class="main-section__smile animation-fade animation-delay-6"
             />
           </h1>
