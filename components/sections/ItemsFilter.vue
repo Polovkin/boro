@@ -9,9 +9,9 @@
       class="blog__filter-toggle"
       @click="openFilter"
     >
-      <span>{{ $t(`blog.tags.${tagAll}`) }}</span>
+      <span>{{ $t(`blog.tags.${activeTag}`) }}</span>
       <span class="blog__filter-toggle-wrap">
-        <span class="blog__filter-item-value">{{ data.length }}</span>
+        <span class="blog__filter-item-value">{{ activeTagValue }}</span>
         <span class="arrow" />
       </span>
     </button>
@@ -54,11 +54,20 @@ export default {
   data () {
     return {
       tagAll: TAG_ALL,
+      activeTag: TAG_ALL,
       active: 0,
       filterState: false
     }
   },
   computed: {
+    activeTagValue: {
+      get () {
+        return this.active ? this.data.filter(e => e.tags.includes(this.activeTag)).length : this.data.length
+      },
+      set(arr) {
+        return arr
+      }
+    },
     postsTypes () {
       const arr = []
       this.data.forEach(e => e.tags.forEach((t) => {
@@ -78,8 +87,10 @@ export default {
       return arr.length
     },
     filteredTypes (index, type) {
-      this.$store.commit('filter/SET_FILTER_TYPE', type)
+      this.activeTagValue =
+          this.$store.commit('filter/SET_FILTER_TYPE', type)
       this.active = index
+      this.activeTag = type
       this.filterState = false
     }
   }
