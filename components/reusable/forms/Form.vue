@@ -353,10 +353,13 @@ export default {
   },
   methods: {
     collectTags () {
-      const tags = this.$refs.tags.querySelectorAll('.form__tags-item--selected label')
-      for (let i = 0; i < tags.length; i++) {
-        this.formData.tags.push(tags[i].innerText)
+      if (this.$refs.tags) {
+        const tags = this.$refs.tags.querySelectorAll('.form__tags-item--selected label')
+        for (let i = 0; i < tags.length; i++) {
+          this.formData.tags.push(tags[i].innerText)
+        }
       }
+
     },
     removeFile () {
       this.file = null
