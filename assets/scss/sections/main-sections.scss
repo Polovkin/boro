@@ -47,6 +47,10 @@
 
     padding-top: 32px;
 
+    h1 {
+      color: $color__font_light--primary;
+    }
+
     @include breakpoint($phone__all) {
 
       h1 {
@@ -72,8 +76,10 @@
     display: inline-block;
     @include breakpoint($tablet__portrait) {
       @include size(48px);
+     display: inline-block;
     }
     @include breakpoint($phone__all) {
+      top: 0;
       @include size(28px);
       display: inline-block;
     }
@@ -162,18 +168,21 @@
     position: relative;
     z-index: z(content);
 
-    hr.divider {
-
-      position: absolute;
-      top: 0;
-      bottom: unset;
-
+    &-divider {
       max-width: 0;
 
       &.divider-anim {
-        max-width: 100%;
+        @include divider;
+        position: absolute;
+        top: 0;
+        bottom: unset;
+
+
+        background-color: $color__light_16;
+        max-width: 100% !important;
       }
     }
+
   }
 
   &__navigation {
@@ -186,8 +195,9 @@
 
 
     }
+
     .link__wrap {
-      color: $color__font_light--primary ;
+      color: $color__font_light--primary;
     }
 
     @include breakpoint($desktop__all) {

@@ -1,30 +1,48 @@
 <template>
   <SlugItem is-case>
     <slot slot="title">
-      <header class="page__title case__heading">
-        <h2>
-          {{ caseItem.data.title }}
-        </h2>
+      <header
+        v-in-viewport.once
+        class="page__title case__heading"
+      >
+        <div class="animation-mask">
+          <h1>
+            {{ caseItem.data.title }}
+          </h1>
+        </div>
         <div class="case__button">
-          <ButtonPrimary>Behance</ButtonPrimary>
+          <div class="animation-move-from-right">
+            <ButtonPrimary>Behance</ButtonPrimary>
+          </div>
         </div>
 
         <div class="case__tags">
-          <ButtonTag
-            v-for="(tag,index) of caseItem.tags"
-            :key="index"
-          >
-            {{ $t(`blog.tags.${tag}`) }}
-          </ButtonTag>
+          <div class="animation-move-from-left">
+            <div class="case__tags-wrap">
+              <ButtonTag
+                v-for="(tag,index) of caseItem.tags"
+                :key="index"
+              >
+                {{ $t(`blog.tags.${tag}`) }}
+              </ButtonTag>
+            </div>
+          </div>
         </div>
 
         <hr class="divider">
       </header>
     </slot>
     <slot slot="content">
-      <div class="case__main">
+      <div
+        v-in-viewport.once
+        class="case__main"
+      >
         <div class="case__main-team">
-          <UserInfo v-for="(user,i) of caseItem.data.team" :key="i" :data="user" />
+          <UserInfo
+            v-for="(user,i) of caseItem.data.team"
+            :key="i"
+            :data="user"
+          />
         </div>
         <div class="case__main-img">
           <nuxt-picture
@@ -34,54 +52,49 @@
           />
         </div>
       </div>
+      <div class="case__sections">
+        <template v-for="(section,i) of caseItem.data.content">
+          <CasePresentation
+            v-if="i===1"
+            :key="i * 100"
+            :data="caseItem.data.presentation"
+          />
+          <CaseSection
+            :key="i"
+            :data="section"
+          />
+        </template>
+        <section
+          v-in-viewport.once
+          class=" case-section case__review"
+        >
+          <div class="animation-move-from-right">
+            <h3 class="case-section__title">
+              {{ caseItem.data.review.title }}
+            </h3>
+          </div>
+          <div class="case__review-content">
+            <div class="case__review-user">
+              <nuxt-img
+                class="case__review-img"
+                :src="caseItem.data.review.img"
+              />
+              <h5 class="case__review-name">
+                {{ caseItem.data.review.name }}
+              </h5>
+              <p class="case__review-role">
+                {{ caseItem.data.review.role }}
+              </p>
+            </div>
+            <p class="case__review-text">
+              {{ caseItem.data.review.text }}
+            </p>
+          </div>
+          <hr class="divider">
+        </section>
+      </div>
     </slot>
   </SlugItem>
-<!--  <div class="page case">
-    <div class="container">
-      <section
-        id="top"
-        v-in-viewport
-        class="page__section"
-        data-scroll-section
-      >
-        <div class=" case__heading">
-          <h2>
-            {{ caseItem.data.title }}
-          </h2>
-          <div class="case__button">
-            <ButtonPrimary>Behance</ButtonPrimary>
-          </div>
-
-          <div class="case__tags">
-            <ButtonTag
-              v-for="(tag,index) of caseItem.tags"
-              :key="index"
-            >
-              {{ $t(`blog.tags.${tag}`) }}
-            </ButtonTag>
-          </div>
-
-          <hr class="divider">
-        </div>
-
-        <div class="page__content">
-          <div class="case__main">
-            <div class="case__main-team">
-              <UserInfo v-for="(user,i) of caseItem.data.team" :key="i" :data="user" />
-            </div>
-            <div class="case__main-img">
-              <nuxt-picture
-                width="326"
-                height="249"
-                :src="caseItem.data.img"
-              />
-            </div>
-          </div>
-          <SlugPagination is-case />
-        </div>
-      </section>
-    </div>
-  </div>-->
 </template>
 
 <script>
@@ -91,12 +104,20 @@ import { pageMixin } from '../../../mixins/page-mixins'
 import ButtonPrimary from '../../../components/reusable/buttons/ButtonPrimary'
 import UserInfo from '../../../components/reusable/UserInfo'
 import SlugItem from '../../../components/reusable/SlugItem'
+import CaseSection from '../CaseSection'
+import CasePresentation from '../CasePresentation'
+
 export default {
-  components: { SlugItem, UserInfo, ButtonPrimary, ButtonTag },
+  components: { CasePresentation, CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },
   mixins: [pageMixin],
+  /* async asyncData (context) {
+    const response = await context.app.$axios.get('/api/cases')
+    const caseItem = response.data.find(e => e.link === context.route.path)
+    return { caseItem }
+  }, */
   computed: {
     caseItem () {
-      return this.$store.state.app.cases.filter(e => e.link === this.$route.path)[0]
+      return this.$store.state.app.cases.find(e => e.link === this.$route.path)
     }
   }
 }

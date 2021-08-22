@@ -3,7 +3,6 @@
     <div class="container">
       <section
         id="top"
-        v-in-viewport
         class="page__section"
         data-scroll-section
       >
@@ -13,10 +12,10 @@
           <slot name="content" />
         </div>
         <footer>
-          <div class="post-section post-section__footer">
-            <div>
+          <div v-in-viewport class="page__footer">
+            <div class="animation-move-from-right">
               <p>{{ $t('blog.share') }}</p>
-              <div class="post-section__footer-tags">
+              <div class="page__tags">
                 <ButtonTag
                   v-for="(link,index) of share"
                   :key="index"
@@ -26,11 +25,11 @@
                 </ButtonTag>
               </div>
             </div>
-            <div>
+            <div class="animation-move-from-left">
               <ButtonToTop />
             </div>
-            <hr class="divider">
           </div>
+          <hr class="divider">
           <SlugPagination :is-blog="isBlog" :is-case="isCase" />
         </footer>
       </section>
@@ -48,6 +47,12 @@ export default {
   name: 'SlugItem',
   components: { ButtonToTop, SlugPagination, ButtonTag },
   mixins: [pageMixin],
+  methods: {
+    refreshLocomotive() {
+      console.log('visible');
+      this.$store.commit('app/SET_LOCOMOTIVE')
+    }
+  },
   props: {
     isBlog: {
       type: Boolean,

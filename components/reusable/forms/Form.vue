@@ -232,6 +232,7 @@
           class="form__users"
         >
           <UserInfo
+            is-to-left
             is-dark
             :tags="user.socials"
             :data="user.data"
@@ -244,7 +245,10 @@
           <h3 class="form__tags-title">
             {{ $t('form.title-estimate2') }}
           </h3>
-          <div class="form__tags-wrap">
+          <div
+            ref="tags"
+            class="form__tags-wrap"
+          >
             <FormTag
               v-for="(item,index) of types"
               :key="index"
@@ -255,7 +259,7 @@
         </div>
       </div>
       <div
-        v-if="storeType ==='POPUP_ESTIMATE'"
+        v-if="storeType === POPUP_ESTIMATE"
         :class="{'form__submit-estimate':!popupTypeTouch}"
         class="form__submit form__submit-mobile"
       >
@@ -268,7 +272,7 @@
         </p>
         <ButtonPrimary
           is-submit
-          @submitEvent="sendForm"
+          @submit="sendForm"
         >
           {{ $t('form.send') }}
         </ButtonPrimary>
@@ -279,7 +283,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { POPUP_GET_IN_TOUCH } from '../../../store/types'
+import { POPUP_GET_IN_TOUCH, POPUP_ESTIMATE, POPUP_SUCCESS } from '../../../store/types'
 import ButtonPrimary from './../buttons/ButtonPrimary'
 import UserInfo from './../UserInfo'
 import InputCustom from './InputCustom'
@@ -297,14 +301,16 @@ export default {
   data () {
     return {
       touch: false,
-      type: POPUP_GET_IN_TOUCH,
+      POPUP_GET_IN_TOUCH,
+      POPUP_ESTIMATE,
       formData: {
         name: null,
         email: null,
         phone: null,
         message: null,
         budget: null,
-        deadline: null
+        deadline: null,
+        tags: []
       },
       selectData: ['< 5000', '5-10K', '10-30K', '30-50K', '>50k'],
       types: ['mobile', 'web', 'website', 'illustration', '3d', 'motion', 'ux', 'design', 'graphic', 'front', 'back', 'other'],
@@ -325,7 +331,7 @@ export default {
       return this.animationDone
     },
     popupTypeTouch () {
-      return this.storeType === this.type
+      return this.storeType === this.POPUP_GET_IN_TOUCH
     },
     popupState () {
       return this.storePopupState
@@ -339,14 +345,22 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('keyup', (event) => {
+    /* window.addEventListener('keyup', (event) => {
       if (event.key === 'Enter') {
         this.sendForm()
       }
-    })
+    }) */
   },
   methods: {
+    collectTags () {
+      if (this.$refs.tags) {
+        const tags = this.$refs.tags.querySelectorAll('.form__tags-item--selected label')
+        for (let i = 0; i < tags.length; i++) {
+          this.formData.tags.push(tags[i].innerText)
+        }
+      }
 
+    },
     removeFile () {
       this.file = null
       this.fileError = false
@@ -361,13 +375,23 @@ export default {
         this.file = null
       }
     },
-    sendForm () {
+    checkFormValid () {
+      if (this.storeType === this.POPUP_GET_IN_TOUCH) {
+        return this.formData.name && this.formData.email
+      }
+      if (this.storeType === this.POPUP_ESTIMATE) {
+        return this.formData.name && this.formData.email && this.formData.phone && this.formData.deadline && this.formData.budget
+      }
+      return false
+    },
+    async sendForm () {
+      this.collectTags()
       this.touch = true
-      // console.log(this.formData)
-      const form = new FormData(this.$refs.form)
-
-      for (const value of form.values()) {
-        console.log(value)
+      if (this.checkFormValid()) {
+        const response = await this.$store.dispatch('form/SEND_FORM', this.formData)
+        if (response) {
+          this.$store.commit('popups/SET_POPUP_TYPE', POPUP_SUCCESS)
+        }
       }
     }
   }

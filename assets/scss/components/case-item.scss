@@ -12,7 +12,7 @@
     padding-top: 9px;
 
     color: $color__font_dark--secondary;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 16px;
       padding-top: 0;
     }
@@ -20,10 +20,12 @@
 
   &__img {
     @include image-wrap-animation;
-    min-height: 248px;
 
     border-radius: 4px;
-
+    @include breakpoint($desktop__all) {
+      height: 248px;
+      width: 326px;
+    }
 
   }
 
@@ -33,12 +35,15 @@
     padding: 32px 0;
     grid: {
       template: {
-        columns: 1fr 9fr 3fr;
+        columns: 1fr 9fr 326px;
         areas: 'time content img';
       };
     }
+    @include breakpoint($desktop__all) {
+      height: 312px;
+    }
     @include breakpoint($tablet__landscape) {
-      grid-template-columns: 2fr 6fr 4fr;
+      grid-template-columns: 2fr 6fr 326px;
     }
     @include breakpoint($tablet__portrait) {
       grid: {
@@ -63,8 +68,8 @@
     max-width: 400px;
 
     margin-bottom: 40px;
-    @include breakpoint ($phone__all) {
-      margin-bottom:24px ;
+    @include breakpoint($phone__all) {
+      margin-bottom: 24px;
     }
   }
 
@@ -83,7 +88,7 @@
 
       margin-top: 16px;
       margin-bottom: 20px;
-      @include breakpoint ($phone__all) {
+      @include breakpoint($phone__all) {
         margin-top: 12px;
         flex-wrap: wrap;
         button {
@@ -106,6 +111,7 @@
 
       }
     }
+
     @include breakpoint($phone__all) {
       padding: 0;
     }
@@ -114,8 +120,8 @@
       padding-left: 0;
     }
 
-     @include breakpoint ($phone__all) {
-       margin-bottom: 32px;
-      }
+    @include breakpoint($phone__all) {
+      margin-bottom: 32px;
+    }
   }
 }

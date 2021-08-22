@@ -1,7 +1,7 @@
 @import 'main-blog';
 
 .blog {
-  $post_height: 522px;
+  $post_height: 540px;
 
   &__filter {
     position: relative;
@@ -11,11 +11,9 @@
     margin-bottom: 138px;
 
     &-list {
-      @include size(100%);
-
 
       display: flex;
-
+      width: 100%;
 
       @include breakpoint($mobile__all) {
         flex-direction: column;
@@ -29,7 +27,6 @@
 
         border-radius: 4px;
       }
-
     }
 
     &-item {
@@ -39,11 +36,28 @@
 
       display: flex;
 
-      border: 1px solid $color__dark_6;
+      padding-top: 32px;
+      padding-bottom: 32px;
 
       cursor: pointer;
 
       transition: background-color ease .4s;
+
+      border: {
+        color: $color__dark_6;
+        top: {
+          width: 1px;
+          style: solid;
+        }
+        bottom: {
+          width: 1px;
+          style: solid;
+        };
+        right: {
+          width: 1px;
+          style: solid;
+        };
+      };
 
       span:first-child {
         @include title-link;
@@ -60,6 +74,7 @@
       }
 
       &--active {
+
         background-color: $color__dark;
 
         color: $color__font_light--primary;
@@ -91,6 +106,7 @@
       width: 100%;
 
       padding: 32px;
+
       border: 1px solid $color__dark_6;
       border-radius: 4px;
 
@@ -101,7 +117,7 @@
       }
 
       .arrow {
-        display: none;
+
 
         margin-left: 20px;
 
@@ -110,6 +126,15 @@
         &:after {
           @include pseudoElement(12px, 'ArrowWhite.svg');
           position: relative;
+          filter: invert(1);
+
+          transform: rotate(180deg);
+
+          transition: all ease .2s;
+        }
+
+        @include breakpoint($desktop__all) {
+          display: none;
         }
       }
 
@@ -122,14 +147,19 @@
       @include breakpoint($mobile__all) {
 
         .blog__filter-list {
-          max-height: unset !important;
-          overflow: unset !important;
+          max-height: unset;
+          overflow: unset;
+
+          padding-top: 24px;
+          padding-bottom: 24px;
+
+          background-color: $color__dark;
         }
 
         .blog__filter-item {
           justify-content: space-between;
 
-          padding: 10px 33px;
+          padding: 10px 32px;
 
           border: none;
 
@@ -139,8 +169,14 @@
         }
 
         .arrow {
+
           display: block;
 
+          &:after {
+            filter: invert(0);
+
+            transform: rotate(0);
+          }
         }
       }
 
@@ -153,19 +189,19 @@
 
   &__more {
     @include title-link;
-    margin: 0 auto;
+    margin: 40px auto 0;
   }
 
   &__posts {
     @extend .main-blog__posts;
-    max-height: $post_height *2 + 100px;
+    transition: max-height ease .4s;
+    max-height: $post_height * 2 + 100px;
     overflow: hidden;
     grid-row-gap: 64px;
-
+    padding-bottom: 32px;
     &--show-more {
       max-height: 2000px;
     }
   }
-
 }
 

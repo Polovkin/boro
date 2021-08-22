@@ -1,7 +1,7 @@
 const user = {
   data: {
-    img: '/img/anna.jpg',
-    role: 'user.account-manager',
+    img: '/img/anna.png',
+    role: 'CDBO',
     name: 'Anna Haiduk'
   },
   socials: [

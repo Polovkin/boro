@@ -1,12 +1,15 @@
 <template>
-  <section v-in-viewport.once class="blog-card">
+  <section
+    v-in-viewport.once
+    class="blog-card"
+  >
     <figure class="blog-card__img animation-image-viewport animation-delay-4">
-      <img
+      <nuxt-picture
         loading="lazy"
         width="430"
         height="248"
         :src="post.data.img"
-      >
+      />
     </figure>
     <div class="blog-card__body">
       <h5 class="blog-card__title ">
@@ -59,7 +62,6 @@ export default {
   flex-direction: column;
 
   display: flex;
-  min-height: 522px;
 
   &__img {
     overflow: hidden;
@@ -71,7 +73,8 @@ export default {
       transition: all $videinfa_function .8s;
       object-fit: cover;
     }
-    @include breakpoint ($phone__all) {
+
+    @include breakpoint($phone__all) {
       margin-bottom: 24px;
     }
   }
@@ -85,12 +88,12 @@ export default {
       display: grid;
       grid: {
         template: {
-          columns: repeat(2,1fr);
+          columns: repeat(2, 1fr);
           areas: 'title tags' 'date tags' 'text tags';
         };
       }
     }
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       flex-direction: column;
 
       display: flex;
@@ -100,7 +103,7 @@ export default {
   &__title {
     margin: 8px 0 4px;
     grid-area: title;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 5px;
     }
   }
@@ -114,7 +117,7 @@ export default {
 
     text-overflow: ellipsis;
     grid-area: text;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 24px;
     }
   }
@@ -125,7 +128,7 @@ export default {
 
     color: $color__font_dark--secondary;
     grid-area: date;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-bottom: 23px;
     }
   }
@@ -135,16 +138,20 @@ export default {
     grid-area: tags;
 
     margin-bottom: 20px;
-    @include breakpoint ($mobile__all) {
+    @include breakpoint($mobile__all) {
       justify-self: end;
     }
   }
 
   &__button {
     margin-top: auto;
-    @include breakpoint ($phone__all) {
+    @include breakpoint($phone__all) {
       margin-top: 0;
     }
+  }
+
+  @include breakpoint($desktop__all) {
+    min-height: 540px;
   }
 }
 

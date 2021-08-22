@@ -1,15 +1,30 @@
 export const pageMixin = {
   data () {
     return {
-      scrollOpt: {
-        target: '#top',
-        options: ''
-      }
+      excludesPath: ['/', '/ru', '/ru/']
+      /* scrollOpt: {
+        target: "#top",
+        options: {
+          callback: () => {
+            this.$nuxt.$emit("update-locomotive");
+          },
+        },
+      }, */
+
     }
   },
   mounted () {
-    this.$store.commit('app/SET_PRELOADER_STATE', true)
+    if (!this.excludesPath.includes(this.excludesPath)) {
+      this.$store.commit('app/SET_PRELOADER_STATE', true)
+    }
+    /* if (!(this.$route.path === '/' || this.$route.path === '/ru' || this.$route.path === '/ru/')) {
+      this.$store.commit('app/SET_PRELOADER_STATE', true)
+    } */
+    /* this.$store.commit('app/SET_PRELOADER_STATE', true)
     this.$nuxt.$emit('update-locomotive')
-    this.$nuxt.$emit('scroll-locomotive', this.scrollOpt)
+    setTimeout(() => {
+      this.$nuxt.$emit('scroll-locomotive', this.scrollOpt)
+    }, 0) */
+    //
   }
 }

@@ -3,7 +3,14 @@
     <PopupFluid />
     <Menu />
     <Header />
-    <LocomotiveScroll
+    <main class="main">
+      <nuxt />
+      <div class="container">
+        <Lead />
+        <Footer />
+      </div>
+    </main>
+    <!--    <LocomotiveScroll
       ref="scroller"
       data-scroll-container
       :getted-options="locomotiveOptions"
@@ -15,7 +22,7 @@
           <Footer />
         </div>
       </main>
-    </LocomotiveScroll>
+    </LocomotiveScroll>-->
   </div>
 </template>
 
@@ -35,7 +42,7 @@ export default {
   components: { Footer, Lead, LocomotiveScroll, Preloader, Menu, PopupFluid, Header },
   data () {
     return {
-      locomotiveOptions: {
+      /* locomotiveOptions: {
         smooth: true,
         direction: 'vertical',
         smartphone: {
@@ -46,27 +53,56 @@ export default {
           smooth: true,
           direction: 'vertical'
         }
-      }
+      }, */
+      showNavbar: true,
+      lastScrollPosition: 0
     }
   },
   head () {
     return {
       bodyAttrs: {
-        class: this.popupActive
+        class: this.popupActive,
+        lastY: 0
       }
     }
   },
-
+  methods: {
+    onScroll () {
+      const blockWidth = window.innerHeight
+      const scrollValue = window.pageYOffset
+      const steps = scrollValue >= this.lastY
+      if (this.scrollDirection !== steps) {
+        this.$store.commit('app/SET_SCROLL_DIRECTION', steps)
+      }
+      if (this.headerMove !== (scrollValue > 100 && steps)) {
+        this.$store.commit('header/SET_HEADER_MOVE', scrollValue > 100 && steps)
+      }
+      if (this.headerTopState !== (scrollValue < 150)) {
+        this.$store.commit('header/SET_HEADER_TOP_STATE', scrollValue < 150)
+      }
+      if (this.headerIsDark !== (scrollValue < blockWidth)) {
+        this.$store.commit('header/SET_HEADER_DARK', scrollValue < blockWidth)
+      }
+      this.lastY = window.pageYOffset
+    }
+  },
   computed: {
     ...mapState({
       popupState: s => s.popups.popupState,
+      scrollDirection: s => s.app.scrollDirection,
       menu: s => s.popups.menuState
     }),
     popupActive () {
       return this.popupState || this.menu ? 'js-active-popup' : ''
     }
+  },
+  mounted () {
+    this.firstLoad = true
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
   }
-
 }
 </script>
 <style lang="scss">

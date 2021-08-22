@@ -1,6 +1,6 @@
 <template>
   <Section
-    v-in-viewport
+    v-in-viewport.once
     num-elem
     class="main-blog"
   >
@@ -9,8 +9,8 @@
     </h2>
     <LinkPrimary
       slot="elem"
-      :payload="'24'"
-      link="/"
+      :payload="allPosts.length"
+      :link="blogLink.link"
     >
       {{ $t('buttons.call-posts') }}
     </LinkPrimary>
@@ -45,9 +45,15 @@ export default {
     }
   },
   computed: {
+    allPosts () {
+      return this.$store.state.app.posts
+    },
     posts () {
-      return this.$store.state.app.posts.slice(0, 3)
-    }
+      return this.allPosts.slice(0, 3)
+    },
+    blogLink () {
+      return this.$store.state.app.navigation.blog
+    },
   }
 }
 </script>

@@ -22,6 +22,7 @@ import MainAbout from '../components/sections/MainAbout'
 import Services from '../components/sections/Services/Services'
 import MainBLog from '../components/sections/Blog/MainBLog'
 import Preloader from '../components/common/Preloader'
+import { pageMixin } from '../mixins/page-mixins'
 
 export default {
   name: 'Index',
@@ -34,6 +35,7 @@ export default {
     MainSection
 
   },
+  mixins: [pageMixin],
 
   data () {
     return {
@@ -42,12 +44,12 @@ export default {
     }
   },
   mounted () {
-    const scrollOpt = {
+  /*  const scrollOpt = {
       target: '#top',
       options: ''
     }
     this.$nuxt.$emit('update-locomotive')
-    this.$nuxt.$emit('scroll-locomotive', scrollOpt)
+    this.$nuxt.$emit('scroll-locomotive', scrollOpt)*/
   }
 }
 </script>

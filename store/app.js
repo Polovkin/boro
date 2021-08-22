@@ -1,7 +1,7 @@
 import posts from '../api/data'
 import user from '../api/user'
-import cases from '../api/cases'
 import socials from '../api/socials'
+import cases from '../api/cases'
 
 export const state = () => ({
   scrollDirection: null,
@@ -12,11 +12,10 @@ export const state = () => ({
     cases: { name: 'navigation.link1', link: '/cases' }, // cases
     services: { name: 'navigation.link2', link: '/' }, // services
     about: { name: 'navigation.link3', link: '/' }, // about
-    work: { name: 'navigation.link4', link: '/' }, // how we work
+    //work: { name: 'navigation.link4', link: '/' }, // how we work
     blog: { name: 'navigation.link5', link: '/blog' }, // blog
     contacts: { name: 'navigation.link6', link: '/contacts' } // contacts
   },
-
   terms: [
     { name: 'footer.privacy', link: '/privacy' }, // privacy
     { name: 'footer.terms', link: '/terms' } // terms
@@ -27,8 +26,9 @@ export const state = () => ({
   },
   user,
   socials,
+  posts,
   cases,
-  posts
+  refreshLocomotive: 0
 })
 
 export const mutations = {
@@ -43,6 +43,9 @@ export const mutations = {
   },
   SET_MAIN_PAGE_STATE (s, payload) {
     s.mainPageState = payload
+  },
+  SET_LOCOMOTIVE (s) {
+    s.refreshLocomotive = s.refreshLocomotive + 1
   }
 }
 

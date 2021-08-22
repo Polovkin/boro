@@ -23,7 +23,7 @@
           <ButtonPrimary v-else is-popup-toggle>
             {{ $t('buttons.call-form') }}
           </ButtonPrimary>
-          <MenuBurger :class="{'menu-burger--show': !isHeaderOnTop}" />
+          <MenuBurger :class="{'menu-burger--show': showMenuButton}" />
         </div>
       </div>
     </div>
@@ -38,6 +38,7 @@ import LangSwitcher from '../common/LangSwitcher'
 import ButtonPrimary from '../reusable/buttons/ButtonPrimary'
 import MenuBurger from '../reusable/buttons/MenuBurger'
 import { POPUP_ESTIMATE } from '../../store/types'
+
 export default {
   name: 'Header',
   components: { MenuBurger, ButtonPrimary, LayoutNav, LangSwitcher, Logo },
@@ -57,8 +58,11 @@ export default {
       PopupOpen: s => s.popups.popupState,
       MenuOpen: s => s.popups.menuState
     }),
+    isMainPage () {
+      return this.$route.path === '/' || this.$route.path === '/ru' || this.$route.path === '/ru/'
+    },
     isDark () {
-      return this.$store.state.header.headerIsDark && (this.$route.path === '/' || this.$route.path === '/ru')
+      return this.$store.state.header.headerIsDark && this.isMainPage
     },
     isPopupsOpen () {
       return this.PopupOpen || this.MenuOpen
@@ -71,13 +75,16 @@ export default {
     },
     isHeaderMove () {
       return this.headerMove
+    },
+    showMenuButton () {
+      return !this.isHeaderOnTop || !this.isMainPage
     }
   },
   mounted () {
     this.firstLoad = true
   }
-
 }
+
 </script>
 
 <style lang="scss">

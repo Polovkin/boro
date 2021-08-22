@@ -21,9 +21,7 @@
         </div>
       </div>
       <div class="main-section__wrap">
-        <div
-          class="main-section__title "
-        >
+        <div class="main-section__title ">
           <h1>
             <span class="animation-mask">
               <span>
@@ -35,7 +33,6 @@
               <span>
                 {{ $t('main.title2') }}
               </span>
-
             </span>
             <span class="main-section__smile animation-fade animation-delay-6" />
           </h1>
@@ -46,7 +43,7 @@
       </div>
       <div class="main-section__footer">
         <hr
-          class="divider light"
+          class="main-section__footer-divider"
           :class="{'divider-anim' :mainPageState && preloaderDone}"
         >
         <div class="main-section__tags">
@@ -102,6 +99,10 @@ export default {
         {
           url: '/img/main/5.jpg',
           name: 'Khom'
+        },
+        {
+          url: '/img/main/6.jpg',
+          name: 'Anna'
         }
 
       ]

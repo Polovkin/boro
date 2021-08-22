@@ -255,9 +255,6 @@ export default {
       if (newValue) {
         this.$v.$touch()
       }
-    },
-    deadline (newValue) {
-
     }
   },
   methods: {
@@ -276,6 +273,9 @@ export default {
     selectedValue (item) {
       this.selectedItem = item
       this.selectDropdownState = false
+      if (this.selectedItem) {
+        this.$emit('input', this.selectedItem)
+      }
     },
     focus () {
       this.isActive = true
@@ -286,9 +286,7 @@ export default {
       const value = e.target.value
       this.isActive = !!value
       this.isLineActive = false
-      if (this.selectData) {
-        this.$emit('input', this.selectData)
-      } else if (!this.$v[this.validatorType].$invalid) {
+      if (!this.$v[this.validatorType].$invalid) {
         this.$emit('input', value)
       } else {
         this.$emit('input', null)
@@ -296,7 +294,7 @@ export default {
     },
     dropdownToggle () {
       this.selectDropdownState = !this.selectDropdownState
-      this.$store.commit('form/CLOSE_CUSTOM_DROPDOWN', this.selectDropdownState)
+      // this.$store.commit('form/CLOSE_CUSTOM_DROPDOWN', this.selectDropdownState)
     }
   }
 }

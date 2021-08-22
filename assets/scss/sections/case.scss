@@ -1,5 +1,4 @@
 .case {
-  $case_height: 312px;
 
   &__heading {
 
@@ -25,12 +24,16 @@
 
   &__tags {
     grid-area: tags;
-
-    display: flex;
     justify-self: end;
-    @include breakpoint($phone__all) {
-      flex-wrap: wrap;
+
+    &-wrap {
+      display: flex;
+
+      @include breakpoint($phone__all) {
+        flex-wrap: wrap;
+      }
     }
+
   }
 
   &__main {
@@ -39,31 +42,100 @@
     grid-gap: 24px;
 
     &-team {
+      position: relative;
+
       display: grid;
+      height: fit-content;
       grid-template-columns: repeat(3, 200px);
       grid-auto-rows: 150px;
       grid-gap: 24px;
 
+      &:after {
+        @include divider;
+        content: '';
+
+        position: absolute;
+        @include breakpoint($mobile__all) {
+          display: none;
+        }
+      }
+
+      @include breakpoint($tablet__landscape) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include breakpoint($phone__all) {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     &-img {
 
       img {
-        //width: 100%;
-        //height: auto;
+        @include size(100%);
+        object-fit: cover;
       }
+    }
+
+    @include breakpoint($tablet__portrait) {
+      flex-direction: column;
+
+      display: flex;
+    }
+    @include breakpoint($phone__all) {
+      flex-direction: column;
+
+      display: flex;
     }
   }
 
   &__items {
     flex-direction: column;
-
+    transition: max-height ease .4s;
     display: flex;
-    max-height: $case_height *4 + 100px;
     overflow: hidden;
 
     &--show-more {
       max-height: 20000px;
+    }
+  }
+
+  &__review {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+
+    .divider {
+      display: none;
+    }
+
+    &-img {
+      border-radius: 50%;
+    }
+
+    &-name {
+      margin-top: 17px;
+    }
+
+    &-role {
+      @include body-tertiary;
+      margin-bottom: 60px;
+
+      color: $color__primary;
+    }
+
+    &-text {
+      @include h5;
+    }
+
+    &-content {
+
+    }
+
+    @include breakpoint($portrait__all) {
+      flex-direction: column;
+
+      display: flex;
     }
   }
 }

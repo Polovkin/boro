@@ -9,11 +9,10 @@ export default {
   name: 'ButtonToTop',
   methods: {
     toTop () {
-      const data = {
-        target: '#top',
-        options: ''
+      const el = document.querySelector('#top')
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
       }
-      this.$nuxt.$emit('scroll-locomotive', data)
     }
   }
 }

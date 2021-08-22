@@ -1,8 +1,8 @@
 <template>
-  <div class="slug-pagination">
+  <div v-in-viewport class="slug-pagination">
     <nuxt-link
       :to="linkPrev"
-      class="slug-pagination__button slug-pagination__prev"
+      class="slug-pagination__button slug-pagination__prev animation-move-from-right"
       :class="{'slug-pagination__button--unactive':!paginationData.prev}"
     >
       {{ $t(`${isBlog ? 'blog.post' : 'cases.case'}.prev`) }}
@@ -10,7 +10,7 @@
     <nuxt-link
       :class="{'slug-pagination__button--unactive':paginationData.next ===navData.length + 1}"
       :to="linkNext"
-      class="slug-pagination__button slug-pagination__next"
+      class="slug-pagination__button slug-pagination__next animation-move-from-left"
     >
       {{ $t(`${isBlog ? 'blog.post' : 'cases.case'}.next`) }}
     </nuxt-link>
@@ -23,7 +23,6 @@ import { mapState } from 'vuex'
 export default {
   name: 'SlugPagination',
   props: {
-
     isBlog: {
       type: Boolean,
       default: false
@@ -35,6 +34,7 @@ export default {
   },
   data () {
     return {
+      // cases: [],
       navData: [],
       url: '',
       paginationData: {
@@ -43,30 +43,39 @@ export default {
       }
     }
   },
+  /*  async fetch () {
+    const response = await this.$axios.get('/api/cases')
+    this.cases = response.data
+  }, */
   computed: {
     ...mapState({
-      posts: s => s.app.posts,
-      cases: s => s.app.cases
+      posts: s => s.app.posts
     }),
+    cases () {
+      return this.$store.state.app.cases
+    },
     linkPrev () {
+      this.setLinks()
       return this.url + this.paginationData.prev
     },
     linkNext () {
+      this.setLinks()
       return this.url + this.paginationData.next
     }
+
   },
-  mounted () {
-    this.navData = this.isBlog ? this.posts : this.cases
-    this.url = this.isBlog ? '/blog/posts/' : '/cases/case/'
-    this.navData.forEach((e, i) => {
-      const index = i + 1
-      if (e.link === this.$route.path) {
-        this.paginationData.prev = index - 1
-        this.paginationData.next = index + 1
-      }
-    })
-  },
-  methods: {}
+  methods: {
+    setLinks () {
+      this.navData = this.isBlog ? this.posts : this.cases
+      this.navData.forEach((e, i) => {
+        const index = i + 1
+        if (e.link === this.$route.path) {
+          this.paginationData.prev = index - 1
+          this.paginationData.next = index + 1
+        }
+      })
+    }
+  }
 }
 </script>
 

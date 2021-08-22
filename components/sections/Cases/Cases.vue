@@ -8,7 +8,7 @@
     </h2>
     <LinkPrimary
       slot="elem"
-      :payload="'24'"
+      :payload="allCases.length"
       :link="localePath($store.state.app.navigation.cases.link)"
     >
       {{ $t('buttons.call-projects') }}
@@ -22,7 +22,7 @@
         :key="index"
         :data="item"
       />
-      <hr class="divider">
+      <hr v-in-viewport.once class="divider">
     </div>
   </Section>
 </template>
@@ -37,11 +37,20 @@ export default {
   name: 'Cases',
   components: { CaseMainItem, LinkPrimary, Section },
   data () {
-    return {}
+    return {
+      // cases: null
+    }
   },
+  /* async fetch () {
+    const response = await this.$axios.get('/api/cases')
+    this.cases = response.data
+  }, */
   computed: {
-    cases () {
+    allCases () {
       return this.$store.state.app.cases
+    },
+    cases () {
+      return this.allCases.slice(0, 4)
     }
   },
   mounted () {

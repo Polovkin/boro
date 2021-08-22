@@ -2,7 +2,7 @@
   <div class="popup__header">
     <hr class="divider">
     <div class="popup__header-wrap popup__header-left">
-      <Logo :is-light="!isLight" class="animation-move-from-right" />
+      <Logo :is-light="!isLight && !isSuccess" class="animation-move-from-right" />
     </div>
     <div class="popup__header-wrap popup__header-right">
       <div class="popup__header-buttons">
@@ -26,6 +26,10 @@ export default {
   name: 'PopupHeader',
   components: { Logo },
   props: {
+    isSuccess: {
+      type: Boolean,
+      default: false
+    },
     isLight: {
       type: Boolean,
       default: false

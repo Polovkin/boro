@@ -1,97 +1,110 @@
-import i18n from './config/i18'
+import i18n from "./config/i18";
 
 export default {
-  target: 'static',
+  target: "static",
   server: {
     port: 3000,
-    host: '0.0.0.0'
+    host: "0.0.0.0",
   },
-
+  /* serverMiddleware: {
+    "/_ipx": "~/server/middleware/ipx.js",
+  }, */
   head: {
-    title: 'Boro digital | UX, Web & Product design agency',
+    title: "Boro digital | UX, Web & Product design agency",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
   },
 
   styleResources: {
-    scss: '@/assets/scss/core/_global.scss'
+    scss: "@/assets/scss/core/_global.scss",
   },
 
   components: true,
 
   buildModules: [
-    '@nuxt/image',
-    '@nuxtjs/svg',
-    '@nuxtjs/eslint-module',
-    'nuxt-compress',
+    "@nuxt/image",
+    "@nuxtjs/svg",
+    // '@nuxtjs/eslint-module',
+    "nuxt-compress",
+    "@nuxtjs/device",
     [
-      'nuxt-i18n',
+      "nuxt-i18n",
       {
-        strategy: 'prefix_except_default',
+        strategy: "prefix_except_default",
         vueI18nLoader: true,
-        defaultLocale: 'en',
+        defaultLocale: "en",
         locales: [
           {
-            code: 'en',
-            name: 'Eng'
+            code: "en",
+            name: "Eng",
           },
           {
-            code: 'ru',
-            name: 'Рус'
-          }
+            code: "ru",
+            name: "Рус",
+          },
         ],
-        vueI18n: i18n
-      }
-    ]
+        vueI18n: i18n,
+      },
+    ],
   ],
 
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
-    'nuxt-i18n'
+    "@nuxt/image",
+    "@nuxtjs/axios",
+    "@nuxtjs/pwa",
+    "@nuxtjs/style-resources",
+    "nuxt-i18n",
   ],
 
   build: {
     loaders: {
-      scss: { sourceMap: false }
+      scss: { sourceMap: false },
     },
-    postcss: [
-      require('autoprefixer')({}),
-      require('cssnano')({
-        preset: [
-          'default', {
-            discardComments: {
-              removeAll: true
-            }
-          }
-        ]
-      }),
-      require('postcss-sort-media-queries')({
-        sort: require('sort-css-media-queries')
-      })
-    ]
+    postcss: {
+      preset: {
+        autoprefixer: {},
+      },
+      plugins: {
+        cssnano: {
+          preset: [
+            "default",
+            {
+              discardComments: {
+                removeAll: true,
+              },
+            },
+          ],
+        },
+        "postcss-sort-media-queries": {
+          sort: require("sort-css-media-queries"),
+        },
+      },
+    },
   },
 
   image: {
-    staticFilename: '[name]-[hash][ext]'
+    staticFilename: "[name]-[hash][ext]",
+    //domains: [process.env.API_URL],
   },
   pwa: {
     icon: {
       /* icon options */
-    }
+    },
   },
+
   plugins: [
-    { src: '~/plugins/client.js', mode: 'client' }
+    { src: "~/plugins/client.js", mode: "client" },
+    "~/plugins/custom-flag.js",
   ],
   publicRuntimeConfig: {
-    BASE_URL: process.env.NODE_ENV === 'production' ? 'https://boro.digital/' : 'http://localhost:3000/',
-    IS_DEV: process.env.IS_DEVELOP === 'true'
-  }
-}
+    axios: {
+      browserBaseURL: process.env.API_URL,
+    },
+    BASE_URL: process.env.BASE_URL,
+    IS_DEV: process.env.IS_DEVELOP === "true",
+    API_URL: process.env.API_URL,
+  },
+};

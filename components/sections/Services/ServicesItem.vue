@@ -7,12 +7,12 @@
     <hr class="divider">
     <div class="service-item__wrap">
       <figure class="service-item__img animation-image-viewport animation-delay-4">
-        <img
+        <nuxt-picture
           loading="lazy"
           width="326"
           height="248"
           :src="`/img/${data.img}`"
-        >
+        />
       </figure>
       <div class="service-item__num">
         {{ index + 1 }}
@@ -32,7 +32,6 @@
       <div class="service-item__content-buttons animation-fade animation-delay-5">
         <button
           class="service-item__btn-open"
-          @click="polova"
         />
       </div>
     </div>
