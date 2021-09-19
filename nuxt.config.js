@@ -102,11 +102,9 @@ export default {
   ],
   publicRuntimeConfig: {
     axios: {
-      browserBaseURL: process.env.API_URL
+      browserBaseURL: process.env.URL_SERVER
     },
-    BASE_URL: process.env.BASE_URL,
-    IS_DEV: process.env.IS_DEVELOP === 'true',
-    API_URL: process.env.API_URL
+    URL_SERVER: process.env.URL_SERVER,
+    IS_DEV: process.env.IS_DEVELOP === 'true'
   }
 }
-

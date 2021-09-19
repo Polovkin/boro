@@ -115,8 +115,8 @@ import CasePresentation from './CasePresentation'
 export default {
   components: { CasePresentation, CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },
   mixins: [pageMixin],
-  async asyncData ({ params, $axios }) {
-    const oneCase = await $axios.$get(`http://localhost:3001/case/link/${params.slug}`)
+  async asyncData ({ params, $axios, app }) {
+    const oneCase = await $axios.$get(`${app.$config.URL_SERVER}/case/link/${params.slug}`)
     return { oneCase }
   },
   computed: {

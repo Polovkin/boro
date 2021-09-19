@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Section from '../../reusable/Section'
 import LinkPrimary from '../../reusable/buttons/LinkPrimary'
 import { TAG_ALL } from '../../../store/types'
@@ -42,10 +43,13 @@ export default {
     }
   },
   async fetch () {
-    const response = await this.$axios.get('http://localhost:3001/case')
+    const response = await this.$axios.get('/case')
     this.fetchData = response.data
   },
   computed: {
+    ...mapState({
+      cases: s => s.cases.fetchCases
+    }),
     allCases () {
       return this.$store.state.app.cases
     },
