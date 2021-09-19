@@ -43,7 +43,7 @@ export default {
     }
   },
   async fetch () {
-    const response = await this.$axios.get('/case')
+    const response = await this.$axios.get(`${this.$config.URL_SERVER}/case`)
     this.fetchData = response.data
   },
   computed: {

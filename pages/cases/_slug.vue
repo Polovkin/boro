@@ -109,8 +109,8 @@ import { pageMixin } from '../../mixins/page-mixins'
 import ButtonPrimary from '../../components/reusable/buttons/ButtonPrimary'
 import UserInfo from '../../components/reusable/UserInfo'
 import SlugItem from '../../components/reusable/SlugItem'
-import CaseSection from './CaseSection'
-import CasePresentation from './CasePresentation'
+import CaseSection from '../../components/sections/Cases/CaseSection'
+import CasePresentation from '../../components/sections/Cases/CasePresentation'
 
 export default {
   components: { CasePresentation, CaseSection, SlugItem, UserInfo, ButtonPrimary, ButtonTag },

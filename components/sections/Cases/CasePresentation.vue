@@ -99,7 +99,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '/assets/scss/components/case-presentation';
+@import '../../../assets/scss/components/case-presentation';
 
 .case-presentation {
   grid: {
