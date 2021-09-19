@@ -4,7 +4,7 @@
       {{ $t('cases.title') }}
     </slot>
     <slot slot="content">
-      <ItemsFilter :data="cases" />
+<!--      <ItemsFilter :data="cases" />-->
       <div
         :style="`max-height: ${itemHeightCalc}px;`"
         class="case__items"
@@ -42,17 +42,22 @@ export default {
   name: 'Blog',
   components: { CaseMainItem, ItemsFilter, PageSection },
   mixins: [pageMixin, slugMixin],
+  async asyncData ({ $axios }) {
+    const cases = await $axios.$get('http://localhost:3001/case')
+    return { cases }
+  },
   data () {
     return {
       itemsRows: 4
     }
   },
   computed: {
-    cases () {
+    /* cases () {
       return this.$store.state.app.cases
-    },
+    }, */
     filteredItems () {
-      return this.filterType === TAG_ALL ? this.cases : this.cases.filter(e => (e.tags.includes(this.filterType)))
+      return this.cases
+      // return this.filterType === TAG_ALL ? this.cases : this.cases.filter(e => (e.tags.includes(this.filterType)))
     },
     itemHeightCalc () {
       return this.itemHeight * this.itemsRows
@@ -62,6 +67,7 @@ export default {
     this.item = this.$refs.case
     this.itemHeight = this.item[0].$el.clientHeight
     this.itemsQuantity = this.item.length
+    console.log(this.post)
   },
   methods: {
     toggleButton () {

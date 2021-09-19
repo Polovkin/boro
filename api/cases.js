@@ -1,7 +1,7 @@
 const cases = [
   {
     id: 1,
-    link: '/cases/case/1',
+    link: '/cases/case/eblo-case-test',
     date: '14 April 2021',
     data: {
       img: '/img/cases/Cover1.jpg',
@@ -103,7 +103,7 @@ const cases = [
   },
   {
     id: 2,
-    link: '/cases/case/2',
+    link: '/cases/case/2-test-link',
     date: '14 April 2021',
     data: {
       img: '/img/cases/Cover1.jpg',
@@ -205,7 +205,7 @@ const cases = [
   },
   {
     id: 3,
-    link: '/cases/case/3',
+    link: '/cases/case/222asd_d3',
     date: '14 April 2021',
     data: {
       img: '/img/cases/Cover1.jpg',
@@ -307,7 +307,7 @@ const cases = [
   },
   {
     id: 4,
-    link: '/cases/case/4',
+    link: '/cases/case/222-sde0-sd4',
     date: '14 April 2021',
     data: {
       img: '/img/cases/Cover1.jpg',
@@ -409,7 +409,7 @@ const cases = [
   },
   {
     id: 5,
-    link: '/cases/case/5',
+    link: '/cases/case/polova_lod-5',
     date: '14 April 2021',
     data: {
       img: '/img/cases/Cover1.jpg',

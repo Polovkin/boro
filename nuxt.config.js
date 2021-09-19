@@ -97,7 +97,8 @@ export default {
 
   plugins: [
     { src: '~/plugins/client.js', mode: 'client' },
-    '~/plugins/custom-flag.js'
+    '~/plugins/custom-flag.js',
+    '~/plugins/filters/date.js'
   ],
   publicRuntimeConfig: {
     axios: {

@@ -5,22 +5,23 @@
       <time
         class="case-item__time"
         :datetime="data.date"
-      >{{ data.date }}
+      >
+        {{ data.date | dateYear }}
       </time>
       <div class="case-item__content">
-        <h4>{{ data.data.title }}</h4>
+        <h4>{{ data.title }}</h4>
 
         <div class="case-item__content-tags">
-          <ButtonTag v-for="(tag,index) of data.tags" :key="index">
+          <!--          <ButtonTag v-for="(tag,index) of data.tags" :key="index">
             {{ $t(`blog.tags.${tag}`) }}
-          </ButtonTag>
+          </ButtonTag>-->
         </div>
         <p class="case-item__description">
-          {{ data.data.description }}
+          {{ data.description }}
         </p>
         <div class="case-item__content-buttons animation-fade animation-delay-5">
           <ButtonPrimary
-            :link="data.link"
+            :link="`cases/${data.link}`"
           >
             {{ $t('buttons.open-case') }}
           </ButtonPrimary>
@@ -28,11 +29,16 @@
       </div>
 
       <figure class="case-item__img animation-image-viewport animation-delay-4">
-        <nuxt-picture
+        <img
           width="326"
           height="249"
-          :src="data.data.img"
-        />
+          :src="data.thumbnail"
+        >
+        <!--        <nuxt-picture
+          width="326"
+          height="249"
+          :src="data.thumbnail"
+        />-->
       </figure>
     </div>
   </div>
@@ -45,7 +51,17 @@ import ButtonPrimary from '../../reusable/buttons/ButtonPrimary'
 export default {
   name: 'CaseMainItem',
   components: { ButtonPrimary, ButtonTag },
-  props: ['data']
+  filters: {
+    capitalize (value) {
+      if (!value) { return '' }
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  },
+  props: ['data'],
+  mounted () {
+    console.log(this.data)
+  }
 }
 </script>
 

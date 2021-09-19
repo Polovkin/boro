@@ -38,19 +38,19 @@ export default {
   components: { CaseMainItem, LinkPrimary, Section },
   data () {
     return {
-      // cases: null
+      fetchData: []
     }
   },
-  /* async fetch () {
-    const response = await this.$axios.get('/api/cases')
-    this.cases = response.data
-  }, */
+  async fetch () {
+    const response = await this.$axios.get('http://localhost:3001/case')
+    this.fetchData = response.data
+  },
   computed: {
     allCases () {
       return this.$store.state.app.cases
     },
     cases () {
-      return this.allCases.slice(0, 4)
+      return this.fetchData.slice(0, 4)
     }
   },
   mounted () {
