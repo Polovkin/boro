@@ -2,14 +2,7 @@
 <project version="4">
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false" showDialogOnRemoteDnD="false">
     <serverData>
-      <paths name="boro">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="polova.fun">
+      <paths name="Boro@Aws">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

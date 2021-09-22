@@ -105,6 +105,6 @@ export default {
       browserBaseURL: process.env.URL_SERVER
     },
     URL_SERVER: process.env.URL_SERVER,
-    IS_DEV: process.env.IS_DEVELOP === 'true'
+    IS_DEV: process.env.IS_DEV === 'true'
   }
 }
