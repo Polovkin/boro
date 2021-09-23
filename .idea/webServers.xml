@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c44b2ba3-4df2-4e40-be01-78c4358c0d76" name="boro-front">
+        <fileTransfer accessType="SFTP" host="3.121.125.198" port="22" sshConfigId="27832c2c-1162-4a65-9bf8-f5f9ff3418a1" sshConfig="Boro-front@Aws" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
