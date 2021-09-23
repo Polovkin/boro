@@ -1,11 +1,11 @@
 import i18n from './config/i18'
 
 export default {
-  target: 'static',
-  server: {
+  target: 'server',
+  /*server: {
     port: 3000,
     host: '0.0.0.0'
-  },
+  },*/
   /* serverMiddleware: {
     "/_ipx": "~/server/middleware/ipx.js",
   }, */
